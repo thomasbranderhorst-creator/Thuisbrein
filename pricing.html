@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prijzen — Thuisbrein</title>
-  <meta name="description" content="Bekijk de pakketten en tarieven van Thuisbrein. Van vrijblijvende kennismaking tot volledige slimme woningintegratie. Actief door heel Nederland.">
+  <meta name="description" content="Bekijk de pakketten en tarieven van Thuisbrein. Gratis kennismaking binnen 50 km. Actief door heel Nederland.">
   <meta property="og:title" content="Prijzen — Thuisbrein">
-  <meta property="og:description" content="Transparante prijzen voor slimme woningintegratie. Van €95 kennismaking tot volledig slim wonen.">
+  <meta property="og:description" content="Transparante prijzen voor slimme woningintegratie. Gratis kennismaking binnen 50 km.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thomasbranderhorst-creator.github.io/Thuisbrein/pricing.html">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>W</text></svg>">
+  <meta property="og:url" content="https://thuisbrein.nl/pricing.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>T</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -26,8 +26,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
     .site { max-width: 1100px; margin: 0 auto; }
-
-    /* NAV */
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
     .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
     .nav-logo span { color: var(--green-mid); }
@@ -41,16 +39,23 @@
     .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
     .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
     .nav-mobile.open { display: flex; }
-
-    /* PAGE HEADER */
     .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
     .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
     .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
     .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 520px; font-weight: 300; }
-
-    /* PRICING */
     .pricing { padding: 4rem 2rem; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+
+    /* INTAKE BANNER */
+    .intake-banner { background: var(--green-light); border: 1px solid rgba(59,109,17,0.2); border-radius: 16px; padding: 2rem; margin-bottom: 2.5rem; }
+    .intake-banner h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 1.25rem; }
+    .intake-rows { display: flex; flex-direction: column; gap: 0; }
+    .intake-row { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid rgba(59,109,17,0.15); }
+    .intake-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .intake-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 17px; }
+    .intake-row h4 { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
+    .intake-row p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
     .price-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; }
     .price-card.featured { border: 2px solid var(--navy); }
     .card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; }
@@ -69,15 +74,11 @@
     .card-cta.primary:hover { background: var(--navy-mid); }
     .card-cta.secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
     .card-cta.secondary:hover { border-color: rgba(26,43,60,0.3); }
-
-    /* UURTARIEF */
     .uurtarief { background: var(--sand); border-radius: 16px; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; border: 1px solid var(--border); }
     .uurtarief-left h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--navy); margin-bottom: 0.4rem; letter-spacing: -0.5px; }
     .uurtarief-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 400px; }
     .uurtarief-right { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 300; color: var(--navy); letter-spacing: -1px; white-space: nowrap; }
     .uurtarief-right span { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
-
-    /* FAQ */
     .faq { padding: 0 2rem 4rem; }
     .faq-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 1.5rem; }
     .faq-list { display: flex; flex-direction: column; max-width: 680px; }
@@ -85,8 +86,6 @@
     .faq-item:last-child { border-bottom: 1px solid var(--border); }
     .faq-q { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
     .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
-
-    /* CONTACT CTA */
     .cta-slot { background: var(--navy); padding: 4rem 2rem; }
     .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 900px; }
     .contact-left h2 { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 300; color: white; letter-spacing: -0.8px; margin-bottom: 1rem; line-height: 1.2; }
@@ -105,20 +104,14 @@
     .kvk-row:last-child { border-bottom: none; }
     .kvk-row span:first-child { color: rgba(255,255,255,0.45); }
     .kvk-row span:last-child { color: rgba(255,255,255,0.8); font-weight: 500; }
-
-    /* WHATSAPP FLOAT */
     .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
     .whatsapp-float:hover { transform: scale(1.08); }
-
-    /* FOOTER */
     footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
     .footer-logo span { color: var(--green-mid); }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
     footer p { font-size: 12px; color: var(--text-muted); }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .page-header h1 { font-size: 36px; }
       .nav-links { display: none; }
@@ -135,10 +128,8 @@
   </style>
 </head>
 <body>
-
 <div class="site">
 
-  <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">Thuis<span>brein</span></a>
     <div class="nav-links">
@@ -160,37 +151,56 @@
     <a href="index.html#contact">Plan kennismaking</a>
   </div>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="tag">Transparante prijzen</div>
     <h1>Wat kost het?</h1>
-    <p>Geen verrassingen. Vaste pakketten voor de meeste situaties, en een uurtarief voor alles wat maatwerk vraagt.</p>
+    <p>Geen verrassingen. Gratis kennismaking binnen 50 km, vaste pakketten en een eerlijk uurtarief voor maatwerk.</p>
   </div>
 
-  <!-- PRICING -->
   <section class="pricing">
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="card-label">Kennismaking</div>
-        <div class="price-amount">€ 95 <span>eenmalig</span></div>
-        <p class="price-note">Verrekenbaar bij vervolgopdracht</p>
-        <p class="card-desc">Een persoonlijk gesprek om te kijken wat er mogelijk is in jouw woning — zonder verplichtingen.</p>
-        <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i>Intakegesprek van 1–1,5 uur</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Analyse van huidige systemen</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Schriftelijk adviesrapport</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Concrete aanbevelingen op maat</li>
-          <li class="result"><i class="ti ti-arrow-right" aria-hidden="true"></i>Helder overzicht & verbeterkansen</li>
-        </ul>
-        <a href="https://wa.me/31654157920?text=Hallo%20Thomas%2C%20ik%20wil%20graag%20een%20kennismakingsgesprek%20plannen." class="card-cta secondary">Plan kennismaking</a>
+
+    <!-- INTAKE BANNER -->
+    <div class="intake-banner">
+      <h3>Kennismaking — hoe werkt het?</h3>
+      <div class="intake-rows">
+        <div class="intake-row">
+          <div class="intake-icon" style="background: #EAF3DE;">
+            <i class="ti ti-home" style="color: #3B6D11;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h4>Binnen 50 km — gratis bij je thuis</h4>
+            <p>Persoonlijk gesprek bij je thuis. Ik kijk mee naar je woning en huidige systemen. Geen kosten, geen verplichtingen.</p>
+          </div>
+        </div>
+        <div class="intake-row">
+          <div class="intake-icon" style="background: #FAEEDA;">
+            <i class="ti ti-car" style="color: #854F0B;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h4>Buiten 50 km — € 75, verrekenbaar</h4>
+            <p>Bij een vervolgopdracht wordt dit bedrag volledig verrekend. Je betaalt dus niets extra als je kiest voor installatie.</p>
+          </div>
+        </div>
+        <div class="intake-row">
+          <div class="intake-icon" style="background: #E6F1FB;">
+            <i class="ti ti-video" style="color: #185FA5;" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h4>Buiten 50 km — online optie</h4>
+            <p>Liever eerst vrijblijvend online kennismaken? Dat kan altijd gratis via een videogesprek.</p>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <!-- PAKKETTEN -->
+    <div class="pricing-grid">
       <div class="price-card featured">
         <div class="card-label">Integratie <span class="badge-featured">Meest gekozen</span></div>
-        <div class="price-amount">€ 595 <span>per woning</span></div>
+        <div class="price-amount">€ 495 <span>per woning</span></div>
         <p class="price-note">Excl. hardware — typisch 4–8 uur werk</p>
         <p class="card-desc">Van losse systemen naar één samenwerkend geheel. Installatie, configuratie en instructie bij je thuis.</p>
         <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i>Alles uit kennismaking inbegrepen</li>
           <li><i class="ti ti-check" aria-hidden="true"></i>Installatie Home Assistant</li>
           <li><i class="ti ti-check" aria-hidden="true"></i>Koppeling van 3–5 systemen</li>
           <li><i class="ti ti-check" aria-hidden="true"></i>App-inrichting & persoonlijke instructie</li>
@@ -201,7 +211,7 @@
       </div>
       <div class="price-card">
         <div class="card-label">Volledig slim</div>
-        <div class="price-amount">€ 1.250 <span>+, op maat</span></div>
+        <div class="price-amount">€ 995 <span>+, op maat</span></div>
         <p class="price-note">Prijs na intake — afhankelijk van woning</p>
         <p class="card-desc">Geavanceerde automatisering, energie- en klimaatsturing en volledige toekomstbestendigheid.</p>
         <ul class="feature-list">
@@ -216,13 +226,15 @@
       </div>
     </div>
 
+    <!-- UURTARIEF -->
     <div class="uurtarief">
       <div class="uurtarief-left">
         <h3>Uurtarief voor maatwerk</h3>
-        <p>Voor koppelingen buiten een pakket, extra automatisering, terugkombezoeken of specifieke wensen die niet in een standaardpakket passen.</p>
+        <p>Voor koppelingen buiten een pakket, extra automatisering, terugkombezoeken of specifieke wensen. Ook het intake-tarief buiten 50 km is gebaseerd op dit uurtarief.</p>
       </div>
-      <div class="uurtarief-right">€ 75–95 <span>/ uur</span></div>
+      <div class="uurtarief-right">€ 75 <span>/ uur</span></div>
     </div>
+
   </section>
 
   <!-- FAQ -->
@@ -230,8 +242,12 @@
     <h2 class="faq-title">Veelgestelde vragen</h2>
     <div class="faq-list">
       <div class="faq-item">
+        <p class="faq-q">Hoe ver is 50 km precies?</p>
+        <p class="faq-a">Ik meet de afstand vanaf mijn thuislocatie. Twijfel je of je binnen de 50 km valt? Stuur me even een berichtje, dan check ik het voor je.</p>
+      </div>
+      <div class="faq-item">
         <p class="faq-q">Zijn hardwarekosten inbegrepen?</p>
-        <p class="faq-a">Nee, hardware (zoals een Home Assistant hub, slimme thermostaat of energiemeter) is niet inbegrepen in de pakkettarieven. Na de intake ontvang je een helder overzicht van wat je nodig hebt en wat dat kost.</p>
+        <p class="faq-a">Nee, hardware (zoals een Home Assistant hub, slimme thermostaat of energiemeter) is niet inbegrepen. Na de kennismaking ontvang je een helder overzicht van wat je nodig hebt en wat dat kost.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Wat als mijn woning meer systemen heeft dan in een pakket past?</p>
@@ -240,10 +256,6 @@
       <div class="faq-item">
         <p class="faq-q">Kan ik later uitbreiden?</p>
         <p class="faq-a">Ja, dat is juist de kracht van het systeem. Home Assistant is modulair — je woning kan altijd worden uitgebreid met nieuwe apparaten, automatiseringen of functies.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Kom je ook buiten Brabant?</p>
-        <p class="faq-a">Ja, ik ben actief door heel Nederland. Reiskosten worden vooraf besproken en zijn afhankelijk van de afstand.</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">Werkt dit ook in huurwoningen?</p>
@@ -276,7 +288,6 @@
         <h3>Bedrijfsgegevens</h3>
         <div class="contact-kvk">
           <div class="kvk-row"><span>Handelsnaam</span><span>Thomas Branderhorst</span></div>
-          
           <div class="kvk-row"><span>KVK</span><span>88372952</span></div>
           <div class="kvk-row"><span>BTW</span><span>NL004593743B17</span></div>
           <div class="kvk-row"><span>Werkgebied</span><span>Heel Nederland</span></div>
@@ -285,7 +296,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <a href="index.html" class="footer-logo">Thuis<span>brein</span> — Thomas Branderhorst</a>
     <div class="footer-links">
@@ -297,7 +307,6 @@
 
 </div>
 
-<!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/31654157920?text=Hallo%20Thomas%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp">
   <i class="ti ti-brand-whatsapp"></i>
 </a>
