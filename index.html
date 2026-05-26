@@ -31,6 +31,7 @@
 
     .site { max-width: 1100px; margin: 0 auto; }
 
+    /* NAV */
     nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.25rem 2rem;
@@ -50,6 +51,7 @@
     }
     .nav-cta:hover { background: var(--navy-mid) !important; }
 
+    /* HERO */
     .hero {
       padding: 5rem 2rem 4rem;
       background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%);
@@ -90,6 +92,7 @@
     .stamp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; }
     .stamp span { font-size: 13px; color: var(--text-muted); }
 
+    /* SECTION SHARED */
     section { padding: 5rem 2rem; }
     .section-label {
       font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
@@ -101,6 +104,7 @@
     }
     .section-body { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 520px; }
 
+    /* PROBLEMEN */
     .problemen { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .prob-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
     .prob-card {
@@ -115,6 +119,7 @@
     .prob-card h3 { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
     .prob-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
+    /* OPLOSSING */
     .oplossing { background: var(--navy); }
     .oplossing .section-label { color: #97C459; }
     .oplossing .section-title { color: white; }
@@ -133,6 +138,7 @@
     .opl-item h4 { font-size: 14px; font-weight: 500; color: white; margin-bottom: 4px; }
     .opl-item p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
 
+    /* STAPPEN */
     .stappen { background: var(--white); border-bottom: 1px solid var(--border); }
     .stap-row {
       display: grid; grid-template-columns: repeat(4, 1fr);
@@ -145,6 +151,7 @@
     .stap h4 { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
     .stap p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
+    /* DIENSTEN */
     .diensten { background: var(--sand); border-bottom: 1px solid var(--border); }
     .dienst-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
     .dienst-card {
@@ -156,6 +163,7 @@
     .dienst-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
     .dienst-result { font-size: 11px; color: var(--green); font-weight: 500; margin-top: 1rem; letter-spacing: 0.3px; }
 
+    /* VOOR WIE */
     .voorwie { background: var(--white); }
     .wie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
     .wie-card { padding: 1.75rem; border-radius: 12px; border: 1.5px solid var(--border); }
@@ -166,6 +174,7 @@
     .wie-card h4 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
     .wie-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
+    /* OVER */
     .over { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .over-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .over blockquote {
@@ -175,6 +184,7 @@
     .over-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.85rem; }
     .over-text strong { color: var(--navy); font-weight: 500; }
 
+    /* CTA */
     .cta-slot { background: var(--navy); padding: 5rem 2rem; text-align: center; }
     .cta-slot h2 {
       font-family: 'Fraunces', serif; font-size: 38px; font-weight: 300;
@@ -184,6 +194,7 @@
     .cta-slot .btn-primary { background: var(--green); font-size: 15px; padding: 16px 34px; }
     .cta-slot .btn-primary:hover { background: var(--green-mid); }
 
+    /* FOOTER */
     footer {
       padding: 2rem 2rem; border-top: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
@@ -192,6 +203,7 @@
     .footer-logo span { color: var(--green-mid); }
     footer p { font-size: 12px; color: var(--text-muted); }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 { font-size: 38px; letter-spacing: -1px; }
       .section-title { font-size: 28px; }
@@ -212,16 +224,22 @@
   </style>
 </head>
 <body>
+
 <div class="site">
+
+  <!-- NAV -->
   <nav>
     <div class="nav-logo">Woon<span>regie</span></div>
     <div class="nav-links">
       <a href="#diensten">Diensten</a>
       <a href="#hoe-het-werkt">Hoe het werkt</a>
+      <a href="pricing.html">Prijzen</a>
       <a href="#over">Over ons</a>
       <a href="#contact" class="nav-cta">Plan kennismaking</a>
     </div>
   </nav>
+
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-tag">Comfort · Energie · Sturing</div>
     <h1>Alles in huis<br>verbonden. <em>Eén app.</em></h1>
@@ -236,6 +254,8 @@
       <div class="stamp"><div class="stamp-dot"></div><span>Voor bestaande én nieuwe woningen</span></div>
     </div>
   </div>
+
+  <!-- PROBLEMEN -->
   <section class="problemen">
     <div class="section-label">Herkenbaar?</div>
     <div class="section-title">Veel woningen zijn slimmer<br>te maken dan mensen denken.</div>
@@ -257,47 +277,133 @@
       </div>
     </div>
   </section>
+
+  <!-- OPLOSSING -->
   <section class="oplossing">
     <div class="section-label">De oplossing</div>
     <div class="section-title">Eén slim systeem<br>dat samenwerkt.</div>
     <p class="section-body">Ik combineer verwarming, energie-inzicht en slimme automatisering tot één logisch geheel — met comfort, besparing en gebruiksgemak als uitgangspunt.</p>
     <div class="opl-list">
-      <div class="opl-item"><div class="opl-num">1</div><div><h4>Centrale woningcomputer</h4><p>Eén systeem (Home Assistant) als brein van je woning — lokaal, open en uitbreidbaar.</p></div></div>
-      <div class="opl-item"><div class="opl-num">2</div><div><h4>Alle systemen verbonden</h4><p>Verwarming, airco, zonnepanelen, energiemeter en slimme apparaten communiceren met elkaar.</p></div></div>
-      <div class="opl-item"><div class="opl-num">3</div><div><h4>Eén app — klaar</h4><p>Je bedient alles via één overzichtelijke interface. Geen losse apps, geen handmatige instellingen.</p></div></div>
+      <div class="opl-item">
+        <div class="opl-num">1</div>
+        <div>
+          <h4>Centrale woningcomputer</h4>
+          <p>Eén systeem (Home Assistant) als brein van je woning — lokaal, open en uitbreidbaar.</p>
+        </div>
+      </div>
+      <div class="opl-item">
+        <div class="opl-num">2</div>
+        <div>
+          <h4>Alle systemen verbonden</h4>
+          <p>Verwarming, airco, zonnepanelen, energiemeter en slimme apparaten communiceren met elkaar.</p>
+        </div>
+      </div>
+      <div class="opl-item">
+        <div class="opl-num">3</div>
+        <div>
+          <h4>Eén app — klaar</h4>
+          <p>Je bedient alles via één overzichtelijke interface. Geen losse apps, geen handmatige instellingen.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- STAPPEN -->
   <section class="stappen" id="hoe-het-werkt">
     <div class="section-label">Hoe het werkt</div>
     <div class="section-title">Van kennismaking<br>tot slimme woning.</div>
     <div class="stap-row">
-      <div class="stap"><div class="stap-n">01</div><h4>Kennismaking</h4><p>We bespreken je woning, huidige systemen en wensen.</p></div>
-      <div class="stap"><div class="stap-n">02</div><h4>Advies op maat</h4><p>Je ontvangt een concreet plan dat past bij jouw situatie.</p></div>
-      <div class="stap"><div class="stap-n">03</div><h4>Installatie</h4><p>Ik kom bij je thuis om alles in te richten en werkend te maken.</p></div>
-      <div class="stap"><div class="stap-n">04</div><h4>Doorontwikkelen</h4><p>Je woning kan altijd uitgebreid worden met nieuwe functies.</p></div>
+      <div class="stap">
+        <div class="stap-n">01</div>
+        <h4>Kennismaking</h4>
+        <p>We bespreken je woning, huidige systemen en wensen.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-n">02</div>
+        <h4>Advies op maat</h4>
+        <p>Je ontvangt een concreet plan dat past bij jouw situatie.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-n">03</div>
+        <h4>Installatie</h4>
+        <p>Ik kom bij je thuis om alles in te richten en werkend te maken.</p>
+      </div>
+      <div class="stap">
+        <div class="stap-n">04</div>
+        <h4>Doorontwikkelen</h4>
+        <p>Je woning kan altijd uitgebreid worden met nieuwe functies.</p>
+      </div>
     </div>
   </section>
+
+  <!-- DIENSTEN -->
   <section class="diensten" id="diensten">
     <div class="section-label">Diensten</div>
     <div class="section-title">Wat ik doe.</div>
     <div class="dienst-grid">
-      <div class="dienst-card"><div class="dienst-dot" style="background:#3B6D11;"></div><h4>Woonregie intake</h4><p>Persoonlijk gesprek om je woning, huidige apparaten en wensen in kaart te brengen.</p><div class="dienst-result">→ Helder overzicht en verbeterkansen</div></div>
-      <div class="dienst-card"><div class="dienst-dot" style="background:#639922;"></div><h4>Advies &amp; ontwerp</h4><p>Concreet plan voor koppelingen, hardware en centrale aansturing.</p><div class="dienst-result">→ Duidelijk en uitvoerbaar plan</div></div>
-      <div class="dienst-card"><div class="dienst-dot" style="background:#1A2B3C;"></div><h4>Realisatie</h4><p>Installatie en configuratie van het complete systeem bij je thuis.</p><div class="dienst-result">→ Werkende, geïntegreerde opstelling</div></div>
-      <div class="dienst-card"><div class="dienst-dot" style="background:#2E4459;"></div><h4>Systeem koppeling</h4><p>Bestaande slimme apparaten verbinden die nog los van elkaar werken.</p><div class="dienst-result">→ Eén samenwerkend woning-systeem</div></div>
-      <div class="dienst-card"><div class="dienst-dot" style="background:#97C459;"></div><h4>Nieuwbouw &amp; verhuizing</h4><p>Meedenken bij de opbouw van woningtechniek — vóór installatie.</p><div class="dienst-result">→ Woning direct goed ingericht</div></div>
-      <div class="dienst-card"><div class="dienst-dot" style="background:#5F6E7A;"></div><h4>Uitbreiding</h4><p>Nieuwe apparaten, functies of automatiseringen toevoegen aan bestaand systeem.</p><div class="dienst-result">→ Je woning blijft één geheel</div></div>
+      <div class="dienst-card">
+        <div class="dienst-dot" style="background:#3B6D11;"></div>
+        <h4>Woonregie intake</h4>
+        <p>Persoonlijk gesprek om je woning, huidige apparaten en wensen in kaart te brengen.</p>
+        <div class="dienst-result">→ Helder overzicht en verbeterkansen</div>
+      </div>
+      <div class="dienst-card">
+        <div class="dienst-dot" style="background:#639922;"></div>
+        <h4>Advies &amp; ontwerp</h4>
+        <p>Concreet plan voor koppelingen, hardware en centrale aansturing.</p>
+        <div class="dienst-result">→ Duidelijk en uitvoerbaar plan</div>
+      </div>
+      <div class="dienst-card">
+        <div class="dienst-dot" style="background:#1A2B3C;"></div>
+        <h4>Realisatie</h4>
+        <p>Installatie en configuratie van het complete systeem bij je thuis.</p>
+        <div class="dienst-result">→ Werkende, geïntegreerde opstelling</div>
+      </div>
+      <div class="dienst-card">
+        <div class="dienst-dot" style="background:#2E4459;"></div>
+        <h4>Systeem koppeling</h4>
+        <p>Bestaande slimme apparaten verbinden die nog los van elkaar werken.</p>
+        <div class="dienst-result">→ Eén samenwerkend woning-systeem</div>
+      </div>
+      <div class="dienst-card">
+        <div class="dienst-dot" style="background:#97C459;"></div>
+        <h4>Nieuwbouw &amp; verhuizing</h4>
+        <p>Meedenken bij de opbouw van woningtechniek — vóór installatie.</p>
+        <div class="dienst-result">→ Woning direct goed ingericht</div>
+      </div>
+      <div class="dienst-card">
+        <div class="dienst-dot" style="background:#5F6E7A;"></div>
+        <h4>Uitbreiding</h4>
+        <p>Nieuwe apparaten, functies of automatiseringen toevoegen aan bestaand systeem.</p>
+        <div class="dienst-result">→ Je woning blijft één geheel</div>
+      </div>
     </div>
   </section>
+
+  <!-- VOOR WIE -->
   <section class="voorwie">
     <div class="section-label">Voor wie</div>
     <div class="section-title">Voor woningen die klaar<br>willen zijn voor de toekomst.</div>
     <div class="wie-grid">
-      <div class="wie-card"><span class="wie-badge" style="background:#EAF3DE; color:#3B6D11;">Slim starten</span><h4>Meer inzicht</h4><p>Inzicht in energie en verwarming zonder grote verbouwing.</p></div>
-      <div class="wie-card"><span class="wie-badge" style="background:#E8E0D0; color:#1A2B3C;">Comfort &amp; besparing</span><h4>Slimmere regeling</h4><p>Betere regeling van verwarming, zones en verbruik.</p></div>
-      <div class="wie-card"><span class="wie-badge" style="background:#1A2B3C; color:white;">Volledig slim</span><h4>Geavanceerde automatisering</h4><p>Integratie, automatisering en toekomstige uitbreidingen.</p></div>
+      <div class="wie-card">
+        <span class="wie-badge" style="background:#EAF3DE; color:#3B6D11;">Slim starten</span>
+        <h4>Meer inzicht</h4>
+        <p>Inzicht in energie en verwarming zonder grote verbouwing.</p>
+      </div>
+      <div class="wie-card">
+        <span class="wie-badge" style="background:#E8E0D0; color:#1A2B3C;">Comfort &amp; besparing</span>
+        <h4>Slimmere regeling</h4>
+        <p>Betere regeling van verwarming, zones en verbruik.</p>
+      </div>
+      <div class="wie-card">
+        <span class="wie-badge" style="background:#1A2B3C; color:white;">Volledig slim</span>
+        <h4>Geavanceerde automatisering</h4>
+        <p>Integratie, automatisering en toekomstige uitbreidingen.</p>
+      </div>
     </div>
   </section>
+
+  <!-- OVER -->
   <section class="over" id="over">
     <div class="over-inner">
       <blockquote>"Een woning hoort niet uit losse systemen te bestaan. Het hoort één geheel te zijn."</blockquote>
@@ -308,15 +414,21 @@
       </div>
     </div>
   </section>
+
+  <!-- CTA -->
   <div class="cta-slot" id="contact">
     <h2>Benieuwd wat er mogelijk is<br>in jouw woning?</h2>
     <p>Plan vrijblijvend een kennismaking. We denken graag mee over comfort, energiebesparing en automatisering die past bij jouw situatie.</p>
     <a href="mailto:info@woonregie.nl" class="btn-primary">Plan intake gesprek</a>
   </div>
+
+  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Woon<span>regie</span> — Thomas Branderhorst</div>
     <p>Comfort · Energie · Sturing</p>
   </footer>
+
 </div>
+
 </body>
 </html>
