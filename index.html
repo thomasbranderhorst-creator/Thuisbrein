@@ -259,6 +259,24 @@ footer { flex-direction: column; align-items: flex-start; }
 .opl-schema { margin-top: 2.5rem; border-radius: 12px; overflow: hidden; background: var(--navy); padding: 0; }
 
 .regio-seo { background: var(--sand); border-top: 1px solid var(--border); padding: 2rem 2rem; }
+
+.check-sectie { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); }
+.check-sectie .section-label { color: #97C459; }
+.check-sectie .section-title { color: white; }
+.check-sectie .section-body { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+.check-kaart { display: inline-flex; flex-direction: column; gap: 0.875rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 2rem 2.5rem; min-width: 320px; }
+.check-item { display: flex; align-items: center; gap: 10px; }
+.check-item i { color: #97C459; font-size: 17px; flex-shrink: 0; }
+.check-item span { font-size: 14px; color: rgba(255,255,255,0.8); }
+.check-prijs { font-family: 'Fraunces', serif; font-size: 42px; font-weight: 300; color: white; letter-spacing: -1px; margin-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; }
+.check-prijs span { font-family: 'DM Sans', sans-serif; font-size: 15px; color: rgba(255,255,255,0.45); font-weight: 300; letter-spacing: 0; margin-left: 4px; }
+
+.netwerk-sectie { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.netwerk-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.75rem; margin-bottom: 1.5rem; }
+.netwerk-tag { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--navy); }
+.netwerk-sub { font-size: 13px; color: var(--text-muted); }
+.netwerk-sub a { color: var(--green); text-decoration: none; font-weight: 500; }
+.netwerk-sub a:hover { text-decoration: underline; }
 .regio-inner { max-width: 800px; }
 .regio-label { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 0.5rem; }
 .regio-text { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.5rem; }
@@ -455,6 +473,32 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="wie-card"><span class="wie-badge" style="background:#1A2B3C; color:white;">Stap 4</span><h4>Installatie van de slimme laag</h4><p>Ik installeer de centrale sturinglaag die alles verbindt. Waar nodig breng ik je in contact met betrouwbare installateurs voor de onderliggende systemen zelf.</p></div>
 </div>
 </section>
+
+<section class="check-sectie">
+<div class="section-label">Na de installatie</div>
+<div class="section-title"><b>Th</b>uis<b>Br</b>ein Check — <em>€45 per jaar</em></div>
+<p class="section-body">Je systemen blijven optimaal werken. Één keer per jaar kijk ik remote mee: of de automatiseringen nog kloppen, of er iets slimmer kan, en of er updates zijn. En bij vragen sta je vooraan.</p>
+<div class="check-kaart">
+  <div class="check-item"><i class="ti ti-check" aria-hidden="true"></i><span>Jaarlijkse remote check van alle koppelingen</span></div>
+  <div class="check-item"><i class="ti ti-check" aria-hidden="true"></i><span>Automatiseringen bijstellen waar nodig</span></div>
+  <div class="check-item"><i class="ti ti-check" aria-hidden="true"></i><span>Voorrang bij vragen en storingen</span></div>
+  <div class="check-prijs">€45 <span>per jaar</span></div>
+</div>
+</section>
+
+<section class="netwerk-sectie">
+<div class="section-label">Installateursnetwerk</div>
+<div class="section-title">De juiste vakman<br>voor elk systeem.</div>
+<p class="section-body">De slimme laag installeer ik zelf. Voor de onderliggende systemen — zonnepanelen, warmtepomp, laadpaal — werk ik samen met een selectief netwerk van gecertificeerde installateurs die ik persoonlijk ken en vertrouw. Geen willekeurige lijst, maar vakmensen waar ik voor instaat.</p>
+<div class="netwerk-cta">
+<span class="netwerk-tag">Zonnepanelen &amp; batterij</span>
+<span class="netwerk-tag">Warmtepomp &amp; CV</span>
+<span class="netwerk-tag">Laadpalen</span>
+<span class="netwerk-tag">Airco</span>
+</div>
+<p class="netwerk-sub">Ben je installateur en wil je deel uitmaken van het netwerk? <a href="#contact">Neem contact op.</a></p>
+</section>
+
 <section class="werkgebied">
 <div class="werkgebied-inner">
 <div class="werkgebied-text">
