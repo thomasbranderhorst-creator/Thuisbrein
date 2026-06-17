@@ -261,6 +261,15 @@ footer { flex-direction: column; align-items: flex-start; }
 .regio-seo { background: var(--sand); border-top: 1px solid var(--border); padding: 2rem 2rem; }
 
 .check-sectie { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); }
+.maatwerk-sectie { background: var(--white); border-top: 1px solid var(--border); }
+.maatwerk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+.maatwerk-kaart { padding: 1.5rem; border-radius: 12px; border: 1.5px solid var(--border); background: var(--sand); }
+.maatwerk-kaart--accent { border-color: #639922; background: #EAF3DE; }
+.maatwerk-icon { font-size: 22px; color: var(--green-mid); margin-bottom: 0.75rem; }
+.maatwerk-kaart h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 8px; }
+.maatwerk-kaart p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.maatwerk-badge { font-size: 11px; font-weight: 500; background: #639922; color: white; border-radius: 20px; padding: 2px 8px; }
+.maatwerk-sub { font-size: 14px; color: var(--text-muted); font-style: italic; }
 .check-sectie .section-label { color: #97C459; }
 .check-sectie .section-title { color: white; }
 .check-sectie .section-body { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
@@ -474,6 +483,41 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="wie-card"><span class="wie-badge" style="background:#f5f0e8; color:#1A2B3C;">Stap 3</span><h4>Advies &amp; offerte op maat</h4><p>Je ontvangt een concreet plan: welke koppelingen er mogelijk zijn, wat het oplevert, wat het kost — en in welke volgorde je het aanpakt.</p></div>
 <div class="wie-card"><span class="wie-badge" style="background:#1A2B3C; color:white;">Stap 4</span><h4>Installatie van de slimme laag</h4><p>Ik installeer de centrale sturinglaag die alles verbindt. Waar nodig breng ik je in contact met betrouwbare installateurs voor de onderliggende systemen zelf.</p></div>
 </div>
+</section>
+
+<section class="maatwerk-sectie">
+<div class="section-label">En meer</div>
+<div class="section-title">Naast de vier kernsystemen:<br><em>alles op maat.</em></div>
+<p class="section-body">De vier energiesystemen zijn mijn focus — maar een woning is meer dan energie. Heb je een ander systeem dat je wil laten samenwerken met de rest? Dat is altijd bespreekbaar. Ik koppel wat koppelbaar is.</p>
+
+<div class="maatwerk-grid">
+  <div class="maatwerk-kaart">
+    <div class="maatwerk-icon"><i class="ti ti-video" aria-hidden="true"></i></div>
+    <h4>Camerasystemen</h4>
+    <p>Beveiligingscamera's integreren met bewegingsdetectie, meldingen en slimme triggers.</p>
+  </div>
+  <div class="maatwerk-kaart">
+    <div class="maatwerk-icon"><i class="ti ti-bulb" aria-hidden="true"></i></div>
+    <h4>Verlichting & automatisering</h4>
+    <p>Lampen die reageren op beweging, tijdstip of aanwezigheid. Aanwezig simuleren als je er niet bent.</p>
+  </div>
+  <div class="maatwerk-kaart">
+    <div class="maatwerk-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+    <h4>Watersystemen</h4>
+    <p>Lekdetectie, regenwatersturing, irrigatie — alles met water wat slim aangestuurd kan worden.</p>
+  </div>
+  <div class="maatwerk-kaart">
+    <div class="maatwerk-icon"><i class="ti ti-device-remote" aria-hidden="true"></i></div>
+    <h4>Slimme triggers & koppelingen</h4>
+    <p>Als dit gebeurt, doet de woning dat. Bewegingssensor, deurcontact, tijdstip — oneindig combineerbaar.</p>
+  </div>
+  <div class="maatwerk-kaart maatwerk-kaart--accent">
+    <div class="maatwerk-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+    <h4>Huis-AI <span class="maatwerk-badge">Binnenkort</span></h4>
+    <p>Stel je woning een vraag. Geef een opdracht. Een lokale AI die je systemen kent en begrijpt wat je bedoelt — zonder dat data jouw huis verlaat.</p>
+  </div>
+</div>
+<p class="maatwerk-sub">Heb je iets specifieks in gedachten? Vertel het me — als het koppelbaar is, kijken we hoe.</p>
 </section>
 
 <section class="check-sectie">
