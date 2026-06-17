@@ -305,7 +305,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <a href="#contact">Plan kennismaking</a>
 </div>
 <div class="hero">
-<div class="hero-tag">Zonnepanelen · Batterij · Warmtepomp · Airco</div>
+<div class="hero-tag">Zonnepanelen & batterij · Warmtepomp · Airco · Laadpaal</div>
 <h1>Jouw energiesystemen<br><em>werken eindelijk samen.</em></h1>
 <p class="hero-sub">Ik koppel je CV/warmtepomp, zonnepanelen, thuisbatterij en airco zodat ze op elkaar inspelen. Altijd de goedkoopste, schoonste energie — automatisch.</p>
 <div class="hero-btns">
@@ -348,7 +348,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <section class="oplossing">
 <div class="section-label">De oplossing</div>
 <div class="section-title">Eén slim systeem dat<br>beslist wat wanneer gebruikt wordt.</div>
-<p class="section-body">Ik voeg één centrale sturinglaag toe die jouw vier energiesystemen verbindt. Die laag kijkt continu naar wat de panelen doen, wat de batterij heeft, wat de stroomprijs is — en stuurt alles automatisch aan.</p>
+<p class="section-body">Ik voeg één centrale sturinglaag toe die jouw energiesystemen verbindt. Die laag kijkt continu naar wat de panelen doen, wat de batterij heeft, wat de stroomprijs is — en stuurt alles automatisch aan.</p>
 
 <div class="opl-steps">
   <div class="opl-item">
@@ -394,9 +394,9 @@ footer { flex-direction: column; align-items: flex-start; }
 </div>
 
 <div class="opl-schema">
-<svg width="100%" viewBox="0 0 960 520" role="img" style="display:block;">
+<svg width="100%" viewBox="0 0 960 580" role="img" style="display:block;">
 <title>ThuisBrein energieschema</title>
-<desc>Schematische weergave van ThuisBrein als centrale sturinglaag tussen zonnepanelen, thuisbatterij, warmtepomp/CV en airco.</desc>
+<desc>Schematische weergave van ThuisBrein als centrale sturinglaag tussen zonnepanelen en batterij, warmtepomp/CV, airco en laadpaal.</desc>
 <defs>
 <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
 <path d="M1 2L8 5L1 8" fill="none" stroke="context-stroke" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -406,44 +406,45 @@ footer { flex-direction: column; align-items: flex-start; }
 </marker>
 </defs>
 
-<!-- Connecting lines — two-way between center node and four energy systems -->
-<!-- Top-left: Zonnepanelen -->
-<line x1="412" y1="228" x2="185" y2="138" stroke="#EF9F27" stroke-width="2.5" fill="none" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
-<!-- Top-right: Thuisbatterij -->
-<line x1="548" y1="228" x2="775" y2="138" stroke="#639922" stroke-width="2.5" fill="none" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
-<!-- Bottom-left: Warmtepomp / CV -->
-<line x1="412" y1="322" x2="185" y2="388" stroke="#4A90D9" stroke-width="2.5" fill="none" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
-<!-- Bottom-right: Airco -->
-<line x1="548" y1="322" x2="775" y2="388" stroke="#97C459" stroke-width="2.5" fill="none" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Lines from center to each system -->
+<!-- Top: Zonnepanelen + batterij -->
+<line x1="480" y1="248" x2="480" y2="148" stroke="#EF9F27" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Left: Warmtepomp / CV -->
+<line x1="400" y1="278" x2="185" y2="340" stroke="#4A90D9" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Right: Airco -->
+<line x1="560" y1="278" x2="775" y2="340" stroke="#97C459" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Bottom-left: Laadpaal -->
+<line x1="420" y1="340" x2="230" y2="460" stroke="#9B6FD4" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Bottom-right: (none, balanced layout) -->
 
 <!-- CENTRAL NODE -->
-<rect x="392" y="220" width="176" height="110" rx="14" fill="#1A2B3C" stroke="#639922" stroke-width="2"/>
-<text x="480" y="258" text-anchor="middle" dominant-baseline="central" font-size="20" font-weight="700" fill="#ffffff" font-family="sans-serif">Thuis</text>
-<text x="480" y="282" text-anchor="middle" dominant-baseline="central" font-size="20" font-weight="700" fill="#ffffff" font-family="sans-serif">Brein</text>
-<text x="480" y="308" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">centrale sturing</text>
+<rect x="392" y="248" width="176" height="110" rx="14" fill="#1A2B3C" stroke="#639922" stroke-width="2"/>
+<text x="480" y="286" text-anchor="middle" dominant-baseline="central" font-size="20" font-weight="700" fill="#ffffff" font-family="sans-serif">Thuis</text>
+<text x="480" y="310" text-anchor="middle" dominant-baseline="central" font-size="20" font-weight="700" fill="#ffffff" font-family="sans-serif">Brein</text>
+<text x="480" y="336" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">centrale sturing</text>
 
-<!-- TOP-LEFT: Zonnepanelen -->
-<rect x="30" y="78" width="200" height="70" rx="10" fill="rgba(239,159,39,0.13)" stroke="rgba(239,159,39,0.7)" stroke-width="1.5"/>
-<text x="130" y="103" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#FAC775" font-family="sans-serif">Zonnepanelen</text>
-<text x="130" y="127" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#EF9F27" font-family="sans-serif">opwekking &amp; teruglevering</text>
+<!-- TOP: Zonnepanelen + batterij (één systeem) -->
+<rect x="330" y="68" width="300" height="74" rx="10" fill="rgba(239,159,39,0.13)" stroke="rgba(239,159,39,0.7)" stroke-width="1.5"/>
+<text x="480" y="93" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#FAC775" font-family="sans-serif">Zonnepanelen &amp; batterij</text>
+<text x="480" y="118" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#EF9F27" font-family="sans-serif">opwekking, opslag &amp; teruglevering</text>
 
-<!-- TOP-RIGHT: Thuisbatterij -->
-<rect x="730" y="78" width="200" height="70" rx="10" fill="rgba(99,153,34,0.13)" stroke="rgba(99,153,34,0.7)" stroke-width="1.5"/>
-<text x="830" y="103" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#b5e06a" font-family="sans-serif">Thuisbatterij</text>
-<text x="830" y="127" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">slim laden &amp; ontladen</text>
+<!-- LEFT: Warmtepomp / CV -->
+<rect x="30" y="310" width="200" height="70" rx="10" fill="rgba(74,144,217,0.13)" stroke="rgba(74,144,217,0.7)" stroke-width="1.5"/>
+<text x="130" y="335" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#8EC8F5" font-family="sans-serif">Warmtepomp / CV</text>
+<text x="130" y="359" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#4A90D9" font-family="sans-serif">verwarming op maat</text>
 
-<!-- BOTTOM-LEFT: Warmtepomp / CV -->
-<rect x="30" y="362" width="200" height="70" rx="10" fill="rgba(74,144,217,0.13)" stroke="rgba(74,144,217,0.7)" stroke-width="1.5"/>
-<text x="130" y="387" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#8EC8F5" font-family="sans-serif">Warmtepomp / CV</text>
-<text x="130" y="411" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#4A90D9" font-family="sans-serif">verwarming op maat</text>
+<!-- RIGHT: Airco -->
+<rect x="730" y="310" width="200" height="70" rx="10" fill="rgba(151,196,89,0.13)" stroke="rgba(151,196,89,0.7)" stroke-width="1.5"/>
+<text x="830" y="335" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#c5e88a" font-family="sans-serif">Airco</text>
+<text x="830" y="359" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">verwarmen &amp; koelen</text>
 
-<!-- BOTTOM-RIGHT: Airco -->
-<rect x="730" y="362" width="200" height="70" rx="10" fill="rgba(151,196,89,0.13)" stroke="rgba(151,196,89,0.7)" stroke-width="1.5"/>
-<text x="830" y="387" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#c5e88a" font-family="sans-serif">Airco</text>
-<text x="830" y="411" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">verwarmen &amp; koelen</text>
+<!-- BOTTOM-LEFT: Laadpaal -->
+<rect x="30" y="430" width="200" height="70" rx="10" fill="rgba(155,111,212,0.13)" stroke="rgba(155,111,212,0.7)" stroke-width="1.5"/>
+<text x="130" y="455" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#C9A8F0" font-family="sans-serif">Laadpaal</text>
+<text x="130" y="479" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#9B6FD4" font-family="sans-serif">slim laden op eigen stroom</text>
 
 <!-- Bottom label -->
-<text x="480" y="490" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.35)" font-family="sans-serif">Alle vier systemen communiceren continu via één centrale sturinglaag</text>
+<text x="480" y="548" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.35)" font-family="sans-serif">Alle systemen communiceren continu via één centrale sturinglaag</text>
 
 </svg>
 </div></section>
