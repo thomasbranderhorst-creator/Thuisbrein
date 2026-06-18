@@ -284,6 +284,13 @@ footer { flex-direction: column; align-items: flex-start; }
 .netwerk-sectie { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .netwerk-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.75rem; margin-bottom: 1.5rem; }
 .netwerk-tag { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--navy); }
+.wizard-sectie { background: var(--white); border-bottom: 1px solid var(--border); }
+.wizard-cta { display: block; text-decoration: none; margin-top: 2rem; border: 2px solid var(--green-mid); border-radius: 14px; padding: 1.5rem 2rem; transition: background 0.2s; }
+.wizard-cta:hover { background: var(--green-light); }
+.wizard-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.wizard-cta-inner strong { display: block; font-size: 16px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+.wizard-cta-inner span span { font-size: 13px; color: var(--text-muted); }
+.wizard-cta-arrow { font-size: 24px; color: var(--green-mid); flex-shrink: 0; }
 .netwerk-banner { margin-top: 2rem; background: var(--navy); border-radius: 14px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .netwerk-banner-left h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: white; letter-spacing: -0.5px; margin: 0.5rem 0 0.75rem; }
 .netwerk-banner-left p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 480px; }
@@ -522,6 +529,21 @@ footer { flex-direction: column; align-items: flex-start; }
   </div>
 </div>
 <p class="maatwerk-sub">Heb je iets specifieks in gedachten? Vertel het me — als het koppelbaar is, kijken we hoe.</p>
+</section>
+
+<section class="wizard-sectie">
+<div class="section-label">Geschikt voor jou?</div>
+<div class="section-title">Doe de <b>Th</b>uis<b>Br</b>ein Check.</div>
+<p class="section-body">Niet zeker of jouw woning geschikt is? Doe de check — een paar vragen, geen typwerk. Je weet in één minuut of ik iets voor je kan betekenen.</p>
+<a href="check.html" class="wizard-cta">
+  <span class="wizard-cta-inner">
+    <span>
+      <strong>Start de ThuisBrein Check</strong>
+      <span>Koopwoning · Huurwoning · Verhuurder — voor iedereen een antwoord</span>
+    </span>
+    <span class="wizard-cta-arrow">→</span>
+  </span>
+</a>
 </section>
 
 <section class="check-sectie">
