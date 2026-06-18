@@ -1,29 +1,112 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacyverklaring — Thuisbrein</title>
   <meta name="description" content="Privacyverklaring van ThuisBrein — hoe wij omgaan met uw persoonsgegevens.">
-  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="Privacyverklaring — Thuisbrein">
+  <meta property="og:description" content="Transparant over uw gegevens. ThuisBrein, geregistreerd te Oss.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thuisbrein.nl/privacy.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>T</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459;
+      --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+      --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
+      --border: rgba(26,43,60,0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+    .site { max-width: 1100px; margin: 0 auto; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+    .nav-mobile.open { display: flex; }
+
+    /* PAGE HEADER */
+    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 15px; color: var(--text-muted); line-height: 1.75; max-width: 520px; font-weight: 300; }
+
+    /* PROSE CONTENT */
+    .prose { padding: 4rem 2rem; max-width: 720px; }
+    .prose-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 3rem; padding: 0.75rem 1rem; background: var(--sand); border-radius: 8px; border-left: 3px solid var(--green-mid); }
+    .prose h2 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--navy); letter-spacing: -0.5px; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+    .prose h2:first-of-type { margin-top: 0; }
+    .prose p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.75rem; font-weight: 300; }
+    .prose ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .prose ul li { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.25rem; font-weight: 300; }
+    .prose a { color: var(--green); text-decoration: none; border-bottom: 1px solid rgba(59,109,17,0.3); transition: border-color 0.2s; }
+    .prose a:hover { border-color: var(--green); }
+    .prose strong { color: var(--navy); font-weight: 500; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    /* FOOTER */
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .page-header h1 { font-size: 36px; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .prose { padding: 2.5rem 1.25rem; }
+      footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
+  </style>
 </head>
 <body>
+<div class="site">
 
   <nav>
-    <a href="index.html"><strong>Th</strong>uis<strong>Br</strong>ein</a>
-    <ul>
-      <li><a href="index.html#hoe-het-werkt">Hoe het werkt</a></li>
-      <li><a href="pricing.html">Prijzen</a></li>
-      <li><a href="systemen.html">Systemen</a></li>
-      <li><a href="index.html#over">Over mij</a></li>
-      <li><a href="index.html#contact">Plan kennismaking</a></li>
-    </ul>
+    <a href="index.html" class="nav-logo"><b>Th</b>uis<span><b>Br</b>ein</span></a>
+    <div class="nav-links">
+      <a href="index.html#diensten">Diensten</a>
+      <a href="systemen.html">Systemen</a>
+      <a href="pricing.html">Prijzen</a>
+      <a href="index.html#over">Over mij</a>
+      <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+    </div>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-mobile').classList.toggle('open')" aria-label="Menu">&#9776;</button>
   </nav>
+  <div class="nav-mobile">
+    <a href="index.html#diensten">Diensten</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="index.html#over">Over mij</a>
+    <a href="index.html#contact">Plan kennismaking</a>
+  </div>
 
-  <main class="prose-page">
-
+  <div class="page-header">
+    <span class="tag">Juridisch</span>
     <h1>Privacyverklaring</h1>
-    <p class="meta">Versie 1.0 &mdash; 18 juni 2026 &mdash; Thomas Branderhorst / ThuisBrein &mdash; KVK 88372952</p>
+    <p>Hoe ThuisBrein omgaat met uw persoonsgegevens — transparant en conform de AVG.</p>
+  </div>
+
+  <main class="prose">
+    <p class="prose-meta">Versie 1.0 &mdash; 18 juni 2026 &mdash; Thomas Branderhorst / ThuisBrein &mdash; KVK 88372952</p>
 
     <h2>1. Wie zijn wij?</h2>
     <p>ThuisBrein is een eenmanszaak geregistreerd onder de handelsnaam Thomas Branderhorst, gevestigd te Oss (Noord-Brabant), ingeschreven bij de Kamer van Koophandel onder nummer 88372952.</p>
@@ -32,6 +115,8 @@
       <li>E-mail: <a href="mailto:thomasbranderhorst@gmail.com">thomasbranderhorst@gmail.com</a></li>
       <li>Telefoon: 06 54 15 79 20</li>
     </ul>
+
+    <hr class="divider">
 
     <h2>2. Welke gegevens verwerken wij?</h2>
     <p>Wij verwerken persoonsgegevens die u actief aan ons verstrekt, zoals:</p>
@@ -43,6 +128,8 @@
       <li>Facturatiegegevens</li>
     </ul>
 
+    <hr class="divider">
+
     <h2>3. Waarom verwerken wij uw gegevens?</h2>
     <p>Wij gebruiken uw gegevens uitsluitend voor:</p>
     <ul>
@@ -52,6 +139,8 @@
       <li>Voldoen aan wettelijke verplichtingen (belastingadministratie)</li>
     </ul>
 
+    <hr class="divider">
+
     <h2>4. Grondslag voor verwerking</h2>
     <p>Wij verwerken uw gegevens op basis van:</p>
     <ul>
@@ -60,12 +149,16 @@
       <li><strong>Gerechtvaardigd belang</strong> &mdash; voor het onderhouden van de klantrelatie</li>
     </ul>
 
+    <hr class="divider">
+
     <h2>5. Hoe lang bewaren wij uw gegevens?</h2>
     <ul>
       <li>Klantgegevens en facturen: 7 jaar (fiscale bewaarplicht)</li>
       <li>Technische installatiegegevens: zolang het abonnement actief is + 1 jaar</li>
       <li>Contactverzoeken zonder vervolgopdracht: maximaal 1 jaar</li>
     </ul>
+
+    <hr class="divider">
 
     <h2>6. Delen wij uw gegevens?</h2>
     <p>Wij verkopen uw gegevens nooit aan derden. Wij kunnen gegevens delen met:</p>
@@ -75,8 +168,12 @@
       <li>Belastingdienst (verplicht op grond van wet)</li>
     </ul>
 
+    <hr class="divider">
+
     <h2>7. Beveiliging</h2>
     <p>Wij nemen passende technische en organisatorische maatregelen om uw gegevens te beschermen tegen ongeautoriseerde toegang, verlies of diefstal.</p>
+
+    <hr class="divider">
 
     <h2>8. Uw rechten</h2>
     <p>U heeft de volgende rechten ten aanzien van uw persoonsgegevens:</p>
@@ -90,25 +187,33 @@
     </ul>
     <p>U kunt uw rechten uitoefenen via <a href="mailto:thomasbranderhorst@gmail.com">thomasbranderhorst@gmail.com</a>. Wij reageren binnen 30 dagen.</p>
 
+    <hr class="divider">
+
     <h2>9. Klachten</h2>
     <p>Heeft u een klacht? Neem contact op via <a href="mailto:thomasbranderhorst@gmail.com">thomasbranderhorst@gmail.com</a> of dien een klacht in bij de <a href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
 
+    <hr class="divider">
+
     <h2>10. Wijzigingen</h2>
     <p>De meest actuele versie van deze verklaring is altijd beschikbaar op <a href="https://thuisbrein.nl/privacy.html">thuisbrein.nl/privacy.html</a>. Datum van laatste wijziging: 18 juni 2026.</p>
-
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <a href="index.html"><strong>Th</strong>uis<strong>Br</strong>ein &mdash; Thomas Branderhorst</a>
-      <nav>
-        <a href="pricing.html">Prijzen</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
-      </nav>
-      <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
+    <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+    <div class="footer-links">
+      <a href="pricing.html">Prijzen</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
     </div>
+    <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
   </footer>
 
+</div>
+<script>
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-mobile a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.nav-mobile').classList.remove('open'));
+  });
+</script>
 </body>
 </html>
