@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wat kan ik besparen? — Thuisbrein</title>
+  <meta name="description" content="Bereken hoeveel jij kunt besparen met slimme energiesturing. Gebaseerd op TNO-onderzoek en ervaringen van Nederlandse huishoudens.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>T</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459;
+      --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+      --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
+      --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+    .site { max-width: 1100px; margin: 0 auto; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+    .nav-mobile.open { display: flex; }
+
+    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 560px; font-weight: 300; }
+
+    /* REKENTOOL */
+    .rekentool { padding: 4rem 2rem; }
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+
+    /* Invoer */
+    .invoer-blok { display: flex; flex-direction: column; gap: 1.5rem; }
+    .invoer-blok h2 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 0.25rem; }
+    .invoer-blok > p { font-size: 14px; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+    .vraag-blok { background: var(--sand); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .vraag-blok label { font-size: 13px; font-weight: 500; color: var(--navy); display: block; margin-bottom: 0.75rem; }
+    .toggle-rij { display: flex; gap: 8px; flex-wrap: wrap; }
+    .toggle-btn { padding: 7px 16px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--white); font-size: 13px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+    .toggle-btn.actief { background: var(--navy); border-color: var(--navy); color: white; font-weight: 500; }
+    .range-wrap { display: flex; align-items: center; gap: 1rem; }
+    .range-wrap input[type=range] { flex: 1; accent-color: var(--green-mid); }
+    .range-val { font-size: 15px; font-weight: 500; color: var(--navy); min-width: 80px; text-align: right; }
+
+    /* Resultaat */
+    .resultaat-blok { position: sticky; top: 90px; }
+    .resultaat-kaart { background: var(--navy); border-radius: 20px; padding: 2.5rem; color: white; }
+    .resultaat-kaart h2 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: -0.3px; margin-bottom: 1.5rem; }
+    .besparing-groot { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 300; color: #97C459; letter-spacing: -2px; line-height: 1; margin-bottom: 0.25rem; }
+    .besparing-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 2rem; }
+    .besparing-range { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: -1.5rem; margin-bottom: 2rem; }
+
+    .uitsplitsing { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; margin-bottom: 1.5rem; }
+    .uitsp-rij { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .uitsp-rij:last-child { border-bottom: none; }
+    .uitsp-label { font-size: 13px; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 8px; }
+    .uitsp-label .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .uitsp-bedrag { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); }
+    .uitsp-bedrag.nul { color: rgba(255,255,255,0.3); }
+
+    .terugverdien { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    .terugverdien p { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .terugverdien strong { font-size: 18px; color: white; font-weight: 500; }
+
+    .disclaimer-rekentool { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.6; margin-bottom: 1.5rem; }
+
+    .btn-wa-groen { display: flex; align-items: center; gap: 10px; background: var(--whatsapp); color: white; padding: 13px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; justify-content: center; }
+
+    /* CASUSSEN */
+    .casussen { padding: 0 2rem 5rem; }
+    .casussen h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--navy); letter-spacing: -0.8px; margin-bottom: 0.5rem; }
+    .casussen > p { font-size: 15px; color: var(--text-muted); margin-bottom: 2.5rem; font-weight: 300; }
+    .casus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .casus-kaart { background: var(--sand); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+    .casus-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+    .casus-kaart h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .casus-kaart .situatie { font-size: 13px; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.65; }
+    .casus-besparing { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 300; color: var(--green-mid); letter-spacing: -1px; line-height: 1; margin-bottom: 0.25rem; }
+    .casus-besparing-label { font-size: 12px; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .casus-items { display: flex; flex-direction: column; gap: 6px; }
+    .casus-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-muted); }
+    .casus-item i { color: var(--green-mid); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+    /* BRONNEN */
+    .bronnen { padding: 2rem 2rem 4rem; border-top: 1px solid var(--border); }
+    .bronnen p { font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 700px; }
+    .bronnen a { color: var(--green); text-decoration: none; }
+
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    @media (max-width: 900px) {
+      .tool-grid { grid-template-columns: 1fr; }
+      .resultaat-blok { position: static; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .page-header h1 { font-size: 36px; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .rekentool { padding: 2.5rem 1.25rem; }
+      .casussen { padding: 0 1.25rem 4rem; }
+      .besparing-groot { font-size: 52px; }
+    }
+  </style>
+</head>
+<body>
+<div class="site">
+
+  <nav>
+    <a href="index.html" class="nav-logo"><b>Th</b>uis<span><b>Br</b>ein</span></a>
+    <div class="nav-links">
+      <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+      <a href="index.html#over">Over mij</a>
+      <a href="systemen.html">Systemen</a>
+      <a href="pricing.html">Prijzen</a>
+      <a href="check.html">Woningcheck</a>
+      <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen"><i class="ti ti-menu-2"></i></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+    <a href="index.html#over">Over mij</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="check.html">Woningcheck</a>
+    <a href="index.html#contact">Plan kennismaking</a>
+  </div>
+
+  <div class="page-header">
+    <span class="tag">Besparingsberekening</span>
+    <h1>Wat kan jij<br><em style="font-style:italic;color:var(--green-mid)">besparen?</em></h1>
+    <p>Gebaseerd op TNO-onderzoek en ervaringen van Nederlandse huishoudens. Vul in wat je hebt — je ziet direct een realistische schatting.</p>
+  </div>
+
+  <section class="rekentool">
+    <div class="tool-grid">
+
+      <!-- INVOER -->
+      <div class="invoer-blok">
+        <h2>Jouw situatie</h2>
+        <p>Pas de schuifregelaars aan op jouw woning.</p>
+
+        <div class="vraag-blok">
+          <label>Jaarlijks stroomverbruik</label>
+          <div class="range-wrap">
+            <input type="range" id="verbruik" min="2000" max="8000" step="500" value="4500" oninput="bereken()">
+            <span class="range-val" id="verbruik-val">4.500 kWh</span>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Stroomtarief (incl. belasting)</label>
+          <div class="range-wrap">
+            <input type="range" id="tarief" min="0.20" max="0.45" step="0.01" value="0.31" oninput="bereken()">
+            <span class="range-val" id="tarief-val">€0,31 / kWh</span>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Heb je zonnepanelen?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn actief" onclick="setToggle('panelen','ja',this)">Ja</button>
+            <button class="toggle-btn" onclick="setToggle('panelen','nee',this)">Nee</button>
+          </div>
+        </div>
+
+        <div class="vraag-blok" id="blok-wp-panelen">
+          <label>Vermogen zonnepanelen</label>
+          <div class="range-wrap">
+            <input type="range" id="pv" min="2" max="12" step="0.5" value="5" oninput="bereken()">
+            <span class="range-val" id="pv-val">5,0 kWp</span>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Heb je een thuisbatterij?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn" onclick="setToggle('batterij','ja',this)">Ja</button>
+            <button class="toggle-btn actief" onclick="setToggle('batterij','nee',this)">Nee</button>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Warmtepomp aanwezig?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn" onclick="setToggle('wp','ja',this)">Ja</button>
+            <button class="toggle-btn actief" onclick="setToggle('wp','nee',this)">Nee</button>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Airco aanwezig?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn" onclick="setToggle('airco','ja',this)">Ja</button>
+            <button class="toggle-btn actief" onclick="setToggle('airco','nee',this)">Nee</button>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Elektrische auto / laadpaal?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn" onclick="setToggle('ev','ja',this)">Ja</button>
+            <button class="toggle-btn actief" onclick="setToggle('ev','nee',this)">Nee</button>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
+          <label>Dynamisch stroomtarief?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn" onclick="setToggle('dynamisch','ja',this)">Ja (Tibber, Zonneplan e.d.)</button>
+            <button class="toggle-btn actief" onclick="setToggle('dynamisch','nee',this)">Nee, vast tarief</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTAAT -->
+      <div class="resultaat-blok">
+        <div class="resultaat-kaart">
+          <h2>Geschatte jaarlijkse besparing</h2>
+          <div class="besparing-groot" id="res-totaal">€ —</div>
+          <div class="besparing-range" id="res-range"></div>
+          <p class="besparing-sub" id="res-sub">Vul je situatie in aan de linkerkant.</p>
+
+          <div class="uitsplitsing" id="uitsplitsing"></div>
+
+          <div class="terugverdien" id="terugverdien-blok" style="display:none">
+            <p>Investering ThuisBrein terugverdiend in</p>
+            <strong id="res-terugverdien">—</strong>
+          </div>
+
+          <p class="disclaimer-rekentool">Schattingen gebaseerd op TNO-onderzoek (2025), SmartHomeDuurzaam.nl en ervaringen van Nederlandse HA-gebruikers. Werkelijke besparing hangt af van tarieven, gebruik en systeemconfiguratie. Geen garantie.</p>
+
+          <a href="https://wa.me/31654157920?text=Hallo%20Thomas%2C%20ik%20heb%20de%20besparingsberekening%20gedaan%20en%20wil%20graag%20meer%20weten." target="_blank" class="btn-wa-groen">
+            <i class="ti ti-brand-whatsapp"></i> Bespreek mijn situatie
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRAKTIJKVOORBEELDEN -->
+  <section class="casussen">
+    <h2>Praktijkvoorbeelden</h2>
+    <p>Drie situaties, gebaseerd op ervaringen van Nederlandse huishoudens.</p>
+    <div class="casus-grid">
+
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#EAF3DE;color:#3B6D11;">Basis</span>
+        <h3>Rijtjeswoning, zonnepanelen + airco</h3>
+        <p class="situatie">Gezin van 4, 4.500 kWh/jaar, 14 zonnepanelen (5,5 kWp), één airco. Geen batterij, geen WP. Vast tarief.</p>
+        <div class="casus-besparing">€ 210</div>
+        <div class="casus-besparing-label">gemiddeld per jaar</div>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Airco draait op eigen zonnestroom overdag</div>
+          <div class="casus-item"><i class="ti ti-check"></i>38% meer eigenverbruik door slimme sturing</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Minder teruglevering bij afbouw saldering 2027</div>
+        </div>
+      </div>
+
+      <div class="casus-kaart" style="border-color:var(--green-mid);border-width:2px;">
+        <span class="casus-tag" style="background:#1A2B3C;color:white;">Meest voorkomend</span>
+        <h3>Vrijstaand, panelen + batterij + WP</h3>
+        <p class="situatie">Stel, 3.800 kWh/jaar, 10 zonnepanelen (4,6 kWp), 10 kWh batterij, hybride WP. Dynamisch tarief.</p>
+        <div class="casus-besparing">€ 480</div>
+        <div class="casus-besparing-label">gemiddeld per jaar — bron: SmartHomeDuurzaam.nl</div>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Eigenverbruik stijgt van 40% naar 78%</div>
+          <div class="casus-item"><i class="ti ti-check"></i>WP draait op goedkoopste uren en eigen stroom</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Batterij laadt slim op dal-tarief</div>
+          <div class="casus-item"><i class="ti ti-check"></i>€1,10–1,60 extra per dag in winter</div>
+        </div>
+      </div>
+
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#E6F1FB;color:#185FA5;">Volledig uitgerust</span>
+        <h3>Panelen + batterij + WP + laadpaal</h3>
+        <p class="situatie">Gezin, 6.500 kWh/jaar (incl. EV), 12 panelen (5,5 kWp), 10 kWh batterij, WP, laadpaal. Dynamisch tarief.</p>
+        <div class="casus-besparing">€ 750</div>
+        <div class="casus-besparing-label">gemiddeld per jaar</div>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Auto laadt automatisch op goedkoopste uren</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Batterij-overschot gaat naar EV 's nachts</div>
+          <div class="casus-item"><i class="ti ti-check"></i>WP en airco aangestuurd op opwek én tarief</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Volledig geautomatiseerd, geen handmatige sturing</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="bronnen">
+    <p>
+      <strong>Bronnen &amp; verantwoording:</strong> TNO-onderzoek naar zelfconsumptie-automatisering (2025) via SmartHomeDuurzaam.nl ·
+      Rekenvoorbeeld 4.500 kWh / 8 panelen via <a href="https://smarthomeduurzaam.nl" target="_blank">SmartHomeDuurzaam.nl</a> ·
+      Community-ervaringen €150–400/jaar via StekkerSlim.nl en Home Assistant NL ·
+      Batterij-arbitrage €1,10–1,60/dag wintermaanden 2025–2026 via SmartHomeDuurzaam.nl.
+      Alle berekeningen zijn schattingen; werkelijke besparing is afhankelijk van individuele situatie, tarieven en configuratie.
+    </p>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+    <div class="footer-links">
+      <a href="pricing.html">Prijzen</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
+    </div>
+    <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
+  </footer>
+</div>
+
+<a href="https://wa.me/31654157920?text=Hallo%20Thomas%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+
+<script>
+const staat = { panelen:'ja', batterij:'nee', wp:'nee', airco:'nee', ev:'nee', dynamisch:'nee' };
+
+function setToggle(sleutel, waarde, knop) {
+  staat[sleutel] = waarde;
+  knop.closest('.toggle-rij').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('actief'));
+  knop.classList.add('actief');
+  bereken();
+}
+
+function bereken() {
+  const verbruik = +document.getElementById('verbruik').value;
+  const tarief   = +document.getElementById('tarief').value;
+  const pv       = +document.getElementById('pv').value;
+
+  document.getElementById('verbruik-val').textContent = verbruik.toLocaleString('nl') + ' kWh';
+  document.getElementById('tarief-val').textContent   = '€' + tarief.toFixed(2).replace('.',',') + ' / kWh';
+  document.getElementById('pv-val').textContent       = pv.toFixed(1).replace('.',',') + ' kWp';
+
+  // Toon/verberg pv-slider
+  document.getElementById('blok-wp-panelen').style.display = staat.panelen === 'ja' ? '' : 'none';
+
+  let items = [];
+  let totaal = 0;
+
+  if (staat.panelen === 'ja') {
+    // Eigenverbruikwinst: 38% meer eigenverbruik (TNO 2025)
+    // Pv opwek ~900 kWh/kWp/jaar NL gemiddeld
+    const opwek = pv * 900;
+    const basisEigenverbruik = Math.min(opwek * 0.30, verbruik * 0.30); // baseline 30% zelfconsumptie
+    const winst = basisEigenverbruik * 0.38; // 38% meer
+    const euro = Math.round(winst * tarief);
+    items.push({ label: 'Meer eigenverbruik zonnestroom', euro, dot: '#EF9F27' });
+    totaal += euro;
+  }
+
+  if (staat.batterij === 'ja' && staat.panelen === 'ja') {
+    // Batterij: eigenverbruik van 40% → 78% op opwek
+    const opwek = pv * 900;
+    const extra = opwek * (0.78 - 0.40);
+    const euro  = Math.round(extra * tarief);
+    items.push({ label: 'Batterij: hogere zelfconsumptie', euro, dot: '#4A90D9' });
+    totaal += euro;
+  }
+
+  if (staat.batterij === 'ja' && staat.dynamisch === 'ja') {
+    // Arbitrage: €0,22 per cyclus, ~250 cycli/jaar
+    const euro = Math.round(0.22 * 250);
+    items.push({ label: 'Batterij: slim laden op dal-tarief', euro, dot: '#97C459' });
+    totaal += euro;
+  }
+
+  if (staat.wp === 'ja') {
+    // WP aansturing op eigen stroom: 15-25% besparing op verwarmingskosten
+    // NL gemiddeld verwarmingsverbruik WP ~3.500 kWh/jaar, besparing ~20%
+    const euro = Math.round(3500 * 0.20 * tarief);
+    items.push({ label: 'Warmtepomp op eigen stroom', euro, dot: '#E87040' });
+    totaal += euro;
+  }
+
+  if (staat.airco === 'ja' && staat.panelen === 'ja') {
+    // Airco op zonnestroom: 300-500 kWh/jaar bespaard
+    const euro = Math.round(400 * tarief);
+    items.push({ label: 'Airco draait op zonnestroom', euro, dot: '#9B6FD4' });
+    totaal += euro;
+  }
+
+  if (staat.ev === 'ja') {
+    // EV slim laden: 1.500 kWh/jaar op goedkoopste uren, ±€0,12 besparing/kWh
+    const euro = staat.dynamisch === 'ja' ? Math.round(1500 * 0.12) : Math.round(1500 * tarief * 0.25);
+    items.push({ label: 'EV slim laden', euro, dot: '#25D366' });
+    totaal += euro;
+  }
+
+  if (items.length === 0) {
+    document.getElementById('res-totaal').textContent = '€ 0';
+    document.getElementById('res-sub').textContent = 'Met alleen een CV-ketel is er weinig te automatiseren. Voeg systemen toe om de berekening te zien.';
+    document.getElementById('res-range').textContent = '';
+    document.getElementById('uitsplitsing').innerHTML = '';
+    document.getElementById('terugverdien-blok').style.display = 'none';
+    return;
+  }
+
+  const min = Math.round(totaal * 0.7);
+  const max = Math.round(totaal * 1.3);
+  document.getElementById('res-totaal').textContent = '€ ' + totaal.toLocaleString('nl');
+  document.getElementById('res-range').textContent  = 'Bandbreedte: €' + min.toLocaleString('nl') + ' – €' + max.toLocaleString('nl') + ' per jaar';
+  document.getElementById('res-sub').textContent    = 'Geschatte jaarlijkse besparing voor jouw situatie.';
+
+  // Uitsplitsing
+  let html = '';
+  items.forEach(item => {
+    html += `<div class="uitsp-rij">
+      <span class="uitsp-label"><span class="dot" style="background:${item.dot}"></span>${item.label}</span>
+      <span class="uitsp-bedrag">€ ${item.euro.toLocaleString('nl')}</span>
+    </div>`;
+  });
+  document.getElementById('uitsplitsing').innerHTML = html;
+
+  // Terugverdientijd ThuisBrein (€450 investering)
+  const tvj = totaal > 0 ? (450 / totaal).toFixed(1).replace('.',',') : '—';
+  document.getElementById('terugverdien-blok').style.display = '';
+  document.getElementById('res-terugverdien').textContent = tvj + ' jaar';
+}
+
+// Nav
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('nav-mobile').classList.toggle('open');
+});
+document.querySelectorAll('.nav-mobile a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('nav-mobile').classList.remove('open'));
+});
+
+bereken();
+</script>
+</body>
+</html>
