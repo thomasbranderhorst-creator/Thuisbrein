@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThuisBrein Check — Past ThuisBrein bij jouw woning?</title>
+  <meta name="description" content="Doe de ThuisBrein Check en ontdek in 5 vragen of jouw woning klaar is voor slimme energiesturing.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>T</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A2B3C; --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+      --sand: #F5F0E8; --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
+      --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); min-height: 100vh; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 22px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile.open { display: flex; }
+
+    .wizard-wrap { display: flex; align-items: flex-start; justify-content: center; padding: 3rem 1.5rem 5rem; min-height: calc(100vh - 70px); }
+    .card { background: var(--white); border-radius: 20px; padding: 2.5rem; max-width: 520px; width: 100%; box-shadow: 0 4px 24px rgba(26,43,60,0.08); }
+
+    .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.5rem; }
+    h1 { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+    h1 em { color: var(--green-mid); font-style: italic; }
+    h2 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--navy); line-height: 1.3; margin-bottom: 1.5rem; }
+    .sub { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem; font-weight: 300; }
+    .multi-hint { font-size: 13px; color: var(--green-mid); font-weight: 500; margin-bottom: 1.25rem; }
+
+    /* Voortgang */
+    .progress-row { display: flex; justify-content: space-between; font-size: 12px; color: #AAAAAA; margin-bottom: 0.4rem; }
+    .progress-row span:last-child { color: var(--green-mid); font-weight: 500; }
+    .progress-bar { height: 4px; background: #F0EDE8; border-radius: 4px; margin-bottom: 2rem; }
+    .progress-fill { height: 4px; background: var(--green-mid); border-radius: 4px; transition: width 0.3s ease; }
+
+    /* Opties */
+    .opties { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
+    .optie { display: flex; align-items: center; gap: 12px; width: 100%; padding: 13px 16px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--white); cursor: pointer; font-size: 14px; color: var(--navy); font-family: 'DM Sans', sans-serif; text-align: left; transition: all 0.15s; }
+    .optie:hover { border-color: rgba(99,153,34,0.4); }
+    .optie.actief { border: 2px solid var(--green-mid); background: var(--green-light); font-weight: 500; }
+    .optie-icon { font-size: 18px; width: 24px; text-align: center; flex-shrink: 0; }
+    .optie-label { flex: 1; }
+    .optie-check { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #CCC; display: flex; align-items: center; justify-content: center; font-size: 11px; color: white; flex-shrink: 0; transition: all 0.15s; }
+    .optie.actief .optie-check { background: var(--green-mid); border-color: var(--green-mid); }
+    .checkbox { width: 18px; height: 18px; border-radius: 4px; border: 1.5px solid #CCC; display: flex; align-items: center; justify-content: center; font-size: 11px; color: white; flex-shrink: 0; }
+    .optie.actief .checkbox { background: var(--green-mid); border-color: var(--green-mid); }
+
+    .anders-input { width: 100%; margin-top: 6px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--green-mid); font-size: 14px; color: var(--navy); font-family: 'DM Sans', sans-serif; outline: none; }
+
+    /* Knoppen */
+    .btn-primary { width: 100%; padding: 14px 28px; background: var(--navy); color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+    .btn-primary:hover { background: #2E4459; }
+    .btn-primary:disabled { background: #E0DDD8; color: #AAAAAA; cursor: default; }
+    .btn-back { width: 100%; padding: 10px; background: transparent; border: none; font-size: 13px; color: #AAAAAA; cursor: pointer; margin-top: 0.75rem; font-family: 'DM Sans', sans-serif; }
+    .btn-ghost { width: 100%; padding: 12px 28px; background: transparent; border: 1.5px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    .btn-whatsapp { display: block; width: 100%; padding: 14px 28px; background: var(--whatsapp); color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 500; text-align: center; text-decoration: none; margin-bottom: 0.75rem; font-family: 'DM Sans', sans-serif; }
+    .btn-mail { display: block; width: 100%; padding: 14px 28px; background: var(--navy); color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 500; text-align: center; text-decoration: none; margin-bottom: 0.75rem; }
+    .btn-no-reg { font-size: 12px; color: #AAAAAA; text-align: center; margin-top: 1rem; }
+
+    /* Resultaat */
+    .result-dot-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+    .result-dot { width: 14px; height: 14px; border-radius: 50%; }
+    .result-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; }
+    .result-samenvatting { border-radius: 12px; padding: 1.25rem; margin-bottom: 1.75rem; }
+    .result-samenvatting-title { font-size: 11px; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .result-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 8px; }
+    .result-row:last-child { border-bottom: none; }
+    .result-row span:last-child { font-weight: 500; color: var(--navy); text-align: right; }
+
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: var(--white); }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .wizard-wrap { padding: 2rem 1rem 4rem; }
+      .card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><b>Th</b>uis<span><b>Br</b>ein</span></a>
+  <div class="nav-links">
+    <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="index.html#over">Over mij</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-mobile').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+  <a href="pricing.html">Prijzen</a>
+  <a href="systemen.html">Systemen</a>
+  <a href="index.html#over">Over mij</a>
+  <a href="index.html#contact">Plan kennismaking</a>
+</div>
+
+<div class="wizard-wrap">
+  <div class="card" id="wizard"></div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+  <div class="footer-links">
+    <a href="pricing.html">Prijzen</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
+  </div>
+  <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
+</footer>
+
+<script>
+const vragen = [
+  {
+    id: "eigendom",
+    vraag: "Wat is jouw situatie?",
+    multi: false,
+    opties: [
+      { label: "Ik woon er zelf in (koopwoning)", value: 2, icon: "🏠" },
+      { label: "Ik verhuur de woning", value: 3, icon: "🏘️" },
+      { label: "Ik huur de woning", value: -1, icon: "🔑" },
+    ]
+  },
+  {
+    id: "panelen",
+    vraag: "Heb je zonnepanelen?",
+    multi: false,
+    opties: [
+      { label: "Ja", value: 2, icon: "☀️" },
+      { label: "Komen eraan", value: 1, icon: "🔜" },
+      { label: "Nee", value: 0, icon: "✗" },
+    ]
+  },
+  {
+    id: "batterij",
+    vraag: "Heb je een thuisbatterij?",
+    multi: false,
+    opties: [
+      { label: "Ja", value: 2, icon: "🔋" },
+      { label: "Staat op de planning", value: 1, icon: "🔜" },
+      { label: "Nee", value: 0, icon: "✗" },
+    ]
+  },
+  {
+    id: "verwarming",
+    vraag: "Hoe verwarm je je woning?",
+    sub: "Meerdere antwoorden mogelijk",
+    multi: true,
+    opties: [
+      { label: "CV-ketel (gas)", value: "cv", score: 0, icon: "🔥" },
+      { label: "(Hybride) warmtepomp", value: "wp", score: 2, icon: "♨️" },
+      { label: "Volledig elektrische warmtepomp", value: "wp_el", score: 2, icon: "♨️" },
+      { label: "Bodemwarmtepomp (WKO)", value: "bodem", score: 2, icon: "🌍" },
+      { label: "Stadsverwarming / blokverwarming", value: "stadsverw", score: 1, icon: "🏙️" },
+      { label: "Airco (ook als verwarming)", value: "airco_verw", score: 2, icon: "❄️" },
+      { label: "Anders, namelijk…", value: "anders", score: 1, icon: "✏️", freetext: true },
+    ]
+  },
+  {
+    id: "airco",
+    vraag: "Heb je een airco?",
+    multi: false,
+    opties: [
+      { label: "Ja, meerdere units", value: 2, icon: "❄️" },
+      { label: "Ja, één unit", value: 1, icon: "❄️" },
+      { label: "Nee", value: 0, icon: "✗" },
+    ]
+  },
+  {
+    id: "laadpaal",
+    vraag: "Laadpaal of elektrische auto?",
+    multi: false,
+    opties: [
+      { label: "Ja, laadpaal aanwezig", value: 2, icon: "⚡" },
+      { label: "EV, nog geen paal", value: 1, icon: "🚗" },
+      { label: "Nee", value: 0, icon: "✗" },
+    ]
+  }
+];
+
+const TOTAAL = vragen.length;
+let stap = 0; // 0=intro, 1..N=vragen, N+1=resultaat
+let antwoorden = {};
+let geselecteerd = null; // single: number|string, multi: array
+let andersText = "";
+
+function verwarmingScore(sel) {
+  const v = vragen.find(v => v.id === "verwarming");
+  let s = sel.reduce((acc, val) => {
+    const opt = v.opties.find(o => o.value === val || (o.freetext && val.startsWith("anders:")));
+    return acc + (opt ? opt.score : 1);
+  }, 0);
+  return Math.min(s, 2);
+}
+
+function berekenScore() {
+  let s = 0;
+  Object.entries(antwoorden).forEach(([k, v]) => {
+    if (k === "eigendom" || k === "verwarming") return;
+    if (typeof v === "number") s += v;
+  });
+  if (Array.isArray(antwoorden.verwarming)) s += verwarmingScore(antwoorden.verwarming);
+  return s;
+}
+
+function getUitkomst() {
+  const score = berekenScore();
+  const eig = antwoorden.eigendom;
+  if (eig === -1) return {
+    kleur: "grijs", dot: "#666", label: "Helaas",
+    titel: "Huurwoningen vallen buiten ons werkgebied.",
+    tekst: "Voor installaties heb ik toestemming van de eigenaar nodig. Huur je van een woningcorporatie of particuliere verhuurder die wil verduurzamen? Stuur ze gerust mijn kant op.",
+    actie: "mail", actieTekst: "Toch contact opnemen"
+  };
+  if (eig === 3) return {
+    kleur: "groen", dot: "#3B6D11", label: "Interessante lead",
+    titel: "Verhuurders zijn juist een mooie markt.",
+    tekst: "Verduurzaming van huurwoningen wordt steeds relevanter — voor energielabels, huurwaarde en wetgeving. Ik doe dit graag op maat voor één woning of een heel portfolio. Laten we even bellen.",
+    actie: "whatsapp", actieTekst: "Plan een gesprek via WhatsApp"
+  };
+
+  const verwKeys = Array.isArray(antwoorden.verwarming) ? antwoorden.verwarming : [];
+  const alleenCV = verwKeys.length === 1 && verwKeys[0] === "cv"
+    && antwoorden.panelen === 0 && antwoorden.batterij === 0
+    && antwoorden.airco === 0 && antwoorden.laadpaal === 0;
+
+  if (alleenCV) return {
+    kleur: "grijs", dot: "#666", label: "Nog niet",
+    titel: "Nog niet het moment — maar dat verandert.",
+    tekst: "Met alleen een CV-ketel is er nu te weinig om op aan te sluiten. Maar als je ooit zonnepanelen, een warmtepomp of een laadpaal overweegt, is ThuisBrein precies wat je nodig hebt. Laat je e-mail achter en ik houd je op de hoogte.",
+    actie: "mail", actieTekst: "Houd me op de hoogte"
+  };
+
+  if (verwKeys.includes("stadsverw") && score < 4) return {
+    kleur: "oranje", dot: "#C07020", label: "Potentieel",
+    titel: "Stadsverwarming — even nader bekijken.",
+    tekst: "Stadsverwarming is niet altijd koppelbaar via Home Assistant. Maar als je ook zonnepanelen, een laadpaal of airco hebt, valt er zeker iets te doen. Laten we even bellen.",
+    actie: "whatsapp", actieTekst: "Neem contact op"
+  };
+
+  if (score >= 6) return {
+    kleur: "groen", dot: "#3B6D11", label: "Goede match",
+    titel: "Jouw woning is klaar voor ThuisBrein.",
+    tekst: "Je hebt meerdere systemen die nu langs elkaar werken. Precies wat ThuisBrein oplost. Een kennismaking duurt een uur — daarna weet je wat er mogelijk is en wat het kost.",
+    actie: "whatsapp", actieTekst: "Plan een kennismaking via WhatsApp"
+  };
+
+  if (score >= 3) return {
+    kleur: "oranje", dot: "#C07020", label: "Potentieel",
+    titel: "Goede basis — er valt al iets te doen.",
+    tekst: "Je hebt een of twee systemen die al slim aangestuurd kunnen worden. En als je later uitbreidt groeit ThuisBrein gewoon mee. Laten we alvast kennismaken.",
+    actie: "whatsapp", actieTekst: "Neem contact op"
+  };
+
+  return {
+    kleur: "oranje", dot: "#C07020", label: "Potentieel",
+    titel: "Kleine basis, maar een begin is er.",
+    tekst: "Er is nu beperkt wat we kunnen koppelen, maar je bent op de goede weg. Een korte kennismaking laat zien welke stap als eerste de meeste winst oplevert.",
+    actie: "whatsapp", actieTekst: "Neem contact op"
+  };
+}
+
+function verwLabelTekst(ant) {
+  if (!Array.isArray(ant) || ant.length === 0) return "—";
+  const v = vragen.find(v => v.id === "verwarming");
+  return ant.map(val => {
+    if (val.startsWith("anders:")) return "Anders: " + val.slice(7);
+    return v.opties.find(o => o.value === val)?.label ?? val;
+  }).join(", ");
+}
+
+function render() {
+  const el = document.getElementById("wizard");
+
+  if (stap === 0) {
+    el.innerHTML = `
+      <span class="tag">ThuisBrein Check</span>
+      <h1>Past ThuisBrein<br><em>bij jouw woning?</em></h1>
+      <p class="sub">Enkele korte vragen. Geen typwerk. Je weet in één minuut of ik iets voor je kan betekenen — en wat de volgende stap is.</p>
+      <button class="btn-primary" onclick="startWizard()">Start de check →</button>
+      <p class="btn-no-reg">Geen registratie nodig</p>`;
+    return;
+  }
+
+  if (stap === TOTAAL + 1) {
+    const u = getUitkomst();
+    const bgMap = { groen: "#EAF3DE", oranje: "#FEF3E2", grijs: "#F0F0F0" };
+    const borderMap = { groen: "#639922", oranje: "#E8A030", grijs: "#AAAAAA" };
+
+    const samenv = vragen.filter(v => antwoorden[v.id] !== undefined && v.id !== "eigendom").map(v => {
+      const ant = antwoorden[v.id];
+      const label = v.multi ? verwLabelTekst(ant) : (v.opties.find(o => o.value === ant)?.label ?? "—");
+      const icon = v.multi ? "🏠" : (v.opties.find(o => o.value === ant)?.icon ?? "");
+      return `<div class="result-row"><span>${v.vraag}</span><span>${icon} ${label}</span></div>`;
+    }).join("");
+
+    const actiBtn = u.actie === "whatsapp"
+      ? `<a href="https://wa.me/31654157920?text=Hallo%20Thomas%2C%20ik%20heb%20de%20ThuisBrein%20Check%20gedaan%20en%20wil%20graag%20kennismaken." target="_blank" class="btn-whatsapp">💬 ${u.actieTekst}</a>`
+      : `<a href="mailto:thomasbranderhorst@gmail.com?subject=ThuisBrein%20updates" class="btn-mail">✉️ ${u.actieTekst}</a>`;
+
+    el.innerHTML = `
+      <div class="result-dot-row">
+        <div class="result-dot" style="background:${u.dot}"></div>
+        <span class="result-label" style="color:${u.dot}">${u.label}</span>
+      </div>
+      <h2 style="margin-bottom:1rem">${u.titel}</h2>
+      <p class="sub">${u.tekst}</p>
+      ${antwoorden.eigendom !== -1 && antwoorden.eigendom !== 3 ? `
+      <div class="result-samenvatting" style="background:${bgMap[u.kleur]};border:1px solid ${borderMap[u.kleur]}">
+        <p class="result-samenvatting-title">Jouw situatie</p>
+        ${samenv}
+      </div>` : ""}
+      ${actiBtn}
+      <button class="btn-ghost" onclick="herstart()">Opnieuw doen</button>`;
+    return;
+  }
+
+  const vraag = vragen[stap - 1];
+  // Bereken effectieve stapnummer (eigendom telt mee maar verhuurder/huurder sloeg stappen over)
+  const voortgang = Math.round((stap / TOTAAL) * 100);
+
+  const optiesHtml = vraag.opties.map(opt => {
+    const isActief = vraag.multi
+      ? (Array.isArray(geselecteerd) && geselecteerd.includes(opt.value))
+      : geselecteerd === opt.value;
+    const indicator = vraag.multi
+      ? `<span class="checkbox">${isActief ? "✓" : ""}</span>`
+      : `<span class="optie-check">${isActief ? "✓" : ""}</span>`;
+    const andersInput = opt.freetext && Array.isArray(geselecteerd) && geselecteerd.includes("anders")
+      ? `<br><input class="anders-input" type="text" placeholder="Wat voor verwarming heb je?" value="${andersText}" oninput="andersText=this.value" autofocus>`
+      : "";
+    return `
+      <button class="optie${isActief ? " actief" : ""}" onclick="kiesOptie('${opt.value}', ${opt.freetext || false})">
+        <span class="optie-icon">${opt.icon}</span>
+        <span class="optie-label">${opt.label}</span>
+        ${indicator}
+      </button>${andersInput}`;
+  }).join("");
+
+  const kanVolgende = vraag.multi
+    ? (Array.isArray(geselecteerd) && geselecteerd.length > 0)
+    : geselecteerd !== null;
+
+  el.innerHTML = `
+    <div class="progress-row"><span>Vraag ${stap} van ${TOTAAL}</span><span>${voortgang}%</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${voortgang}%"></div></div>
+    <h2>${vraag.vraag}</h2>
+    ${vraag.sub ? `<p class="multi-hint">✓ ${vraag.sub}</p>` : ""}
+    <div class="opties">${optiesHtml}</div>
+    <button class="btn-primary" onclick="volgende()" ${kanVolgende ? "" : "disabled"}>
+      ${stap === TOTAAL ? "Bekijk resultaat →" : "Volgende →"}
+    </button>
+    ${stap > 1 ? `<button class="btn-back" onclick="terug()">← Terug</button>` : ""}`;
+}
+
+function kiesOptie(val, isFreetext) {
+  const vraag = vragen[stap - 1];
+  // Converteer val terug naar juiste type
+  const numVal = Number(val);
+  const eigenVal = isNaN(numVal) ? val : numVal;
+
+  if (vraag.multi) {
+    if (!Array.isArray(geselecteerd)) geselecteerd = [];
+    if (geselecteerd.includes(eigenVal)) {
+      geselecteerd = geselecteerd.filter(v => v !== eigenVal);
+    } else {
+      geselecteerd = [...geselecteerd, eigenVal];
+    }
+  } else {
+    geselecteerd = eigenVal;
+  }
+  render();
+}
+
+function volgende() {
+  const vraag = vragen[stap - 1];
+  if (vraag.multi) {
+    if (!Array.isArray(geselecteerd) || geselecteerd.length === 0) return;
+    const opgeslagen = geselecteerd.map(v => v === "anders" && andersText.trim() ? `anders:${andersText.trim()}` : v);
+    antwoorden[vraag.id] = opgeslagen;
+  } else {
+    if (geselecteerd === null) return;
+    antwoorden[vraag.id] = geselecteerd;
+    // Huurder of verhuurder → direct naar resultaat
+    if (vraag.id === "eigendom" && (geselecteerd === -1 || geselecteerd === 3)) {
+      geselecteerd = null;
+      stap = TOTAAL + 1;
+      render();
+      return;
+    }
+  }
+  geselecteerd = null;
+  andersText = "";
+  stap++;
+  render();
+}
+
+function terug() {
+  stap--;
+  const vraag = vragen[stap - 1];
+  const prev = antwoorden[vraag.id];
+  geselecteerd = vraag.multi
+    ? (Array.isArray(prev) ? prev.map(v => v.startsWith("anders:") ? "anders" : v) : [])
+    : (prev !== undefined ? prev : null);
+  render();
+}
+
+function startWizard() { stap = 1; geselecteerd = null; render(); }
+function herstart() { stap = 0; antwoorden = {}; geselecteerd = null; andersText = ""; render(); }
+
+render();
+</script>
+</body>
+</html>
