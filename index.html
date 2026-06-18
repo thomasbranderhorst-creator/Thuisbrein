@@ -420,12 +420,13 @@ footer { flex-direction: column; align-items: flex-start; }
 <!-- Top: Zonnepanelen + batterij -->
 <line x1="480" y1="248" x2="480" y2="148" stroke="#EF9F27" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
 <!-- Left: Warmtepomp / CV -->
-<line x1="400" y1="278" x2="185" y2="340" stroke="#4A90D9" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<line x1="400" y1="295" x2="230" y2="330" stroke="#4A90D9" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
 <!-- Right: Airco -->
-<line x1="560" y1="278" x2="775" y2="340" stroke="#97C459" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<line x1="568" y1="295" x2="730" y2="330" stroke="#97C459" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
 <!-- Bottom-left: Laadpaal -->
-<line x1="420" y1="340" x2="230" y2="460" stroke="#9B6FD4" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
-<!-- Bottom-right: (none, balanced layout) -->
+<line x1="420" y1="358" x2="230" y2="430" stroke="#9B6FD4" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Bottom-right: (placeholder for balance) -->
+<line x1="540" y1="358" x2="730" y2="430" stroke="#E87040" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
 
 <!-- CENTRAL NODE -->
 <rect x="392" y="248" width="176" height="110" rx="14" fill="#1A2B3C" stroke="#639922" stroke-width="2"/>
@@ -439,38 +440,32 @@ footer { flex-direction: column; align-items: flex-start; }
 <text x="480" y="118" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#EF9F27" font-family="sans-serif">opwekking, opslag &amp; teruglevering</text>
 
 <!-- LEFT: Warmtepomp / CV -->
-<rect x="30" y="310" width="200" height="70" rx="10" fill="rgba(74,144,217,0.13)" stroke="rgba(74,144,217,0.7)" stroke-width="1.5"/>
-<text x="130" y="335" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#8EC8F5" font-family="sans-serif">Warmtepomp / CV</text>
-<text x="130" y="359" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#4A90D9" font-family="sans-serif">verwarming op maat</text>
+<rect x="30" y="305" width="200" height="70" rx="10" fill="rgba(74,144,217,0.13)" stroke="rgba(74,144,217,0.7)" stroke-width="1.5"/>
+<text x="130" y="330" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#8EC8F5" font-family="sans-serif">Warmtepomp / CV</text>
+<text x="130" y="354" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#4A90D9" font-family="sans-serif">verwarming op maat</text>
 
 <!-- RIGHT: Airco -->
-<rect x="730" y="310" width="200" height="70" rx="10" fill="rgba(151,196,89,0.13)" stroke="rgba(151,196,89,0.7)" stroke-width="1.5"/>
-<text x="830" y="335" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#c5e88a" font-family="sans-serif">Airco</text>
-<text x="830" y="359" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">verwarmen &amp; koelen</text>
+<rect x="730" y="305" width="200" height="70" rx="10" fill="rgba(151,196,89,0.13)" stroke="rgba(151,196,89,0.7)" stroke-width="1.5"/>
+<text x="830" y="330" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#c5e88a" font-family="sans-serif">Airco</text>
+<text x="830" y="354" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#97C459" font-family="sans-serif">verwarmen &amp; koelen</text>
 
 <!-- BOTTOM-LEFT: Laadpaal -->
-<rect x="30" y="430" width="200" height="70" rx="10" fill="rgba(155,111,212,0.13)" stroke="rgba(155,111,212,0.7)" stroke-width="1.5"/>
-<text x="130" y="455" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#C9A8F0" font-family="sans-serif">Laadpaal</text>
-<text x="130" y="479" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#9B6FD4" font-family="sans-serif">slim laden op eigen stroom</text>
+<rect x="30" y="410" width="200" height="70" rx="10" fill="rgba(155,111,212,0.13)" stroke="rgba(155,111,212,0.7)" stroke-width="1.5"/>
+<text x="130" y="435" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#C9A8F0" font-family="sans-serif">Laadpaal</text>
+<text x="130" y="459" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#9B6FD4" font-family="sans-serif">slim laden op eigen stroom</text>
+
+<!-- BOTTOM-RIGHT: Slimme thermostaat -->
+<rect x="730" y="410" width="200" height="70" rx="10" fill="rgba(232,112,64,0.13)" stroke="rgba(232,112,64,0.7)" stroke-width="1.5"/>
+<text x="830" y="435" text-anchor="middle" dominant-baseline="central" font-size="15" font-weight="600" fill="#F0A882" font-family="sans-serif">Slimme thermostaat</text>
+<text x="830" y="459" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#E87040" font-family="sans-serif">CV-sturing op maat</text>
 
 <!-- Bottom label -->
-<text x="480" y="548" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.35)" font-family="sans-serif">Alle systemen communiceren continu via één centrale sturinglaag</text>
+<text x="480" y="530" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.35)" font-family="sans-serif">Alle systemen communiceren continu via één centrale sturinglaag</text>
 
 </svg>
 </div></section>
 
-<section class="stappen" id="hoe-het-werkt">
-<div class="section-label">Hoe het werkt</div>
-<div class="section-title">Van kennismaking<br>tot slimme woning.</div>
-<div class="stap-row">
-<div class="stap"><div class="stap-n">01</div><h4>Kennismaking</h4><p>Ik bespreek je woning, huidige systemen en wensen.</p></div>
-<div class="stap"><div class="stap-n">02</div><h4>Advies op maat</h4><p>Je ontvangt een concreet plan dat past bij jouw situatie.</p></div>
-<div class="stap"><div class="stap-n">03</div><h4>Installatie</h4><p>Ik kom bij je thuis om alles in te richten en werkend te maken.</p></div>
-<div class="stap"><div class="stap-n">04</div><h4>Doorontwikkelen</h4><p>Je woning kan altijd uitgebreid worden met nieuwe functies.</p></div>
-</div>
-</section>
-
-<section class="voorwie">
+<section class="voorwie" id="hoe-het-werkt">
 <div class="section-label">Hoe het werkt</div>
 <div class="section-title">Van losse systemen<br>naar één slim geheel.</div>
 <div class="wie-grid">
@@ -516,6 +511,11 @@ footer { flex-direction: column; align-items: flex-start; }
     <h4>Huis-AI <span class="maatwerk-badge">Binnenkort</span></h4>
     <p>Stel je woning een vraag. Geef een opdracht. Een lokale AI die je systemen kent en begrijpt wat je bedoelt — zonder dat data jouw huis verlaat.</p>
   </div>
+  <div class="maatwerk-kaart">
+    <div class="maatwerk-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
+    <h4>Zakelijk &amp; maatwerk</h4>
+    <p>Ook voor kantoren, bedrijfshallen of utiliteit. Dezelfde aanpak — slimme energiesturing op maat — maar dan voor uw zakelijke omgeving. Offerte op aanvraag.</p>
+  </div>
 </div>
 <p class="maatwerk-sub">Heb je iets specifieks in gedachten? Vertel het me — als het koppelbaar is, kijken we hoe.</p>
 </section>
@@ -553,6 +553,13 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="section-label">Werkgebied</div>
 <div class="section-title">Midden en<br>zuidoost Nederland.</div>
 <p class="section-body">Ik ben actief in midden en zuidoost Nederland — denk aan Noord-Brabant, Gelderland, Limburg en de regio's daartussen. Twijfel je of ik bij jou in de buurt kom? Neem gerust contact op.</p>
+</div>
+<div class="werkgebied-kaart">
+<i class="ti ti-map-pin" aria-hidden="true"></i>
+<div>
+<h4>~50 km rondom Oss</h4>
+<p>Oss · Den Bosch · Eindhoven · Nijmegen · Arnhem · Utrecht</p>
+</div>
 </div>
 </div>
 </section>
@@ -672,6 +679,7 @@ App mij op WhatsApp
 <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
 <div class="footer-links">
 <a href="pricing.html">Prijzen</a> <a href="systemen.html">Systemen</a>
+<a href="privacy.html">Privacy</a>
 <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
 </div>
 <p>KVK 88372952 · Midden &amp; zuidoost Nederland</p>
