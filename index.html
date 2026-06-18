@@ -315,7 +315,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <a href="#contact">Plan kennismaking</a>
 </div>
 <div class="hero">
-<div class="hero-tag">Zonnepanelen &amp; batterij · Warmtepomp · Airco · Laadpaal</div>
+<div class="hero-tag">Zonnepanelen & batterij · Warmtepomp · Airco · Laadpaal</div>
 <h1>Jouw energiesystemen<br><em>werken eindelijk samen.</em></h1>
 <p class="hero-sub">Ik koppel je CV/warmtepomp, zonnepanelen, thuisbatterij en airco zodat ze op elkaar inspelen. Altijd de goedkoopste, schoonste energie — automatisch.</p>
 <div class="hero-btns">
@@ -425,6 +425,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <line x1="560" y1="278" x2="775" y2="340" stroke="#97C459" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
 <!-- Bottom-left: Laadpaal -->
 <line x1="420" y1="340" x2="230" y2="460" stroke="#9B6FD4" stroke-width="2.5" marker-end="url(#arr2)" marker-start="url(#arr2r)" opacity="0.9"/>
+<!-- Bottom-right: (none, balanced layout) -->
 
 <!-- CENTRAL NODE -->
 <rect x="392" y="248" width="176" height="110" rx="14" fill="#1A2B3C" stroke="#639922" stroke-width="2"/>
@@ -497,7 +498,7 @@ footer { flex-direction: column; align-items: flex-start; }
   </div>
   <div class="maatwerk-kaart">
     <div class="maatwerk-icon"><i class="ti ti-bulb" aria-hidden="true"></i></div>
-    <h4>Verlichting &amp; automatisering</h4>
+    <h4>Verlichting & automatisering</h4>
     <p>Lampen die reageren op beweging, tijdstip of aanwezigheid. Aanwezig simuleren als je er niet bent.</p>
   </div>
   <div class="maatwerk-kaart">
@@ -507,7 +508,7 @@ footer { flex-direction: column; align-items: flex-start; }
   </div>
   <div class="maatwerk-kaart">
     <div class="maatwerk-icon"><i class="ti ti-device-remote" aria-hidden="true"></i></div>
-    <h4>Slimme triggers &amp; koppelingen</h4>
+    <h4>Slimme triggers & koppelingen</h4>
     <p>Als dit gebeurt, doet de woning dat. Bewegingssensor, deurcontact, tijdstip — oneindig combineerbaar.</p>
   </div>
   <div class="maatwerk-kaart maatwerk-kaart--accent">
@@ -621,6 +622,16 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="faq-antwoord"><p>Google Home is een consumentenapp van Google — handig voor losse apparaten zoals slimme lampen of een Nest-thermostaat, maar geschikt voor energiesystemen is het niet. Het draait volledig via de cloud (geen internet = geen sturing), heeft nauwelijks integraties met omvormers, warmtepompen of laadpalen, en de automatiseringslogica is te beperkt voor echte energieoptimalisatie.</p><p style="margin-top:0.75rem;">Home Assistant is een open source platform dat lokaal draait op eigen hardware in jouw woning. Het ondersteunt meer dan 3.000 integraties — waaronder de meeste omvormers, batterijen, warmtepompen, airco's en laadpalen. Automatiseringen kunnen volledig op maat: op basis van zonneopbrengst, batterijstatus, stroomprijs of tijdstip. Geen maandelijkse kosten, geen datadeling met derden, en alles blijft werken zonder internetverbinding.</p><p style="margin-top:0.75rem;">ThuisBrein werkt met Home Assistant als sturinglaag — precies omdat het de enige serieuze optie is als je systemen echt wilt laten samenwerken.</p></div>
 </div>
 
+<div class="faq-item">
+<button class="faq-vraag" aria-expanded="false">Zijn er alternatieven voor Home Assistant?<i class="ti ti-chevron-down" aria-hidden="true"></i></button>
+<div class="faq-antwoord"><p>Ja, er zijn alternatieven — maar voor wat ThuisBrein doet blijft Home Assistant de beste keuze. Een kort overzicht:</p>
+<p style="margin-top:0.75rem;"><strong>Open source:</strong> openHAB en Domoticz zijn vergelijkbare lokale platforms. Ze werken, maar hebben een kleinere community, minder integraties en een oudere interface. Voor energiesystemen minder geschikt.</p>
+<p style="margin-top:0.75rem;"><strong>Homey (Nederlands product):</strong> gebruiksvriendelijk en mooi, maar cloud-afhankelijk en duurder in gebruik. Voor complexe energieautomatisering te beperkt.</p>
+<p style="margin-top:0.75rem;"><strong>KNX en Loxone:</strong> professionele systemen voor nieuwbouw en grote projecten. Robuust, maar duur en vereisen een gecertificeerde installateur. Overkill voor de meeste woningen.</p>
+<p style="margin-top:0.75rem;"><strong>Google Home / Apple HomeKit / Alexa:</strong> consumentenplatforms zonder serieuze energiesysteem-integraties. Niet geschikt voor warmtepompen, omvormers of laadpalen.</p>
+<p style="margin-top:0.75rem;">Home Assistant wint op alle punten die voor ThuisBrein tellen: lokaal, gratis, 3.000+ integraties, grote community en actief ontwikkeld. Daarom werken wij er standaard mee.</p></div>
+</div>
+
 </div>
 </section>
 <div class="contact-slot" id="contact">
@@ -660,9 +671,7 @@ App mij op WhatsApp
 <footer>
 <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
 <div class="footer-links">
-<a href="pricing.html">Prijzen</a>
-<a href="systemen.html">Systemen</a>
-<a href="privacy.html">Privacy</a>
+<a href="pricing.html">Prijzen</a> <a href="systemen.html">Systemen</a>
 <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
 </div>
 <p>KVK 88372952 · Midden &amp; zuidoost Nederland</p>
@@ -688,3 +697,14 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
