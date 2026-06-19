@@ -176,7 +176,8 @@ section { padding: 5rem 2rem; }
 .wie-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: 0.75rem; }
 .wie-card h4 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
 .wie-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
-.werkgebied { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 2rem; }
+.werkgebied { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.werkgebied-outer { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
 .werkgebied-inner { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
 .werkgebied-text { flex: 1; min-width: 260px; }
 .werkgebied-kaart { display: flex; align-items: center; gap: 1rem; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.75rem; }
@@ -281,7 +282,8 @@ footer { flex-direction: column; align-items: flex-start; }
 .check-prijs span { font-family: 'DM Sans', sans-serif; font-size: 15px; color: rgba(255,255,255,0.45); font-weight: 300; letter-spacing: 0; margin-left: 4px; }
 .check-sub { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 1rem; }
 
-.netwerk-sectie { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 2rem; }
+.netwerk-sectie { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.netwerk-sectie-inner { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
 .netwerk-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.75rem; margin-bottom: 1.5rem; }
 .netwerk-tag { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--navy); }
 .wizard-sectie { background: var(--white); border-bottom: 1px solid var(--border); }
@@ -571,6 +573,7 @@ footer { flex-direction: column; align-items: flex-start; }
 </section>
 
 <section class="netwerk-sectie">
+<div class="netwerk-sectie-inner">
 <div class="section-label">Installateursnetwerk</div>
 <div class="section-title">De juiste vakman<br>voor elk systeem.</div>
 <p class="section-body">De slimme laag installeer ik zelf. Voor de onderliggende systemen — zonnepanelen, warmtepomp, laadpaal — werk ik samen met een selectief netwerk van gecertificeerde installateurs die ik persoonlijk ken en vertrouw. Geen willekeurige lijst, maar vakmensen waar ik voor instaat.</p>
@@ -590,9 +593,11 @@ footer { flex-direction: column; align-items: flex-start; }
   </div>
   <a href="#contact" class="netwerk-banner-cta">Meld je aan</a>
 </div>
+</div>
 </section>
 
 <section class="werkgebied">
+<div class="werkgebied-outer">
 <div class="werkgebied-inner">
 <div class="werkgebied-text">
 <div class="section-label">Werkgebied</div>
@@ -604,6 +609,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <div>
 <h4>~50 km rondom Oss</h4>
 <p>Oss · Den Bosch · Eindhoven · Nijmegen · Arnhem · Utrecht</p>
+</div>
 </div>
 </div>
 </div>
