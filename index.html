@@ -202,6 +202,21 @@ section { padding: 5rem 2rem; }
 .werkgebied-kaart i { font-size: 32px; color: var(--green-mid); }
 .werkgebied-kaart h4 { font-size: 15px; font-weight: 500; color: var(--navy); }
 .werkgebied-kaart p { font-size: 13px; color: var(--text-muted); }
+.filosofie { background: var(--navy); }
+.filosofie .inner { padding: 5rem 2rem; }
+.filosofie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.filosofie-intro { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 300; color: white; letter-spacing: -1px; line-height: 1.2; margin-bottom: 1.5rem; }
+.filosofie-intro em { color: #97C459; font-style: italic; }
+.filosofie-sub { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; }
+.filosofie-items { display: flex; flex-direction: column; gap: 0; }
+.filosofie-item { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); align-items: flex-start; }
+.filosofie-item:last-child { border-bottom: none; }
+.filosofie-item-nr { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: rgba(99,153,34,0.5); min-width: 28px; line-height: 1.4; }
+.filosofie-item-text { flex: 1; }
+.filosofie-item-text strong { display: block; font-size: 15px; font-weight: 500; color: white; margin-bottom: 4px; }
+.filosofie-item-text p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin: 0; }
+.filosofie-slogan { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-family: 'Fraunces', serif; font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.4); font-style: italic; }
+@media (max-width: 720px) { .filosofie-grid { grid-template-columns: 1fr; gap: 2.5rem; } .filosofie-intro { font-size: 28px; } }
 .over { background: var(--white); border-bottom: 1px solid var(--border); }
 .over-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 .over-foto { width: 100%; border-radius: 16px; object-fit: cover; aspect-ratio: 3/4; max-height: 480px; }
@@ -681,6 +696,49 @@ footer { flex-direction: column; align-items: flex-start; }
 </div>
 </div>
 </section>
+<section class="filosofie">
+<div class="inner">
+  <div class="filosofie-grid">
+    <div>
+      <div class="section-label" style="color:#97C459">Onze filosofie</div>
+      <h2 class="filosofie-intro">Technologie die je opmerkt,<br><em>werkt niet goed genoeg.</em></h2>
+      <p class="filosofie-sub">Slimme apparaten die je gewoontes doorbreken zijn geen vooruitgang. ThuisBrein werkt op de achtergrond — stille sturing die je pas mist als ze er niet meer is.</p>
+      <p class="filosofie-slogan">"Goede automatisering merk je niet op. Maar je mist het als het er niet is."</p>
+    </div>
+    <div class="filosofie-items">
+      <div class="filosofie-item">
+        <span class="filosofie-item-nr">01</span>
+        <div class="filosofie-item-text">
+          <strong>Technologie past zich aan jou aan</strong>
+          <p>Als je je telefoon moet pakken om het licht aan te doen, heeft de technologie gefaald. Automatisering werkt náást je gewoontes — niet ertegen.</p>
+        </div>
+      </div>
+      <div class="filosofie-item">
+        <span class="filosofie-item-nr">02</span>
+        <div class="filosofie-item-text">
+          <strong>Jij bent niet de enige gebruiker</strong>
+          <p>Anderen in huis willen gewoon dat dingen werken. Een systeem dat 90% van de tijd klopt geeft 10% frustratie — en dat is onaanvaardbaar voor huisgenoten die er niet voor gekozen hebben.</p>
+        </div>
+      </div>
+      <div class="filosofie-item">
+        <span class="filosofie-item-nr">03</span>
+        <div class="filosofie-item-text">
+          <strong>Storingen hebben geen grote gevolgen</strong>
+          <p>Elk slim systeem gaat ooit stukgaan. Apparaten vallen dan terug op normaal gedrag — een lamp doet het gewoon, een thermostaat blijft op temperatuur.</p>
+        </div>
+      </div>
+      <div class="filosofie-item">
+        <span class="filosofie-item-nr">04</span>
+        <div class="filosofie-item-text">
+          <strong>Lokaal, niet in de cloud</strong>
+          <p>Als je internetverbinding wegvalt, werkt je huis gewoon door. De cloud is een aanvulling — nooit een fundering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
 <section class="over" id="over"><div class="inner">
 <div class="over-inner">
 <img src="Thomasthuisbrein.jpg" alt="Thomas Branderhorst — Thuisbrein" class="over-foto">
