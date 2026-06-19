@@ -96,7 +96,24 @@ section { padding: 5rem 2rem; }
 .section-label { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
 .section-title { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 300; color: var(--navy); letter-spacing: -1px; line-height: 1.2; margin-bottom: 1rem; }
 .section-body { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 520px; }
-.problemen { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.saldering-sectie { background: #1A2B3C; border-top: 3px solid #E87040; }
+.saldering-sectie .inner { padding: 3rem 2rem; }
+.saldering-tag { display: inline-block; background: #E87040; color: white; font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+.saldering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.saldering-grid h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: white; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 1rem; }
+.saldering-grid h2 em { color: #E87040; font-style: italic; }
+.saldering-grid p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 300; }
+.saldering-cta { display: inline-flex; align-items: center; gap: 8px; background: #E87040; color: white; padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
+.saldering-cta:hover { opacity: 0.85; }
+.saldering-tijdlijn { display: flex; flex-direction: column; gap: 0; }
+.saldering-jaar { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.saldering-jaar:last-child { border-bottom: none; }
+.saldering-jaar .jaar { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); min-width: 40px; }
+.saldering-jaar .balk-wrap { flex: 1; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+.saldering-jaar .balk { height: 8px; border-radius: 4px; transition: width 0.3s; }
+.saldering-jaar .pct { font-size: 12px; color: rgba(255,255,255,0.5); min-width: 36px; text-align: right; }
+.saldering-jaar.huidig .jaar { color: #97C459; font-weight: 600; }
+@media (max-width: 720px) { .saldering-grid { grid-template-columns: 1fr; gap: 2rem; } }
 .prob-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
 .prob-card { background: var(--white); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border); }
 .prob-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--sand); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 20px; color: var(--navy); }
@@ -348,6 +365,55 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="stamp"><div class="stamp-dot"></div><span>Midden en zuidoost Nederland</span></div>
 </div>
 </div>
+<section class="saldering-sectie">
+<div class="inner">
+  <div class="saldering-grid">
+    <div>
+      <span class="saldering-tag">⚠ Saldering stopt — vanaf 2027</span>
+      <h2>Jouw zonnepanelen leveren straks <em>minder op.</em></h2>
+      <p>Heb je al zonnepanelen? Vanaf 1 januari 2027 kun je teruggeleverde stroom niet meer wegstrepen. Je ontvangt nog maar een fractie van de waarde — en energieleveranciers rekenen terugleverkosten. Voor veel huishoudens betekent dat €200–€900 per jaar minder opbrengst.</p>
+      <p>ThuisBrein zorgt dat jouw woning zoveel mogelijk op eigen stroom draait. Minder terugleveren, meer zelf gebruiken — automatisch, zonder dat je er iets voor hoeft te doen.</p>
+      <a href="besparing.html" class="saldering-cta">Bereken jouw verlies na 2027 →</a>
+    </div>
+    <div>
+      <div class="saldering-tijdlijn">
+        <div class="saldering-jaar huidig">
+          <span class="jaar">2026</span>
+          <div class="balk-wrap"><div class="balk" style="width:69%;background:#97C459"></div></div>
+          <span class="pct">69%</span>
+        </div>
+        <div class="saldering-jaar">
+          <span class="jaar">2027</span>
+          <div class="balk-wrap"><div class="balk" style="width:64%;background:#EF9F27"></div></div>
+          <span class="pct">64%</span>
+        </div>
+        <div class="saldering-jaar">
+          <span class="jaar">2028</span>
+          <div class="balk-wrap"><div class="balk" style="width:53%;background:#EF9F27"></div></div>
+          <span class="pct">53%</span>
+        </div>
+        <div class="saldering-jaar">
+          <span class="jaar">2029</span>
+          <div class="balk-wrap"><div class="balk" style="width:41%;background:#E87040"></div></div>
+          <span class="pct">41%</span>
+        </div>
+        <div class="saldering-jaar">
+          <span class="jaar">2030</span>
+          <div class="balk-wrap"><div class="balk" style="width:28%;background:#E87040"></div></div>
+          <span class="pct">28%</span>
+        </div>
+        <div class="saldering-jaar">
+          <span class="jaar">2031</span>
+          <div class="balk-wrap"><div class="balk" style="width:4%;background:#C03020"></div></div>
+          <span class="pct" style="color:#C03020">0%</span>
+        </div>
+      </div>
+      <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:1rem;">% van teruggeleverde stroom dat nog gesaldeerd mag worden · Bron: Rijksoverheid</p>
+    </div>
+  </div>
+</div>
+</section>
+
 <section class="problemen"><div class="inner">
 <div class="section-label">Herkenbaar?</div>
 <div class="section-title">Je hebt de systemen al.<br>Alleen werken ze niet samen.</div>
