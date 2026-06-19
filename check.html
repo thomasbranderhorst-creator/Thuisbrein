@@ -142,6 +142,7 @@ const vragen = [
     multi: false,
     opties: [
       { label: "Ik woon er zelf in (koopwoning)", value: 2, icon: "🏠" },
+      { label: "Ik heb al zonnepanelen maar geen slimme sturing", value: 4, icon: "☀️" },
       { label: "Ik verhuur de woning", value: 3, icon: "🏘️" },
       { label: "Ik huur de woning", value: -1, icon: "🔑" },
     ]
@@ -237,7 +238,13 @@ function getUitkomst() {
     tekst: "Voor installaties heb ik toestemming van de eigenaar nodig. Huur je van een woningcorporatie of particuliere verhuurder die wil verduurzamen? Stuur ze gerust mijn kant op.",
     actie: "mail", actieTekst: "Toch contact opnemen"
   };
-  if (eig === 3) return {
+  // Al panelen maar geen sturing → directe groene lead
+  if (eig === 4) return {
+    kleur: "groen", dot: "#3B6D11", label: "Directe match",
+    titel: "Saldering stopt — jij hebt nu actie nodig.",
+    tekst: "Vanaf 2027 levert terugleveren veel minder op. ThuisBrein zorgt dat jouw zonnestroom zoveel mogelijk in huis blijft — automatisch. Geen dure batterij noodzakelijk, al helpt het wel. Een kennismaking duurt een uur.",
+    actie: "whatsapp", actieTekst: "Plan een kennismaking via WhatsApp"
+  };
     kleur: "groen", dot: "#3B6D11", label: "Interessante lead",
     titel: "Verhuurders zijn juist een mooie markt.",
     tekst: "Verduurzaming van huurwoningen wordt steeds relevanter — voor energielabels, huurwaarde en wetgeving. Ik doe dit graag op maat voor één woning of een heel portfolio. Laten we even bellen.",
@@ -406,8 +413,8 @@ function volgende() {
   } else {
     if (geselecteerd === null) return;
     antwoorden[vraag.id] = geselecteerd;
-    // Huurder of verhuurder → direct naar resultaat
-    if (vraag.id === "eigendom" && (geselecteerd === -1 || geselecteerd === 3)) {
+    // Huurder, verhuurder of al-panelen → direct naar resultaat
+    if (vraag.id === "eigendom" && (geselecteerd === -1 || geselecteerd === 3 || geselecteerd === 4)) {
       geselecteerd = null;
       stap = TOTAAL + 1;
       render();
