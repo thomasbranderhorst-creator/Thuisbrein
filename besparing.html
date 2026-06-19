@@ -83,6 +83,27 @@
 
     .btn-wa-groen { display: flex; align-items: center; gap: 10px; background: var(--whatsapp); color: white; padding: 13px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; justify-content: center; }
 
+    /* SALDERING SECTIE */
+    .saldering-blok { padding: 0 2rem 4rem; }
+    .saldering-blok h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--navy); letter-spacing: -0.8px; margin-bottom: 0.5rem; }
+    .saldering-blok > p { font-size: 15px; color: var(--text-muted); margin-bottom: 2rem; font-weight: 300; }
+    .saldering-rekentool { background: #1A2B3C; border-radius: 20px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .saldering-invoer label { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); display: block; margin-bottom: 0.75rem; }
+    .saldering-invoer .vraag-blok { background: rgba(255,255,255,0.06); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .saldering-invoer input[type=range] { accent-color: #E87040; width: 100%; }
+    .saldering-invoer .range-val { font-size: 15px; font-weight: 500; color: white; }
+    .saldering-uitkomst h3 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
+    .sald-verlies { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 300; color: #E87040; letter-spacing: -2px; line-height: 1; margin-bottom: 0.25rem; }
+    .sald-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+    .sald-rows { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0; }
+    .sald-row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .sald-row span:first-child { color: rgba(255,255,255,0.5); }
+    .sald-row span:last-child { font-weight: 500; color: rgba(255,255,255,0.85); }
+    .sald-oplossing { background: rgba(99,153,34,0.15); border: 1px solid rgba(99,153,34,0.3); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 1.5rem; }
+    .sald-oplossing p { font-size: 13px; color: #97C459; line-height: 1.65; }
+    .sald-oplossing strong { color: white; }
+    @media (max-width: 720px) { .saldering-rekentool { grid-template-columns: 1fr; } .saldering-blok { padding: 0 1.25rem 3rem; } }
+
     /* CASUSSEN */
     .casussen { padding: 0 2rem 5rem; }
     .casussen h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--navy); letter-spacing: -0.8px; margin-bottom: 0.5rem; }
@@ -265,6 +286,53 @@
   </section>
 
   <!-- PRAKTIJKVOORBEELDEN -->
+  <!-- SALDERING REKENTOOL -->
+  <section class="saldering-blok">
+    <h2>Wat kost jou de salderingsafbouw?</h2>
+    <p>Heb je al zonnepanelen? Bereken hoeveel je per jaar misloopt na 2027 — en hoeveel ThuisBrein je bespaart.</p>
+    <div class="saldering-rekentool">
+      <div class="saldering-invoer">
+        <div class="vraag-blok">
+          <label>Jaarlijkse opwek zonnepanelen</label>
+          <div class="range-wrap">
+            <input type="range" id="s-opwek" min="1000" max="8000" step="250" value="3500" oninput="berekenSaldering()">
+            <span class="range-val" id="s-opwek-val">3.500 kWh</span>
+          </div>
+        </div>
+        <div class="vraag-blok">
+          <label>Eigenverbruik nu (zonder sturing)</label>
+          <div class="range-wrap">
+            <input type="range" id="s-eigen" min="20" max="80" step="5" value="30" oninput="berekenSaldering()">
+            <span class="range-val" id="s-eigen-val">30%</span>
+          </div>
+        </div>
+        <div class="vraag-blok">
+          <label>Huidig stroomtarief</label>
+          <div class="range-wrap">
+            <input type="range" id="s-tarief" min="0.22" max="0.45" step="0.01" value="0.31" oninput="berekenSaldering()">
+            <span class="range-val" id="s-tarief-val">€0,31/kWh</span>
+          </div>
+        </div>
+        <div class="vraag-blok">
+          <label>Terugleverkosten per kWh</label>
+          <div class="range-wrap">
+            <input type="range" id="s-tlk" min="0.00" max="0.12" step="0.01" value="0.05" oninput="berekenSaldering()">
+            <span class="range-val" id="s-tlk-val">€0,05/kWh</span>
+          </div>
+        </div>
+      </div>
+      <div class="saldering-uitkomst">
+        <h3>Jaarlijks verlies na 2027</h3>
+        <div class="sald-verlies" id="sald-verlies">€ —</div>
+        <p class="sald-sub" id="sald-sub">Vul je situatie in.</p>
+        <div class="sald-rows" id="sald-rows"></div>
+        <div class="sald-oplossing" id="sald-oplossing" style="display:none">
+          <p><strong>Met ThuisBrein:</strong> eigenverbruik stijgt naar ~70% — je teruglevering daalt drastisch. <span id="sald-winst"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="casussen">
     <h2>Praktijkvoorbeelden</h2>
     <p>Drie situaties, gebaseerd op ervaringen van Nederlandse huishoudens.</p>
@@ -451,6 +519,44 @@ document.querySelectorAll('.nav-mobile a').forEach(a => {
 });
 
 bereken();
-</script>
+
+function berekenSaldering() {
+  const opwek  = +document.getElementById('s-opwek').value;
+  const eigen  = +document.getElementById('s-eigen').value / 100;
+  const tarief = +document.getElementById('s-tarief').value;
+  const tlk    = +document.getElementById('s-tlk').value;
+
+  document.getElementById('s-opwek-val').textContent  = opwek.toLocaleString('nl') + ' kWh';
+  document.getElementById('s-eigen-val').textContent  = Math.round(eigen * 100) + '%';
+  document.getElementById('s-tarief-val').textContent = '€' + tarief.toFixed(2).replace('.', ',') + '/kWh';
+  document.getElementById('s-tlk-val').textContent    = '€' + tlk.toFixed(2).replace('.', ',') + '/kWh';
+
+  const terugNu       = opwek * (1 - eigen);
+  const waardeNu      = terugNu * tarief;
+  const teruglevertarief = 0.08;
+  const waardeNa      = terugNu * teruglevertarief - terugNu * tlk;
+  const verlies       = Math.round(waardeNu - waardeNa);
+
+  // Met ThuisBrein: eigenverbruik naar 70%
+  const terugTB       = opwek * 0.30;
+  const waardeTB      = terugTB * teruglevertarief - terugTB * tlk;
+  const verliesTB     = Math.round(waardeNu - waardeTB);
+
+  document.getElementById('sald-verlies').textContent = '− € ' + verlies.toLocaleString('nl');
+  document.getElementById('sald-sub').textContent = 'minder opbrengst per jaar na 2027 (zonder sturing)';
+
+  document.getElementById('sald-rows').innerHTML = `
+    <div class="sald-row"><span>Teruggeleverd zonder sturing</span><span>${Math.round(terugNu).toLocaleString('nl')} kWh/jaar</span></div>
+    <div class="sald-row"><span>Waarde teruglevering nu (saldering)</span><span>€ ${Math.round(waardeNu).toLocaleString('nl')}</span></div>
+    <div class="sald-row"><span>Waarde teruglevering na 2027</span><span style="color:#E87040">€ ${Math.max(0,Math.round(waardeNa)).toLocaleString('nl')}</span></div>
+    <div class="sald-row"><span>Jaarlijks verlies zonder sturing</span><span style="color:#E87040">− € ${verlies.toLocaleString('nl')}</span></div>
+    <div class="sald-row" style="border-top:1px solid rgba(99,153,34,0.3);margin-top:4px;padding-top:8px"><span style="color:#97C459">Verlies mét ThuisBrein</span><span style="color:#97C459">− € ${verliesTB.toLocaleString('nl')}</span></div>
+  `;
+
+  document.getElementById('sald-oplossing').style.display = '';
+  document.getElementById('sald-winst').textContent =
+    `Je bespaart €${Math.max(0, verlies - verliesTB).toLocaleString('nl')} extra per jaar door meer zelf te verbruiken.`;
+}
+berekenSaldering();
 </body>
 </html>
