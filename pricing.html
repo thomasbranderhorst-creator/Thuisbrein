@@ -74,6 +74,20 @@
     .card-cta.secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
     .card-cta.secondary:hover { border-color: rgba(26,43,60,0.3); }
     .uurtarief { background: var(--sand); border-radius: 16px; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; border: 1px solid var(--border); }
+    .pakketten { margin-bottom: 3.5rem; }
+    .pakketten-intro h2 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 0.5rem; }
+    .pakketten-intro p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 2rem; }
+    .pakketten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .pakket-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color 0.2s; }
+    .pakket-card:hover { border-color: rgba(26,43,60,0.25); }
+    .pakket-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 1rem; }
+    .pakket-card h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .pakket-card .pakket-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.1rem; flex: 1; }
+    .pakket-systemen { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+    .pakket-tag { font-size: 11px; color: var(--navy); background: var(--sand); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; }
+    .pakket-vanaf { font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.9rem; }
+    .pakket-vanaf strong { color: var(--navy); font-weight: 500; font-size: 14px; }
+    .pakketten-note { font-size: 13px; color: var(--text-muted); font-style: italic; }
     .uurtarief-left h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--navy); margin-bottom: 0.4rem; letter-spacing: -0.5px; }
     .uurtarief-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 400px; }
     .uurtarief-right { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 300; color: var(--navy); letter-spacing: -1px; white-space: nowrap; }
@@ -150,7 +164,6 @@
     <a href="systemen.html">Systemen</a>
     <a href="pricing.html">Prijzen</a>
     <a href="besparing.html">Besparing</a>
-      <a href="besparing.html">Besparing</a>
     <a href="check.html">Woningcheck</a>
     <a href="index.html#contact">Plan kennismaking</a>
   </div>
@@ -194,6 +207,51 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="pakketten">
+      <div class="pakketten-intro">
+        <h2>Veelgekozen pakketten</h2>
+        <p>Drie situaties die ik vaak tegenkom. Herken je je woning hierin? Dan weet je meteen welke systemen we koppelen — de prijs is altijd op basis van het tarief hieronder.</p>
+      </div>
+      <div class="pakketten-grid">
+        <div class="pakket-card">
+          <div class="pakket-icon" style="background:#E6F1FB; color:#185FA5;"><i class="ti ti-sun" aria-hidden="true"></i></div>
+          <h3>Zon &amp; Batterij</h3>
+          <p class="pakket-desc">Je hebt zonnepanelen, misschien een thuisbatterij, maar opwek en verbruik werken niet samen. Ik koppel ze zodat je stroom optimaal benut — ook met het oog op de salderingsafbouw.</p>
+          <div class="pakket-systemen">
+            <span class="pakket-tag">Zonnepanelen</span>
+            <span class="pakket-tag">Thuisbatterij</span>
+            <span class="pakket-tag">Energie-inzicht</span>
+          </div>
+          <div class="pakket-vanaf">Vanaf <strong>&euro; 450</strong> — 3 systemen inbegrepen</div>
+        </div>
+
+        <div class="pakket-card">
+          <div class="pakket-icon" style="background:#FAEEDA; color:#854F0B;"><i class="ti ti-temperature" aria-hidden="true"></i></div>
+          <h3>Comfort &amp; Klimaat</h3>
+          <p class="pakket-desc">CV-ketel of warmtepomp en airco draaien nu los van elkaar. Ik stem ze op elkaar af tot zones en automatische regeling — comfortabel en zuiniger, zonder zelf te schakelen.</p>
+          <div class="pakket-systemen">
+            <span class="pakket-tag">CV / warmtepomp</span>
+            <span class="pakket-tag">Airco</span>
+            <span class="pakket-tag">Zone-regeling</span>
+          </div>
+          <div class="pakket-vanaf">Vanaf <strong>&euro; 450</strong> — 3 systemen inbegrepen</div>
+        </div>
+
+        <div class="pakket-card">
+          <div class="pakket-icon" style="background:#EAF3DE; color:#3B6D11;"><i class="ti ti-car" aria-hidden="true"></i></div>
+          <h3>Volledig Elektrisch</h3>
+          <p class="pakket-desc">Zonnepanelen, batterij en een laadpaal — maar de auto laadt niet automatisch op je eigen stroom. Ik koppel alles zodat er zoveel mogelijk op eigen opwek geladen wordt.</p>
+          <div class="pakket-systemen">
+            <span class="pakket-tag">Zonnepanelen</span>
+            <span class="pakket-tag">Thuisbatterij</span>
+            <span class="pakket-tag">Laadpaal</span>
+          </div>
+          <div class="pakket-vanaf">Vanaf <strong>&euro; 450</strong> — 3 systemen inbegrepen</div>
+        </div>
+      </div>
+      <p class="pakketten-note">Past jouw situatie niet precies in een pakket? Geen probleem — bij de installatie kies je gewoon zelf welke 3 systemen gekoppeld worden.</p>
     </div>
 
     <div class="pricing-grid pricing-grid--single">
