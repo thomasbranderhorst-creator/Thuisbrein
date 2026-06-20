@@ -416,6 +416,7 @@ function setToggle(sleutel, waarde, knop) {
 }
 
 function bereken() {
+ try {
   const verbruik = +document.getElementById('verbruik').value;
   const tarief   = +document.getElementById('tarief').value;
   const pv       = +document.getElementById('pv').value;
@@ -508,6 +509,9 @@ function bereken() {
   const tvj = totaal > 0 ? (450 / totaal).toFixed(1).replace('.',',') : '—';
   document.getElementById('terugverdien-blok').style.display = '';
   document.getElementById('res-terugverdien').textContent = tvj + ' jaar';
+ } catch (err) {
+  console.error('bereken() fout:', err);
+ }
 }
 
 // Nav
@@ -558,5 +562,6 @@ function berekenSaldering() {
     `Je bespaart €${Math.max(0, verlies - verliesTB).toLocaleString('nl')} extra per jaar door meer zelf te verbruiken.`;
 }
 berekenSaldering();
+</script>
 </body>
 </html>
