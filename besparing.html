@@ -219,6 +219,15 @@
         </div>
 
         <div class="vraag-blok">
+          <label>CV / gasketel</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn actief" onclick="setToggle('cv','gewoon',this)">Gewone thermostaat</button>
+            <button class="toggle-btn" onclick="setToggle('cv','slim',this)">Slimme thermostaat</button>
+            <button class="toggle-btn" onclick="setToggle('cv','nee',this)">Geen CV</button>
+          </div>
+        </div>
+
+                <div class="vraag-blok">
           <label>Heb je zonnepanelen?</label>
           <div class="toggle-rij">
             <button class="toggle-btn actief" onclick="setToggle('panelen','ja',this)">Ja</button>
@@ -247,14 +256,6 @@
           <div class="toggle-rij">
             <button class="toggle-btn" onclick="setToggle('wp','ja',this)">Ja</button>
             <button class="toggle-btn actief" onclick="setToggle('wp','nee',this)">Nee</button>
-          </div>
-        </div>
-
-        <div class="vraag-blok">
-          <label>CV / gasketel aanwezig?</label>
-          <div class="toggle-rij">
-            <button class="toggle-btn actief" onclick="setToggle('cv','ja',this)">Ja</button>
-            <button class="toggle-btn" onclick="setToggle('cv','nee',this)">Nee</button>
           </div>
         </div>
 
@@ -454,7 +455,7 @@
 <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
 
 <script>
-const staat = { panelen:'ja', batterij:'nee', wp:'nee', cv:'ja', airco:'nee', ev:'nee', dynamisch:'nee' };
+const staat = { panelen:'ja', batterij:'nee', wp:'nee', cv:'gewoon', airco:'nee', ev:'nee', dynamisch:'nee' };
 
 function setToggle(sleutel, waarde, knop) {
   staat[sleutel] = waarde;
@@ -506,9 +507,10 @@ function bereken() {
     totaal += euro;
   }
 
-  if (staat.cv === 'ja') {
+  if (staat.cv === 'gewoon') {
+    // Gewone thermostaat!’ ThuisBrein installeert slimme sturing: ~¬150/jaar gasbesparing
     const euro = 150;
-    items.push({ label: 'CV slimmer gestookt via smart thermostaat', euro, dot: '#E87040' });
+    items.push({ label: 'CV: slimme thermostaat via ThuisBrein', euro, dot: '#E87040' });
     totaal += euro;
   }
 
