@@ -251,6 +251,14 @@
         </div>
 
         <div class="vraag-blok">
+          <label>CV / gasketel aanwezig?</label>
+          <div class="toggle-rij">
+            <button class="toggle-btn actief" onclick="setToggle('cv','ja',this)">Ja</button>
+            <button class="toggle-btn" onclick="setToggle('cv','nee',this)">Nee</button>
+          </div>
+        </div>
+
+        <div class="vraag-blok">
           <label>Airco aanwezig?</label>
           <div class="toggle-rij">
             <button class="toggle-btn" onclick="setToggle('airco','ja',this)">Ja</button>
@@ -446,7 +454,7 @@
 <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
 
 <script>
-const staat = { panelen:'ja', batterij:'nee', wp:'nee', airco:'nee', ev:'nee', dynamisch:'nee' };
+const staat = { panelen:'ja', batterij:'nee', wp:'nee', cv:'ja', airco:'nee', ev:'nee', dynamisch:'nee' };
 
 function setToggle(sleutel, waarde, knop) {
   staat[sleutel] = waarde;
@@ -498,11 +506,23 @@ function bereken() {
     totaal += euro;
   }
 
+  if (staat.cv === 'ja') {
+    const euro = 150;
+    items.push({ label: 'CV slimmer gestookt via smart thermostaat', euro, dot: '#E87040' });
+    totaal += euro;
+  }
+
   if (staat.wp === 'ja') {
     // WP aansturing op eigen stroom: 15-25% besparing op verwarmingskosten
     // NL gemiddeld verwarmingsverbruik WP ~3.500 kWh/jaar, besparing ~20%
     const euro = Math.round(3500 * 0.20 * tarief);
     items.push({ label: 'Warmtepomp op eigen stroom', euro, dot: '#E87040' });
+    totaal += euro;
+  }
+
+  if (staat.airco === 'ja' && staat.panelen === 'nee') {
+    const euro = Math.round(150 * tarief);
+    items.push({ label: 'Airco slim ingepland op goedkoopste uren', euro, dot: '#9B6FD4' });
     totaal += euro;
   }
 
@@ -522,7 +542,7 @@ function bereken() {
 
   if (items.length === 0) {
     document.getElementById('res-totaal').textContent = '€ 0';
-    document.getElementById('res-sub').textContent = 'Met alleen een CV-ketel is er weinig te automatiseren. Voeg systemen toe om de berekening te zien.';
+    document.getElementById('res-sub').textContent = 'Selecteer welke systemen je hebt om de besparing te berekenen.';
     document.getElementById('res-range').textContent = '';
     document.getElementById('uitsplitsing').innerHTML = '';
     document.getElementById('terugverdien-blok').style.display = 'none';
@@ -605,4 +625,4 @@ berekenSaldering();
 </script>
 </body>
 </html>
-    
+     
