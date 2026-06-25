@@ -148,6 +148,16 @@ const vragen = [
     ]
   },
   {
+    id: "meterkast",
+    vraag: "Wat voor meterkast heb je?",
+    multi: false,
+    opties: [
+      { label: "Moderne groepenkast (met aardlekschakelaars)", value: 2, icon: &¡" },
+      { label: "Weet ik niet", value: 1, icon: úÿ" },
+      { label: "Stoppenkast (keramische stoppen)", value: -1, icon: & " }
+    ]
+  },
+  {
     id: "panelen",
     vraag: "Heb je zonnepanelen?",
     multi: false,
@@ -232,6 +242,13 @@ function berekenScore() {
 function getUitkomst() {
   const score = berekenScore();
   const eig = antwoorden.eigendom;
+  const mk = antwoorden.meterkast;
+  if (mk === -1) return {
+    kleur: "oranje", dot: "#E87040", label: "Beperkte start",
+    titel: "Met een stoppenkast zijn de mogelijkheden beperkt.",
+    tekst: "Een slimme thermostaat is soms nog wel mogelijk, maar voor zonnepanelen, een laadpaal of warmtepomp is eerst een moderne groepenkast nodig. Een elektricien regelt dat  daarna kan ThuisBrein alles doen.",
+    actie: "whatsapp", actieTekst: "Neem toch contact op"
+  };
   if (eig === -1) return {
     kleur: "grijs", dot: "#666", label: "Helaas",
     titel: "Huurwoningen vallen buiten ons werkgebied.",
@@ -445,4 +462,4 @@ render();
 </script>
 </body>
 </html>
-  
+    
