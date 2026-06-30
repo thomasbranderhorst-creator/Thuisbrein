@@ -1,418 +1,683 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prijzen — Thuisbrein</title>
-  <meta name="description" content="Bekijk de pakketten en tarieven van Thuisbrein. Gratis kennismaking bij je thuis.">
-  <meta property="og:title" content="Prijzen — Thuisbrein">
-  <meta property="og:description" content="Transparante prijzen voor slimme woningintegratie. Gratis kennismaking bij je thuis.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thuisbrein.nl/pricing.html">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>T</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459;
-      --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
-      --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
-      --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
-    .site { max-width: 1100px; margin: 0 auto; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
-    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
-    .nav-logo span { color: var(--green-mid); }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-links a.active { color: var(--navy); font-weight: 500; }
-    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
-    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
-    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
-    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
-    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
-    .nav-mobile.open { display: flex; }
-    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
-    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
-    .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
-    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 520px; font-weight: 300; }
-    .pricing { padding: 4rem 2rem; }
-    .intake-banner { background: var(--green-light); border: 1px solid rgba(59,109,17,0.2); border-radius: 16px; padding: 2rem; margin-bottom: 2.5rem; }
-    .intake-banner h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 1.25rem; }
-    .intake-rows { display: flex; flex-direction: column; gap: 0; }
-    .intake-row { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid rgba(59,109,17,0.15); }
-    .intake-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .intake-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 17px; }
-    .intake-row h4 { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 3px; }
-    .intake-row p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
-    .pricing-grid--single { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .price-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; }
-    .price-card.featured { border: 2px solid var(--navy); }
-    .price-card--extra { border: 1.5px solid var(--border); background: var(--sand); }
-    .price-card--check { border: 1.5px solid #639922; background: #EAF3DE; }
-    .card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; }
-    .badge-featured { background: var(--navy); color: white; font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.3px; text-transform: none; }
-    .price-amount { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1; }
-    .price-amount span { font-size: 16px; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
-    .price-note { font-size: 12px; color: var(--text-muted); margin-top: 6px; font-style: italic; }
-    .card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin: 1.25rem 0; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
-    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-    .feature-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-    .feature-list li i { font-size: 15px; color: var(--green); margin-top: 1px; flex-shrink: 0; }
-    .feature-list li.result { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-weight: 500; color: var(--navy); }
-    .feature-list li.result i { color: var(--navy); }
-    .card-cta { margin-top: 1.75rem; display: block; text-align: center; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
-    .card-cta.primary { background: var(--navy); color: white; }
-    .card-cta.primary:hover { background: var(--navy-mid); }
-    .card-cta.secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
-    .card-cta.secondary:hover { border-color: rgba(26,43,60,0.3); }
-    .uurtarief { background: var(--sand); border-radius: 16px; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; border: 1px solid var(--border); }
-    .pakketten { margin-bottom: 3.5rem; }
-    .pakketten-intro h2 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 0.5rem; }
-    .pakketten-intro p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 2rem; }
-    .pakketten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem; }
-    .pakket-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color 0.2s; }
-    .pakket-card:hover { border-color: rgba(26,43,60,0.25); }
-    .pakket-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 19px; margin-bottom: 1rem; }
-    .pakket-card h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 0.5rem; }
-    .pakket-card .pakket-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.1rem; flex: 1; }
-    .pakket-systemen { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
-    .pakket-tag { font-size: 11px; color: var(--navy); background: var(--sand); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; }
-    .pakket-vanaf { font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.9rem; }
-    .pakket-vanaf strong { color: var(--navy); font-weight: 500; font-size: 14px; }
-    .pakketten-note { font-size: 13px; color: var(--text-muted); font-style: italic; }
-    .uurtarief-left h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--navy); margin-bottom: 0.4rem; letter-spacing: -0.5px; }
-    .uurtarief-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 400px; }
-    .uurtarief-right { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 300; color: var(--navy); letter-spacing: -1px; white-space: nowrap; }
-    .uurtarief-right span { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400; color: var(--text-muted); letter-spacing: 0; }
-    .faq { padding: 0 2rem 4rem; }
-    .faq-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 1.5rem; }
-    .faq-list { display: flex; flex-direction: column; max-width: 680px; }
-    .faq-item { border-top: 1px solid var(--border); padding: 1.25rem 0; }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-q { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
-    .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
-    .cta-slot { background: var(--navy); padding: 4rem 2rem; }
-    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 900px; }
-    .contact-left h2 { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 300; color: white; letter-spacing: -0.8px; margin-bottom: 1rem; line-height: 1.2; }
-    .contact-left p { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 2rem; line-height: 1.7; }
-    .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: var(--whatsapp); color: white; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
-    .btn-whatsapp:hover { opacity: 0.9; }
-    .contact-details { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
-    .contact-item { display: flex; align-items: center; gap: 12px; }
-    .contact-item i { font-size: 18px; color: rgba(255,255,255,0.4); }
-    .contact-item a, .contact-item span { font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; }
-    .contact-item a:hover { color: white; }
-    .contact-right { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; }
-    .contact-right h3 { font-size: 14px; font-weight: 500; color: white; margin-bottom: 1.25rem; }
-    .contact-kvk { display: flex; flex-direction: column; gap: 0; }
-    .kvk-row { display: flex; justify-content: space-between; font-size: 13px; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .kvk-row:last-child { border-bottom: none; }
-    .kvk-row span:first-child { color: rgba(255,255,255,0.45); }
-    .kvk-row span:last-child { color: rgba(255,255,255,0.8); font-weight: 500; }
-    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
-    .whatsapp-float:hover { transform: scale(1.08); }
-    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
-    .footer-logo span { color: var(--green-mid); }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
-    footer p { font-size: 12px; color: var(--text-muted); }
-    @media (max-width: 768px) {
-      .page-header h1 { font-size: 36px; }
-      .nav-links { display: none; }
-      .nav-hamburger { display: block; }
-      .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .uurtarief { flex-direction: column; }
-    }
-    @media (max-width: 480px) {
-      .page-header { padding: 3rem 1.25rem 2.5rem; }
-      .pricing { padding: 3rem 1.25rem; }
-      .faq { padding: 0 1.25rem 3rem; }
-      .cta-slot { padding: 3rem 1.25rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pakketten &amp; Prijzen — Thuisbrein</title>
+<meta name="description" content="Bekijk de pakketten van Thuisbrein. Slimme thermostaat, ThuisBrein Hub of alles in één — vaste prijs, geen verrassingen.">
+<meta property="og:title" content="Pakketten &amp; Prijzen — Thuisbrein">
+<meta property="og:description" content="Slimme thermostaat of volledige ThuisBrein Hub. Vaste prijs, inclusief installatie.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thuisbrein.nl/pricing.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --sand-dark: #E8E0D0;
+  --navy: #1A2B3C;
+  --navy-mid: #2E4459;
+  --green: #3B6D11;
+  --green-light: #EAF3DE;
+  --green-mid: #639922;
+  --text: #1A2B3C;
+  --text-muted: #5F6E7A;
+  --white: #FFFFFF;
+  --border: rgba(26,43,60,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── NAV ─── */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+.nav-logo span { color: var(--green-mid); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); font-weight: 500; }
+.nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+.nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+.nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+.nav-mobile.open { display: flex; }
+
+/* ─── ADVIESBALK BOVENAAN ─── */
+.advies-balk {
+  background: var(--green-light);
+  border-bottom: 1px solid rgba(99,153,34,0.25);
+  padding: 0.9rem 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.advies-balk-tekst {
+  font-size: 14px;
+  color: var(--green);
+  font-weight: 400;
+}
+.advies-balk-tekst strong { font-weight: 500; }
+.btn-advies-balk {
+  background: var(--green-mid);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.btn-advies-balk:hover { background: var(--green); }
+
+/* ─── SECTIE HEADER ─── */
+.pakketten-sectie { padding: 4rem 2rem 5rem; background: var(--white); }
+.pakketten-inner { max-width: 1080px; margin: 0 auto; }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
+.section-title { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 300; color: var(--navy); letter-spacing: -1px; line-height: 1.2; margin-bottom: 0.75rem; }
+.section-title em { font-style: italic; color: var(--green-mid); }
+.section-body { font-size: 15px; color: var(--text-muted); line-height: 1.75; max-width: 560px; margin-bottom: 3rem; font-weight: 300; }
+
+/* ─── PAKKET CARDS ─── */
+.pakketten-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.pakket-card { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s; }
+.pakket-card:hover { box-shadow: 0 8px 32px rgba(26,43,60,0.10); }
+.pakket-card.featured { border-color: var(--green-mid); position: relative; }
+.featured-badge { position: absolute; top: -1px; right: 24px; background: var(--green-mid); color: white; font-size: 10px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 12px; border-radius: 0 0 8px 8px; }
+.pakket-header { padding: 1.75rem 1.75rem 1.25rem; border-bottom: 1px solid var(--border); background: var(--sand); }
+.pakket-card.featured .pakket-header { background: var(--green-light); }
+.pakket-naam { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--navy); letter-spacing: -0.4px; margin-bottom: 0.4rem; }
+.pakket-tagline { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
+.pakket-prijs-blok { padding: 1.5rem 1.75rem 1rem; }
+.pakket-prijs-label { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+.pakket-prijs-van { font-size: 13px; color: var(--text-muted); margin-bottom: 0.15rem; }
+.pakket-prijs-bedrag { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1; margin-bottom: 0.25rem; }
+.pakket-prijs-bedrag span { font-size: 18px; font-weight: 400; letter-spacing: 0; vertical-align: super; margin-right: 2px; }
+.pakket-prijs-note { font-size: 12px; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+/* ─── THERMOSTAAT KEUZE ─── */
+.thermostaat-keuze { padding: 0 1.75rem 1rem; }
+.keuze-label { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+.thermostaat-opties { display: flex; flex-direction: column; gap: 0.5rem; }
+.therm-optie { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; border-radius: 7px; border: 1.5px solid var(--border); cursor: pointer; transition: border-color 0.15s, background 0.15s; font-size: 13px; }
+.therm-optie:hover { border-color: var(--green-mid); background: var(--green-light); }
+.therm-optie.actief { border-color: var(--green-mid); background: var(--green-light); }
+.therm-merk { font-weight: 500; color: var(--navy); }
+.therm-sub { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+.therm-prijs { font-size: 13px; color: var(--text-muted); white-space: nowrap; margin-left: 0.5rem; }
+
+/* ─── INHOUD ─── */
+.pakket-inhoud { padding: 0 1.75rem 1rem; flex: 1; display: flex; flex-direction: column; gap: 0.45rem; }
+.inhoud-divider { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; margin-top: 0.25rem; }
+.inhoud-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 13px; color: var(--text-muted); line-height: 1.45; }
+.inhoud-item::before { content: ''; width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: var(--green-mid); margin-top: 5px; }
+.inhoud-item strong { color: var(--text); font-weight: 500; }
+
+/* ─── CTA PAKKET ─── */
+.pakket-cta { padding: 1.25rem 1.75rem 1.75rem; margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem; }
+.btn-pakket { display: block; width: 100%; text-align: center; padding: 13px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+.btn-pakket-primary { background: var(--navy); color: white; }
+.btn-pakket-primary:hover { background: var(--navy-mid); }
+.btn-pakket-featured { background: var(--green-mid); color: white; }
+.btn-pakket-featured:hover { background: var(--green); }
+.btn-pakket-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
+.btn-pakket-outline:hover { border-color: rgba(26,43,60,0.3); }
+.totaal-tonen { font-size: 12px; color: var(--text-muted); text-align: center; min-height: 1.4em; }
+.totaal-tonen strong { color: var(--navy); font-weight: 500; }
+.btn-klein-advies { background: none; border: none; font-size: 12px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: underline; text-underline-offset: 3px; padding: 0; text-align: center; }
+.btn-klein-advies:hover { color: var(--green); }
+
+/* ─── STAFFEL ─── */
+.staffel-sectie { background: var(--sand); border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 3rem; }
+.staffel-titel { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 300; color: var(--navy); letter-spacing: -0.4px; margin-bottom: 0.9rem; }
+.staffel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.staffel-item { background: var(--white); border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border); }
+.staffel-pakket { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.6px; color: var(--green); margin-bottom: 0.4rem; }
+.staffel-beschrijving { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.staffel-beschrijving strong { color: var(--navy); font-weight: 500; }
+
+/* ─── MODAL OVERLAY ─── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,43,60,0.55);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--white);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(26,43,60,0.22);
+  position: relative;
+}
+.modal-header {
+  padding: 2rem 2rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.modal-stap-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--green); margin-bottom: 0.5rem;
+}
+.modal-titel {
+  font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300;
+  color: var(--navy); letter-spacing: -0.5px; line-height: 1.25;
+}
+.modal-samenvatting {
+  margin-top: 0.5rem; font-size: 13px; color: var(--text-muted);
+  background: var(--green-light); border-radius: 6px; padding: 0.6rem 0.9rem;
+  display: none;
+}
+.modal-body { padding: 1.5rem 2rem 2rem; }
+.modal-sluit {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; font-size: 22px; cursor: pointer;
+  color: var(--text-muted); line-height: 1; padding: 4px 8px; border-radius: 4px;
+}
+.modal-sluit:hover { background: var(--sand); }
+
+/* ─── STAP INDICATOR ─── */
+.stap-indicator {
+  display: flex; align-items: center; gap: 0; margin-bottom: 1.5rem;
+}
+.stap-dot {
+  width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500; color: var(--text-muted); background: var(--white);
+  flex-shrink: 0; transition: all 0.2s;
+}
+.stap-dot.actief { background: var(--navy); border-color: var(--navy); color: white; }
+.stap-dot.klaar { background: var(--green-mid); border-color: var(--green-mid); color: white; }
+.stap-lijn { flex: 1; height: 1.5px; background: var(--border); }
+.stap-lijn.klaar { background: var(--green-mid); }
+
+/* ─── FORM ─── */
+.form-rij { margin-bottom: 1.1rem; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; display: block; }
+.form-input {
+  width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text);
+  background: var(--white); outline: none; transition: border-color 0.15s;
+}
+.form-input:focus { border-color: var(--green-mid); }
+.form-input.fout { border-color: #e05c3a; }
+.form-fout-tekst { font-size: 12px; color: #e05c3a; margin-top: 0.3rem; display: none; }
+.form-rij.heeft-fout .form-fout-tekst { display: block; }
+.form-note { font-size: 12px; color: var(--text-muted); margin-top: 1rem; line-height: 1.5; }
+.form-note a { color: var(--green); }
+
+/* ─── SUCCESS SCHERM ─── */
+.succes-scherm { text-align: center; padding: 1rem 0; display: none; }
+.succes-icon { font-size: 48px; margin-bottom: 1rem; }
+.succes-titel { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+.succes-body { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 320px; margin: 0 auto 1.5rem; }
+.succes-stappen { text-align: left; background: var(--sand); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+.succes-stap { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.75rem; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.succes-stap:last-child { margin-bottom: 0; }
+.succes-nr { background: var(--navy); color: white; border-radius: 50%; width: 20px; height: 20px; min-width: 20px; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+
+/* ─── ADVIES MODAL ─── */
+.advies-inhoud { display: flex; flex-direction: column; gap: 0.9rem; }
+.advies-calendly-placeholder {
+  background: var(--sand); border-radius: 10px; padding: 2rem 1.5rem;
+  text-align: center; border: 1.5px dashed var(--border);
+}
+.advies-calendly-placeholder p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.advies-calendly-placeholder strong { color: var(--navy); }
+
+/* ─── KNOP SECUNDAIR ─── */
+.btn-secundair {
+  background: none; border: 1.5px solid var(--border); color: var(--navy);
+  padding: 11px 20px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+  width: 100%; margin-top: 0.5rem;
+}
+.btn-secundair:hover { border-color: rgba(26,43,60,0.3); }
+
+/* ─── FOOTER ─── */
+footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+.footer-logo span { color: var(--green-mid); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+footer p { font-size: 12px; color: var(--text-muted); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .pakketten-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .staffel-grid { grid-template-columns: 1fr; }
+  .pakket-card.featured { order: -1; }
+  .section-title { font-size: 28px; }
+  .modal-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .modal-header { padding: 1.5rem 1.5rem 1rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
 </head>
 <body>
-<div class="site">
 
-  <nav>
-    <a href="index.html" class="nav-logo"><b>Th</b>uis<span><b>Br</b>ein</span></a>
-    <div class="nav-links">
-      <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
-      <a href="index.html#over">Over ThuisBrein</a>
-      <a href="systemen.html">Systemen</a>
-      <a href="pricing.html" class="active">Prijzen</a>
-      <a href="besparing.html">Besparing</a>
-      <a href="check.html">Woningcheck</a>
-      <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
-    </div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
-      <i class="ti ti-menu-2"></i>
-    </button>
-  </nav>
-  <div class="nav-mobile" id="nav-mobile">
+<nav>
+  <a href="index.html" class="nav-logo"><b>Th</b>uis<span><b>Br</b>ein</span></a>
+  <div class="nav-links">
     <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
     <a href="index.html#over">Over ThuisBrein</a>
     <a href="systemen.html">Systemen</a>
-    <a href="pricing.html">Prijzen</a>
+    <a href="pricing.html" class="active">Prijzen</a>
     <a href="besparing.html">Besparing</a>
     <a href="check.html">Woningcheck</a>
-    <a href="index.html#contact">Plan kennismaking</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
   </div>
-
-  <div class="page-header">
-    <div class="tag">Transparante prijzen</div>
-    <h1>Wat kost het?</h1>
-    <p>Geen verrassingen. Gratis kennismaking bij je thuis, vaste pakketten en een eerlijk uurtarief voor maatwerk.</p>
-  </div>
-
-  <section class="pricing">
-
-    <div class="intake-banner">
-      <h3>Kennismaking — hoe werkt het?</h3>
-      <div class="intake-rows">
-        <div class="intake-row">
-          <div class="intake-icon" style="background: #EAF3DE;">
-            <i class="ti ti-home" style="color: #3B6D11;" aria-hidden="true"></i>
-          </div>
-          <div>
-            <h4>Bij je thuis — gratis</h4>
-            <p>Persoonlijk gesprek bij je thuis. Ik kijk mee naar je woning en huidige systemen. Geen kosten, geen verplichtingen.</p>
-          </div>
-        </div>
-                <div class="intake-row">
-          <div class="intake-icon" style="background: #E6F1FB;">
-            <i class="ti ti-video" style="color: #185FA5;" aria-hidden="true"></i>
-          </div>
-          <div>
-            <h4>Online — ook gratis</h4>
-            <p>Liever eerst vrijblijvend online kennismaken? Dat kan altijd gratis via een videogesprek.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pakketten">
-      <div class="pakketten-intro">
-        <h2>Veelgekozen pakketten</h2>
-        <p>Drie situaties die ik vaak tegenkom. Herken je je woning hierin? Dan weet je meteen welke systemen we koppelen — de prijs is altijd op basis van het tarief hieronder.</p>
-      </div>
-      <div class="pakketten-grid">
-        <div class="pakket-card">
-          <div class="pakket-icon" style="background:#E6F1FB; color:#185FA5;"><i class="ti ti-sun" aria-hidden="true"></i></div>
-          <h3>Zon &amp; Batterij</h3>
-          <p class="pakket-desc">Je hebt zonnepanelen, misschien een thuisbatterij, maar opwek en verbruik werken niet samen. Ik koppel ze zodat je stroom optimaal benut — ook met het oog op de salderingsafbouw.</p>
-          <div class="pakket-systemen">
-            <span class="pakket-tag">Zonnepanelen</span>
-            <span class="pakket-tag">Thuisbatterij</span>
-            <span class="pakket-tag">Energie-inzicht</span>
-          </div>
-          <div class="pakket-vanaf">Vanaf <strong>&euro; 450</strong> — 3 systemen inbegrepen</div>
-        </div>
-
-        <div class="pakket-card">
-          <div class="pakket-icon" style="background:#FAEEDA; color:#854F0B;"><i class="ti ti-temperature" aria-hidden="true"></i></div>
-          <h3>Comfort &amp; Klimaat</h3>
-          <p class="pakket-desc">CV-ketel of warmtepomp en airco draaien nu los van elkaar. Ik stem ze op elkaar af tot zones en automatische regeling — comfortabel en zuiniger, zonder zelf te schakelen.</p>
-          <div class="pakket-systemen">
-            <span class="pakket-tag">CV / warmtepomp</span>
-            <span class="pakket-tag">Airco</span>
-            <span class="pakket-tag">Zone-regeling</span>
-          </div>
-          <div class="pakket-vanaf">Vanaf <strong>&euro; 450</strong> — 3 systemen inbegrepen</div>
-        </div>
-
-        <div class="pakket-card">
-          <div class="pakket-icon" style="background:#EAF3DE; color:#3B6D11;"><i class="ti ti-car" aria-hidden="true"></i></div>
-          <h3>Volledig Elektrisch</h3>
-          <p class="pakket-desc">Zonnepanelen, batterij en een laadpaal — maar de auto laadt niet automatisch op je eigen stroom. Ik koppel alles zodat er zoveel mogelijk op eigen opwek geladen wordt.</p>
-          <div class="pakket-systemen">
-            <span class="pakket-tag">Zonnepanelen</span>
-            <span class="pakket-tag">Thuisbatterij</span>
-            <span class="pakket-tag">Laadpaal</span>
-          </div>
-          <div class="pakket-vanaf">Vanaf <strong>&euro; 450</strong> — 3 systemen inbegrepen</div>
-        </div>
-        <div class="pakket-card">
-          <div class="pakket-icon" style="background:#FEF3EC; color:#D96B2B;"><i class="ti ti-temperature" aria-hidden="true"></i></div>
-          <h3>Slimme Thermostaat</h3>
-          <p class="pakket-desc">Je CV-ketel werkt prima, maar de thermostaat is dom. Ik vervang je bestaande aansturing door een slimme &mdash; hardware, installatie en koppeling inbegrepen.</p>
-          <div class="pakket-tags">
-            <span class="pakket-tag">CV-thermostaat</span>
-            <span class="pakket-tag">Slim aansturen</span>
-            <span class="pakket-tag">Hardware inbegrepen</span>
-          </div>
-          <div class="pakket-vanaf">Vanaf <strong>&euro; 199</strong> &mdash; all-in</div>
-        </div>
-      </div>
-      <p class="pakketten-note">Past jouw situatie niet precies in een pakket? Geen probleem — bij de installatie kies je gewoon zelf welke 3 systemen gekoppeld worden.</p>
-    </div>
-
-    <div class="pricing-grid pricing-grid--single">
-      <div class="price-card">
-        <div class="card-label">Slimme Thermostaat Pakket</div>
-        <div class="price-amount">&euro; 199 <span>all-in</span></div>
-        <p class="price-note">Hardware + installatie inbegrepen &mdash; geen verrassingen.</p>
-        <p>Je CV-ketel werkt goed, maar de thermostaat is dom. Ik vervang je bestaande aansturing door een slimme thermostaat naar keuze. Alles inbegrepen: hardware, installatie en instructie.</p>
-        <ul>
-          <li>Thermostaat naar keuze (Tado, Netatmo, Plugwise of Honeywell)</li>
-          <li>Verwijdering bestaande thermostaat</li>
-          <li>Installatie en koppeling met je netwerk</li>
-          <li>Persoonlijke instructie bij je thuis</li>
-          <li>Later uitbreidbaar naar volledig ThuisBrein systeem</li>
-        </ul>
-        <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20wil%20graag%20een%20slimme%20thermostaat%20laten%20installeren." class="btn btn-primary">Plan installatie</a>
-      </div>
-    </div>
-
-    <div class="pricing-grid pricing-grid--single">
-      <div class="price-card featured">
-        <div class="card-label">Installatie slimme laag <span class="badge-featured">Introductieprijs</span></div>
-        <div class="price-amount">&euro; 450 <span>excl. hardware</span></div>
-        <p class="price-note">Introductieprijs — wordt later &euro; 595. Inclusief 3 systemen.</p>
-        <p class="card-desc">Ik installeer de centrale sturinglaag en koppel drie van jouw energiesystemen. Alles werkt samen, automatisch — zonder dat je er iets voor hoeft te doen.</p>
-        <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i>Installatie centrale sturinglaag (Home Assistant)</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Koppeling van 3 systemen naar keuze</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Automatiseringen op maat ingesteld</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Persoonlijke instructie bij je thuis</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>ThuisBrein Check — eerste jaar gratis</li>
-          <li class="result"><i class="ti ti-arrow-right" aria-hidden="true"></i>Jouw systemen werken eindelijk samen</li>
-        </ul>
-        <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="card-cta primary">Plan kennismaking</a>
-      </div>
-
-      <div class="price-card price-card--extra">
-        <div class="card-label">Extra systeem</div>
-        <div class="price-amount">&euro; 95 <span>per systeem</span></div>
-        <p class="price-note">Bovenop de basisinstallatie</p>
-        <p class="card-desc">Heb je meer dan drie systemen? Elk extra systeem dat we koppelen kost &euro;95. Transparant, geen verrassingen.</p>
-        <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i>Koppeling 4e systeem: + &euro; 95</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Koppeling 5e systeem: + &euro; 95</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Maatwerk (camera, water, triggers): op uurtarief</li>
-          <li class="result"><i class="ti ti-arrow-right" aria-hidden="true"></i>Altijd vooraf besproken en geoffreerd</li>
-        </ul>
-        <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20meer%20dan%203%20systemen%20en%20wil%20graag%20een%20offerte." class="card-cta secondary">Vraag offerte aan</a>
-      </div>
-
-      <div class="price-card price-card--check">
-        <div class="card-label">ThuisBrein Check</div>
-        <div class="price-amount">&euro; 65 <span>per jaar</span></div>
-        <p class="price-note">Eerste jaar gratis bij elke installatie</p>
-        <p class="card-desc">Jaarlijkse remote check van alle koppelingen en automatiseringen. Stilzwijgend verlengd — eerste factuur na één jaar.</p>
-        <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i>Jaarlijkse remote check</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Automatiseringen bijstellen</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i>Voorrang bij vragen en storingen</li>
-          <li><i class="ti ti-gift" aria-hidden="true"></i>Eerste jaar gratis bij installatie</li>
-          <li style="margin-top:0.5rem;padding-top:0.75rem;border-top:1px solid var(--border);list-style:none;display:flex;gap:8px;align-items:flex-start;">
-            <i class="ti ti-eye" aria-hidden="true" style="color:var(--text-muted);font-size:14px;margin-top:1px;flex-shrink:0;"></i>
-            <span style="font-size:12px;color:var(--text-muted);line-height:1.6;"><strong style="color:var(--navy);">Opt-in: remote monitoring</strong> — met jouw toestemming zie ik op afstand systeemstatus en besparingscijfers. Geen toegang tot persoonlijke data.</span>
-          </li>
-          <li class="result"><i class="ti ti-arrow-right" aria-hidden="true"></i>Altijd optimaal — zonder omkijken</li>
-        </ul>
-        <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20de%20ThuisBrein%20Check." class="card-cta secondary">Meer info</a>
-      </div>
-    </div>
-
-    <div class="uurtarief">
-      <div class="uurtarief-left">
-        <h3>Uurtarief voor maatwerk</h3>
-        <p>Voor koppelingen buiten een pakket, extra automatisering, terugkombezoeken of specifieke wensen. Ook het tarief voor een intakegesprek buiten de regio is gebaseerd op dit uurtarief.</p>
-      </div>
-      <div class="uurtarief-right">&euro; 75 <span>/ uur</span></div>
-    </div>
-
-  </section>
-
-  <section class="faq">
-    <h2 class="faq-title">Veelgestelde vragen</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Zijn hardwarekosten inbegrepen?</p>
-        <p class="faq-a">Dat hangt af van het pakket. Bij het Slimme Thermostaat Pakket is de thermostaat inbegrepen in de prijs. Bij de installatie van de slimme laag (Home Assistant) is overige hardware niet inbegrepen &mdash; na de kennismaking ontvang je een helder overzicht van wat je nodig hebt en wat dat kost.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Wat als mijn woning meer systemen heeft dan in een pakket past?</p>
-        <p class="faq-a">Dan gebruik ik het uurtarief voor de extra koppelingen. Dat bespreek ik altijd vooraf, zodat je nooit voor verrassingen staat.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Kan ik later uitbreiden?</p>
-        <p class="faq-a">Ja, dat is juist de kracht van het systeem. Je Thuisbrein is modulair — je woning kan altijd worden uitgebreid met nieuwe apparaten, automatiseringen of functies.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Werkt dit ook in huurwoningen?</p>
-        <p class="faq-a">Grotendeels wel. Veel koppelingen zijn volledig draadloos en niet-destructief. Ik kijk samen met je wat er mogelijk is in jouw situatie.</p>
-      </div>
-      <div class="faq-item">
-        <p class="faq-q">Hoe lang duurt een installatie?</p>
-        <p class="faq-a">Een standaard integratie duurt gemiddeld 4–8 uur, afhankelijk van het aantal systemen en de complexiteit van je woning. Ik plan dit in één bezoek of verspreid over twee momenten.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-slot">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <h2>Vragen over de prijzen?</h2>
-        <p>Stuur me een berichtje op WhatsApp. Ik denk graag vrijblijvend mee over wat past bij jouw woning en situatie.</p>
-        <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20de%20prijzen." class="btn-whatsapp" target="_blank">
-          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
-          App mij op WhatsApp
-        </a>
-        <div class="contact-details">
-          <div class="contact-item"><i class="ti ti-phone" aria-hidden="true"></i><a href="tel:+31654157920">06 54 15 79 20</a></div>
-          <div class="contact-item"><i class="ti ti-mail" aria-hidden="true"></i><a href="mailto:thomasbranderhorst@gmail.com">thomasbranderhorst@gmail.com</a></div>
-          <div class="contact-item"><i class="ti ti-map-pin" aria-hidden="true"></i><span></span></div>
-        </div>
-      </div>
-      <div class="contact-right">
-        <h3>Bedrijfsgegevens</h3>
-        <div class="contact-kvk">
-          <div class="kvk-row"><span>Handelsnaam</span><span>ThuisBrein</span></div>
-          <div class="kvk-row"><span>KVK</span><span>88372952</span></div>
-          <div class="kvk-row"><span>BTW</span><span>NL004593743B17</span></div>
-          <div class="kvk-row"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
-    <div class="footer-links">
-      <a href="pricing.html">Prijzen</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
-    </div>
-    <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
-  </footer>
-
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
+    <i class="ti ti-menu-2"></i>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+  <a href="index.html#over">Over ThuisBrein</a>
+  <a href="systemen.html">Systemen</a>
+  <a href="pricing.html">Prijzen</a>
+  <a href="besparing.html">Besparing</a>
+  <a href="check.html">Woningcheck</a>
+  <a href="index.html#contact">Plan kennismaking</a>
 </div>
 
-<a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp">
-  <i class="ti ti-brand-whatsapp"></i>
-</a>
+<!-- ─── ADVIESBALK ─── -->
+<div class="advies-balk">
+  <div class="advies-balk-tekst">Weet je nog niet precies wat je wilt? <strong>Plan een gratis adviesgesprek online.</strong></div>
+  <button class="btn-advies-balk" onclick="openAdvies()">Plan adviesgesprek →</button>
+</div>
+
+<!-- ─── PAKKETTEN SECTIE ─── -->
+<section class="pakketten-sectie">
+  <div class="pakketten-inner">
+
+    <p class="section-label">Pakketten &amp; Prijzen</p>
+    <h2 class="section-title">Kies wat bij je huis past.<br><em>Alles geregeld voor een vaste prijs.</em></h2>
+    <p class="section-body">Geen uurtarieven, geen verrassingen achteraf. Je kiest een pakket, wij regelen alles — van advies tot installatie. Inclusief jouw slimme thermostaat naar keuze.</p>
+
+    <div class="pakketten-grid">
+
+      <!-- PAKKET 1 -->
+      <div class="pakket-card">
+        <div class="pakket-header">
+          <div class="pakket-naam">Slimme Thermostaat</div>
+          <div class="pakket-tagline">Jouw CV meteen slimmer — meer comfort, minder verbruik, bediend via je telefoon.</div>
+        </div>
+        <div class="pakket-prijs-blok">
+          <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
+          <div class="pakket-prijs-van">Vanaf</div>
+          <div class="pakket-prijs-bedrag" id="prijs-1"><span>€</span>399</div>
+          <div class="pakket-prijs-note">thermostaat + installatie + instelling</div>
+        </div>
+        <div class="thermostaat-keuze">
+          <div class="keuze-label">Kies je thermostaat</div>
+          <div class="thermostaat-opties" id="opties-1">
+            <div class="therm-optie actief" data-pakket="1" data-extra="0" data-merk="Tado° V3+">
+              <div><div class="therm-merk">Tado° V3+</div><div class="therm-sub">Bedraad · OpenTherm · Geen abonnement nodig</div></div>
+              <div class="therm-prijs">incl.</div>
+            </div>
+            <div class="therm-optie" data-pakket="1" data-extra="10" data-merk="Netatmo">
+              <div><div class="therm-merk">Netatmo</div><div class="therm-sub">HomeKit · Apple-vriendelijk · Lokaal</div></div>
+              <div class="therm-prijs">+€10</div>
+            </div>
+            <div class="therm-optie" data-pakket="1" data-extra="0" data-merk="Plugwise Anna">
+              <div><div class="therm-merk">Plugwise Anna</div><div class="therm-sub">Nederlands · Lokaal · Geen cloud verplicht</div></div>
+              <div class="therm-prijs">incl.</div>
+            </div>
+          </div>
+        </div>
+        <div class="pakket-inhoud">
+          <div class="inhoud-divider">Inbegrepen</div>
+          <div class="inhoud-item"><span><strong>Adviesgesprek</strong> — welke thermostaat past bij jouw ketel</span></div>
+          <div class="inhoud-item"><span><strong>Inkoop &amp; levering</strong> van de thermostaat</span></div>
+          <div class="inhoud-item"><span><strong>Vakkundige montage</strong> inclusief bekabeling</span></div>
+          <div class="inhoud-item"><span><strong>App-instelling</strong> op jouw telefoon</span></div>
+          <div class="inhoud-item"><span><strong>Gebruiksuitleg</strong> op locatie</span></div>
+          <div class="inhoud-item"><span>30 dagen <strong>nazorg per WhatsApp</strong></span></div>
+        </div>
+        <div class="pakket-cta">
+          <button class="btn-pakket btn-pakket-outline" onclick="openAanvraag(1)">Dit pakket aanvragen</button>
+          <div class="totaal-tonen" id="totaal-1">Totaalprijs: <strong>€399</strong></div>
+          <button class="btn-klein-advies" onclick="openAdvies()">Toch liever eerst een adviesgesprek?</button>
+        </div>
+      </div>
+
+      <!-- PAKKET 2 – FEATURED -->
+      <div class="pakket-card featured">
+        <div class="featured-badge">Meest gekozen</div>
+        <div class="pakket-header">
+          <div class="pakket-naam">Thermostaat + ThuisBrein Hub</div>
+          <div class="pakket-tagline">Slimme verwarming én een centrale woningcomputer die alles samenbrengt.</div>
+        </div>
+        <div class="pakket-prijs-blok">
+          <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
+          <div class="pakket-prijs-van">Vanaf</div>
+          <div class="pakket-prijs-bedrag" id="prijs-2"><span>€</span>699</div>
+          <div class="pakket-prijs-note">thermostaat + HA Green + installatie + configuratie</div>
+        </div>
+        <div class="thermostaat-keuze">
+          <div class="keuze-label">Kies je thermostaat</div>
+          <div class="thermostaat-opties" id="opties-2">
+            <div class="therm-optie actief" data-pakket="2" data-extra="0" data-merk="Tado° V3+">
+              <div><div class="therm-merk">Tado° V3+</div><div class="therm-sub">Bedraad · OpenTherm · Werkt naadloos met HA</div></div>
+              <div class="therm-prijs">incl.</div>
+            </div>
+            <div class="therm-optie" data-pakket="2" data-extra="10" data-merk="Netatmo">
+              <div><div class="therm-merk">Netatmo</div><div class="therm-sub">HomeKit · Volledig lokaal via HA</div></div>
+              <div class="therm-prijs">+€10</div>
+            </div>
+            <div class="therm-optie" data-pakket="2" data-extra="0" data-merk="Plugwise Anna">
+              <div><div class="therm-merk">Plugwise Anna</div><div class="therm-sub">Nederlands · Diepe HA-integratie</div></div>
+              <div class="therm-prijs">incl.</div>
+            </div>
+          </div>
+        </div>
+        <div class="pakket-inhoud">
+          <div class="inhoud-divider">Inbegrepen</div>
+          <div class="inhoud-item"><span>Alles uit Slimme Thermostaat</span></div>
+          <div class="inhoud-item"><span><strong>Home Assistant Green</strong> — jouw woningcomputer</span></div>
+          <div class="inhoud-item"><span><strong>Koppeling thermostaat</strong> aan ThuisBrein dashboard</span></div>
+          <div class="inhoud-item"><span><strong>P1-meter integratie</strong> — live energieverbruik</span></div>
+          <div class="inhoud-item"><span><strong>Persoonlijk dashboard</strong> op maat ingericht</span></div>
+          <div class="inhoud-item"><span><strong>2 slimme automatiseringen</strong> naar keuze</span></div>
+          <div class="inhoud-item"><span>60 dagen <strong>nazorg per WhatsApp</strong></span></div>
+        </div>
+        <div class="pakket-cta">
+          <button class="btn-pakket btn-pakket-featured" onclick="openAanvraag(2)">Dit pakket aanvragen</button>
+          <div class="totaal-tonen" id="totaal-2">Totaalprijs: <strong>€699</strong></div>
+          <button class="btn-klein-advies" onclick="openAdvies()">Toch liever eerst een adviesgesprek?</button>
+        </div>
+      </div>
+
+      <!-- PAKKET 3 -->
+      <div class="pakket-card">
+        <div class="pakket-header">
+          <div class="pakket-naam">ThuisBrein Hub</div>
+          <div class="pakket-tagline">Heb je al een slimme thermostaat? Dit is jouw volgende stap naar een écht slim huis.</div>
+        </div>
+        <div class="pakket-prijs-blok">
+          <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
+          <div class="pakket-prijs-bedrag"><span>€</span>449</div>
+          <div class="pakket-prijs-note">HA Green + installatie + configuratie op maat</div>
+        </div>
+        <div class="pakket-inhoud" style="margin-top:0.5rem;">
+          <div class="inhoud-divider">Inbegrepen</div>
+          <div class="inhoud-item"><span><strong>Home Assistant Green</strong> — jouw woningcomputer</span></div>
+          <div class="inhoud-item"><span><strong>Koppeling bestaande apparaten</strong> — thermostaat, verlichting, energie</span></div>
+          <div class="inhoud-item"><span><strong>P1-meter integratie</strong> — live energieverbruik</span></div>
+          <div class="inhoud-item"><span><strong>Persoonlijk dashboard</strong> op maat ingericht</span></div>
+          <div class="inhoud-item"><span><strong>3 slimme automatiseringen</strong> naar keuze</span></div>
+          <div class="inhoud-item"><span>Advies over <strong>uitbreidingsmogelijkheden</strong></span></div>
+          <div class="inhoud-item"><span>60 dagen <strong>nazorg per WhatsApp</strong></span></div>
+        </div>
+        <div class="pakket-cta">
+          <button class="btn-pakket btn-pakket-outline" onclick="openAanvraag(3)">Dit pakket aanvragen</button>
+          <button class="btn-klein-advies" onclick="openAdvies()">Toch liever eerst een adviesgesprek?</button>
+        </div>
+      </div>
+
+    </div><!-- /.pakketten-grid -->
+
+    <!-- STAFFEL -->
+    <div class="staffel-sectie">
+      <div class="staffel-titel">Hoe de prijzen zijn opgebouwd</div>
+      <div class="staffel-grid">
+        <div class="staffel-item">
+          <div class="staffel-pakket">Slimme Thermostaat</div>
+          <div class="staffel-beschrijving">Hardware + <strong>€200–250</strong> installatie &amp; instelling. Tado° V3+: <strong>€399</strong>. Netatmo: <strong>€409</strong>.</div>
+        </div>
+        <div class="staffel-item">
+          <div class="staffel-pakket">Thermostaat + Hub</div>
+          <div class="staffel-beschrijving">Hardware (thermostaat + HA Green €179) + <strong>€320–370</strong> installatie, configuratie &amp; dashboard.</div>
+        </div>
+        <div class="staffel-item">
+          <div class="staffel-pakket">ThuisBrein Hub Only</div>
+          <div class="staffel-beschrijving">HA Green (€179) + <strong>€270</strong> voor configuratie, koppelingen &amp; 3 automatiseringen.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     MODAL: PAKKET AANVRAGEN
+════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-aanvraag">
+  <div class="modal-box">
+    <button class="modal-sluit" onclick="sluitModal('modal-aanvraag')">×</button>
+
+    <div class="modal-header">
+      <div class="modal-stap-label" id="aanvraag-stap-label">Stap 1 van 2</div>
+      <div class="modal-titel" id="aanvraag-titel">Jouw gegevens</div>
+      <div class="modal-samenvatting" id="aanvraag-samenvatting"></div>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- STAP INDICATOR -->
+      <div class="stap-indicator">
+        <div class="stap-dot actief" id="stap-1-dot">1</div>
+        <div class="stap-lijn" id="stap-lijn-1"></div>
+        <div class="stap-dot" id="stap-2-dot">2</div>
+      </div>
+
+      <!-- STAP 1: GEGEVENS -->
+      <div id="stap-1">
+        <div class="form-rij" id="rij-naam">
+          <label class="form-label" for="inp-naam">Jouw naam</label>
+          <input class="form-input" id="inp-naam" type="text" placeholder="Jan de Vries" autocomplete="name">
+          <div class="form-fout-tekst">Vul je naam in.</div>
+        </div>
+        <div class="form-rij" id="rij-email">
+          <label class="form-label" for="inp-email">E-mailadres</label>
+          <input class="form-input" id="inp-email" type="email" placeholder="jan@email.nl" autocomplete="email">
+          <div class="form-fout-tekst">Vul een geldig e-mailadres in.</div>
+        </div>
+        <div class="form-rij" id="rij-tel">
+          <label class="form-label" for="inp-tel">Telefoonnummer</label>
+          <input class="form-input" id="inp-tel" type="tel" placeholder="06 12345678" autocomplete="tel">
+          <div class="form-fout-tekst">Vul je telefoonnummer in.</div>
+        </div>
+        <div class="form-rij" id="rij-postcode">
+          <label class="form-label" for="inp-postcode">Postcode</label>
+          <input class="form-input" id="inp-postcode" type="text" placeholder="5341 AB" maxlength="7">
+          <div class="form-fout-tekst">Vul je postcode in.</div>
+        </div>
+        <p class="form-note">Je betaalt nu niets. Je ontvangt een offerte per e-mail die je digitaal kunt ondertekenen. Daarna plan je zelf een installatiemoment in.</p>
+        <button class="btn-pakket btn-pakket-primary" style="margin-top:1.25rem;" onclick="naarStap2()">Volgende stap →</button>
+      </div>
+
+      <!-- STAP 2: BEVESTIGING -->
+      <div id="stap-2" style="display:none;">
+        <div class="succes-scherm" id="succes-scherm" style="display:block;">
+          <div class="succes-icon">✅</div>
+          <div class="succes-titel">Aanvraag ontvangen!</div>
+          <div class="succes-body">Bedankt, <strong id="succes-naam"></strong>. Je ontvangt binnen 24 uur een offerte op <strong id="succes-email"></strong>.</div>
+          <div class="succes-stappen">
+            <div class="succes-stap"><div class="succes-nr">1</div><span>Je ontvangt een offerte per e-mail — inclusief een duidelijke samenvatting van het pakket en de prijs.</span></div>
+            <div class="succes-stap"><div class="succes-nr">2</div><span>Je ondertekent de offerte digitaal met één klik.</span></div>
+            <div class="succes-stap"><div class="succes-nr">3</div><span>Je plant zelf een installatiemoment in via de link in de bevestigingsmail.</span></div>
+          </div>
+          <button class="btn-secundair" onclick="sluitModal('modal-aanvraag')">Sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     MODAL: ADVIESGESPREK
+════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-advies">
+  <div class="modal-box">
+    <button class="modal-sluit" onclick="sluitModal('modal-advies')">×</button>
+
+    <div class="modal-header">
+      <div class="modal-stap-label">Gratis · Online · 30 minuten</div>
+      <div class="modal-titel">Plan een adviesgesprek</div>
+    </div>
+
+    <div class="modal-body">
+      <p style="font-size:14px; color:var(--text-muted); line-height:1.7; margin-bottom:1.5rem;">
+        Weet je nog niet precies wat je wilt, of wil je gewoon even sparren? Ik doe de adviesgesprekken online via videobel — laagdrempelig, geen verplichtingen.
+      </p>
+      <div class="advies-inhoud">
+        <div class="advies-calendly-placeholder">
+          <p>
+            <strong>Hier komt jouw online agenda.</strong><br><br>
+            Koppel hier je Calendly, Cal.com of Google Calendar zodat de klant direct een moment kan kiezen. Geen heen-en-weer mailen.
+          </p>
+          <button class="btn-pakket btn-pakket-featured" style="margin-top:1.25rem; max-width:280px; margin-left:auto; margin-right:auto;" onclick="alert('Hier koppel je straks Calendly of Cal.com in.')">Kies een datum &amp; tijd →</button>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); text-align:center; line-height:1.6;">
+          Je ontvangt een bevestiging per e-mail met een videobel-link. Gratis en vrijblijvend.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <a href="index.html" class="footer-logo"><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+  <div class="footer-links">
+    <a href="pricing.html">Prijzen</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
+  </div>
+  <p>KVK 88372952</p>
+</footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('nav-mobile');
-  hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
-  navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
-</script>
+// ─── HAMBURGER ───
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !navMobile.contains(e.target)) navMobile.classList.remove('open');
+});
 
+// ─── PAKKETTEN LOGICA ───
+const basisprijs = { 1: 399, 2: 699 };
+const pakketNamen = {
+  1: 'Slimme Thermostaat',
+  2: 'Thermostaat + ThuisBrein Hub',
+  3: 'ThuisBrein Hub'
+};
+let huidigPakket = 1;
+let gekozenMerk = { 1: 'Tado° V3+', 2: 'Tado° V3+', 3: null };
+let gekozenExtra = { 1: 0, 2: 0, 3: 0 };
+
+document.querySelectorAll('.therm-optie').forEach(optie => {
+  optie.addEventListener('click', function() {
+    const p = this.dataset.pakket;
+    const extra = parseInt(this.dataset.extra) || 0;
+    const merk = this.dataset.merk;
+    document.querySelectorAll(`#opties-${p} .therm-optie`).forEach(o => o.classList.remove('actief'));
+    this.classList.add('actief');
+    gekozenMerk[p] = merk;
+    gekozenExtra[p] = extra;
+    if (basisprijs[p] !== undefined) {
+      const nieuw = basisprijs[p] + extra;
+      document.getElementById(`prijs-${p}`).innerHTML = `<span>€</span>${nieuw}`;
+      document.getElementById(`totaal-${p}`).innerHTML = `Totaalprijs met ${merk}: <strong>€${nieuw}</strong>`;
+    }
+  });
+});
+
+function openAanvraag(pakket) {
+  huidigPakket = pakket;
+  const prijs = pakket === 3 ? 449 : (basisprijs[pakket] + (gekozenExtra[pakket] || 0));
+  const merk = gekozenMerk[pakket];
+  const naam = pakketNamen[pakket];
+  const samenvatting = document.getElementById('aanvraag-samenvatting');
+  samenvatting.style.display = 'block';
+  samenvatting.innerHTML = `<strong>${naam}</strong>${merk ? ` · ${merk}` : ''} · <strong>€${prijs}</strong>`;
+  document.getElementById('stap-1').style.display = 'block';
+  document.getElementById('stap-2').style.display = 'none';
+  document.getElementById('aanvraag-stap-label').textContent = 'Stap 1 van 2';
+  document.getElementById('aanvraag-titel').textContent = 'Jouw gegevens';
+  document.getElementById('stap-1-dot').className = 'stap-dot actief';
+  document.getElementById('stap-2-dot').className = 'stap-dot';
+  document.getElementById('stap-lijn-1').className = 'stap-lijn';
+  ['inp-naam','inp-email','inp-tel','inp-postcode'].forEach(id => {
+    const el = document.getElementById(id);
+    el.value = '';
+    el.classList.remove('fout');
+  });
+  ['rij-naam','rij-email','rij-tel','rij-postcode'].forEach(id => {
+    document.getElementById(id).classList.remove('heeft-fout');
+  });
+  document.getElementById('modal-aanvraag').classList.add('open');
+}
+
+function openAdvies() {
+  document.getElementById('modal-advies').classList.add('open');
+}
+
+function sluitModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+});
+
+function naarStap2() {
+  let ok = true;
+  const naam = document.getElementById('inp-naam').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const tel = document.getElementById('inp-tel').value.trim();
+  const pc = document.getElementById('inp-postcode').value.trim();
+
+  function setFout(rij, inp, heeft) {
+    document.getElementById(rij).classList.toggle('heeft-fout', heeft);
+    document.getElementById(inp).classList.toggle('fout', heeft);
+    if (heeft) ok = false;
+  }
+
+  setFout('rij-naam', 'inp-naam', naam.length < 2);
+  setFout('rij-email', 'inp-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+  setFout('rij-tel', 'inp-tel', tel.length < 8);
+  setFout('rij-postcode', 'inp-postcode', pc.length < 4);
+
+  if (!ok) return;
+
+  document.getElementById('stap-1').style.display = 'none';
+  document.getElementById('stap-2').style.display = 'block';
+  document.getElementById('aanvraag-stap-label').textContent = 'Aanvraag verstuurd';
+  document.getElementById('aanvraag-titel').textContent = 'Wat gebeurt er nu?';
+  document.getElementById('stap-1-dot').className = 'stap-dot klaar';
+  document.getElementById('stap-2-dot').className = 'stap-dot actief';
+  document.getElementById('stap-lijn-1').className = 'stap-lijn klaar';
+  document.getElementById('succes-naam').textContent = naam.split(' ')[0];
+  document.getElementById('succes-email').textContent = email;
+}
+</script>
 </body>
 </html>
-   
