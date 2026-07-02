@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  CONCEPTPAGINA — NOG NIET ACTIVEREN
+  Activeren zodra het EP-W/B certificaat (BRL9500-W) binnen is:
+  1. Verwijder de gele conceptbanner (zoek op "concept-banner")
+  2. Vul het EP-adviseur registratienummer in (zoek op "REGISTRATIENUMMER")
+  3. Voeg de navigatielink toe op alle pagina's:
+     <a href="energielabel.html">Energielabel</a>
+  4. Pas eventueel de startdatum/tekst aan
+  ═══════════════════════════════════════════════════════════════
+-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Energielabel &amp; EP-advies — Thuisbrein</title>
+  <meta name="description" content="Officieel energielabel voor je woning, gecombineerd met praktisch advies over slim energiebeheer. Eén bezoek, twee inzichten.">
+  <meta property="og:title" content="Energielabel &amp; EP-advies — Thuisbrein">
+  <meta property="og:description" content="Officieel energielabel voor je woning, gecombineerd met praktisch advies over slim energiebeheer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thuisbrein.nl/energielabel.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231A2B3C'/><text y='72' x='50' text-anchor='middle' font-size='60' fill='%23639922'>T</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459; --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922; --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF; --border: rgba(26,43,60,0.12); --whatsapp: #25D366; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+    .site { max-width: 1100px; margin: 0 auto; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+    .nav-mobile.open { display: flex; }
+    .concept-banner { background: #FFF6E0; border-bottom: 1px solid #E8D9A8; padding: 0.85rem 2rem; display: flex; align-items: flex-start; gap: 10px; }
+    .concept-banner i { font-size: 17px; color: #9A7B1E; flex-shrink: 0; margin-top: 1px; }
+    .concept-banner p { font-size: 13px; color: #7A621A; line-height: 1.6; font-weight: 500; }
+    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 580px; font-weight: 300; }
+    .sectie { padding: 4rem 2rem; }
+    .sectie-sand { background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sectie h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--navy); letter-spacing: -0.8px; margin-bottom: 0.75rem; }
+    .sectie .intro { font-size: 15px; color: var(--text-muted); max-width: 580px; line-height: 1.75; font-weight: 300; margin-bottom: 2.5rem; }
+    .kaart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .kaart { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .kaart-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-light); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .kaart h3 { font-size: 16px; font-weight: 500; color: var(--navy); }
+    .kaart p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+    .stappen { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
+    .stap { display: flex; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .stap:last-child { border-bottom: none; }
+    .stap-nr { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--green-mid); flex-shrink: 0; width: 36px; }
+    .stap h3 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    .stap p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+    .combi-blok { background: var(--navy); border-radius: 16px; padding: 2.5rem; margin-top: 3rem; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: start; }
+    .combi-blok i { font-size: 32px; color: var(--green-mid); }
+    .combi-blok h3 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 300; color: white; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+    .combi-blok p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .cert-blok { display: flex; align-items: flex-start; gap: 14px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; max-width: 640px; }
+    .cert-blok i { font-size: 26px; color: var(--green); flex-shrink: 0; }
+    .cert-blok h3 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    .cert-blok p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+    .cta-slot { background: var(--navy); padding: 4rem 2rem; }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 900px; }
+    .contact-left h2 { font-family: 'Fraunces', serif; font-size: 34px; font-weight: 300; color: white; letter-spacing: -0.8px; margin-bottom: 1rem; line-height: 1.2; }
+    .contact-left p { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 2rem; line-height: 1.7; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: var(--whatsapp); color: white; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; }
+    .contact-details { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+    .contact-item { display: flex; align-items: center; gap: 12px; }
+    .contact-item i { font-size: 18px; color: rgba(255,255,255,0.4); }
+    .contact-item a { font-size: 14px; color: rgba(255,255,255,0.7); text-decoration: none; }
+    .contact-right { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; }
+    .contact-right h3 { font-size: 14px; font-weight: 500; color: white; margin-bottom: 1.25rem; }
+    .kvk-row { display: flex; justify-content: space-between; font-size: 13px; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .kvk-row:last-child { border-bottom: none; }
+    .kvk-row span:first-child { color: rgba(255,255,255,0.45); }
+    .kvk-row span:last-child { color: rgba(255,255,255,0.8); font-weight: 500; }
+    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 768px) { .page-header h1 { font-size: 36px; } .nav-links { display: none; } .nav-hamburger { display: block; } .contact-inner { grid-template-columns: 1fr; gap: 2rem; } .combi-blok { grid-template-columns: 1fr; padding: 2rem; } }
+    @media (max-width: 480px) { .page-header { padding: 3rem 1.25rem 2.5rem; } .sectie { padding: 3rem 1.25rem; } .cta-slot { padding: 3rem 1.25rem; } }
+  </style>
+</head>
+<body>
+<div class="site">
+  <nav>
+    <a href="index.html" class="nav-logo">Thuis<span>brein</span></a>
+    <div class="nav-links">
+      <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+      <a href="index.html#over">Over ThuisBrein</a>
+      <a href="systemen.html">Systemen</a>
+      <a href="pricing.html">Prijzen</a>
+      <a href="besparing.html">Besparing</a>
+      <a href="check.html">Woningcheck</a>
+      <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen"><i class="ti ti-menu-2"></i></button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#hoe-het-werkt">Hoe het werkt</a>
+    <a href="index.html#over">Over ThuisBrein</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="check.html">Woningcheck</a>
+    <a href="index.html#contact">Plan kennismaking</a>
+  </div>
+
+  <!-- concept-banner: VERWIJDEREN bij livegang -->
+  <div class="concept-banner">
+    <i class="ti ti-traffic-cone"></i>
+    <p>Conceptpagina — deze dienst is nog niet beschikbaar. Deze pagina gaat live zodra de EP-W/B certificering is afgerond.</p>
+  </div>
+
+  <header class="page-header">
+    <span class="tag">Nieuwe dienst</span>
+    <h1>Energielabel &amp; EP-advies</h1>
+    <p>Een officieel energielabel voor je woning, opgenomen door iemand die je huis ook écht slimmer kan maken. Eén bezoek, twee inzichten: waar je woning nu staat, en hoe je er meer uithaalt.</p>
+  </header>
+
+  <section class="sectie">
+    <h2>Wanneer heb je een energielabel nodig?</h2>
+    <p class="intro">Een geregistreerd energielabel is in Nederland verplicht bij verkoop en verhuur van een woning. Maar het is ook waardevol als je net verduurzaamd hebt — een beter label betekent een hogere woningwaarde.</p>
+    <div class="kaart-grid">
+      <div class="kaart">
+        <div class="kaart-icon"><i class="ti ti-home-dollar"></i></div>
+        <h3>Bij verkoop van je woning</h3>
+        <p>Zonder geldig energielabel mag je woning niet verkocht worden. Een gunstig label helpt bovendien bij de verkoopprijs en het aantrekken van kopers.</p>
+      </div>
+      <div class="kaart">
+        <div class="kaart-icon"><i class="ti ti-key"></i></div>
+        <h3>Bij verhuur</h3>
+        <p>Ook bij verhuur is een label verplicht. Voor verhuurders telt het label bovendien mee in het puntensysteem en dus in de maximale huurprijs.</p>
+      </div>
+      <div class="kaart">
+        <div class="kaart-icon"><i class="ti ti-solar-panel"></i></div>
+        <h3>Na verduurzaming</h3>
+        <p>Warmtepomp geplaatst, geïsoleerd of zonnepanelen gelegd? Een nieuw label maakt die investering officieel zichtbaar — handig voor hypotheek, rentekorting en woningwaarde.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectie sectie-sand">
+    <h2>Zo werkt het</h2>
+    <p class="intro">Een energielabel wordt opgesteld volgens de landelijke NTA 8800-methodiek en officieel geregistreerd bij EP-online.</p>
+    <div class="stappen">
+      <div class="stap">
+        <div class="stap-nr">1</div>
+        <div>
+          <h3>Opname aan huis</h3>
+          <p>Ik kom bij je langs en neem de woning op: isolatie, beglazing, installaties, ventilatie en opwekking. Reken op ongeveer een uur tot anderhalf uur.</p>
+        </div>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">2</div>
+        <div>
+          <h3>Berekening en registratie</h3>
+          <p>Op basis van de opname bereken ik de energieprestatie van je woning en registreer ik het label officieel bij EP-online. Je ontvangt het geregistreerde label digitaal.</p>
+        </div>
+      </div>
+      <div class="stap">
+        <div class="stap-nr">3</div>
+        <div>
+          <h3>Praktisch advies erbij</h3>
+          <p>Anders dan bij een standaard labelopname krijg je van mij ook concreet advies: welke stappen verbeteren je label én je maandlasten, en wat kan je woning slimmer doen met wat er al in zit?</p>
+        </div>
+      </div>
+    </div>
+    <div class="combi-blok">
+      <i class="ti ti-bulb"></i>
+      <div>
+        <h3>Label én slim energiebeheer in één bezoek</h3>
+        <p>Dit is waar ThuisBrein anders is dan een reguliere labeladviseur. Tijdens dezelfde opname zie ik ook wat jouw woning slimmer kan: zonnestroom beter benutten, verwarming automatisch sturen, batterij en laadpaal laten samenwerken. Het energielabel vertelt waar je staat — ThuisBrein helpt je vooruit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectie">
+    <h2>Gecertificeerd en geregistreerd</h2>
+    <p class="intro">Energielabels mogen alleen worden afgegeven door een gediplomeerd en geregistreerd energieprestatie-adviseur.</p>
+    <div class="cert-blok">
+      <i class="ti ti-certificate"></i>
+      <div>
+        <h3>Vakbekwaam EP-adviseur Woningbouw (EP-W/B)</h3>
+        <!-- REGISTRATIENUMMER: vul hieronder het registratienummer in na certificering -->
+        <p>Opgeleid en geëxamineerd volgens BRL 9500-W. Registratienummer: [invullen na certificering]. Alle labels worden officieel geregistreerd bij EP-online, het landelijke register van de Rijksoverheid.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-slot">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2>Energielabel nodig, of gewoon benieuwd?</h2>
+        <p>Stuur me een berichtje. Ik vertel je graag wat er nodig is voor jouw woning en wat het kost — zonder verplichtingen.</p>
+        <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20een%20energielabel%20voor%20mijn%20woning." class="btn-whatsapp" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> App mij op WhatsApp</a>
+        <div class="contact-details">
+          <div class="contact-item"><i class="ti ti-mail"></i><a href="mailto:thomasbranderhorst@gmail.com">thomasbranderhorst@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3>Bedrijfsgegevens</h3>
+        <div class="kvk-row"><span>Bedrijf</span><span>ThuisBrein</span></div>
+        <div class="kvk-row"><span>KVK</span><span>88372952</span></div>
+        <div class="kvk-row"><span>Regio</span><span>Oss &amp; omgeving</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="index.html" class="footer-logo">Thuis<span>brein</span></a>
+    <div class="footer-links"><a href="pricing.html">Prijzen</a><a href="systemen.html">Systemen</a><a href="mailto:thomasbranderhorst@gmail.com">Contact</a></div>
+    <p>KVK 88372952</p>
+  </footer>
+</div>
+<a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20een%20energielabel." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
+  hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
+</script>
+</body>
+</html>
