@@ -382,6 +382,56 @@ footer { flex-direction: column; align-items: flex-start; }
   }
 
 </style>
+<style>
+/* Hero-animatie: levend woningbrein */
+.hero-content { min-width: 0; }
+.hero-visual { display: flex; align-items: center; justify-content: center; }
+.hv-card { width: 100%; max-width: 340px; background: linear-gradient(165deg, #FFFFFF 0%, var(--sand) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 20px 20px 16px; box-shadow: 0 24px 54px -26px rgba(26,43,60,0.28); }
+.hv-phase-row { display: flex; align-items: center; justify-content: center; gap: 7px; margin-bottom: 6px; }
+.hv-phase-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; transition: background-color 1.2s ease; }
+.hv-phase { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--green); transition: color 1.2s ease; }
+#tb-hero-svg { display: block; width: 100%; height: auto; overflow: visible; }
+#tb-hero-svg text { font-family: 'DM Sans', sans-serif; }
+.tb-label { font-size: 9.5px; fill: var(--text-muted); font-weight: 400; }
+.tb-value { font-size: 12px; fill: var(--navy); font-weight: 500; }
+.hv-caption { margin-top: 14px; font-size: 12.5px; color: var(--text-muted); line-height: 1.6; text-align: center; }
+
+/* statische onderdelen */
+.tb-panel { fill: var(--sand-dark); stroke: var(--navy); stroke-width: 1.2; }
+.tb-panel-grid { stroke: var(--white); stroke-width: 1; opacity: 0.7; }
+#tb-sun-core { fill: #E8B84B; }
+.tb-sun-ray, .tb-sun-ray-x { stroke: #E8B84B; stroke-width: 2; stroke-linecap: round; }
+#tb-hub { fill: var(--navy); }
+#tb-hub-glow { fill: var(--green-mid); opacity: 0.14; }
+#tb-hub-pulse { fill: none; stroke: var(--white); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+.tb-batt-shell { fill: none; stroke: var(--navy); stroke-width: 1.4; }
+#tb-batt-fill { fill: var(--green-mid); }
+#tb-icon-cv rect, #tb-icon-cv line,
+#tb-icon-airco rect, #tb-icon-airco line,
+#tb-icon-laadpaal rect, #tb-icon-laadpaal path {
+  fill: none; stroke: var(--navy); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke 1.2s ease;
+}
+#tb-icon-laadpaal rect:first-child { fill: var(--navy); stroke: none; }
+
+/* stromende lijnen */
+.tb-flow-line { fill: none; stroke: var(--border); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1 7; transition: stroke 1.2s ease; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .tb-flow-line { animation: tbFlowDash 1.1s linear infinite; }
+  @keyframes tbFlowDash { to { stroke-dashoffset: -16; } }
+  #tb-hub-glow { animation: tbHubPulse 2.6s ease-in-out infinite; }
+  @keyframes tbHubPulse { 0%, 100% { r: 22; opacity: 0.12; } 50% { r: 26; opacity: 0.2; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tb-flow-line { animation: none; stroke-dasharray: none; }
+  #tb-hub-glow { animation: none; }
+}
+@media (max-width: 900px) {
+  .hero-visual { margin-top: 4px; }
+  .hv-card { max-width: 300px; }
+}
+</style>
 </head>
 <body>
 <div class="site">
@@ -407,6 +457,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <a href="#contact">Plan kennismaking</a>
 </div>
 <div class="hero">
+<div class="hero-content">
 <div class="hero-tag">Zonnepanelen & batterij · Warmtepomp · Airco · Laadpaal</div>
 <h1>Jouw energiesystemen<br><em>werken eindelijk samen.</em></h1>
 <p class="hero-sub">Ik koppel je CV/warmtepomp, zonnepanelen, thuisbatterij en airco zodat ze op elkaar inspelen. Altijd de goedkoopste, schoonste energie — automatisch.</p>
@@ -418,6 +469,94 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="stamp"><div class="stamp-dot"></div><span>Merkonafhankelijk — werkt met jouw bestaande systemen</span></div>
 <div class="stamp"><div class="stamp-dot"></div><span>Geen abonnement — lokaal en open</span></div>
 <div class="stamp"><div class="stamp-dot"></div><span></span></div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hv-card">
+<div class="hv-phase-row">
+<span class="hv-phase-dot" id="tb-phase-dot"></span>
+<span class="hv-phase" id="tb-phase">Middag</span>
+</div>
+<svg id="tb-hero-svg" viewBox="0 0 300 372" role="img" aria-label="Animatie: zon, zonnepanelen, thuisbatterij, CV/warmtepomp, airco en laadpaal werken via ThuisBrein automatisch samen">
+<title>ThuisBrein — energiesystemen werken samen</title>
+
+<!-- flow lines (drawn first, behind icons) -->
+<path id="tb-line-sun" class="tb-flow-line" d="M30,78 L150,102" />
+<path class="tb-flow-line" id="tb-line-panels-hub" d="M150,118 L150,163" />
+<path class="tb-flow-line" id="tb-line-hub-batt" d="M166,182 C192,182 200,188 220,193" />
+<path class="tb-flow-line" id="tb-line-hub-cv" d="M138,200 C110,214 90,232 78,266" />
+<path class="tb-flow-line" id="tb-line-hub-airco" d="M150,207 L150,266" />
+<path class="tb-flow-line" id="tb-line-hub-laadpaal" d="M162,200 C190,214 210,232 222,266" />
+
+<!-- sun -->
+<g id="tb-sun">
+<line x1="0" y1="-16" x2="0" y2="-11" class="tb-sun-ray"/>
+<line x1="0" y1="11" x2="0" y2="16" class="tb-sun-ray"/>
+<line x1="-16" y1="0" x2="-11" y2="0" class="tb-sun-ray"/>
+<line x1="11" y1="0" x2="16" y2="0" class="tb-sun-ray"/>
+<line x1="-11.3" y1="-11.3" x2="-7.8" y2="-7.8" class="tb-sun-ray"/>
+<line x1="7.8" y1="7.8" x2="11.3" y2="11.3" class="tb-sun-ray"/>
+<line x1="11.3" y1="-11.3" x2="7.8" y2="-7.8" class="tb-sun-ray"/>
+<line x1="-7.8" y1="7.8" x2="-11.3" y2="-11.3" class="tb-sun-ray-x"/>
+<circle r="8.5" id="tb-sun-core"/>
+</g>
+
+<!-- zonnepanelen -->
+<g id="tb-panels">
+<rect x="73" y="104" width="34" height="16" rx="2" class="tb-panel"/>
+<rect x="113" y="104" width="34" height="16" rx="2" class="tb-panel"/>
+<rect x="153" y="104" width="34" height="16" rx="2" class="tb-panel"/>
+<rect x="193" y="104" width="34" height="16" rx="2" class="tb-panel"/>
+<line x1="90" y1="104" x2="90" y2="120" class="tb-panel-grid"/>
+<line x1="130" y1="104" x2="130" y2="120" class="tb-panel-grid"/>
+<line x1="170" y1="104" x2="170" y2="120" class="tb-panel-grid"/>
+<line x1="210" y1="104" x2="210" y2="120" class="tb-panel-grid"/>
+</g>
+<text x="150" y="139" class="tb-label" text-anchor="middle">Zonnepanelen</text>
+<text x="245" y="115" class="tb-value" id="tb-kw" text-anchor="end">0,0 kW</text>
+
+<!-- ThuisBrein hub -->
+<circle cx="150" cy="182" r="24" id="tb-hub-glow"/>
+<circle cx="150" cy="182" r="17" id="tb-hub"/>
+<path d="M141,182 h6 l4,-8 4,14 4,-10 3,4 h4" id="tb-hub-pulse" />
+<text x="150" y="218" class="tb-label" text-anchor="middle">ThuisBrein</text>
+
+<!-- batterij -->
+<rect x="224" y="168" width="34" height="62" rx="6" class="tb-batt-shell"/>
+<rect x="236" y="161" width="10" height="7" rx="2" class="tb-batt-shell"/>
+<rect x="229" y="196" width="24" height="30" rx="3" id="tb-batt-fill"/>
+<text x="241" y="156" class="tb-value" id="tb-batt-pct" text-anchor="middle">0%</text>
+<text x="241" y="244" class="tb-label" text-anchor="middle">Batterij</text>
+
+<!-- CV / warmtepomp -->
+<g id="tb-icon-cv">
+<rect x="61" y="266" width="30" height="34" rx="5"/>
+<line x1="69" y1="273" x2="69" y2="293"/>
+<line x1="76" y1="273" x2="76" y2="293"/>
+<line x1="83" y1="273" x2="83" y2="293"/>
+</g>
+<text x="76" y="316" class="tb-label" text-anchor="middle">CV/WP</text>
+
+<!-- airco -->
+<g id="tb-icon-airco">
+<rect x="133" y="266" width="34" height="15" rx="4"/>
+<line x1="138" y1="281" x2="134" y2="291"/>
+<line x1="147" y1="281" x2="144" y2="293"/>
+<line x1="156" y1="281" x2="154" y2="291"/>
+</g>
+<text x="150" y="316" class="tb-label" text-anchor="middle">Airco</text>
+
+<!-- laadpaal -->
+<g id="tb-icon-laadpaal">
+<rect x="213" y="264" width="20" height="10" rx="3"/>
+<rect x="219" y="272" width="8" height="34" rx="3"/>
+<path d="M225,280 L220,290 L225,290 L221,300" />
+</g>
+<text x="223" y="316" class="tb-label" text-anchor="middle">Laadpaal</text>
+
+</svg>
+<p class="hv-caption">Zon, batterij en verbruikers wisselen continu af — automatisch geregeld door ThuisBrein.</p>
+</div>
 </div>
 </div>
 <section class="saldering-sectie">
@@ -834,5 +973,151 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
 
 <script src="/coming-soon.js"></script>
 <script src="motion.js" defer></script>
+<script>
+/* ThuisBrein hero-animatie — levend woningbrein.
+   Simuleert een dagcyclus: zon -> panelen -> ThuisBrein -> batterij + CV/WP, airco, laadpaal.
+   Respecteert prefers-reduced-motion (dan: nette statische middag-stand). */
+(function () {
+  var svg = document.getElementById('tb-hero-svg');
+  if (!svg) return;
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var els = {
+    phase: document.getElementById('tb-phase'),
+    phaseDot: document.getElementById('tb-phase-dot'),
+    sun: document.getElementById('tb-sun'),
+    lineSun: document.getElementById('tb-line-sun'),
+    kw: document.getElementById('tb-kw'),
+    linePanelsHub: document.getElementById('tb-line-panels-hub'),
+    lineHubBatt: document.getElementById('tb-line-hub-batt'),
+    battFill: document.getElementById('tb-batt-fill'),
+    battPct: document.getElementById('tb-batt-pct'),
+    lineHubCv: document.getElementById('tb-line-hub-cv'),
+    lineHubAirco: document.getElementById('tb-line-hub-airco'),
+    lineHubLaadpaal: document.getElementById('tb-line-hub-laadpaal'),
+    iconCv: document.getElementById('tb-icon-cv'),
+    iconAirco: document.getElementById('tb-icon-airco'),
+    iconLaadpaal: document.getElementById('tb-icon-laadpaal')
+  };
+
+  var COLOR_IDLE = [26, 43, 60];   /* navy, gedimd */
+  var COLOR_ACTIVE = [99, 153, 34]; /* --green-mid */
+  var LINE_IDLE_OPACITY = 0.16;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function mixColor(t) {
+    t = Math.max(0, Math.min(1, t));
+    var r = Math.round(lerp(COLOR_IDLE[0], COLOR_ACTIVE[0], t));
+    var g = Math.round(lerp(COLOR_IDLE[1], COLOR_ACTIVE[1], t));
+    var b = Math.round(lerp(COLOR_IDLE[2], COLOR_ACTIVE[2], t));
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+  function setLine(el, intensity) {
+    if (!el) return;
+    el.style.stroke = mixColor(intensity);
+    el.style.strokeOpacity = lerp(LINE_IDLE_OPACITY, 1, Math.max(0, Math.min(1, intensity)));
+  }
+  function setIcon(el, intensity) {
+    if (!el) return;
+    var col = mixColor(intensity);
+    el.querySelectorAll('rect, line, path').forEach(function (p) {
+      p.style.stroke = col;
+    });
+    if (el.id === 'tb-icon-laadpaal') {
+      var head = el.querySelector('rect:first-child');
+      if (head) head.style.fill = col;
+    }
+  }
+
+  /* Bézier punt op de zonnebaan */
+  var SUN_P0 = { x: 30, y: 78 }, SUN_P1 = { x: 150, y: 14 }, SUN_P2 = { x: 270, y: 78 };
+  function sunPoint(t) {
+    var it = 1 - t;
+    return {
+      x: it * it * SUN_P0.x + 2 * it * t * SUN_P1.x + t * t * SUN_P2.x,
+      y: it * it * SUN_P0.y + 2 * it * t * SUN_P1.y + t * t * SUN_P2.y
+    };
+  }
+
+  var CYCLE_MS = 20000;   /* één volledige dag: ochtend -> middag -> avond */
+  var UPDATE_MS = 100;    /* throttle: rustig en licht in performance */
+  var lastUpdate = 0;
+  var startOffset = -(0.36 * CYCLE_MS); /* start net vóór de middag: direct actieve stroom zichtbaar */
+
+  function render(now) {
+    if (!lastUpdate || now - lastUpdate >= UPDATE_MS) {
+      lastUpdate = now;
+      var elapsed = (now + startOffset) % CYCLE_MS;
+      if (elapsed < 0) elapsed += CYCLE_MS;
+      var t = elapsed / CYCLE_MS; /* 0..1 = ochtend vroeg .. nacht */
+
+      update(t);
+    }
+    if (!reduceMotion) requestAnimationFrame(render);
+  }
+
+  function update(t) {
+    var solar = Math.max(0, Math.sin(Math.PI * t));       /* 0..1, piek bij t=0.5 */
+    var kw = solar * 4.6;
+
+    var phaseLabel, phaseColor;
+    if (t < 0.28) { phaseLabel = 'Ochtend'; phaseColor = '#639922'; }
+    else if (t < 0.62) { phaseLabel = 'Middag'; phaseColor = '#3B6D11'; }
+    else { phaseLabel = 'Avond'; phaseColor = '#1A2B3C'; }
+
+    if (els.phase && els.phase.textContent !== phaseLabel) {
+      els.phase.textContent = phaseLabel;
+      els.phase.style.color = phaseColor;
+      if (els.phaseDot) els.phaseDot.style.backgroundColor = phaseColor;
+    }
+
+    /* zon volgt de baan; hoogte/intensiteit toont zoninstraling */
+    var sp = sunPoint(t);
+    if (els.sun) els.sun.setAttribute('transform', 'translate(' + sp.x.toFixed(1) + ',' + sp.y.toFixed(1) + ')');
+    if (els.lineSun) {
+      els.lineSun.setAttribute('d', 'M' + sp.x.toFixed(1) + ',' + (sp.y + 9).toFixed(1) + ' L150,102');
+      setLine(els.lineSun, solar);
+    }
+    if (els.kw) els.kw.textContent = kw.toFixed(1).replace('.', ',') + ' kW';
+
+    /* batterij: laadt overdag op, ontlaadt 's avonds/'s nachts */
+    var battPct = 65 + 27 * Math.cos(2 * Math.PI * (t - 0.52));
+    battPct = Math.max(15, Math.min(97, battPct));
+    var fillH = (battPct / 100) * 54;
+    if (els.battFill) {
+      els.battFill.setAttribute('height', fillH.toFixed(1));
+      els.battFill.setAttribute('y', (226 - fillH).toFixed(1));
+    }
+    if (els.battPct) els.battPct.textContent = Math.round(battPct) + '%';
+
+    /* stroomrichtingen */
+    var chargeIntensity = Math.max(0, Math.min(1, (solar - 0.28) / 0.55));   /* zon -> hub -> batterij */
+    var directUse = Math.max(0, Math.min(1, solar / 0.85));                   /* zon -> hub -> airco/laadpaal overdag */
+    var dischargeIntensity = Math.max(0, Math.min(1, (0.32 - solar) / 0.32)); /* batterij -> hub -> verbruikers */
+
+    setLine(els.linePanelsHub, Math.max(chargeIntensity, directUse * 0.6));
+    setLine(els.lineHubBatt, Math.max(chargeIntensity, dischargeIntensity));
+
+    var cvIntensity = Math.max(0.18, dischargeIntensity * 0.9 + (t > 0.6 ? 0.25 : 0));
+    var aircoIntensity = Math.max(directUse * 0.95, dischargeIntensity * 0.55);
+    var laadpaalIntensity = Math.max(chargeIntensity * 0.9, directUse * 0.5);
+
+    setLine(els.lineHubCv, cvIntensity);
+    setLine(els.lineHubAirco, aircoIntensity);
+    setLine(els.lineHubLaadpaal, laadpaalIntensity);
+    setIcon(els.iconCv, cvIntensity);
+    setIcon(els.iconAirco, aircoIntensity);
+    setIcon(els.iconLaadpaal, laadpaalIntensity);
+  }
+
+  if (reduceMotion) {
+    /* statische, representatieve middag-stand: geen beweging, wel duidelijk verhaal */
+    update(0.5);
+  } else {
+    requestAnimationFrame(render);
+  }
+})();
+</script>
 </body>
 </html>
