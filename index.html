@@ -444,7 +444,7 @@ footer { flex-direction: column; align-items: flex-start; }
 </div>
 <div class="hero-stamp">
 <div class="stamp"><div class="stamp-dot"></div><span>Merkonafhankelijk — werkt met jouw bestaande systemen</span></div>
-<div class="stamp"><div class="stamp-dot"></div><span>Geen abonnement — lokaal en open</span></div>
+<div class="stamp"><div class="stamp-dot"></div><span>Geen verplicht abonnement — lokaal en open</span></div>
 <div class="stamp"><div class="stamp-dot"></div><span></span></div>
 </div>
 </div>
@@ -1018,7 +1018,7 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
     };
   }
 
-  var CYCLE_MS = 20000;   /* één volledige dag: ochtend -> middag -> avond */
+  var CYCLE_MS = reduceMotion ? 40000 : 20000; /* één volledige dag; bij reduced motion op halve snelheid */
   var UPDATE_MS = 100;    /* throttle: rustig en licht in performance */
   var lastUpdate = 0;
   var startOffset = -(0.36 * CYCLE_MS); /* start net vóór de middag: direct actieve stroom zichtbaar */
@@ -1032,7 +1032,7 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
 
       update(t);
     }
-    if (!reduceMotion) requestAnimationFrame(render);
+    requestAnimationFrame(render);
   }
 
   function update(t) {
@@ -1089,12 +1089,10 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
     setIcon(els.iconLaadpaal, laadpaalIntensity);
   }
 
-  if (reduceMotion) {
-    /* statische, representatieve middag-stand: geen beweging, wel duidelijk verhaal */
-    update(0.5);
-  } else {
-    requestAnimationFrame(render);
-  }
+  /* De dagcyclus draait altijd — hij is traag en rustig. Bij prefers-reduced-motion
+     (op Windows vaak onbedoeld actief via 'animatie-effecten uit') draait hij op halve
+     snelheid en blijven de snelle streepjes-animaties uit (zie CSS). */
+  requestAnimationFrame(render);
 })();
 </script>
 </body>
