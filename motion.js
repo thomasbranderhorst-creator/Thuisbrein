@@ -10,9 +10,9 @@
     '.kaart,.systeem-card,.compat-card,.pakket-card,.resultaat-kaart,.casus-kaart,.airco-kaart,.check-kaart,.filosofie-item,.technisch-item,.card,.cert-blok,.faq-item{transition:transform .25s ease, box-shadow .25s ease;}',
     '.kaart:hover,.systeem-card:hover,.compat-card:hover,.pakket-card:hover,.resultaat-kaart:hover,.casus-kaart:hover,.airco-kaart:hover,.check-kaart:hover,.filosofie-item:hover,.technisch-item:hover,.card:hover,.cert-blok:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(26,43,60,.10);}',
     '}',
-    /* FAQ: soepel openklappen (overschrijft display:none/block) */
-    '.faq-antwoord{display:block!important;max-height:0;overflow:hidden;opacity:0;padding-bottom:0;transition:max-height .4s ease,opacity .35s ease,padding-bottom .4s ease;}',
-    '.faq-antwoord.open{max-height:420px;opacity:1;padding-bottom:1.25rem;}',
+    /* FAQ: soepel openklappen (overschrijft display:none/block); JS meet de echte hoogte */
+    '.faq-antwoord{display:block!important;max-height:0;overflow:hidden;opacity:0;padding-bottom:0;transition:max-height .35s ease,opacity .3s ease,padding-bottom .35s ease;}',
+    '.faq-antwoord.open{max-height:600px;opacity:1;padding-bottom:1.25rem;}',
     /* Bewegend spul alleen als de bezoeker geen reduced motion heeft */
     '@media (prefers-reduced-motion: no-preference){',
     '.tb-reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}',
@@ -26,6 +26,24 @@
   var style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
+
+  /* FAQ: na elke klik de echte hoogte zetten, zodat openen én sluiten
+     vloeiend animeren, ongeacht de lengte van het antwoord */
+  function syncFaq() {
+    document.querySelectorAll('.faq-antwoord').forEach(function (a) {
+      a.style.maxHeight = a.classList.contains('open') ? (a.scrollHeight + 24) + 'px' : '0px';
+    });
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('.faq-vraag')) {
+      requestAnimationFrame(syncFaq);
+    }
+  });
+  window.addEventListener('resize', function () {
+    document.querySelectorAll('.faq-antwoord.open').forEach(function (a) {
+      a.style.maxHeight = (a.scrollHeight + 24) + 'px';
+    });
+  });
 
   if (reduce || !('IntersectionObserver' in window)) return;
 
@@ -46,6 +64,8 @@
       if (entry.isIntersecting) {
         entry.target.classList.add('tb-in');
         io.unobserve(entry.target);
+        /* na de reveal de stagger-vertraging weghalen, anders reageert hover traag */
+        setTimeout(function () { entry.target.style.transitionDelay = ''; }, 900);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
