@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voorbeelden van automatiseringen — Thuisbrein</title>
+<meta name="description" content="Zo werken CV, airco en zonnepanelen samen in plaats van tegen elkaar. Bekijk voorbeelden van slimme automatiseringen die ThuisBrein voor je instelt.">
+<meta property="og:title" content="Voorbeelden van automatiseringen — Thuisbrein">
+<meta property="og:description" content="CV en airco die samenwerken met je zonnepanelen. Voorbeelden van wat jouw ThuisBrein automatisch regelt.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thuisbrein.nl/automatiseringen.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --sand-dark: #E8E0D0;
+  --navy: #1A2B3C;
+  --navy-mid: #2E4459;
+  --green: #3B6D11;
+  --green-light: #EAF3DE;
+  --green-mid: #639922;
+  --gold: #E0A93C;
+  --gold-light: #F7EBD2;
+  --text: #1A2B3C;
+  --text-muted: #5F6E7A;
+  --white: #FFFFFF;
+  --border: rgba(26,43,60,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── NAV ─── */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+.nav-logo span { color: var(--green-mid); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); font-weight: 500; }
+.nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+.nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; position: sticky; top: 69px; z-index: 99; }
+.nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+.nav-mobile.open { display: flex; }
+
+/* ─── HERO ─── */
+.hero { background: var(--sand); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--border); }
+.hero-eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 1.1rem; }
+.hero h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; color: var(--navy); letter-spacing: -0.5px; }
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-sub { max-width: 640px; margin: 1.3rem auto 0; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+
+/* ─── VOORBEELDEN ─── */
+.voorbeelden { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 1rem; display: flex; flex-direction: column; gap: 3rem; }
+.voorbeeld { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--white); }
+.vb-kop { padding: 1.8rem 2rem 0.4rem; }
+.vb-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 0.6rem; }
+.vb-kop h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; color: var(--navy); letter-spacing: -0.3px; line-height: 1.25; }
+.vb-kop p { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--text-muted); margin-top: 0.7rem; max-width: 640px; }
+.vb-visual { padding: 1.6rem 2rem 0.6rem; }
+.vb-visual svg { width: 100%; height: auto; display: block; }
+
+/* spelregels */
+.spelregels { padding: 1rem 2rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.regel { display: flex; gap: 0.8rem; align-items: flex-start; background: var(--sand); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1rem; }
+.regel i { color: var(--green); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.regel p { font-size: 13.5px; line-height: 1.55; color: var(--text); }
+.regel p b { font-weight: 500; }
+.vb-resultaat { margin: 0 2rem 2rem; background: var(--green-light); border: 1px solid rgba(99,153,34,0.3); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.8rem; align-items: flex-start; }
+.vb-resultaat i { color: var(--green); font-size: 19px; flex-shrink: 0; }
+.vb-resultaat p { font-size: 14px; line-height: 1.6; color: var(--text); }
+
+/* maatwerk-noot */
+.maatwerk { max-width: 900px; margin: 2.2rem auto 0; padding: 0 2rem; }
+.maatwerk .binnen { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--sand); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; }
+.maatwerk i { color: var(--green-mid); font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.maatwerk p { font-size: 14px; font-weight: 300; line-height: 1.65; color: var(--text); }
+
+/* ─── CTA ─── */
+.cta-sectie { text-align: center; padding: 3.5rem 2rem 4.5rem; }
+.cta-sectie h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 4vw, 36px); color: var(--navy); letter-spacing: -0.4px; }
+.cta-sectie p { font-size: 15px; font-weight: 300; color: var(--text-muted); margin-top: 0.8rem; }
+.cta-knoppen { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 1.8rem; }
+.btn { display: inline-block; text-decoration: none; font-size: 14px; font-weight: 500; padding: 13px 26px; border-radius: 8px; transition: transform .2s ease, box-shadow .2s ease; }
+.btn-vol { background: var(--navy); color: var(--white); }
+.btn-los { border: 1px solid var(--border); color: var(--navy); background: var(--white); }
+@media (hover:hover) { .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,43,60,.12); } }
+
+/* ─── FOOTER ─── */
+footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+.footer-logo span { color: var(--green-mid); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+footer p { font-size: 12px; color: var(--text-muted); }
+
+@media (max-width: 860px) { .nav-links { display: none; } .nav-hamburger { display: block; } }
+@media (max-width: 640px) {
+  .spelregels { grid-template-columns: 1fr; }
+  .vb-kop, .vb-visual, .spelregels { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .vb-resultaat { margin-left: 1.2rem; margin-right: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+  <div class="nav-links">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="index.html#over">Over ThuisBrein</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="check.html">Woningcheck</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
+    <i class="ti ti-menu-2"></i>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="werkwijze.html">Zo werkt het</a>
+  <a href="index.html#over">Over ThuisBrein</a>
+  <a href="systemen.html">Systemen</a>
+  <a href="pricing.html">Prijzen</a>
+  <a href="besparing.html">Besparing</a>
+  <a href="check.html">Woningcheck</a>
+  <a href="index.html#contact">Plan kennismaking</a>
+</div>
+
+<section class="hero">
+  <div class="hero-eyebrow">Voorbeelden uit de praktijk</div>
+  <h1>Wat jouw huis <em>vanzelf</em> gaat regelen</h1>
+  <p class="hero-sub">Een slimme woning is geen app met tien knoppen — het zijn afspraken die je één keer maakt, waarna je huis ze elke dag nakomt. Twee voorbeelden van automatiseringen die ik voor je instel.</p>
+</section>
+
+<div class="voorbeelden">
+
+  <!-- ═══ VOORBEELD 1: CV + AIRCO + ZON ═══ -->
+  <div class="voorbeeld card">
+    <div class="vb-kop">
+      <div class="vb-label">Voorbeeld 1 · Lente &amp; herfst</div>
+      <h2>CV en airco werken samen — niet tegen elkaar</h2>
+      <p>In de tussenseizoenen gebeurt het vaak ongemerkt: 's ochtends stookt de CV, 's middags koelt de airco diezelfde warmte weer weg. Jouw ThuisBrein kent beide systemen én je zonnepanelen, en verdeelt de temperatuurband zó dat ze elkaar nooit in de weg zitten.</p>
+    </div>
+    <div class="vb-visual">
+      <svg viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Temperatuurband: onder 20 graden verwarmt de CV, tussen 20 en 24 graden doet niemand iets, vanaf 24 graden koelt de airco op zonnestroom, vanaf 26 graden koelt de airco altijd">
+        <!-- temperatuur-as -->
+        <line x1="70" y1="30" x2="70" y2="300" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
+        <!-- zones (van warm boven naar koud onder) -->
+        <!-- >26: airco altijd -->
+        <rect x="80" y="30" width="500" height="56" rx="10" fill="#2E4459"/>
+        <text x="100" y="53" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#FFFFFF">Airco koelt — hoe dan ook</text>
+        <text x="100" y="72" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.75)">Boven 26° gaat comfort voor: koelen, ongeacht zon of prijs</text>
+        <!-- 24-26: airco op zon -->
+        <rect x="80" y="94" width="500" height="56" rx="10" fill="#3B6D11"/>
+        <text x="100" y="117" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#FFFFFF">Airco koelt — op jouw zonnestroom</text>
+        <text x="100" y="136" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">Alléén bij zonoverschot en een lage stroomprijs. Anders: wachten.</text>
+        <!-- 20-24: comfortzone -->
+        <rect x="80" y="158" width="500" height="56" rx="10" fill="#EAF3DE" stroke="rgba(99,153,34,0.35)"/>
+        <text x="100" y="181" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">Niemand doet iets</text>
+        <text x="100" y="200" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A">De gratis comfortzone — geen gas, geen stroom</text>
+        <!-- <20: CV -->
+        <rect x="80" y="222" width="500" height="56" rx="10" fill="#E0A93C"/>
+        <text x="100" y="245" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">CV verwarmt</text>
+        <text x="100" y="264" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(26,43,60,0.75)">Pas als het echt te koud wordt — en nooit terwijl de airco net koelde</text>
+        <!-- graden-labels op de as -->
+        <g font-family="Fraunces, serif" font-size="17" fill="#1A2B3C" text-anchor="end">
+          <text x="58" y="96">26°</text>
+          <text x="58" y="160">24°</text>
+          <text x="58" y="224">20°</text>
+        </g>
+        <line x1="64" y1="91" x2="80" y2="91" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
+        <line x1="64" y1="155" x2="80" y2="155" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
+        <line x1="64" y1="219" x2="80" y2="219" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
+        <!-- voorwaarden rechts bij de groene zone -->
+        <g font-family="DM Sans, sans-serif" font-size="12.5">
+          <rect x="600" y="96" width="240" height="24" rx="12" fill="#F5F0E8" stroke="rgba(26,43,60,0.12)"/>
+          <text x="620" y="112" fill="#1A2B3C">☀ zonoverschot aanwezig</text>
+          <rect x="600" y="126" width="240" height="24" rx="12" fill="#F5F0E8" stroke="rgba(26,43,60,0.12)"/>
+          <text x="620" y="142" fill="#1A2B3C">€ stroomprijs niet te hoog</text>
+          <line x1="580" y1="122" x2="600" y2="112" stroke="rgba(99,153,34,0.6)" stroke-width="1.5"/>
+          <line x1="580" y1="122" x2="600" y2="136" stroke="rgba(99,153,34,0.6)" stroke-width="1.5"/>
+        </g>
+        <!-- binnentemperatuur-stip die door de zones beweegt -->
+        <circle r="5" fill="#3B6D11" stroke="#FFFFFF" stroke-width="2">
+          <animateMotion dur="9s" repeatCount="indefinite" path="M330,250 L330,186 L330,122 L330,186 L330,250"/>
+        </circle>
+        <text x="330" y="316" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A" text-anchor="middle">● jouw binnentemperatuur beweegt door de band — jouw huis kiest wat er gebeurt</text>
+      </svg>
+    </div>
+    <div class="spelregels">
+      <div class="regel"><i class="ti ti-flame"></i><p><b>CV verwarmt pas onder 20°</b> — en nooit vlak nadat de airco heeft gekoeld. Zo betaal je nooit dubbel.</p></div>
+      <div class="regel"><i class="ti ti-snowflake"></i><p><b>Airco koelt al vanaf 24°</b> als de zon jouw stroom levert en de prijs laag is — koelen kost dan niets.</p></div>
+      <div class="regel"><i class="ti ti-sun-off"></i><p><b>Geen zon of dure stroom?</b> Dan wacht de airco netjes tot 26° — comfort blijft, verspilling niet.</p></div>
+      <div class="regel"><i class="ti ti-arrows-shuffle"></i><p><b>Nooit tegelijk aan.</b> Verwarmen en koelen sluiten elkaar uit — de klassieke tussenseizoen-valkuil is weg.</p></div>
+    </div>
+    <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> in de lente en herfst koelt je huis grotendeels op je eigen zonnestroom, blijft de CV vaker uit, en werkt niets elkaar meer tegen. Comfort blijft gelijk — het verbruik niet.</p></div>
+  </div>
+
+  <!-- ═══ VOORBEELD 2: WITGOED OP ZONUREN ═══ -->
+  <div class="voorbeeld card">
+    <div class="vb-kop">
+      <div class="vb-label">Voorbeeld 2 · Elke dag opnieuw</div>
+      <h2>De vaatwasser wacht vanzelf op de zon</h2>
+      <p>Jij ruimt 's avonds in en drukt op start. Maar draaien doet de vaatwasser pas als jóuw panelen de stroom leveren — of, in de winter, op het goedkoopste uur van de nacht. Zonder dat je er ooit nog over nadenkt.</p>
+    </div>
+    <div class="vb-visual">
+      <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dagcurve van zonne-opbrengst: de vaatwasser start automatisch op het moment dat de zonnepanelen het meest leveren, rond het middaguur">
+        <!-- as -->
+        <line x1="50" y1="230" x2="820" y2="230" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
+        <!-- zonnecurve (gevuld) -->
+        <path d="M90,230 C220,228 260,60 435,60 C610,60 650,228 780,230 Z" fill="#F7EBD2" stroke="#E0A93C" stroke-width="2.5"/>
+        <!-- stroomprijslijn -->
+        <path d="M50,120 C160,116 240,180 435,196 C600,182 700,120 820,110" fill="none" stroke="#2E4459" stroke-width="2" stroke-dasharray="6 5" opacity="0.65"/>
+        <text x="60" y="106" font-family="DM Sans, sans-serif" font-size="12" fill="#2E4459">stroomprijs (dynamisch contract)</text>
+        <text x="368" y="52" font-family="DM Sans, sans-serif" font-size="12" fill="#B8860B">jouw zonne-opbrengst</text>
+        <!-- avond: inruimen -->
+        <g>
+          <circle cx="782" cy="230" r="6" fill="#1A2B3C"/>
+          <text x="782" y="262" font-family="DM Sans, sans-serif" font-size="12.5" fill="#1A2B3C" text-anchor="middle" font-weight="500">22:00 — jij drukt op start</text>
+          <text x="782" y="279" font-family="DM Sans, sans-serif" font-size="11.5" fill="#5F6E7A" text-anchor="middle">(er gebeurt: niets)</text>
+        </g>
+        <!-- pijl van avond naar middag (wachten tot de zon) -->
+        <path d="M770,218 C700,140 560,86 460,74" fill="none" stroke="#639922" stroke-width="2" stroke-dasharray="3 5"/>
+        <path d="M460,74 l14,-3 m-14,3 l11,9" stroke="#639922" stroke-width="2" fill="none"/>
+        <!-- startmoment -->
+        <g>
+          <line x1="435" y1="60" x2="435" y2="230" stroke="#3B6D11" stroke-width="2"/>
+          <circle cx="435" cy="60" r="7" fill="#3B6D11" stroke="#FFFFFF" stroke-width="2.5"/>
+          <rect x="330" y="14" width="210" height="26" rx="13" fill="#EAF3DE" stroke="rgba(99,153,34,0.4)"/>
+          <text x="435" y="31" font-family="DM Sans, sans-serif" font-size="12.5" fill="#3B6D11" text-anchor="middle" font-weight="500">12:15 — vaatwasser start vanzelf</text>
+        </g>
+        <!-- tijdslabels -->
+        <g font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A">
+          <text x="90" y="250" text-anchor="middle">06:00</text>
+          <text x="435" y="250" text-anchor="middle">12:00</text>
+          <text x="640" y="250" text-anchor="middle">18:00</text>
+        </g>
+      </svg>
+    </div>
+    <div class="spelregels">
+      <div class="regel"><i class="ti ti-sun"></i><p><b>Start op zonoverschot</b> — de vaatwasser (of wasmachine) draait op stroom die anders voor bijna niets het net op zou gaan.</p></div>
+      <div class="regel"><i class="ti ti-moon"></i><p><b>Geen zon vandaag?</b> Dan kiest je huis automatisch het goedkoopste uur uit je dynamische stroomcontract.</p></div>
+      <div class="regel"><i class="ti ti-clock-check"></i><p><b>Deadline instelbaar</b> — "wel klaar vóór 17:00" bijvoorbeeld. Slim, maar nooit ten koste van jouw planning.</p></div>
+      <div class="regel"><i class="ti ti-hand-click"></i><p><b>Jij verandert niets</b> aan je gewoontes: inruimen, start indrukken, klaar. De timing regelt je huis.</p></div>
+    </div>
+    <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> je grootste stroomvreters draaien voortaan op je eigen opwek of op daluren — elke dag een kleine besparing, opgeteld een groot verschil.</p></div>
+  </div>
+
+</div>
+
+<div class="maatwerk">
+  <div class="binnen">
+    <i class="ti ti-adjustments"></i>
+    <p><strong>Alle grenzen zijn van jou.</strong> Die 20°, 24° en 26° hierboven zijn voorbeelden — bij de installatie stellen we ze samen in op jouw comfort, jouw systemen en jouw stroomcontract. En via ThuisBrein Actief stel ik ze bij als blijkt dat het slimmer kan.</p>
+  </div>
+</div>
+
+<section class="cta-sectie">
+  <h2>Wat zou jouw huis vanzelf kunnen regelen?</h2>
+  <p>Doe de Woningcheck en zie binnen vijf minuten welke systemen bij jou koppelbaar zijn.</p>
+  <div class="cta-knoppen">
+    <a href="check.html" class="btn btn-vol">Start de Woningcheck</a>
+    <a href="werkwijze.html" class="btn btn-los">Zo werkt de installatie</a>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+  <div class="footer-links">
+    <a href="pricing.html">Prijzen</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
+  </div>
+  <p>KVK 88372952</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !navMobile.contains(e.target)) navMobile.classList.remove('open');
+});
+</script>
+<script src="motion.js" defer></script>
+</body>
+</html>
