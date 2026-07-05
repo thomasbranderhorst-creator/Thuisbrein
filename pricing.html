@@ -330,22 +330,14 @@ footer p { font-size: 12px; color: var(--text-muted); }
           <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
           <div class="pakket-prijs-van">Vanaf</div>
           <div class="pakket-prijs-bedrag" id="prijs-1"><span>€</span>399</div>
-          <div class="pakket-prijs-note">thermostaat + installatie + instelling</div>
+          <div class="pakket-prijs-note">Plugwise-thermostaat + installatie + instelling</div>
           <div class="pakket-prijs-note" style="margin-top:.4rem;">📍 Werkgebied: Gemeente Oss t/m 100 km · daarbuiten reistoeslag €0,50/km</div>
         </div>
         <div class="thermostaat-keuze">
-          <div class="keuze-label">Kies je thermostaat</div>
+          <div class="keuze-label">De thermostaat</div>
           <div class="thermostaat-opties" id="opties-1">
-            <div class="therm-optie actief" data-pakket="1" data-extra="0" data-merk="Tado° V3+">
-              <div><div class="therm-merk">Tado° V3+</div><div class="therm-sub">Bedraad · OpenTherm · Geen abonnement nodig</div></div>
-              <div class="therm-prijs">incl.</div>
-            </div>
-            <div class="therm-optie" data-pakket="1" data-extra="10" data-merk="Netatmo">
-              <div><div class="therm-merk">Netatmo</div><div class="therm-sub">HomeKit · Apple-vriendelijk · Lokaal</div></div>
-              <div class="therm-prijs">+€10</div>
-            </div>
-            <div class="therm-optie" data-pakket="1" data-extra="0" data-merk="Plugwise (Adam HA + Emma)">
-              <div><div class="therm-merk">Plugwise</div><div class="therm-sub">Adam HA + Emma · Nederlands · Lokaal</div></div>
+            <div class="therm-optie actief" style="cursor:default;" data-pakket="1" data-extra="0" data-merk="Plugwise (Adam HA + Emma)">
+              <div><div class="therm-merk">Plugwise Adam HA + Emma</div><div class="therm-sub">Nederlands merk · Werkt volledig lokaal · Zonemogelijkheden</div></div>
               <div class="therm-prijs">incl.</div>
             </div>
           </div>
@@ -427,7 +419,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="staffel-grid">
         <div class="staffel-item">
           <div class="staffel-pakket">Slimme Thermostaat</div>
-          <div class="staffel-beschrijving">Hardware + <strong>€200–250</strong> installatie &amp; instelling. Tado° V3+: <strong>€399</strong>. Netatmo: <strong>€409</strong>.</div>
+          <div class="staffel-beschrijving">Plugwise-hardware + <strong>€200–250</strong> installatie &amp; instelling. Vanaf <strong>€399</strong>, afhankelijk van jouw situatie (aantal zones, wel of geen bestaande thermostaat).</div>
         </div>
         <div class="staffel-item">
           <div class="staffel-pakket">ThuisBrein Start</div>
@@ -576,7 +568,7 @@ const pakketNamen = {
 };
 const vastePrijs = { 2: '€795', 3: '€12,50/maand' };
 let huidigPakket = 1;
-let gekozenMerk = { 1: 'Tado° V3+', 2: 'Tado° V3+', 3: null };
+let gekozenMerk = { 1: 'Plugwise (Adam HA + Emma)', 2: null, 3: null };
 let gekozenExtra = { 1: 0, 2: 0, 3: 0 };
 
 document.querySelectorAll('.therm-optie').forEach(optie => {
