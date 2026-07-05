@@ -300,7 +300,7 @@
   </section>
 
     <!-- COMPATIBILITEITSLIJST -->
-  <section class="compat-sectie">
+  <section class="compat-sectie" id="compat">
     <div class="compat-header">
       <div class="tag">Koppelbaarheidscheck</div>
       <h2>Staat jouw systeem hier bij?</h2>
@@ -391,6 +391,35 @@
       <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20wil%20weten%20of%20mijn%20systeem%20koppelbaar%20is." target="_blank" class="btn-compat-wa">💬 Vraag het mij</a>
     </div>
   </section>
+
+  <!-- UITBREIDINGEN -->
+  <section class="compat-sectie" id="uitbreidingen" style="background:var(--white);">
+    <div class="compat-header">
+      <div class="tag">Uitbreidingen</div>
+      <h2>Jouw ThuisBrein groeit met je mee</h2>
+      <p>De energiekern staat — maar hetzelfde brein kan veel meer voor je regelen. Deze uitbreidingen sluit ik aan op jouw bestaande ThuisBrein, wanneer jij eraan toe bent.</p>
+    </div>
+    <div class="compat-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));">
+      <div class="systeem-card"><h3 style="font-size:15px;">📹 Camerabewaking</h3><p style="font-size:13px;color:var(--text-muted);">Camera's en beelden lokaal in je eigen dashboard — geen cloudabonnement, geen beelden naar buiten.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">🔔 Slimme deurbel</h3><p style="font-size:13px;color:var(--text-muted);">Melding met beeld op je telefoon, waar je ook bent. Werkt samen met je camera's en verlichting.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">🔐 Slimme sloten</h3><p style="font-size:13px;color:var(--text-muted);">Deur op afstand openen voor bekenden, automatisch op slot als iedereen weg is.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">🚨 Rook- &amp; CO-melders</h3><p style="font-size:13px;color:var(--text-muted);">Bij alarm: alle lampen aan, melding op ieders telefoon — ook als je niet thuis bent.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">💧 Waterlekdetectie</h3><p style="font-size:13px;color:var(--text-muted);">Sensor bij wasmachine, vaatwasser en CV. Optioneel: hoofdkraan die zichzelf dichtdraait.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">💡 Slimme verlichting</h3><p style="font-size:13px;color:var(--text-muted);">Lampen die reageren op aanwezigheid, tijdstip en daglicht — per kamer op maat.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">🌤️ Zonwering &amp; screens</h3><p style="font-size:13px;color:var(--text-muted);">Screens automatisch dicht bij felle zon — minder aircogebruik, koeler huis.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">🌬️ Ventilatie &amp; WTW</h3><p style="font-size:13px;color:var(--text-muted);">CO₂-gestuurd ventileren: fris binnenklimaat met zo min mogelijk warmteverlies.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">📊 Meting per stroomgroep</h3><p style="font-size:13px;color:var(--text-muted);">Zie per groep in je meterkast wélk apparaat de stroomvreter is.</p></div>
+      <div class="systeem-card"><h3 style="font-size:15px;">🔌 Slim stopcontact</h3><p style="font-size:13px;color:var(--text-muted);">Vaatwasser of wasmachine draait vanzelf op zonne-overschot of daluren.</p></div>
+    </div>
+    <div class="compat-niet-gevonden">
+      <i class="ti ti-bulb" aria-hidden="true"></i>
+      <div>
+        <strong>Iets anders in gedachten?</strong>
+        <p>Als het slim te maken is, kan je ThuisBrein het waarschijnlijk aansturen. Vraag het gerust.</p>
+      </div>
+      <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20idee%20voor%20een%20uitbreiding%20op%20mijn%20ThuisBrein." target="_blank" class="btn-compat-wa">💬 Vraag het mij</a>
+    </div>
+  </section>
   <div class="cta-slot">
     <div class="contact-inner">
       <div class="contact-left">
@@ -479,5 +508,23 @@
 
 <script src="/coming-soon.js"></script>
 <script src="motion.js" defer></script>
+<script>
+// Diagram-tegels op de homepage linken naar #compat-<categorie>
+(function(){
+  if (location.hash.indexOf('#compat-') === 0) {
+    var cat = location.hash.slice(8);
+    var btns = document.querySelectorAll('#compatFilter .filter-btn');
+    for (var i = 0; i < btns.length; i++) {
+      var oc = btns[i].getAttribute('onclick') || '';
+      if (oc.indexOf("'" + cat + "'") !== -1) {
+        filterCategorie(cat, btns[i]);
+        var sec = document.getElementById('compat');
+        if (sec) setTimeout(function(){ sec.scrollIntoView({behavior:'smooth'}); }, 60);
+        break;
+      }
+    }
+  }
+})();
+</script>
 </body>
 </html>
