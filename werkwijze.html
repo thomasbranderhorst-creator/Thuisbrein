@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zo werkt het — Thuisbrein</title>
+<meta name="description" content="De klantreis van ThuisBrein in vijf stappen: online intake, kant-en-klaar bezorgde Box, vijf minuten zelf aansluiten — de rest doe ik op afstand. Heel Nederland, geen reiskosten.">
+<meta property="og:title" content="Zo werkt het — Thuisbrein">
+<meta property="og:description" content="Jij pakt uit. Ik doe de rest. De ThuisBrein-klantreis in vijf stappen, van videocall tot werkend huis.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thuisbrein.nl/werkwijze.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --sand-dark: #E8E0D0;
+  --navy: #1A2B3C;
+  --navy-mid: #2E4459;
+  --green: #3B6D11;
+  --green-light: #EAF3DE;
+  --green-mid: #639922;
+  --gold: #E0A93C;
+  --text: #1A2B3C;
+  --text-muted: #5F6E7A;
+  --white: #FFFFFF;
+  --border: rgba(26,43,60,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── NAV ─── */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+.nav-logo span { color: var(--green-mid); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); font-weight: 500; }
+.nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+.nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; position: sticky; top: 69px; z-index: 99; }
+.nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+.nav-mobile.open { display: flex; }
+
+/* ─── HERO ─── */
+.hero { background: var(--sand); padding: 4.5rem 2rem 3.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+.hero-eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 1.1rem; }
+.hero h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(34px, 5.5vw, 54px); line-height: 1.12; color: var(--navy); letter-spacing: -0.5px; }
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-sub { max-width: 620px; margin: 1.4rem auto 0; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+.hero-feiten { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2.4rem; }
+.feit { text-align: center; }
+.feit-getal { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--navy); }
+.feit-getal b { color: var(--green); font-weight: 400; }
+.feit-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; letter-spacing: 0.3px; }
+
+/* ─── TIJDLIJN ─── */
+.reis { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 2rem; }
+.fase { position: relative; padding: 0 0 2.6rem 74px; }
+.fase:last-child { padding-bottom: 0.5rem; }
+/* de gouden energielijn — dezelfde pulslijn als in het logo */
+.fase::before { content: ""; position: absolute; left: 27px; top: 54px; bottom: -6px; width: 3px; border-radius: 3px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold) 40%, rgba(224,169,60,0.85) 60%, var(--gold) 100%);
+  background-size: 100% 220%; }
+.fase:last-child::before { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .fase::before { animation: energie 3.2s linear infinite; }
+  @keyframes energie { from { background-position: 0 0; } to { background-position: 0 220%; } }
+}
+.fase-nummer { position: absolute; left: 0; top: 0; width: 54px; height: 54px; border-radius: 16px;
+  background: var(--green-light); border: 1px solid rgba(99,153,34,0.35); color: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; }
+.fase-kop { display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 0.45rem; }
+.fase-kop h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 24px; color: var(--navy); letter-spacing: -0.3px; }
+.fase-chip { font-size: 12px; font-weight: 500; color: var(--navy-mid); background: var(--sand); border: 1px solid var(--border); padding: 3px 10px; border-radius: 100px; white-space: nowrap; }
+.fase-chip i { color: var(--green-mid); margin-right: 4px; }
+.fase > p { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--text-muted); max-width: 560px; }
+
+/* jij / ik verdeling — de kern van het model */
+.jij-ik { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 1.1rem; }
+.rolblok { border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.1rem; background: var(--white); }
+.rolblok.jij { background: var(--green-light); border-color: rgba(99,153,34,0.3); }
+.rol-label { font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 500; margin-bottom: 0.55rem; }
+.rolblok.jij .rol-label { color: var(--green); }
+.rolblok.ik .rol-label { color: var(--navy-mid); }
+.rolblok ul { list-style: none; }
+.rolblok li { font-size: 13.5px; line-height: 1.55; color: var(--text); padding-left: 1.35rem; position: relative; margin-bottom: 0.35rem; }
+.rolblok li:last-child { margin-bottom: 0; }
+.rolblok li i { position: absolute; left: 0; top: 2px; font-size: 14px; }
+.rolblok.jij li i { color: var(--green); }
+.rolblok.ik li i { color: var(--navy-mid); }
+.rolblok li.niks { color: var(--text-muted); font-style: italic; }
+
+/* ─── REGIO-NOOT ─── */
+.regio-noot { max-width: 780px; margin: 2.5rem auto 0; padding: 0 2rem; }
+.regio-noot .binnen { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--sand); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; }
+.regio-noot i { color: var(--green-mid); font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.regio-noot p { font-size: 14px; font-weight: 300; line-height: 1.65; color: var(--text); }
+.regio-noot a { color: var(--green); font-weight: 500; }
+
+/* ─── CTA ─── */
+.cta-sectie { text-align: center; padding: 4rem 2rem 4.5rem; }
+.cta-sectie h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 4vw, 36px); color: var(--navy); letter-spacing: -0.4px; }
+.cta-sectie p { font-size: 15px; font-weight: 300; color: var(--text-muted); margin-top: 0.8rem; }
+.cta-knoppen { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 1.8rem; }
+.btn { display: inline-block; text-decoration: none; font-size: 14px; font-weight: 500; padding: 13px 26px; border-radius: 8px; transition: transform .2s ease, box-shadow .2s ease; }
+.btn-vol { background: var(--navy); color: var(--white); }
+.btn-los { border: 1px solid var(--border); color: var(--navy); background: var(--white); }
+@media (hover:hover) { .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,43,60,.12); } }
+
+/* ─── FOOTER ─── */
+footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+.footer-logo span { color: var(--green-mid); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+footer p { font-size: 12px; color: var(--text-muted); }
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+}
+@media (max-width: 640px) {
+  .jij-ik { grid-template-columns: 1fr; }
+  .fase { padding-left: 58px; }
+  .fase-nummer { width: 42px; height: 42px; border-radius: 12px; font-size: 19px; }
+  .fase::before { left: 21px; top: 44px; }
+  .hero-feiten { gap: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+  <div class="nav-links">
+    <a href="werkwijze.html" class="active">Zo werkt het</a>
+    <a href="index.html#over">Over ThuisBrein</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="check.html">Woningcheck</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
+    <i class="ti ti-menu-2"></i>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="werkwijze.html">Zo werkt het</a>
+  <a href="index.html#over">Over ThuisBrein</a>
+  <a href="systemen.html">Systemen</a>
+  <a href="pricing.html">Prijzen</a>
+  <a href="besparing.html">Besparing</a>
+  <a href="check.html">Woningcheck</a>
+  <a href="index.html#contact">Plan kennismaking</a>
+</div>
+
+<section class="hero">
+  <div class="hero-eyebrow">De klantreis</div>
+  <h1>Jij pakt uit.<br><em>Ik doe de rest.</em></h1>
+  <p class="hero-sub">Jouw ThuisBrein Box wordt kant-en-klaar ingericht bij je bezorgd. Jij sluit alleen stroom en een netwerkkabel aan — alle installatie en instelling doe ik op afstand, samen met jou via een videocall.</p>
+  <div class="hero-feiten">
+    <div class="feit"><div class="feit-getal">± <b>2 uur</b></div><div class="feit-label">jouw totale tijd, van intake tot werkend huis</div></div>
+    <div class="feit"><div class="feit-getal"><b>5 min</b></div><div class="feit-label">zelf aansluiten — stroom en één kabel</div></div>
+    <div class="feit"><div class="feit-getal"><b>€0</b></div><div class="feit-label">reiskosten, in heel Nederland</div></div>
+  </div>
+</section>
+
+<section class="reis">
+
+  <div class="fase card">
+    <div class="fase-nummer">1</div>
+    <div class="fase-kop"><h2>Woningcheck &amp; videocall</h2><span class="fase-chip"><i class="ti ti-clock"></i>± 1 uur · online</span></div>
+    <p>We beginnen met een videogesprek van ongeveer een uur. Met je telefoon in de hand lopen we samen langs je meterkast, omvormer en thermostaat — zo weet ik precies wat er in jouw woning staat en wat er kan.</p>
+    <div class="jij-ik">
+      <div class="rolblok jij">
+        <div class="rol-label">Jij doet</div>
+        <ul>
+          <li><i class="ti ti-check"></i>De online Woningcheck (5 minuten)</li>
+          <li><i class="ti ti-check"></i>Videocall plannen op een moment dat jou past</li>
+          <li><i class="ti ti-check"></i>Even langs de meterkast lopen met je telefoon</li>
+        </ul>
+      </div>
+      <div class="rolblok ik">
+        <div class="rol-label">Ik doe</div>
+        <ul>
+          <li><i class="ti ti-tool"></i>Al je systemen en typeplaatjes in kaart brengen</li>
+          <li><i class="ti ti-tool"></i>Een concreet koppelplan met vaste prijs maken</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="fase card">
+    <div class="fase-nummer">2</div>
+    <div class="fase-kop"><h2>Ik bouw jouw ThuisBrein</h2><span class="fase-chip"><i class="ti ti-clock"></i>jij: helemaal niets</span></div>
+    <p>Op mijn werkbank richt ik jouw Box volledig in: de koppelingen met jouw systemen, je persoonlijke dashboard, de slimme automatiseringen en de beveiligde verbinding voor bediening buitenshuis. Alles getest voordat het de doos in gaat.</p>
+    <div class="jij-ik">
+      <div class="rolblok jij">
+        <div class="rol-label">Jij doet</div>
+        <ul>
+          <li class="niks">Niets — dit is mijn werk</li>
+        </ul>
+      </div>
+      <div class="rolblok ik">
+        <div class="rol-label">Ik doe</div>
+        <ul>
+          <li><i class="ti ti-tool"></i>Box inrichten op basis van jouw koppelplan</li>
+          <li><i class="ti ti-tool"></i>Dashboard en automatiseringen op maat bouwen</li>
+          <li><i class="ti ti-tool"></i>Alles doortesten en veilig verzenden</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="fase card">
+    <div class="fase-nummer">3</div>
+    <div class="fase-kop"><h2>De doos op de mat</h2><span class="fase-chip"><i class="ti ti-clock"></i>± 5 minuten</span></div>
+    <p>Je ontvangt je ThuisBrein Box met een korte bijsluiter. Meer dan drie stappen zijn het niet: uitpakken, stekker in het stopcontact, en de meegeleverde kabel in je router. Geen schroevendraaier, geen instellingen.</p>
+    <div class="jij-ik">
+      <div class="rolblok jij">
+        <div class="rol-label">Jij doet</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Uitpakken</li>
+          <li><i class="ti ti-check"></i>Stekker in het stopcontact</li>
+          <li><i class="ti ti-check"></i>Kabel in je router — klaar</li>
+        </ul>
+      </div>
+      <div class="rolblok ik">
+        <div class="rol-label">Ik doe</div>
+        <ul>
+          <li><i class="ti ti-tool"></i>Je Box online zien komen en alles doorchecken</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="fase card">
+    <div class="fase-nummer">4</div>
+    <div class="fase-kop"><h2>Activatie-call: alles gaat aan</h2><span class="fase-chip"><i class="ti ti-clock"></i>± 45 min · online</span></div>
+    <p>In een korte videocall maken we het samen af. Jij logt in op je eigen accounts — die gegevens blijven van jou — en ik verbind alles met je Box. We sluiten af met een rondleiding door jouw dashboard.</p>
+    <div class="jij-ik">
+      <div class="rolblok jij">
+        <div class="rol-label">Jij doet</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Inloggen op je eigen accounts (bijv. je omvormer-app)</li>
+          <li><i class="ti ti-check"></i>De app op je telefoon zetten</li>
+        </ul>
+      </div>
+      <div class="rolblok ik">
+        <div class="rol-label">Ik doe</div>
+        <ul>
+          <li><i class="ti ti-tool"></i>De laatste koppelingen afmaken</li>
+          <li><i class="ti ti-tool"></i>Rondleiding door je dashboard en automatiseringen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="fase card">
+    <div class="fase-nummer">5</div>
+    <div class="fase-kop"><h2>Je huis wordt steeds slimmer</h2><span class="fase-chip"><i class="ti ti-clock"></i>vanaf dag één</span></div>
+    <p>Met ThuisBrein Actief — de eerste 3 maanden gratis — houd ik je systeem op afstand in de gaten, blijft alles up-to-date en stel ik automatiseringen bij als jouw situatie verandert. Jij ziet elke maand wat je huis oplevert.</p>
+    <div class="jij-ik">
+      <div class="rolblok jij">
+        <div class="rol-label">Jij doet</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Wonen — en je maandrapport lezen</li>
+        </ul>
+      </div>
+      <div class="rolblok ik">
+        <div class="rol-label">Ik doe</div>
+        <ul>
+          <li><i class="ti ti-tool"></i>Monitoren, updaten en bijstellen op afstand</li>
+          <li><i class="ti ti-tool"></i>Klaarstaan bij vragen, per WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="regio-noot">
+  <div class="binnen">
+    <i class="ti ti-map-pin"></i>
+    <p><strong>Liever persoonlijk?</strong> Woon je in de regio Oss, dan kom ik op verzoek gewoon bij je langs — voor de intake, de installatie of allebei. Hoe dat zit met de reistoeslag lees je bij de <a href="pricing.html">prijzen</a>.</p>
+  </div>
+</div>
+
+<section class="cta-sectie">
+  <h2>Benieuwd wat er in jouw woning kan?</h2>
+  <p>Begin met de Woningcheck — vijf minuten, en je weet meteen of jouw systemen koppelbaar zijn.</p>
+  <div class="cta-knoppen">
+    <a href="check.html" class="btn btn-vol">Start de Woningcheck</a>
+    <a href="pricing.html" class="btn btn-los">Bekijk de pakketten</a>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+  <div class="footer-links">
+    <a href="pricing.html">Prijzen</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
+  </div>
+  <p>KVK 88372952</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !navMobile.contains(e.target)) navMobile.classList.remove('open');
+});
+</script>
+<script src="motion.js" defer></script>
+</body>
+</html>
