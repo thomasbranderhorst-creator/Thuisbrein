@@ -148,18 +148,18 @@ footer p { font-size: 12px; color: var(--text-muted); }
     <div class="vb-kop">
       <div class="vb-label">Voorbeeld 1 · Lente &amp; herfst</div>
       <h2>CV en airco werken samen — niet tegen elkaar</h2>
-      <p>In de tussenseizoenen gebeurt het vaak ongemerkt: 's ochtends stookt de CV, 's middags koelt de airco diezelfde warmte weer weg. Jouw ThuisBrein kent beide systemen én je zonnepanelen, en verdeelt de temperatuurband zó dat ze elkaar nooit in de weg zitten.</p>
+      <p>In de tussenseizoenen gebeurt het vaak ongemerkt: 's ochtends stookt de CV, 's middags koelt de airco diezelfde warmte weer weg. Jouw ThuisBrein kent beide systemen én je zonnepanelen, en verdeelt de temperatuurband zó dat ze elkaar nooit in de weg zitten. Sterker nog: in frisse ochtenden neemt de airco de eerste graden verwarming over — als warmtepomp, op jouw eigen zonnestroom. De CV wordt achtervang in plaats van standaard.</p>
     </div>
     <div class="vb-visual">
-      <svg viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Temperatuurband: onder 20 graden verwarmt de CV, tussen 20 en 24 graden doet niemand iets, vanaf 24 graden koelt de airco op zonnestroom, vanaf 26 graden koelt de airco altijd">
+      <svg viewBox="0 0 860 394" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Temperatuurband: onder 18 graden verwarmt de CV, tussen 18 en 20 graden verwarmt de airco op zonnestroom, tussen 20 en 24 graden doet niemand iets, vanaf 24 graden koelt de airco op zonnestroom, vanaf 26 graden koelt de airco altijd">
         <!-- temperatuur-as -->
-        <line x1="70" y1="30" x2="70" y2="300" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
+        <line x1="70" y1="30" x2="70" y2="364" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
         <!-- zones (van warm boven naar koud onder) -->
         <!-- >26: airco altijd -->
         <rect x="80" y="30" width="500" height="56" rx="10" fill="#2E4459"/>
         <text x="100" y="53" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#FFFFFF">Airco koelt — hoe dan ook</text>
         <text x="100" y="72" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.75)">Boven 26° gaat comfort voor: koelen, ongeacht zon of prijs</text>
-        <!-- 24-26: airco op zon -->
+        <!-- 24-26: airco koelt op zon -->
         <rect x="80" y="94" width="500" height="56" rx="10" fill="#3B6D11"/>
         <text x="100" y="117" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#FFFFFF">Airco koelt — op jouw zonnestroom</text>
         <text x="100" y="136" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">Alléén bij zonoverschot en een lage stroomprijs. Anders: wachten.</text>
@@ -167,20 +167,26 @@ footer p { font-size: 12px; color: var(--text-muted); }
         <rect x="80" y="158" width="500" height="56" rx="10" fill="#EAF3DE" stroke="rgba(99,153,34,0.35)"/>
         <text x="100" y="181" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">Niemand doet iets</text>
         <text x="100" y="200" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A">De gratis comfortzone — geen gas, geen stroom</text>
-        <!-- <20: CV -->
-        <rect x="80" y="222" width="500" height="56" rx="10" fill="#E0A93C"/>
-        <text x="100" y="245" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">CV verwarmt</text>
-        <text x="100" y="264" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(26,43,60,0.75)">Pas als het echt te koud wordt — en nooit terwijl de airco net koelde</text>
+        <!-- 18-20: airco verwarmt op zon -->
+        <rect x="80" y="222" width="500" height="56" rx="10" fill="#639922"/>
+        <text x="100" y="245" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#FFFFFF">Airco verwarmt — op jouw zonnestroom</text>
+        <text x="100" y="264" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.85)">De eerste graden bijverwarmen doet de warmtepomp — alléén bij zonoverschot</text>
+        <!-- <18: CV als achtervang -->
+        <rect x="80" y="286" width="500" height="56" rx="10" fill="#E0A93C"/>
+        <text x="100" y="309" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">CV verwarmt</text>
+        <text x="100" y="328" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(26,43,60,0.75)">Pas als het echt koud is of de zon niets levert — de ketel is achtervang</text>
         <!-- graden-labels op de as -->
         <g font-family="Fraunces, serif" font-size="17" fill="#1A2B3C" text-anchor="end">
           <text x="58" y="96">26°</text>
           <text x="58" y="160">24°</text>
           <text x="58" y="224">20°</text>
+          <text x="58" y="288">18°</text>
         </g>
         <line x1="64" y1="91" x2="80" y2="91" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
         <line x1="64" y1="155" x2="80" y2="155" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
         <line x1="64" y1="219" x2="80" y2="219" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
-        <!-- voorwaarden rechts bij de groene zone -->
+        <line x1="64" y1="283" x2="80" y2="283" stroke="rgba(26,43,60,0.35)" stroke-width="1.5"/>
+        <!-- voorwaarden rechts bij de groene zones -->
         <g font-family="DM Sans, sans-serif" font-size="12.5">
           <rect x="600" y="96" width="240" height="24" rx="12" fill="#F5F0E8" stroke="rgba(26,43,60,0.12)"/>
           <text x="620" y="112" fill="#1A2B3C">☀ zonoverschot aanwezig</text>
@@ -188,21 +194,24 @@ footer p { font-size: 12px; color: var(--text-muted); }
           <text x="620" y="142" fill="#1A2B3C">€ stroomprijs niet te hoog</text>
           <line x1="580" y1="122" x2="600" y2="112" stroke="rgba(99,153,34,0.6)" stroke-width="1.5"/>
           <line x1="580" y1="122" x2="600" y2="136" stroke="rgba(99,153,34,0.6)" stroke-width="1.5"/>
+          <rect x="600" y="238" width="240" height="24" rx="12" fill="#F5F0E8" stroke="rgba(26,43,60,0.12)"/>
+          <text x="620" y="254" fill="#1A2B3C">☀ zonoverschot aanwezig</text>
+          <line x1="580" y1="250" x2="600" y2="250" stroke="rgba(99,153,34,0.6)" stroke-width="1.5"/>
         </g>
         <!-- binnentemperatuur-stip die door de zones beweegt -->
         <circle r="5" fill="#3B6D11" stroke="#FFFFFF" stroke-width="2">
-          <animateMotion dur="9s" repeatCount="indefinite" path="M330,250 L330,186 L330,122 L330,186 L330,250"/>
+          <animateMotion dur="12s" repeatCount="indefinite" path="M330,314 L330,250 L330,186 L330,122 L330,186 L330,250 L330,314"/>
         </circle>
-        <text x="330" y="316" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A" text-anchor="middle">● jouw binnentemperatuur beweegt door de band — jouw huis kiest wat er gebeurt</text>
+        <text x="330" y="380" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A" text-anchor="middle">● jouw binnentemperatuur beweegt door de band — jouw huis kiest wat er gebeurt</text>
       </svg>
     </div>
     <div class="spelregels">
-      <div class="regel"><i class="ti ti-flame"></i><p><b>CV verwarmt pas onder 20°</b> — en nooit vlak nadat de airco heeft gekoeld. Zo betaal je nooit dubbel.</p></div>
-      <div class="regel"><i class="ti ti-snowflake"></i><p><b>Airco koelt al vanaf 24°</b> als de zon jouw stroom levert en de prijs laag is — koelen kost dan niets.</p></div>
-      <div class="regel"><i class="ti ti-sun-off"></i><p><b>Geen zon of dure stroom?</b> Dan wacht de airco netjes tot 26° — comfort blijft, verspilling niet.</p></div>
+      <div class="regel"><i class="ti ti-sun"></i><p><b>Airco verwarmt de eerste graden (18–20°)</b> — alléén op jouw eigen zonnestroom. Warmtepompwarmte uit eigen panelen: gratis, en ± 3× zuiniger dan gas.</p></div>
+      <div class="regel"><i class="ti ti-flame"></i><p><b>CV pas onder 18° of zonder zon</b> — de ketel wordt achtervang in plaats van standaard. En nooit vlak nadat de airco koelde.</p></div>
+      <div class="regel"><i class="ti ti-snowflake"></i><p><b>Airco koelt al vanaf 24°</b> als de zon jouw stroom levert en de prijs laag is — koelen kost dan niets. Geen zon? Dan wacht hij netjes tot 26°.</p></div>
       <div class="regel"><i class="ti ti-arrows-shuffle"></i><p><b>Nooit tegelijk aan.</b> Verwarmen en koelen sluiten elkaar uit — de klassieke tussenseizoen-valkuil is weg.</p></div>
     </div>
-    <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> in de lente en herfst koelt je huis grotendeels op je eigen zonnestroom, blijft de CV vaker uit, en werkt niets elkaar meer tegen. Comfort blijft gelijk — het verbruik niet.</p></div>
+    <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> in de lente en herfst verwarmt én koelt je huis grotendeels op je eigen zonnestroom. De CV springt alleen nog bij op echt koude momenten, en niets werkt elkaar meer tegen. Comfort blijft gelijk — het gasverbruik niet.</p></div>
   </div>
 
   <!-- ═══ VOORBEELD 2: WITGOED OP ZONUREN ═══ -->
