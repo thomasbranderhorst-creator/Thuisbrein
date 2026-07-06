@@ -957,8 +957,10 @@ App mij op WhatsApp
 <script>
 const hamburger = document.getElementById('hamburger');
 const navMobile = document.getElementById('nav-mobile');
-hamburger.addEventListener('click', () => { navMobile.classList.toggle('open'); });
-navMobile.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => navMobile.classList.remove('open')); });
+if (hamburger && navMobile) {
+  hamburger.addEventListener('click', () => { navMobile.classList.toggle('open'); });
+  navMobile.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => navMobile.classList.remove('open')); });
+}
 
 document.querySelectorAll('.faq-vraag').forEach(btn => {
   btn.addEventListener('click', () => {
