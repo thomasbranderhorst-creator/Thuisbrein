@@ -138,7 +138,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
 <section class="hero">
   <div class="hero-eyebrow">Voorbeelden uit de praktijk</div>
   <h1>Wat jouw huis <em>vanzelf</em> gaat regelen</h1>
-  <p class="hero-sub">Een slimme woning is geen app met tien knoppen — het zijn afspraken die je één keer maakt, waarna je huis ze elke dag nakomt. Twee voorbeelden van automatiseringen die ik voor je instel.</p>
+  <p class="hero-sub">Een slimme woning is geen app met tien knoppen — het zijn afspraken die je één keer maakt, waarna je huis ze elke dag nakomt. Drie voorbeelden van automatiseringen die ik voor je instel.</p>
 </section>
 
 <div class="voorbeelden">
@@ -262,6 +262,65 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="regel"><i class="ti ti-hand-click"></i><p><b>Jij verandert niets</b> aan je gewoontes: inruimen, start indrukken, klaar. De timing regelt je huis.</p></div>
     </div>
     <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> je grootste stroomvreters draaien voortaan op je eigen opwek of op daluren — elke dag een kleine besparing, opgeteld een groot verschil.</p></div>
+  </div>
+
+  <!-- ═══ VOORBEELD 3: SLIM LADEN ═══ -->
+  <div class="voorbeeld card">
+    <div class="vb-kop">
+      <div class="vb-label">Voorbeeld 3 · Elke laadbeurt</div>
+      <h2>De auto laadt op je eigen zon</h2>
+      <p>Je hangt de auto 's avonds aan de laadpaal — en er gebeurt: niets. Laden doet hij pas als jóuw panelen de stroom leveren, of anders op het goedkoopste uur van de nacht. En hij is altijd vol op het moment dat jij weg moet.</p>
+    </div>
+    <div class="vb-visual">
+      <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tijdlijn van avond tot de volgende middag: je plugt de auto 's avonds in, het laden start pas als de zonnepanelen rond het middaguur het meest leveren, en de auto is vol vóór de ingestelde vertrektijd">
+        <!-- as -->
+        <line x1="50" y1="230" x2="820" y2="230" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
+        <!-- zonnecurve volgende dag -->
+        <path d="M470,230 C550,222 585,72 665,72 C735,72 785,165 806,178 L806,230 Z" fill="#F7EBD2" stroke="#E0A93C" stroke-width="2.5"/>
+        <text x="612" y="60" font-family="DM Sans, sans-serif" font-size="12" fill="#B8860B">jouw zonne-opbrengst (morgen)</text>
+        <!-- stroomprijslijn met nachtdip -->
+        <path d="M50,130 C140,138 220,182 300,186 C390,190 470,150 560,142 C660,132 750,120 820,114" fill="none" stroke="#2E4459" stroke-width="2" stroke-dasharray="6 5" opacity="0.65"/>
+        <text x="60" y="116" font-family="DM Sans, sans-serif" font-size="12" fill="#2E4459">stroomprijs (dynamisch contract)</text>
+        <!-- avond: inpluggen -->
+        <g>
+          <circle cx="110" cy="230" r="6" fill="#1A2B3C"/>
+          <text x="110" y="262" font-family="DM Sans, sans-serif" font-size="12.5" fill="#1A2B3C" text-anchor="middle" font-weight="500">19:00 — jij plugt in</text>
+          <text x="110" y="279" font-family="DM Sans, sans-serif" font-size="11.5" fill="#5F6E7A" text-anchor="middle">(er gebeurt: niets)</text>
+        </g>
+        <!-- pijl van inpluggen naar laadmoment -->
+        <path d="M130,214 C260,120 440,90 600,86" fill="none" stroke="#639922" stroke-width="2" stroke-dasharray="3 5"/>
+        <path d="M600,86 l14,-2 m-14,2 l10,10" stroke="#639922" stroke-width="2" fill="none"/>
+        <!-- laadvenster op zonnepiek -->
+        <g>
+          <rect x="600" y="188" width="130" height="42" rx="8" fill="#EAF3DE" stroke="rgba(99,153,34,0.5)"/>
+          <text x="665" y="206" font-family="DM Sans, sans-serif" font-size="11.5" fill="#3B6D11" text-anchor="middle" font-weight="500">auto laadt</text>
+          <text x="665" y="221" font-family="DM Sans, sans-serif" font-size="11" fill="#5F6E7A" text-anchor="middle">op zonoverschot</text>
+          <line x1="665" y1="122" x2="665" y2="188" stroke="#3B6D11" stroke-width="2"/>
+          <circle cx="665" cy="122" r="7" fill="#3B6D11" stroke="#FFFFFF" stroke-width="2.5"/>
+          <rect x="545" y="14" width="240" height="26" rx="13" fill="#EAF3DE" stroke="rgba(99,153,34,0.4)"/>
+          <text x="665" y="31" font-family="DM Sans, sans-serif" font-size="12.5" fill="#3B6D11" text-anchor="middle" font-weight="500">11:00–15:00 — laden op eigen stroom</text>
+        </g>
+        <!-- vertrek -->
+        <g>
+          <circle cx="806" cy="230" r="6" fill="#1A2B3C"/>
+          <text x="790" y="262" font-family="DM Sans, sans-serif" font-size="12.5" fill="#1A2B3C" text-anchor="middle" font-weight="500">17:00 — vertrek, accu vol</text>
+        </g>
+        <!-- tijdslabels -->
+        <g font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A">
+          <text x="110" y="250" text-anchor="middle">19:00</text>
+          <text x="300" y="250" text-anchor="middle">00:00</text>
+          <text x="470" y="250" text-anchor="middle">06:00</text>
+          <text x="655" y="250" text-anchor="middle">12:00</text>
+        </g>
+      </svg>
+    </div>
+    <div class="spelregels">
+      <div class="regel"><i class="ti ti-sun"></i><p><b>Laden op zonoverschot</b> — de auto laadt precies op de uren dat je panelen méér opwekken dan het huis verbruikt. Stroom die anders voor bijna niets het net op zou gaan.</p></div>
+      <div class="regel"><i class="ti ti-calendar-time"></i><p><b>Vertrektijd is heilig</b> — jij stelt in wanneer de auto vol moet zijn. Haalt de zon het niet alleen, dan vult hij automatisch aan op de goedkoopste uren.</p></div>
+      <div class="regel"><i class="ti ti-moon"></i><p><b>Geen zon morgen?</b> Dan laadt hij 's nachts, op de daluren van je dynamische stroomcontract — nooit op piekprijs.</p></div>
+      <div class="regel"><i class="ti ti-plug"></i><p><b>Jij plugt gewoon in</b> zoals altijd. Wanneer er geladen wordt — dat regelt je huis.</p></div>
+    </div>
+    <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> elke kilometer zoveel mogelijk op je eigen opgewekte stroom in plaats van netstroom op piekprijs. Bij dagelijks laden loopt dat verschil op tot honderden euro's per jaar — zonder dat je er ooit aan hoeft te denken.</p></div>
   </div>
 
 </div>
