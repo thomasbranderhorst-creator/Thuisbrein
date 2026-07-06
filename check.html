@@ -234,8 +234,8 @@ function getUitkomst() {
   const eig = antwoorden.eigendom;
   if (eig === -1) return {
     kleur: "grijs", dot: "#666", label: "Helaas",
-    titel: "Huurwoningen doen we niet.",
-    tekst: "Voor installaties heb ik toestemming van de eigenaar nodig. Huur je van een woningcorporatie of particuliere verhuurder die wil verduurzamen? Stuur ze gerust mijn kant op.",
+    titel: "Huurwoningen zijn helaas niet mogelijk.",
+    tekst: "Voor installaties is toestemming van de eigenaar nodig. Huur je van een woningcorporatie of particuliere verhuurder die wil verduurzamen? Stuur ze gerust door naar ThuisBrein.",
     actie: "mail", actieTekst: "Toch contact opnemen"
   };
   // Al panelen maar geen sturing → directe groene lead
@@ -248,7 +248,7 @@ function getUitkomst() {
   if (eig === 3) return {
     kleur: "groen", dot: "#3B6D11", label: "Interessante lead",
     titel: "Verhuurders zijn juist een mooie markt.",
-    tekst: "Verduurzaming van huurwoningen wordt steeds relevanter — voor energielabels, huurwaarde en wetgeving. Ik doe dit graag op maat voor één woning of een heel portfolio. Laten we even bellen.",
+    tekst: "Verduurzaming van huurwoningen wordt steeds relevanter — voor energielabels, huurwaarde en wetgeving. ThuisBrein doet dit graag op maat voor één woning of een heel portfolio. Bel gerust even.",
     actie: "whatsapp", actieTekst: "Plan een gesprek via WhatsApp"
   };
 
@@ -260,14 +260,14 @@ function getUitkomst() {
   if (alleenCV) return {
     kleur: "grijs", dot: "#666", label: "Nog niet",
     titel: "Nog niet het moment — maar dat verandert.",
-    tekst: "Met alleen een CV-ketel is er nu te weinig om op aan te sluiten. Maar als je ooit zonnepanelen, een warmtepomp of een laadpaal overweegt, is ThuisBrein precies wat je nodig hebt. Laat je e-mail achter en ik houd je op de hoogte.",
+    tekst: "Met alleen een CV-ketel is er nu te weinig om op aan te sluiten. Maar als je ooit zonnepanelen, een warmtepomp of een laadpaal overweegt, is ThuisBrein precies wat je nodig hebt. Laat je e-mail achter en je wordt op de hoogte gehouden.",
     actie: "mail", actieTekst: "Houd me op de hoogte"
   };
 
   if (verwKeys.includes("stadsverw") && score < 4) return {
     kleur: "oranje", dot: "#C07020", label: "Potentieel",
     titel: "Stadsverwarming — even nader bekijken.",
-    tekst: "Stadsverwarming is niet altijd koppelbaar via Home Assistant. Maar als je ook zonnepanelen, een laadpaal of airco hebt, valt er zeker iets te doen. Laten we even bellen.",
+    tekst: "Stadsverwarming is niet altijd koppelbaar via Home Assistant. Maar als je ook zonnepanelen, een laadpaal of airco hebt, valt er zeker iets te doen. Bel gerust even.",
     actie: "whatsapp", actieTekst: "Neem contact op"
   };
 
@@ -281,14 +281,14 @@ function getUitkomst() {
   if (score >= 3) return {
     kleur: "oranje", dot: "#C07020", label: "Potentieel",
     titel: "Goede basis — er valt al iets te doen.",
-    tekst: "Je hebt een of twee systemen die al slim aangestuurd kunnen worden. En als je later uitbreidt groeit ThuisBrein gewoon mee. Laten we alvast kennismaken.",
+    tekst: "Je hebt een of twee systemen die al slim aangestuurd kunnen worden. En als je later uitbreidt groeit ThuisBrein gewoon mee. Plan alvast een kennismaking.",
     actie: "whatsapp", actieTekst: "Neem contact op"
   };
 
   return {
     kleur: "oranje", dot: "#C07020", label: "Potentieel",
     titel: "Kleine basis, maar een begin is er.",
-    tekst: "Er is nu beperkt wat we kunnen koppelen, maar je bent op de goede weg. Een korte kennismaking laat zien welke stap als eerste de meeste winst oplevert.",
+    tekst: "Er is nu beperkt wat er te koppelen valt, maar je bent op de goede weg. Een korte kennismaking laat zien welke stap als eerste de meeste winst oplevert.",
     actie: "whatsapp", actieTekst: "Neem contact op"
   };
 }
@@ -309,7 +309,7 @@ function render() {
     el.innerHTML = `
       <span class="tag">ThuisBrein Check</span>
       <h1>Past ThuisBrein<br><em>bij jouw woning?</em></h1>
-      <p class="sub">Enkele korte vragen. Geen typwerk. Je weet in één minuut of ik iets voor je kan betekenen — en wat de volgende stap is.</p>
+      <p class="sub">Enkele korte vragen. Geen typwerk. Je weet in één minuut of ThuisBrein iets voor je kan betekenen — en wat de volgende stap is.</p>
       <button class="btn-primary" onclick="startWizard()">Start de check →</button>
       <p class="btn-no-reg">Geen registratie nodig</p>`;
     return;
