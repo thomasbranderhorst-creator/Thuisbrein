@@ -97,7 +97,14 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="veld"><label for="verwarming">CV-ketel of warmtepomp</label><input type="text" id="verwarming" placeholder="bijv. Remeha Tzerra, Ecodan"></div>
     </div>
     <div class="twee">
-      <div class="veld"><label for="thermostaat">Huidige thermostaat</label><input type="text" id="thermostaat" placeholder="bijv. Honeywell rond, Nest, Plugwise"></div>
+      <div class="veld"><label for="slimthermo">Heb je een slimme thermostaat?</label>
+        <select id="slimthermo" onchange="document.getElementById('thermomerk-wrap').style.display = this.value === 'Ja' ? 'block' : 'none'">
+          <option value="">Weet ik niet</option>
+          <option>Heb ik niet — gewone thermostaat</option>
+          <option>Ja</option>
+        </select>
+        <div id="thermomerk-wrap" style="display:none;margin-top:0.6rem;"><input type="text" id="thermomerk" placeholder="Welk merk? bijv. Nest, Tado, Plugwise, Honeywell"></div>
+      </div>
       <div class="veld"><label for="airco">Airco <span>(indien aanwezig)</span></label><input type="text" id="airco" placeholder="bijv. Mitsubishi, Panasonic, Daikin"></div>
     </div>
     <div class="twee">
@@ -154,7 +161,7 @@ function verstuur(kanaal) {
     'Aantal panelen: ' + (veld('panelen') || '-'),
     'Batterij: ' + (veld('batterij') || '-'),
     'CV/warmtepomp: ' + (veld('verwarming') || '-'),
-    'Thermostaat: ' + (veld('thermostaat') || '-'),
+    'Slimme thermostaat: ' + (veld('slimthermo') ? (veld('slimthermo') === 'Ja' ? 'Ja — ' + (veld('thermomerk') || 'merk onbekend') : veld('slimthermo')) : 'weet ik niet'),
     'Airco: ' + (veld('airco') || '-'),
     'Laadpaal: ' + (veld('laadpaal') || '-'),
     'Slimme meter: ' + (veld('meter') || 'weet ik niet'),
