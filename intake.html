@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Intakeformulier — Thuisbrein</title>
+<meta name="description" content="Vul het ThuisBrein intakeformulier in: jouw systemen en een paar foto's, zodat de videocall maar een kwartiertje duurt.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --sand: #F5F0E8; --navy: #1A2B3C; --navy-mid: #2E4459;
+  --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+  --gold: #E0A93C; --text: #1A2B3C; --text-muted: #5F6E7A;
+  --white: #FFFFFF; --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); }
+
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); }
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+
+.intake-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+.intake-kop { text-align: center; margin-bottom: 2.2rem; }
+.intake-kop .eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 1rem; }
+.intake-kop h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(28px, 5vw, 40px); color: var(--navy); letter-spacing: -0.5px; line-height: 1.15; }
+.intake-kop p { max-width: 540px; margin: 1rem auto 0; font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+
+.blok { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem 1.6rem 1.4rem; margin-bottom: 1.2rem; }
+.blok h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; color: var(--navy); margin-bottom: 0.3rem; }
+.blok .blok-sub { font-size: 13.5px; font-weight: 300; color: var(--text-muted); margin-bottom: 1.1rem; line-height: 1.55; }
+.veld { margin-bottom: 0.9rem; }
+.veld label { display: block; font-size: 13px; font-weight: 500; color: var(--navy-mid); margin-bottom: 5px; }
+.veld label span { font-weight: 300; color: var(--text-muted); }
+.veld input[type=text], .veld input[type=email], .veld input[type=tel], .veld textarea, .veld select {
+  width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px;
+  font-family: 'DM Sans', sans-serif; font-size: 14.5px; color: var(--text); background: var(--white);
+}
+.veld input:focus, .veld textarea:focus, .veld select:focus { outline: 2px solid rgba(99,153,34,0.35); border-color: var(--green-mid); }
+.veld textarea { min-height: 74px; resize: vertical; }
+.twee { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+@media (max-width: 560px) { .twee { grid-template-columns: 1fr; } }
+
+.foto-lijst { list-style: none; margin-top: 0.4rem; }
+.foto-lijst li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 14px; line-height: 1.55; padding: 0.45rem 0; }
+.foto-lijst i { color: var(--green); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.foto-tip { background: var(--green-light); border: 1px solid rgba(99,153,34,0.3); border-radius: 10px; padding: 0.9rem 1.1rem; font-size: 13.5px; line-height: 1.6; margin-top: 0.9rem; }
+
+.verstuur { text-align: center; margin-top: 1.6rem; }
+.btn-wa { display: block; width: 100%; padding: 15px 28px; background: var(--whatsapp); color: white; border: none; border-radius: 10px; font-size: 15.5px; font-weight: 500; text-align: center; text-decoration: none; font-family: 'DM Sans', sans-serif; cursor: pointer; }
+.btn-mail { display: block; width: 100%; padding: 13px 28px; background: var(--white); color: var(--navy); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; text-decoration: none; margin-top: 0.7rem; font-family: 'DM Sans', sans-serif; cursor: pointer; }
+.verstuur .privacy { font-size: 12px; color: var(--text-muted); margin-top: 0.9rem; line-height: 1.6; }
+.verstuur .privacy a { color: var(--green); }
+.fout { display: none; background: #FBEAEA; border: 1px solid rgba(180,40,40,0.25); color: #8C2B2B; border-radius: 9px; padding: 0.8rem 1rem; font-size: 13.5px; margin-bottom: 0.9rem; }
+
+footer { padding: 2rem; border-top: 1px solid var(--border); text-align: center; background: var(--white); }
+footer p { font-size: 12px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+</nav>
+
+<div class="intake-wrap">
+  <div class="intake-kop">
+    <div class="eyebrow">Intake</div>
+    <h1>Vertel me over jouw huis</h1>
+    <p>Vul in wat je weet — niets is verplicht behalve je naam. Wat je niet weet, zoeken we samen uit in de videocall. Met dit formulier plus een paar foto's is een kwartiertje bellen genoeg.</p>
+  </div>
+
+  <div class="blok">
+    <h2>Jouw gegevens</h2>
+    <div class="blok-sub">Het adres gebruik ik voor de verzending van je ThuisBrein Box.</div>
+    <div class="twee">
+      <div class="veld"><label for="naam">Naam *</label><input type="text" id="naam" autocomplete="name"></div>
+      <div class="veld"><label for="tel">Telefoonnummer</label><input type="tel" id="tel" autocomplete="tel"></div>
+    </div>
+    <div class="veld"><label for="adres">Adres <span>(straat, huisnummer, postcode, plaats)</span></label><input type="text" id="adres" autocomplete="street-address"></div>
+    <div class="veld"><label for="email">E-mailadres</label><input type="email" id="email" autocomplete="email"></div>
+  </div>
+
+  <div class="blok">
+    <h2>Jouw systemen</h2>
+    <div class="blok-sub">Merk en type als je het weet — het typeplaatje op het apparaat is genoeg. Weet je iets niet? Laat het veld leeg, dat zie ik op de foto's.</div>
+    <div class="twee">
+      <div class="veld"><label for="omvormer">Zonnepanelen — merk omvormer</label><input type="text" id="omvormer" placeholder="bijv. Enphase Envoy-S, SolarEdge, Growatt"></div>
+      <div class="veld"><label for="panelen">Aantal panelen</label><input type="text" id="panelen" placeholder="bijv. 10"></div>
+    </div>
+    <div class="twee">
+      <div class="veld"><label for="batterij">Thuisbatterij <span>(indien aanwezig)</span></label><input type="text" id="batterij" placeholder="bijv. EcoFlow, Sessy, HomeWizard"></div>
+      <div class="veld"><label for="verwarming">CV-ketel of warmtepomp</label><input type="text" id="verwarming" placeholder="bijv. Remeha Tzerra, Ecodan"></div>
+    </div>
+    <div class="twee">
+      <div class="veld"><label for="thermostaat">Huidige thermostaat</label><input type="text" id="thermostaat" placeholder="bijv. Honeywell rond, Nest, Plugwise"></div>
+      <div class="veld"><label for="airco">Airco <span>(indien aanwezig)</span></label><input type="text" id="airco" placeholder="bijv. Mitsubishi, Panasonic, Daikin"></div>
+    </div>
+    <div class="twee">
+      <div class="veld"><label for="laadpaal">Laadpaal <span>(indien aanwezig)</span></label><input type="text" id="laadpaal" placeholder="bijv. Alfen, Zaptec, Wallbox"></div>
+      <div class="veld"><label for="meter">Slimme meter aanwezig?</label>
+        <select id="meter"><option value="">Weet ik niet</option><option>Ja</option><option>Nee</option></select>
+      </div>
+    </div>
+    <div class="veld"><label for="router">Vrije netwerkpoort (LAN) op je router?</label>
+      <select id="router"><option value="">Weet ik niet — stuur ik een foto van</option><option>Ja</option><option>Nee</option></select>
+    </div>
+    <div class="veld"><label for="anders">Nog iets dat ik moet weten? <span>(dynamisch contract, wensen, bijzonderheden)</span></label><textarea id="anders" placeholder="bijv. per 1 augustus dynamisch contract bij Tibber, en de router hangt op zolder"></textarea></div>
+  </div>
+
+  <div class="blok">
+    <h2>De foto's</h2>
+    <div class="blok-sub">Dit is het belangrijkste onderdeel — hiermee zoek ik alles vooraf voor je uit. Maak deze foto's alvast met je telefoon:</div>
+    <ul class="foto-lijst">
+      <li><i class="ti ti-camera"></i><strong>Meterkast</strong>&nbsp;— open deur, met de slimme meter in beeld</li>
+      <li><i class="ti ti-camera"></i><strong>Omvormer</strong>&nbsp;— het typeplaatje/sticker met de productcode</li>
+      <li><i class="ti ti-camera"></i><strong>Thermostaat</strong>&nbsp;— gewoon aan de muur</li>
+      <li><i class="ti ti-camera"></i><strong>Router</strong>&nbsp;— achterkant, zodat de aansluitingen zichtbaar zijn</li>
+    </ul>
+    <div class="foto-tip"><strong>Zo werkt het:</strong> klik hieronder op de groene knop. Je antwoorden staan dan al klaar in WhatsApp — druk op verzenden en stuur de foto's direct daarachteraan in hetzelfde gesprek. Klaar!</div>
+  </div>
+
+  <div class="verstuur">
+    <div class="fout" id="fout">Vul in ieder geval je naam in, dan weet ik van wie het bericht komt.</div>
+    <button class="btn-wa" onclick="verstuur('wa')">💬 Verstuur via WhatsApp (+ foto's nasturen)</button>
+    <button class="btn-mail" onclick="verstuur('mail')">Liever per e-mail? Verstuur via e-mail</button>
+    <p class="privacy">Dit formulier slaat niets op — je antwoorden gaan rechtstreeks via jouw eigen WhatsApp of e-mail naar mij. Zie ook de <a href="privacy.html">privacyverklaring</a>.</p>
+  </div>
+</div>
+
+<footer><p>ThuisBrein — Thomas Branderhorst · KVK 88372952</p></footer>
+
+<script>
+function veld(id) { return document.getElementById(id).value.trim(); }
+function verstuur(kanaal) {
+  const naam = veld('naam');
+  const foutEl = document.getElementById('fout');
+  if (!naam) { foutEl.style.display = 'block'; foutEl.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  foutEl.style.display = 'none';
+
+  const regels = [
+    'INTAKE THUISBREIN',
+    'Naam: ' + naam,
+    veld('tel') ? 'Telefoon: ' + veld('tel') : '',
+    veld('adres') ? 'Adres: ' + veld('adres') : '',
+    veld('email') ? 'E-mail: ' + veld('email') : '',
+    '',
+    'SYSTEMEN',
+    'Omvormer: ' + (veld('omvormer') || '-'),
+    'Aantal panelen: ' + (veld('panelen') || '-'),
+    'Batterij: ' + (veld('batterij') || '-'),
+    'CV/warmtepomp: ' + (veld('verwarming') || '-'),
+    'Thermostaat: ' + (veld('thermostaat') || '-'),
+    'Airco: ' + (veld('airco') || '-'),
+    'Laadpaal: ' + (veld('laadpaal') || '-'),
+    'Slimme meter: ' + (veld('meter') || 'weet ik niet'),
+    'Vrije LAN-poort: ' + (veld('router') || 'weet ik niet'),
+    veld('anders') ? '\nBIJZONDERHEDEN\n' + veld('anders') : '',
+    '',
+    '(Foto\u2019s van meterkast, omvormer, thermostaat en router stuur ik hierachteraan)'
+  ].filter(r => r !== '');
+
+  const bericht = regels.join('\n');
+  if (kanaal === 'wa') {
+    window.open('https://wa.me/31654157920?text=' + encodeURIComponent(bericht), '_blank');
+  } else {
+    window.location.href = 'mailto:thomasbranderhorst@gmail.com?subject=' + encodeURIComponent('Intake ThuisBrein — ' + naam) + '&body=' + encodeURIComponent(bericht + '\n\n(Vergeet niet de foto\u2019s als bijlage toe te voegen!)');
+  }
+}
+</script>
+</body>
+</html>
