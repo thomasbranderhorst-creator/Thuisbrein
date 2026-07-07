@@ -138,7 +138,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
 <section class="hero">
   <div class="hero-eyebrow">Voorbeelden uit de praktijk</div>
   <h1>Wat jouw huis <em>vanzelf</em> gaat regelen</h1>
-  <p class="hero-sub">Een slimme woning is geen app met tien knoppen — het zijn afspraken die je één keer maakt, waarna je huis ze elke dag nakomt. Drie voorbeelden van automatiseringen die voor je worden ingesteld.</p>
+  <p class="hero-sub">Een slimme woning is geen app met tien knoppen — het zijn afspraken die je één keer maakt, waarna je huis ze elke dag nakomt. Vier voorbeelden van automatiseringen die voor je worden ingesteld.</p>
 </section>
 
 <div class="voorbeelden">
@@ -322,6 +322,57 @@ footer p { font-size: 12px; color: var(--text-muted); }
     </div>
     <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> elke kilometer zoveel mogelijk op je eigen opgewekte stroom in plaats van netstroom op piekprijs. Bij dagelijks laden loopt dat verschil op tot honderden euro's per jaar — zonder dat je er ooit aan hoeft te denken.</p></div>
   </div>
+  <!-- ═══ VOORBEELD 4: KOMEN & GAAN ═══ -->
+  <div class="voorbeeld card">
+    <div class="vb-kop">
+      <div class="vb-label">Voorbeeld 4 · Komen &amp; gaan</div>
+      <h2>Het huis weet wanneer je eraan komt</h2>
+      <p>Gaat de laatste bewoner de deur uit, dan schakelen verwarming en airco vanzelf naar de spaarstand — zonder dat iemand eraan hoeft te denken. En wie kiest voor de comfortuitbreiding, komt nooit meer thuis in een bloedhete of koude kamer: het huis ziet je aankomen en zorgt dat het binnen al aangenaam is als je de sleutel in het slot steekt.</p>
+    </div>
+    <div class="vb-visual">
+      <svg viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reis naar huis in drie fases: is iedereen weg, dan staat het huis in de spaarstand. Komt een bewoner binnen ongeveer drie kilometer, dan brengt het huis de woonkamer alvast op temperatuur. Bij binnenkomst is het comfortabel.">
+        <!-- reislijn -->
+        <line x1="70" y1="206" x2="800" y2="206" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
+        <!-- fase 1: iedereen weg / spaarstand -->
+        <rect x="70" y="122" width="330" height="56" rx="10" fill="#E0A93C"/>
+        <text x="90" y="145" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">Iedereen weg</text>
+        <text x="90" y="164" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(26,43,60,0.75)">Verwarming naar minimum, airco uit — spaarstand</text>
+        <!-- fase 2: in de buurt / opwarmen of koelen -->
+        <rect x="410" y="122" width="230" height="56" rx="10" fill="#639922"/>
+        <text x="430" y="145" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#FFFFFF">Jij komt in de buurt</text>
+        <text x="430" y="164" font-family="DM Sans, sans-serif" font-size="12" fill="rgba(255,255,255,0.85)">Het huis gaat alvast aan de slag</text>
+        <!-- fase 3: thuis / comfort -->
+        <rect x="650" y="122" width="150" height="56" rx="10" fill="#EAF3DE" stroke="rgba(99,153,34,0.35)"/>
+        <text x="670" y="145" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" fill="#1A2B3C">Thuis</text>
+        <text x="670" y="164" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A">Op temperatuur — zonder wachten</text>
+        <!-- de onzichtbare grens (buurt-zone) -->
+        <line x1="410" y1="60" x2="410" y2="236" stroke="rgba(99,153,34,0.55)" stroke-width="1.5" stroke-dasharray="5 6"/>
+        <g font-family="Fraunces, serif" font-size="17" fill="#1A2B3C" text-anchor="middle">
+          <text x="410" y="46">± 3 km</text>
+        </g>
+        <text x="410" y="256" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A" text-anchor="middle">de onzichtbare grens rond je huis</text>
+        <!-- huisje bij fase 3 -->
+        <g transform="translate(716,64)" stroke="#1A2B3C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M2,22 L24,4 L46,22"/>
+          <path d="M8,20 V44 H40 V20"/>
+          <circle cx="24" cy="13" r="2.6" fill="#3B6D11" stroke="none"/>
+        </g>
+        <!-- bewegende telefoon-stip richting huis -->
+        <circle r="5" fill="#3B6D11" stroke="#FFFFFF" stroke-width="2">
+          <animateMotion dur="11s" repeatCount="indefinite" path="M90,206 L400,206 L410,206 L640,206 L740,206 L740,206"/>
+        </circle>
+        <text x="435" y="292" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A" text-anchor="middle">● jouw telefoon onderweg naar huis — het huis reageert op elke fase</text>
+      </svg>
+    </div>
+    <div class="spelregels">
+      <div class="regel"><i class="ti ti-door-exit"></i><p><b>Laatste persoon de deur uit → spaarstand.</b> Verwarming naar het minimum, airco uit. Met een korte wachttijd — even de vuilnis buitenzetten telt niet als vertrek.</p></div>
+      <div class="regel"><i class="ti ti-map-pin"></i><p><b>Op temperatuur bij binnenkomst.</b> Met de comfortuitbreiding ziet het huis wanneer een bewoner de buurt binnenrijdt en begint het alvast — koel in de zomer, warm in de winter.</p></div>
+      <div class="regel"><i class="ti ti-wifi"></i><p><b>Ook zónder uitbreiding aanwezigheidsslim.</b> Standaard ziet het huis lokaal wie er thuis is, via het eigen wifi-netwerk. Weg is weg — zonder abonnement en zonder data het huis uit.</p></div>
+      <div class="regel"><i class="ti ti-shield-lock"></i><p><b>Locatie blijft van jou.</b> De telefoon deelt zijn locatie uitsluitend met jouw eigen systeem in jouw eigen woning — niet met fabrikanten of adverteerders.</p></div>
+    </div>
+    <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> nooit meer stoken of koelen voor een leeg huis, en nooit meer binnenkomen in een kamer die nog op gang moet komen. De besparing zit in de uren dat er niemand is — het comfort in de minuut dat je binnenstapt.</p></div>
+  </div>
+
   <!-- ═══ JIJ BLIJFT DE BAAS ═══ -->
   <div class="voorbeeld card">
     <div class="vb-kop">
