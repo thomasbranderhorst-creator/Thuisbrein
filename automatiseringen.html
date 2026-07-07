@@ -100,11 +100,31 @@ footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; just
 .footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
 footer p { font-size: 12px; color: var(--text-muted); }
 
+/* ── Temperatuurband: mobiele HTML-variant (SVG is op klein scherm onleesbaar) ── */
+.tband-mobile { display: none; }
+.tband-mobile .tb-zone { border-radius: 10px; padding: 0.85rem 1rem; }
+.tband-mobile .tb-zone h4 { font-family: 'DM Sans', sans-serif; font-size: 14.5px; font-weight: 500; margin: 0 0 3px; }
+.tband-mobile .tb-zone p { font-size: 12.5px; line-height: 1.5; margin: 0; }
+.tband-mobile .tb-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tband-mobile .tb-chip { font-size: 12px; background: #F5F0E8; color: var(--navy); border: 1px solid rgba(26,43,60,0.12); border-radius: 12px; padding: 3px 10px; }
+.tband-mobile .tb-hot { background: #2E4459; } .tband-mobile .tb-hot h4 { color: #fff; } .tband-mobile .tb-hot p { color: rgba(255,255,255,0.75); }
+.tband-mobile .tb-koelzon { background: #3B6D11; } .tband-mobile .tb-koelzon h4 { color: #fff; } .tband-mobile .tb-koelzon p { color: rgba(255,255,255,0.8); }
+.tband-mobile .tb-comfort { background: #EAF3DE; border: 1px solid rgba(99,153,34,0.35); } .tband-mobile .tb-comfort h4 { color: var(--navy); } .tband-mobile .tb-comfort p { color: #5F6E7A; }
+.tband-mobile .tb-warmzon { background: #639922; } .tband-mobile .tb-warmzon h4 { color: #fff; } .tband-mobile .tb-warmzon p { color: rgba(255,255,255,0.85); }
+.tband-mobile .tb-cv { background: #E0A93C; } .tband-mobile .tb-cv h4 { color: var(--navy); } .tband-mobile .tb-cv p { color: rgba(26,43,60,0.75); }
+.tband-mobile .tb-deg { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+.tband-mobile .tb-deg span { font-family: 'Fraunces', serif; font-size: 14px; color: var(--navy); flex-shrink: 0; }
+.tband-mobile .tb-deg::before { content: ""; width: 14px; height: 1.5px; background: rgba(26,43,60,0.35); }
+.tband-mobile .tb-deg::after { content: ""; flex: 1; height: 1.5px; background: rgba(26,43,60,0.12); }
+.tband-mobile .tb-caption { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+
 @media (max-width: 860px) { .nav-links { display: none; } .nav-hamburger { display: block; } }
 @media (max-width: 640px) {
   .spelregels { grid-template-columns: 1fr; }
   .vb-kop, .vb-visual, .spelregels { padding-left: 1.2rem; padding-right: 1.2rem; }
   .vb-resultaat { margin-left: 1.2rem; margin-right: 1.2rem; }
+  .band-visual svg { display: none; }
+  .tband-mobile { display: block; }
 }
 </style>
 </head>
@@ -150,7 +170,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <h2>CV en airco werken samen — niet tegen elkaar</h2>
       <p>In de tussenseizoenen gebeurt het vaak ongemerkt: 's ochtends stookt de CV, 's middags koelt de airco diezelfde warmte weer weg. Jouw ThuisBrein kent beide systemen én je zonnepanelen, en verdeelt de temperatuurband zó dat ze elkaar nooit in de weg zitten. Sterker nog: in frisse ochtenden neemt de airco de eerste graden verwarming over — als warmtepomp, op jouw eigen zonnestroom. De CV wordt achtervang in plaats van standaard.</p>
     </div>
-    <div class="vb-visual">
+    <div class="vb-visual band-visual">
       <svg viewBox="0 0 860 394" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Temperatuurband: onder 18 graden verwarmt de CV, tussen 18 en 20 graden verwarmt de airco op zonnestroom, tussen 20 en 24 graden doet niemand iets, vanaf 24 graden koelt de airco op zonnestroom, vanaf 26 graden koelt de airco altijd">
         <!-- temperatuur-as -->
         <line x1="70" y1="30" x2="70" y2="364" stroke="rgba(26,43,60,0.25)" stroke-width="1.5"/>
@@ -204,6 +224,35 @@ footer p { font-size: 12px; color: var(--text-muted); }
         </circle>
         <text x="330" y="380" font-family="DM Sans, sans-serif" font-size="12" fill="#5F6E7A" text-anchor="middle">● jouw binnentemperatuur beweegt door de band — jouw huis kiest wat er gebeurt</text>
       </svg>
+      <div class="tband-mobile">
+        <div class="tb-zone tb-hot">
+          <h4>Airco koelt — hoe dan ook</h4>
+          <p>Boven 26° gaat comfort voor: koelen, ongeacht zon of prijs</p>
+        </div>
+        <div class="tb-deg"><span>26°</span></div>
+        <div class="tb-zone tb-koelzon">
+          <h4>Airco koelt — op jouw zonnestroom</h4>
+          <p>Alléén bij zonoverschot en een lage stroomprijs. Anders: wachten.</p>
+          <div class="tb-chips"><span class="tb-chip">☀ zonoverschot aanwezig</span><span class="tb-chip">€ stroomprijs niet te hoog</span></div>
+        </div>
+        <div class="tb-deg"><span>24°</span></div>
+        <div class="tb-zone tb-comfort">
+          <h4>Niemand doet iets</h4>
+          <p>De gratis comfortzone — geen gas, geen stroom</p>
+        </div>
+        <div class="tb-deg"><span>20°</span></div>
+        <div class="tb-zone tb-warmzon">
+          <h4>Airco verwarmt — op jouw zonnestroom</h4>
+          <p>De eerste graden bijverwarmen doet de warmtepomp — alléén bij zonoverschot</p>
+          <div class="tb-chips"><span class="tb-chip">☀ zonoverschot aanwezig</span></div>
+        </div>
+        <div class="tb-deg"><span>18°</span></div>
+        <div class="tb-zone tb-cv">
+          <h4>CV verwarmt</h4>
+          <p>Pas als het echt koud is of de zon niets levert — de ketel is achtervang</p>
+        </div>
+        <p class="tb-caption">jouw binnentemperatuur beweegt door de band — jouw huis kiest wat er gebeurt</p>
+      </div>
     </div>
     <div class="spelregels">
       <div class="regel"><i class="ti ti-sun"></i><p><b>Airco verwarmt de eerste graden (18–20°)</b> — alléén op jouw eigen zonnestroom. Warmtepompwarmte uit eigen panelen: gratis, en ± 3× zuiniger dan gas.</p></div>
