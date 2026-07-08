@@ -111,6 +111,8 @@ button.gold:hover { background: #F0C25C; }
 .fav-chip .fav-x { background: none; border: none; color: #5C7291; cursor: pointer; font-size: 14px; padding: 0 5px; }
 .fav-chip .fav-x:hover { color: #D98E5F; }
 .fav-count { width: 58px !important; }
+.stats-grid { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 12px; }
+.stat .big { font-size: 26px; }
 .est-box { background: rgba(15,30,51,.5); border: 1px dashed rgba(143,163,191,.35); border-radius: 12px; padding: 12px 14px; margin: 6px 0 4px; }
 .est-row { display: flex; gap: 12px; padding: 4px 0; font-size: 13.5px; align-items: center; }
 .est-row .log-topic { color: #C9D4E3; }
@@ -141,7 +143,7 @@ const SB_URL = "https://wlzhaztvzsssbkvsftim.supabase.co";
 const SB_KEY = "sb_publishable_VQIJGkx_bSmvNpphSOyXsw_f5RpzZfH";
 let MC_ID = null;
 try { MC_ID = localStorage.getItem("tb-mc-key"); } catch(e){}
-const todayISO = () => new Date().toISOString().slice(0,10);
+const todayISO = () => { const d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); return d.toISOString().slice(0,10); };
 let idc = 0;
 const uid = () => "id" + Date.now() + "_" + (idc++);
 
@@ -186,7 +188,8 @@ const SCOLOR = { gepland:"#8FA3BF", bezig:"#E8B23A", wachten:"#D98E5F", klaar:"#
 const MEALS = ["Ontbijt","Lunch","Diner","Snack"];
 
 let state = null;
-let tab = "overzicht";
+let tab = "fit";
+let fitDate = todayISO();
 let online = false;
 let saveTimer = null;
 
@@ -302,6 +305,22 @@ function persist(){
   saveTimer = setTimeout(saveNow, 500);
 }
 
+async function resync(){
+  if(!MC_ID || !state) return;
+  updateSaveLabel("verversen\u2026");
+  try {
+    const cloud = await cloudGet();
+    if(cloud && (cloud._ts||0) > (state._ts||0)){
+      state = cloud; migrate(); localPut(); render();
+    }
+    online = true;
+  } catch(e){ online = false; }
+  updateSaveLabel();
+}
+document.addEventListener("visibilitychange", () => {
+  if(document.visibilityState === "visible") resync();
+});
+
 function toggleTask(domain,id){ const t=state.tasks[domain].find(x=>x.id===id); if(t){ t.done=!t.done; persist(); } }
 function delTask(domain,id){ state.tasks[domain]=state.tasks[domain].filter(x=>x.id!==id); persist(); }
 function addTask(domain,inputId){
@@ -320,8 +339,8 @@ function addStudy(){
 function addWeight(){
   const v=parseFloat(document.getElementById("wKg").value);
   if(v>20 && v<300){
-    state.weights=state.weights.filter(w=>w.date!==todayISO());
-    state.weights.push({date:todayISO(),kg:v});
+    state.weights=state.weights.filter(w=>w.date!==fitDate);
+    state.weights.push({date:fitDate,kg:v});
     if(!state.settings.startWeight) state.settings.startWeight=v;
     persist();
   }
@@ -331,7 +350,7 @@ function addFood(){
   const name=document.getElementById("fName").value.trim();
   const kcal=parseInt(document.getElementById("fKcal").value,10);
   if(name && kcal>0 && kcal<5000){
-    state.food.push({id:uid(),date:todayISO(),meal,name,kcal});
+    state.food.push({id:uid(),date:fitDate,meal,name,kcal});
     persist();
   }
 }
@@ -351,14 +370,14 @@ function logFav(id){
   if(!fav) return;
   let n=parseInt((document.getElementById("favCount")||{}).value,10);
   if(!(n>0&&n<100)) n=1;
-  state.food.push({id:uid(),date:todayISO(),meal:fav.meal,name:(n>1?n+"× ":"")+fav.name,kcal:fav.kcal*n});
+  state.food.push({id:uid(),date:fitDate,meal:fav.meal,name:(n>1?n+"× ":"")+fav.name,kcal:fav.kcal*n});
   persist();
 }
 function addMove(){
   const name=document.getElementById("mName").value.trim();
   const kcal=parseInt(document.getElementById("mKcal").value,10);
   if(name && kcal>0 && kcal<3000){
-    state.moves.push({id:uid(),date:todayISO(),name,kcal});
+    state.moves.push({id:uid(),date:fitDate,name,kcal});
     persist();
   }
 }
@@ -500,7 +519,7 @@ function clearEstimate(){ lastEst=null; render(); }
 function logEstimate(){
   if(!lastEst||lastEst.total<=0) return;
   const meal=document.getElementById("estMeal").value;
-  state.food.push({id:uid(),date:todayISO(),meal,name:lastEst.text,kcal:lastEst.total});
+  state.food.push({id:uid(),date:fitDate,meal,name:lastEst.text,kcal:lastEst.total});
   lastEst=null;
   persist();
 }
@@ -568,11 +587,12 @@ function runMoveEstimate(){
 function clearMoveEstimate(){ lastMoveEst=null; render(); }
 function logMoveEstimate(){
   if(!lastMoveEst||!lastMoveEst.ok) return;
-  state.moves.push({id:uid(),date:todayISO(),name:lastMoveEst.text,kcal:lastMoveEst.kcal});
+  state.moves.push({id:uid(),date:fitDate,name:lastMoveEst.text,kcal:lastMoveEst.kcal});
   lastMoveEst=null;
   persist();
 }
 function setSetting(key,val){ state.settings[key]=val; persist(); }
+function setFitDate(v){ if(/^\d{4}-\d{2}-\d{2}$/.test(v)){ fitDate=v; render(); } }
 function setTab(t){ tab=t; render(); }
 
 function progressBar(val,max,color){
@@ -624,9 +644,66 @@ function weightChart(){
     <text x="${x(sorted.length-1).toFixed(1)}" y="${(y(last.kg)-10).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="12" font-weight="700">${last.kg}</text>
   </svg>`;
 }
+function fitStats(){
+  const today=todayISO();
+  const dayDiff=(a,b)=>Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);
+  const daysSet=new Set(state.food.map(f=>f.date));
+  let streak=0; const d=new Date();
+  if(!daysSet.has(today)) d.setDate(d.getDate()-1);
+  while(daysSet.has(d.toISOString().slice(0,10))){ streak++; d.setDate(d.getDate()-1); }
+  const ALC=/bier|wijn|alcohol(?!vrij)|whisk|wodka|vodka|\brum\b|\bgin\b|cocktail|prosecco|champagne|likeur|borrel|shot/i;
+  const CLEAN=/0[.,]0|alcoholvrij|zonder alcohol/i;
+  const alcDates=state.food.filter(f=>ALC.test(f.name)&&!CLEAN.test(f.name)).map(f=>f.date).sort();
+  const firstLog=state.food.map(f=>f.date).sort()[0];
+  let alc=0;
+  if(alcDates.length) alc=Math.max(0,dayDiff(alcDates[alcDates.length-1],today));
+  else if(firstLog) alc=dayDiff(firstLog,today)+1;
+  const runs=state.moves.map(m=>{const mm=m.name.match(/(\d+(?:[.,]\d+)?)\s*km/i);return mm?{date:m.date,km:parseFloat(mm[1].replace(",","."))}:null;}).filter(Boolean);
+  const month=today.slice(0,7);
+  const kmMonth=runs.filter(r=>r.date.startsWith(month)).reduce((a,r)=>a+r.km,0);
+  const kmTotal=runs.reduce((a,r)=>a+r.km,0);
+  const nets=lastDays(7).map(dd=>{
+    const fi=state.food.filter(f=>f.date===dd).reduce((a,f)=>a+f.kcal,0);
+    const mo=state.moves.filter(m=>m.date===dd).reduce((a,m)=>a+m.kcal,0);
+    return fi===0&&mo===0?null:fi-mo;
+  }).filter(v=>v!==null);
+  const avg=nets.length?Math.round(nets.reduce((a,v)=>a+v,0)/nets.length):null;
+  return { streak, alc, runCount:runs.length,
+    kmMonth:kmMonth.toFixed(1).replace(".",","),
+    kmTotal:kmTotal.toFixed(1).replace(".",","), avg };
+}
+function kcalBarChart(){
+  const t=state.settings.kcalTarget;
+  const days=lastDays(14).reverse();
+  const vals=days.map(dd=>{
+    const fi=state.food.filter(f=>f.date===dd).reduce((a,f)=>a+f.kcal,0);
+    const mo=state.moves.filter(m=>m.date===dd).reduce((a,m)=>a+m.kcal,0);
+    return { d:dd, net:fi-mo, has:!(fi===0&&mo===0) };
+  });
+  if(!vals.some(v=>v.has)) return "";
+  const W=560,H=150,P=24;
+  const max=Math.max(t*1.25,...vals.map(v=>v.net||0),1);
+  const bw=(W-2*P)/14;
+  const y=v=>H-P-(v/max)*(H-2*P);
+  const bars=vals.map((v,i)=>{
+    const x=P+i*bw+2;
+    if(!v.has) return `<rect x="${x.toFixed(1)}" y="${H-P-3}" width="${(bw-4).toFixed(1)}" height="3" fill="#3a4a60" rx="1.5"/>`;
+    const h=Math.max(3,(H-P)-y(Math.max(v.net,0)));
+    const col=v.net<=t?"#7FBF8E":"#D98E5F";
+    return `<rect x="${x.toFixed(1)}" y="${y(Math.max(v.net,0)).toFixed(1)}" width="${(bw-4).toFixed(1)}" height="${h.toFixed(1)}" fill="${col}" rx="3"/>`;
+  }).join("");
+  return `<svg class="wchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Netto kcal per dag, laatste 14 dagen">
+    <line x1="${P}" x2="${W-P}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="#E8B23A" stroke-dasharray="5 5" stroke-width="1.5"/>
+    <text x="${W-P}" y="${(y(t)-6).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="11">doel ${t}</text>
+    ${bars}
+    <text x="${P}" y="${H-6}" fill="#8FA3BF" font-size="11">${fmtDate(days[0])}</text>
+    <text x="${W-P}" y="${H-6}" text-anchor="end" fill="#8FA3BF" font-size="11">vandaag</text>
+  </svg>`;
+}
 function lastDays(n){
   const out=[];
   const d=new Date();
+  d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
   for(let i=0;i<n;i++){
     out.push(d.toISOString().slice(0,10));
     d.setDate(d.getDate()-1);
@@ -652,7 +729,7 @@ function render(){
   const kcalNet=kcalIn-kcalMove;
   const kcalLeft=s.kcalTarget-kcalNet;
 
-  const TABS=[["overzicht","Overzicht"],["thuisbrein","ThuisBrein"],["studie","EP-W1"],["reno","Renovatie"],["fit","Fit"]];
+  const TABS=[["fit","Fit"],["overzicht","Overzicht"],["thuisbrein","ThuisBrein"],["studie","EP-W1"],["reno","Renovatie"]];
 
   let body="";
   if(tab==="overzicht"){
@@ -729,14 +806,22 @@ function render(){
     </section>`;
   }
   if(tab==="fit"){
-    const foodRows=foodToday.map(f=>`
+    const fLabel = fitDate===today ? "vandaag" : fmtDate(fitDate);
+    const foodSel=state.food.filter(f=>f.date===fitDate);
+    const movesSel=state.moves.filter(m=>m.date===fitDate);
+    const fIn=foodSel.reduce((a,f)=>a+f.kcal,0);
+    const fMove=movesSel.reduce((a,m)=>a+m.kcal,0);
+    const fNet=fIn-fMove;
+    const fLeft=s.kcalTarget-fNet;
+    const st=fitStats();
+    const foodRows=foodSel.map(f=>`
       <div class="log-row">
         <span class="meal-tag">${f.meal}</span>
         <span class="log-topic">${esc(f.name)}</span>
         <span class="log-val">${f.kcal} kcal</span>
         <button class="task-del" onclick="delFood('${f.id}')" aria-label="Verwijderen">×</button>
       </div>`).join("");
-    const moveRows=movesToday.map(m=>`
+    const moveRows=movesSel.map(m=>`
       <div class="log-row">
         <span class="meal-tag move-tag">Sport</span>
         <span class="log-topic">${esc(m.name)}</span>
@@ -756,12 +841,18 @@ function render(){
       </div>`;
     }).join("");
     body=`<section class="panel">
-      <h2>Voeding vandaag</h2>
+      <h2>Voeding · ${fLabel}</h2>
+      <div class="form-row" style="margin:6px 0 2px">
+        <label class="inline-set">Datum
+          <input type="date" value="${fitDate}" max="${today}" onchange="setFitDate(this.value)">
+        </label>
+        ${fitDate!==today?`<button class="gold" onclick="setFitDate('${today}')">Terug naar vandaag</button>`:""}
+      </div>
       <div class="kcal-head">
         <div>
-          <p class="big" style="color:${kcalNet>s.kcalTarget?"#D98E5F":"#F2EFE7"}">${kcalNet}<span class="big-sub"> / ${s.kcalTarget} kcal</span></p>
-          ${progressBar(kcalNet,s.kcalTarget,kcalNet>s.kcalTarget?"#D98E5F":"#7FBF8E")}
-          <p class="muted">${kcalLeft>=0?`nog ${kcalLeft} kcal over`:`${Math.abs(kcalLeft)} kcal boven doel`}${kcalMove?` · ${kcalMove} kcal terugverdiend met sport`:""}</p>
+          <p class="big" style="color:${fNet>s.kcalTarget?"#D98E5F":"#F2EFE7"}">${fNet}<span class="big-sub"> / ${s.kcalTarget} kcal</span></p>
+          ${progressBar(fNet,s.kcalTarget,fNet>s.kcalTarget?"#D98E5F":"#7FBF8E")}
+          <p class="muted">${fLeft>=0?`nog ${fLeft} kcal over`:`${Math.abs(fLeft)} kcal boven doel`}${fMove?` · ${fMove} kcal terugverdiend met sport`:""}</p>
         </div>
         <label class="inline-set">Dagdoel (kcal)
           <input type="number" step="50" style="width:100px" value="${s.kcalTarget}"
@@ -790,7 +881,7 @@ function render(){
           onkeydown="if(event.key==='Enter')addFood()">
         <button class="gold" onclick="addFood()">Loggen</button>
       </div>
-      ${foodRows?`<div class="log">${foodRows}</div>`:`<p class="muted">Nog niets gelogd vandaag.</p>`}
+      ${foodRows?`<div class="log">${foodRows}</div>`:`<p class="muted">Nog niets gelogd op ${fLabel}.</p>`}
       <h3>Kcal-schatter</h3>
       <p class="muted" style="margin:0 0 8px">Omschrijf je maaltijd, krijg een schatting, log met één klik.</p>
       <div class="form-row" style="margin-top:8px">
@@ -838,6 +929,18 @@ function render(){
       ${week?`<h3>Afgelopen week</h3><div class="week">${week}</div>`:""}
     </section>
     <section class="panel">
+      <h2>Inzicht</h2>
+      <div class="stats-grid">
+        <div class="stat"><p class="muted">🔥 bijhoud-streak</p><p class="big">${st.streak}<span class="big-sub"> ${st.streak===1?"dag":"dagen"}</span></p></div>
+        <div class="stat"><p class="muted">🍺‍❌ zonder alcohol</p><p class="big">${st.alc}<span class="big-sub"> ${st.alc===1?"dag":"dagen"}</span></p></div>
+        <div class="stat"><p class="muted">🏃 deze maand</p><p class="big">${st.kmMonth}<span class="big-sub"> km</span></p></div>
+        <div class="stat"><p class="muted">gem. netto (7 dg)</p><p class="big">${st.avg??"—"}<span class="big-sub">${st.avg!=null?" kcal":""}</span></p></div>
+      </div>
+      ${st.runCount>0?`<p class="muted" style="margin-top:10px">🏃 totaal ${st.kmTotal} km over ${st.runCount} ${st.runCount===1?"activiteit":"activiteiten"}</p>`:""}
+      ${kcalBarChart()}
+      <p class="hint">De streak telt door zolang je elke dag minstens één ding logt (vandaag telt mee zodra er iets in staat). Alcoholvrij telt sinds je laatst gelogde biertje of wijntje — dus wél eerlijk loggen. 😉</p>
+    </section>
+    <section class="panel">
       <h2>Gewicht</h2>
       <div class="fit-stats">
         <div><p class="muted">laatste weging</p><p class="big">${lastW?lastW.kg+" kg":"—"}</p></div>
@@ -851,7 +954,7 @@ function render(){
       <div class="form-row">
         <input id="wKg" type="number" step="0.1" placeholder="gewicht in kg" style="width:140px"
           onkeydown="if(event.key==='Enter')addWeight()">
-        <button class="gold" onclick="addWeight()">Weging van vandaag opslaan</button>
+        <button class="gold" onclick="addWeight()">Weging opslaan (${fLabel})</button>
       </div>
       ${weightChart()}
       <p class="hint">Weeg op vaste momenten — de trend telt, niet de losse dag.</p>
@@ -870,13 +973,14 @@ function render(){
           <h1>Mission Control</h1>
           <p class="sub">Thomas · Oss · ${new Date().toLocaleDateString("nl-NL",{weekday:"long",day:"numeric",month:"long"})}</p>
         </div>
-        <span class="save" id="saveState">verbinden…</span>
+        <span class="save" id="saveState" onclick="resync()" style="cursor:pointer" title="Tik om te verversen">verbinden…</span>
       </div>
       ${warn}
       <div class="chips">${chip("Airco-installatie","2026-07-13")}${chip("Batterij komt","2026-07-24")}${chip("W1-examen",s.examDate)}${chip("BENG-opleiding",s.bengDate)}</div>
       <nav class="tabs">${TABS.map(([id,label])=>`<button class="${tab===id?"on":""}" onclick="setTab('${id}')">${label}</button>`).join("")}</nav>
     </header>
     <main>${body}</main>`;
+  if(state) updateSaveLabel();
 }
 
 if(MC_ID) load(); else renderKeyScreen();
