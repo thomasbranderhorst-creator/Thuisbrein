@@ -863,9 +863,13 @@ function render(){
   const useR=trades.some(t=>t.r!=null);
   const tVal=t=>useR?(t.r||0):(t.eur||0);
   const tUnit=useR?"R":"\u20ac";
-  const tFmt=v=>useR?`${v>0?"+":""}${v.toFixed(1)}R`:`${v<0?"\u2212 ":""}\u20ac ${Math.abs(v).toFixed(0)}`;
+  const tFmt=v=>{const a=Math.abs(v);const s=a<10?a.toFixed(1).replace(".",","):Math.round(a).toString();return useR?`${v>0?"+":""}${v.toFixed(1)}R`:`${v<0?"\u2212 ":""}\u20ac ${s}`};
   const tSum=trades.reduce((a,t)=>a+tVal(t),0);
   const tWinrate=trades.length?Math.round(trades.filter(t=>tVal(t)>0).length/trades.length*100):null;
+  const exY=trades.filter(t=>t.ex===1), exN=trades.filter(t=>t.ex===0);
+  const avgY=exY.length?exY.reduce((a,t)=>a+tVal(t),0)/exY.length:null;
+  const avgN=exN.length?exN.reduce((a,t)=>a+tVal(t),0)/exN.length:null;
+  const eoBad=trades.filter(t=>t.eo===-1).length, eoOk=trades.filter(t=>t.eo===0).length, eoGood=trades.filter(t=>t.eo===1).length;
 
   const TABS=[["fit","Fit"],["overzicht","Overzicht"],["thuisbrein","ThuisBrein"],["studie","EP-W1"],["reno","Renovatie"],["trading","Trading"]];
 
@@ -1124,7 +1128,7 @@ function render(){
     const tradeRows=[...trades].reverse().slice(0,12).map(t=>`
       <div class="log-row">
         <span class="log-date">${t.date?fmtDate(t.date):""}</span>
-        ${t.dir?`<span class="meal-tag${t.dir==="long"?" move-tag":""}">${esc(t.dir)}</span>`:""}
+        ${t.ex!=null?`<span class="meal-tag${t.ex?" move-tag":""}">${t.ex?"regels \u2713":"ingegrepen"}</span>`:(t.dir?`<span class="meal-tag">${esc(t.dir)}</span>`:"")}
         <span class="log-topic">${esc(t.sym||"")}${t.note?` <span class="muted" style="margin:0">${esc(t.note)}</span>`:""}</span>
         <span class="log-val ${tVal(t)>=0?"ok":"over"}">${tFmt(tVal(t))}</span>
       </div>`).join("");
@@ -1137,6 +1141,12 @@ function render(){
         <div><p class="muted">trades</p><p class="big">${trades.length}</p></div>
       </div>
       ${tradeChart(trades.map(tVal),tUnit)}`:`<p class="muted">Nog geen tradedata \u2014 vraag Claude in een chat om je Notion-tradelog te syncen, dan verschijnen hier je equity curve, winrate en maandresultaten.</p>`}
+      ${avgY!==null&&avgN!==null?`<h3>Discipline</h3>
+      <div class="fit-stats">
+        <div><p class="muted">regels gevolgd (${exY.length}\u00d7)</p><p class="big"${avgY<0?' style="color:#D98E5F"':""}>${tFmt(avgY)}</p><p class="muted">gem. per trade</p></div>
+        <div><p class="muted">ingegrepen (${exN.length}\u00d7)</p><p class="big"${avgN<0?' style="color:#D98E5F"':""}>${tFmt(avgN)}</p><p class="muted">gem. per trade</p></div>
+      </div>
+      ${(eoBad+eoOk+eoGood)?`<p class="muted" style="margin-top:10px">Eigen exit-score: ${eoBad}\u00d7 bad \u00b7 ${eoOk}\u00d7 neutraal \u00b7 ${eoGood}\u00d7 good</p>`:""}`:""}
       ${monthRows?`<h3>Per maand</h3><div class="week">${monthRows}</div>`:""}
       ${tradeRows?`<h3>Laatste trades</h3><div class="log">${tradeRows}</div>`:""}
       <h3>Mijn regels</h3>
