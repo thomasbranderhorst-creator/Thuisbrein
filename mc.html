@@ -113,6 +113,9 @@ button.gold:hover { background: #F0C25C; }
 .fav-count { width: 58px !important; }
 .stats-grid { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 12px; }
 .stat .big { font-size: 26px; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.badge { background: rgba(232,178,58,.12); border: 1px solid rgba(232,178,58,.45); border-radius: 999px; padding: 5px 12px; font: 600 12.5px 'IBM Plex Sans', sans-serif; }
+.badge.locked { background: none; border-color: rgba(143,163,191,.25); color: #5C7291; font-weight: 400; }
 .est-box { background: rgba(15,30,51,.5); border: 1px dashed rgba(143,163,191,.35); border-radius: 12px; padding: 12px 14px; margin: 6px 0 4px; }
 .est-row { display: flex; gap: 12px; padding: 4px 0; font-size: 13.5px; align-items: center; }
 .est-row .log-topic { color: #C9D4E3; }
@@ -662,6 +665,15 @@ function fitStats(){
   const month=today.slice(0,7);
   const kmMonth=runs.filter(r=>r.date.startsWith(month)).reduce((a,r)=>a+r.km,0);
   const kmTotal=runs.reduce((a,r)=>a+r.km,0);
+  const sortedW=[...state.weights].sort((a,b)=>a.date.localeCompare(b.date));
+  const lastKg=sortedW.length?sortedW[sortedW.length-1].kg:null;
+  const deltaKg=(lastKg!=null&&state.settings.startWeight)?+(lastKg-state.settings.startWeight).toFixed(1):null;
+  const tGoal=state.settings.kcalTarget;
+  const weekOk=lastDays(7).every(dd=>{
+    const fi=state.food.filter(f=>f.date===dd).reduce((a,f)=>a+f.kcal,0);
+    const mo=state.moves.filter(m=>m.date===dd).reduce((a,m)=>a+m.kcal,0);
+    return (fi>0||mo>0)&&(fi-mo)<=tGoal;
+  });
   const nets=lastDays(7).map(dd=>{
     const fi=state.food.filter(f=>f.date===dd).reduce((a,f)=>a+f.kcal,0);
     const mo=state.moves.filter(m=>m.date===dd).reduce((a,m)=>a+m.kcal,0);
@@ -670,7 +682,8 @@ function fitStats(){
   const avg=nets.length?Math.round(nets.reduce((a,v)=>a+v,0)/nets.length):null;
   return { streak, alc, runCount:runs.length,
     kmMonth:kmMonth.toFixed(1).replace(".",","),
-    kmTotal:kmTotal.toFixed(1).replace(".",","), avg };
+    kmTotal:kmTotal.toFixed(1).replace(".",","),
+    kmTotalNum:kmTotal, lastKg, deltaKg, weekOk, avg };
 }
 function kcalBarChart(){
   const t=state.settings.kcalTarget;
@@ -699,6 +712,79 @@ function kcalBarChart(){
     <text x="${P}" y="${H-6}" fill="#8FA3BF" font-size="11">${fmtDate(days[0])}</text>
     <text x="${W-P}" y="${H-6}" text-anchor="end" fill="#8FA3BF" font-size="11">vandaag</text>
   </svg>`;
+}
+function weightForecast(){
+  const goal=state.settings.goalWeight;
+  const sorted=[...state.weights].sort((a,b)=>a.date.localeCompare(b.date));
+  if(sorted.length<2) return null;
+  const x0=new Date(sorted[0].date+"T00:00:00").getTime();
+  const pts=sorted.map(w=>({x:(new Date(w.date+"T00:00:00").getTime()-x0)/864e5, y:w.kg}));
+  const n=pts.length;
+  let sx=0,sy=0,sxx=0,sxy=0;
+  for(const p of pts){ sx+=p.x; sy+=p.y; sxx+=p.x*p.x; sxy+=p.x*p.y; }
+  const denom=n*sxx-sx*sx;
+  if(!denom) return null;
+  const slope=(n*sxy-sx*sy)/denom;
+  const perWeek=Math.abs(slope*7).toFixed(1).replace(".",",");
+  if(slope>=-0.005) return { txt:"Trend is nog vlak \u2014 de prognose verschijnt zodra de dalende lijn zichtbaar wordt." };
+  const last=sorted[n-1];
+  if(goal==null) return { txt:`Tempo: ${perWeek} kg per week` };
+  if(last.kg<=goal) return { txt:"Doelgewicht bereikt 🏆" };
+  const days=Math.round((last.kg-goal)/(-slope));
+  if(days>730) return { txt:`Tempo: ${perWeek} kg/week \u2014 doel nog ver weg, hou vol` };
+  const d=new Date(last.date+"T00:00:00"); d.setDate(d.getDate()+days);
+  const when=d.toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"});
+  return { txt:`Tempo: ${perWeek} kg/week \u00b7 op dit tempo bereik je ${goal} kg rond ${when}` };
+}
+function heatmapSVG(){
+  if(!state.food.length&&!state.moves.length) return "";
+  const t=state.settings.kcalTarget;
+  const days=lastDays(70).reverse();
+  const first=new Date(days[0]+"T00:00:00");
+  const offset=(first.getDay()+6)%7;
+  const cell=11,gap=3,left=26,top=6;
+  const cols=Math.ceil((offset+days.length)/7);
+  const W=left+cols*(cell+gap)+4;
+  const rowsBottom=top+7*(cell+gap);
+  const ly=rowsBottom+6;
+  const H=ly+13;
+  const todayStr=todayISO();
+  let rects="";
+  days.forEach((dd,i)=>{
+    const slot=offset+i, col=Math.floor(slot/7), row=slot%7;
+    const x=left+col*(cell+gap), y=top+row*(cell+gap);
+    const fi=state.food.filter(f=>f.date===dd).reduce((a,f)=>a+f.kcal,0);
+    const mo=state.moves.filter(m=>m.date===dd).reduce((a,m)=>a+m.kcal,0);
+    let fill="#24344d";
+    if(fi>0||mo>0){ fill=(fi-mo)<=t?(mo>0?"#3f9d68":"#7FBF8E"):"#D98E5F"; }
+    const stroke=dd===todayStr?' stroke="#E8B23A" stroke-width="1.5"':"";
+    rects+=`<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2.5" fill="${fill}"${stroke}/>`;
+  });
+  const dayLbl=[["ma",0],["wo",2],["vr",4],["zo",6]].map(([l,r])=>`<text x="${left-6}" y="${top+r*(cell+gap)+cell-2}" text-anchor="end" fill="#5C7291" font-size="9">${l}</text>`).join("");
+  const legend=`<rect x="${left}" y="${ly}" width="9" height="9" rx="2" fill="#7FBF8E"/><text x="${left+13}" y="${ly+8}" fill="#5C7291" font-size="9.5">onder doel</text>`+
+    `<rect x="${left+78}" y="${ly}" width="9" height="9" rx="2" fill="#3f9d68"/><text x="${left+91}" y="${ly+8}" fill="#5C7291" font-size="9.5">+ sport</text>`+
+    `<rect x="${left+140}" y="${ly}" width="9" height="9" rx="2" fill="#D98E5F"/><text x="${left+153}" y="${ly+8}" fill="#5C7291" font-size="9.5">boven doel</text>`;
+  return `<h3>Dagpatroon \u00b7 10 weken</h3><svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:460px" role="img" aria-label="Heatmap van dagen onder of boven doel">${dayLbl}${rects}${legend}</svg>`;
+}
+function badgesHTML(st){
+  const goal=state.settings.goalWeight;
+  const defs=[
+    ["🔥","3 dagen streak",st.streak>=3],
+    ["🔥","7 dagen streak",st.streak>=7],
+    ["🔥","30 dagen streak",st.streak>=30],
+    ["🏃","Eerste 5 km",st.kmTotalNum>=5],
+    ["🏃","25 km totaal",st.kmTotalNum>=25],
+    ["🏃","100 km totaal",st.kmTotalNum>=100],
+    ["\u2696\uFE0F","Eerste kilo eraf",st.deltaKg!=null&&st.deltaKg<=-1],
+    ["🎯","5 kilo eraf",st.deltaKg!=null&&st.deltaKg<=-5],
+    ["🏆","Doelgewicht bereikt",goal!=null&&st.lastKg!=null&&st.lastKg<=goal],
+    ["🍺\u274C","Week alcoholvrij",st.alc>=7],
+    ["🍺\u274C","Maand alcoholvrij",st.alc>=30],
+    ["\u2705","Week elke dag onder doel",st.weekOk]
+  ];
+  const earned=defs.filter(d=>d[2]);
+  const next=defs.filter(d=>!d[2]).slice(0,3);
+  return `<div class="badges">${earned.map(d=>`<span class="badge">${d[0]} ${d[1]}</span>`).join("")}${next.map(d=>`<span class="badge locked">🔒 ${d[1]}</span>`).join("")}</div>`;
 }
 function lastDays(n){
   const out=[];
@@ -937,7 +1023,9 @@ function render(){
         <div class="stat"><p class="muted">gem. netto (7 dg)</p><p class="big">${st.avg??"—"}<span class="big-sub">${st.avg!=null?" kcal":""}</span></p></div>
       </div>
       ${st.runCount>0?`<p class="muted" style="margin-top:10px">🏃 totaal ${st.kmTotal} km over ${st.runCount} ${st.runCount===1?"activiteit":"activiteiten"}</p>`:""}
+      ${badgesHTML(st)}
       ${kcalBarChart()}
+      ${heatmapSVG()}
       <p class="hint">De streak telt door zolang je elke dag minstens één ding logt (vandaag telt mee zodra er iets in staat). Alcoholvrij telt sinds je laatst gelogde biertje of wijntje — dus wél eerlijk loggen. 😉</p>
     </section>
     <section class="panel">
@@ -951,6 +1039,7 @@ function render(){
             onchange="setSetting('goalWeight',this.value?parseFloat(this.value):null)">
         </label>
       </div>
+      ${(fc=>fc?`<p class="muted" style="margin-top:6px">📉 ${fc.txt}</p>`:`<p class="muted" style="margin-top:6px">📉 Prognose verschijnt na je tweede weging.</p>`)(weightForecast())}
       <div class="form-row">
         <input id="wKg" type="number" step="0.1" placeholder="gewicht in kg" style="width:140px"
           onkeydown="if(event.key==='Enter')addWeight()">
