@@ -217,6 +217,7 @@ function migrate(){
   };
   if(!state.trading.rules) state.trading.rules=[];
   if(!state.trading.trades) state.trading.trades=[];
+  if(!state.trading.money) state.trading.money=[];
 }
 
 async function cloudGet(){
@@ -631,11 +632,11 @@ function tradeChart(vals,unit){
   const y=v=>H-P-(v-min)/(max-min)*(H-2*P);
   const path=pts.map((v,i)=>`${i===0?"M":"L"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
   const last=pts[pts.length-1];
-  const lbl=unit==="R"?`${last>0?"+":""}${last.toFixed(1)}R`:`\u20ac ${last.toFixed(0)}`;
+  const lbl=!unit?"":unit==="R"?`${last>0?"+":""}${last.toFixed(1)}R`:`\u20ac ${last.toFixed(0)}`;
   return `<svg class="wchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Equity curve">
     <line x1="${P}" x2="${W-P}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}" stroke="#8FA3BF" stroke-dasharray="4 4" stroke-width="1"/>
     <path d="${path}" fill="none" stroke="#E8B23A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-    <text x="${W-P}" y="${(y(last)-8).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="12" font-weight="700">${lbl}</text>
+    ${lbl?`<text x="${W-P}" y="${(y(last)-8).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="12" font-weight="700">${lbl}</text>`:""}
   </svg>`;
 }
 function setSetting(key,val){ state.settings[key]=val; persist(); }
@@ -870,6 +871,10 @@ function render(){
   const avgY=exY.length?exY.reduce((a,t)=>a+tVal(t),0)/exY.length:null;
   const avgN=exN.length?exN.reduce((a,t)=>a+tVal(t),0)/exN.length:null;
   const eoBad=trades.filter(t=>t.eo===-1).length, eoOk=trades.filter(t=>t.eo===0).length, eoGood=trades.filter(t=>t.eo===1).length;
+  const money=(tr.money||[]).slice().sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+  const mIn=money.filter(m=>m.eur>0).reduce((a,m)=>a+m.eur,0);
+  const mOut=money.filter(m=>m.eur<0).reduce((a,m)=>a+m.eur,0);
+  const eFmt=v=>`${v<0?"\u2212 ":""}\u20ac ${Math.round(Math.abs(v))}`;
 
   const TABS=[["fit","Fit"],["overzicht","Overzicht"],["thuisbrein","ThuisBrein"],["studie","EP-W1"],["reno","Renovatie"],["trading","Trading"]];
 
@@ -1140,7 +1145,8 @@ function render(){
         <div><p class="muted">winrate</p><p class="big">${tWinrate}%</p></div>
         <div><p class="muted">trades</p><p class="big">${trades.length}</p></div>
       </div>
-      ${tradeChart(trades.map(tVal),tUnit)}`:`<p class="muted">Nog geen tradedata \u2014 vraag Claude in een chat om je Notion-tradelog te syncen, dan verschijnen hier je equity curve, winrate en maandresultaten.</p>`}
+      <h3>Verloop account (\u20ac)</h3>
+      ${tradeChart(trades.map(t=>t.eur!=null?t.eur:tVal(t)),null)}`:`<p class="muted">Nog geen tradedata \u2014 vraag Claude in een chat om je Notion-tradelog te syncen, dan verschijnen hier je equity curve, winrate en maandresultaten.</p>`}
       ${avgY!==null&&avgN!==null?`<h3>Discipline</h3>
       <div class="fit-stats">
         <div><p class="muted">regels gevolgd (${exY.length}\u00d7)</p><p class="big"${avgY<0?' style="color:#D98E5F"':""}>${tFmt(avgY)}</p><p class="muted">gem. per trade</p></div>
@@ -1149,6 +1155,19 @@ function render(){
       ${(eoBad+eoOk+eoGood)?`<p class="muted" style="margin-top:10px">Eigen exit-score: ${eoBad}\u00d7 bad \u00b7 ${eoOk}\u00d7 neutraal \u00b7 ${eoGood}\u00d7 good</p>`:""}`:""}
       ${monthRows?`<h3>Per maand</h3><div class="week">${monthRows}</div>`:""}
       ${tradeRows?`<h3>Laatste trades</h3><div class="log">${tradeRows}</div>`:""}
+      ${money.length?`<h3>Geld in & uit (hard geld)</h3>
+      <div class="fit-stats">
+        <div><p class="muted">in</p><p class="big">${eFmt(mIn)}</p></div>
+        <div><p class="muted">uit</p><p class="big" style="color:#D98E5F">${eFmt(mOut)}</p></div>
+        <div><p class="muted">netto</p><p class="big"${(mIn+mOut)<0?' style="color:#D98E5F"':""}>${eFmt(mIn+mOut)}</p></div>
+      </div>
+      <div class="log">${[...money].reverse().slice(0,8).map(m=>`
+      <div class="log-row">
+        <span class="log-date">${m.date?fmtDate(m.date):""}</span>
+        <span class="log-topic">${esc(m.name||"")}</span>
+        <span class="log-val ${m.eur>=0?"ok":"over"}">${m.eur>0?"+":""}${eFmt(m.eur)}</span>
+      </div>`).join("")}</div>
+      <p class="muted" style="margin-top:6px">Schaduwadministratie (Notion), sinds juni 2026 \u00b7 sync via Claude</p>`:""}
       <h3>Mijn regels</h3>
       ${ruleRows}
       <div class="task-add">
