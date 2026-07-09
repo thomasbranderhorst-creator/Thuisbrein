@@ -1145,8 +1145,11 @@ function render(){
         <div><p class="muted">winrate</p><p class="big">${tWinrate}%</p></div>
         <div><p class="muted">trades</p><p class="big">${trades.length}</p></div>
       </div>
-      <h3>Verloop account (\u20ac)</h3>
-      ${tradeChart(trades.map(t=>t.eur!=null?t.eur:tVal(t)),null)}`:`<p class="muted">Nog geen tradedata \u2014 vraag Claude in een chat om je Notion-tradelog te syncen, dan verschijnen hier je equity curve, winrate en maandresultaten.</p>`}
+      <h3>Verloop account (gewogen R)</h3>
+      ${trades.some(t=>t.wr!=null)
+        ?tradeChart(trades.map(t=>t.wr||0),"R")
+        :tradeChart(trades.map(t=>t.eur!=null?t.eur:tVal(t)),null)}
+      <p class="muted" style="margin-top:4px">R \u00d7 werkelijk risico per trade, genormaliseerd naar 1% risico-eenheid \u2014 zelfde vorm als de echte accountcurve</p>`:`<p class="muted">Nog geen tradedata \u2014 vraag Claude in een chat om je Notion-tradelog te syncen, dan verschijnen hier je equity curve, winrate en maandresultaten.</p>`}
       ${avgY!==null&&avgN!==null?`<h3>Discipline</h3>
       <div class="fit-stats">
         <div><p class="muted">regels gevolgd (${exY.length}\u00d7)</p><p class="big"${avgY<0?' style="color:#D98E5F"':""}>${tFmt(avgY)}</p><p class="muted">gem. per trade</p></div>
