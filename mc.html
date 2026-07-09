@@ -83,6 +83,8 @@ button.gold:hover { background: #F0C25C; }
 .log-val { color: #E8B23A; font-variant-numeric: tabular-nums; }
 .meal-tag { font: 600 10.5px 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: .05em; color: #8FA3BF; background: rgba(143,163,191,.12); border-radius: 5px; padding: 2px 7px; width: 64px; text-align: center; flex-shrink: 0; }
 .move-tag { color: #7FBF8E; background: rgba(127,191,142,.1); }
+.kcal-edit { width: 62px; padding: 4px 6px; text-align: right; color: #E8B23A; font-variant-numeric: tabular-nums; background: rgba(15,30,51,.5); border: 1px solid rgba(143,163,191,.2); border-radius: 7px; font-size: 13px; }
+.kcal-edit:focus { border-color: #E8B23A; }
 
 .reno-row { display: flex; align-items: center; gap: 12px; padding: 12px 2px; border-bottom: 1px solid rgba(143,163,191,.1); }
 .reno-info { flex: 1; display: flex; flex-direction: column; }
@@ -385,6 +387,16 @@ function addMove(){
   }
 }
 function delMove(id){ state.moves=state.moves.filter(m=>m.id!==id); persist(); }
+function editFoodKcal(id,v){
+  const f=state.food.find(x=>x.id===id);
+  const k=parseInt(v,10);
+  if(f && k>=0 && k<5000){ f.kcal=k; persist(); } else render();
+}
+function editMoveKcal(id,v){
+  const m=state.moves.find(x=>x.id===id);
+  const k=parseInt(v,10);
+  if(m && k>=0 && k<5000){ m.kcal=k; persist(); } else render();
+}
 
 /* ── kcal-schatter ── */
 const FOODDB=[
@@ -904,14 +916,14 @@ function render(){
       <div class="log-row">
         <span class="meal-tag">${f.meal}</span>
         <span class="log-topic">${esc(f.name)}</span>
-        <span class="log-val">${f.kcal} kcal</span>
+        <input class="kcal-edit" type="number" step="5" min="0" value="${f.kcal}" onchange="editFoodKcal('${f.id}',this.value)" aria-label="Kcal aanpassen">
         <button class="task-del" onclick="delFood('${f.id}')" aria-label="Verwijderen">×</button>
       </div>`).join("");
     const moveRows=movesSel.map(m=>`
       <div class="log-row">
         <span class="meal-tag move-tag">Sport</span>
         <span class="log-topic">${esc(m.name)}</span>
-        <span class="log-val" style="color:#7FBF8E">−${m.kcal} kcal</span>
+        <span style="color:#7FBF8E;font-size:13px">−</span><input class="kcal-edit" type="number" step="5" min="0" value="${m.kcal}" onchange="editMoveKcal('${m.id}',this.value)" style="color:#7FBF8E" aria-label="Kcal aanpassen">
         <button class="task-del" onclick="delMove('${m.id}')" aria-label="Verwijderen">×</button>
       </div>`).join("");
     const week=lastDays(7).map(d=>{
