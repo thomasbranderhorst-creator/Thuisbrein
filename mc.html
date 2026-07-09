@@ -207,6 +207,16 @@ function migrate(){
   if(!state.moves) state.moves=[];
   if(!state.favs) state.favs=[{ id:"fv1", name:"Koffie haver", kcal:15, meal:"Snack" }];
   if(state.settings.kcalTarget==null) state.settings.kcalTarget=2200;
+  if(!state.trading) state.trading={
+    rules:[
+      {id:"tr1",text:"SL pas verplaatsen op het vooraf afgesproken moment \u2014 niet uit angst"},
+      {id:"tr2",text:"Winnaars laten lopen tot TP of een geldig exit-signaal"},
+      {id:"tr3",text:"V\u00f3\u00f3r entry vastleggen: waar eruit, en waarom"}
+    ],
+    trades:[]
+  };
+  if(!state.trading.rules) state.trading.rules=[];
+  if(!state.trading.trades) state.trading.trades=[];
 }
 
 async function cloudGet(){
@@ -606,6 +616,28 @@ function logMoveEstimate(){
   lastMoveEst=null;
   persist();
 }
+function addTradeRule(){
+  const el=document.getElementById("trRule"); const v=el.value.trim();
+  if(v){ state.trading.rules.push({id:uid(),text:v}); persist(); }
+}
+function delTradeRule(id){ state.trading.rules=state.trading.rules.filter(r=>r.id!==id); persist(); }
+function tradeChart(vals,unit){
+  if(vals.length<2) return "";
+  const W=560,H=160,P=26;
+  let cum=0; const pts=vals.map(v=>cum+=(v||0));
+  let min=Math.min(0,...pts), max=Math.max(0,...pts);
+  const span=Math.max(max-min,0.5); min-=span*0.1; max+=span*0.1;
+  const x=i=>P+i/(pts.length-1)*(W-2*P);
+  const y=v=>H-P-(v-min)/(max-min)*(H-2*P);
+  const path=pts.map((v,i)=>`${i===0?"M":"L"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  const last=pts[pts.length-1];
+  const lbl=unit==="R"?`${last>0?"+":""}${last.toFixed(1)}R`:`\u20ac ${last.toFixed(0)}`;
+  return `<svg class="wchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Equity curve">
+    <line x1="${P}" x2="${W-P}" y1="${y(0).toFixed(1)}" y2="${y(0).toFixed(1)}" stroke="#8FA3BF" stroke-dasharray="4 4" stroke-width="1"/>
+    <path d="${path}" fill="none" stroke="#E8B23A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <text x="${W-P}" y="${(y(last)-8).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="12" font-weight="700">${lbl}</text>
+  </svg>`;
+}
 function setSetting(key,val){ state.settings[key]=val; persist(); }
 function setFitDate(v){ if(/^\d{4}-\d{2}-\d{2}$/.test(v)){ fitDate=v; render(); } }
 function setTab(t){ tab=t; render(); }
@@ -826,8 +858,16 @@ function render(){
   const kcalMove=movesToday.reduce((a,m)=>a+m.kcal,0);
   const kcalNet=kcalIn-kcalMove;
   const kcalLeft=s.kcalTarget-kcalNet;
+  const tr=state.trading||{rules:[],trades:[]};
+  const trades=(tr.trades||[]).slice().sort((a,b)=>(a.date||"").localeCompare(b.date||""));
+  const useR=trades.some(t=>t.r!=null);
+  const tVal=t=>useR?(t.r||0):(t.eur||0);
+  const tUnit=useR?"R":"\u20ac";
+  const tFmt=v=>useR?`${v>0?"+":""}${v.toFixed(1)}R`:`${v<0?"\u2212 ":""}\u20ac ${Math.abs(v).toFixed(0)}`;
+  const tSum=trades.reduce((a,t)=>a+tVal(t),0);
+  const tWinrate=trades.length?Math.round(trades.filter(t=>tVal(t)>0).length/trades.length*100):null;
 
-  const TABS=[["fit","Fit"],["overzicht","Overzicht"],["thuisbrein","ThuisBrein"],["studie","EP-W1"],["reno","Renovatie"]];
+  const TABS=[["fit","Fit"],["overzicht","Overzicht"],["thuisbrein","ThuisBrein"],["studie","EP-W1"],["reno","Renovatie"],["trading","Trading"]];
 
   let body="";
   if(tab==="overzicht"){
@@ -851,6 +891,11 @@ function render(){
         <p class="big">${kcalNet}<span class="big-sub"> / ${s.kcalTarget} kcal</span></p>
         <p class="muted">${lastW?lastW.kg+" kg":"nog geen weging"}${delta!==null&&Math.abs(delta)>0.01?` · ${delta>0?"+":""}${delta.toFixed(1)} kg`:""}</p>
         ${progressBar(kcalNet,s.kcalTarget,kcalNet>s.kcalTarget?"#D98E5F":"#7FBF8E")}
+      </section>
+      <section class="card" onclick="setTab('trading')">
+        <h2><span class="dot" style="background:#B48EDE"></span>Trading</h2>
+        <p class="big"${trades.length&&tSum<0?' style="color:#D98E5F"':""}>${trades.length?tFmt(tSum):"—"}</p>
+        <p class="muted">${trades.length?trades.length+" trades · winrate "+tWinrate+"%":"nog geen data — sync via Claude"}</p>
       </section>
     </div>`;
   }
@@ -1059,6 +1104,47 @@ function render(){
       </div>
       ${weightChart()}
       <p class="hint">Weeg op vaste momenten — de trend telt, niet de losse dag.</p>
+    </section>`;
+  }
+
+  if(tab==="trading"){
+    const ruleRows=(tr.rules||[]).map(r=>`
+      <div class="task">
+        <span class="task-text">${esc(r.text)}</span>
+        <button class="task-del" onclick="delTradeRule('${r.id}')" aria-label="Verwijderen">\u00d7</button>
+      </div>`).join("");
+    const months={};
+    trades.forEach(t=>{ const m=(t.date||"").slice(0,7); if(m){ months[m]=(months[m]||0)+tVal(t); } });
+    const monthRows=Object.keys(months).sort().reverse().slice(0,6).map(m=>{
+      const v=months[m];
+      const lbl=new Date(m+"-01T00:00:00").toLocaleDateString("nl-NL",{month:"long",year:"numeric"});
+      return `<div class="week-row"><span class="wk-date" style="width:130px">${lbl}</span>
+        <span class="wk-net ${v>=0?"ok":"over"}">${tFmt(v)}</span></div>`;
+    }).join("");
+    const tradeRows=[...trades].reverse().slice(0,12).map(t=>`
+      <div class="log-row">
+        <span class="log-date">${t.date?fmtDate(t.date):""}</span>
+        ${t.dir?`<span class="meal-tag${t.dir==="long"?" move-tag":""}">${esc(t.dir)}</span>`:""}
+        <span class="log-topic">${esc(t.sym||"")}${t.note?` <span class="muted" style="margin:0">${esc(t.note)}</span>`:""}</span>
+        <span class="log-val ${tVal(t)>=0?"ok":"over"}">${tFmt(tVal(t))}</span>
+      </div>`).join("");
+    body=`<section class="panel">
+      <h2>Trading \u2014 Oscar K</h2>
+      <p class="intro">Alleen kijken: de administratie blijft in Notion. Zeg "sync mijn trades" tegen Claude en dit ververst.</p>
+      ${trades.length?`<div class="fit-stats">
+        <div><p class="muted">totaal</p><p class="big"${tSum<0?' style="color:#D98E5F"':""}>${tFmt(tSum)}</p></div>
+        <div><p class="muted">winrate</p><p class="big">${tWinrate}%</p></div>
+        <div><p class="muted">trades</p><p class="big">${trades.length}</p></div>
+      </div>
+      ${tradeChart(trades.map(tVal),tUnit)}`:`<p class="muted">Nog geen tradedata \u2014 vraag Claude in een chat om je Notion-tradelog te syncen, dan verschijnen hier je equity curve, winrate en maandresultaten.</p>`}
+      ${monthRows?`<h3>Per maand</h3><div class="week">${monthRows}</div>`:""}
+      ${tradeRows?`<h3>Laatste trades</h3><div class="log">${tradeRows}</div>`:""}
+      <h3>Mijn regels</h3>
+      ${ruleRows}
+      <div class="task-add">
+        <input id="trRule" placeholder="Nieuwe regel\u2026" onkeydown="if(event.key==='Enter')addTradeRule()">
+        <button class="gold" onclick="addTradeRule()">Toevoegen</button>
+      </div>
     </section>`;
   }
 
