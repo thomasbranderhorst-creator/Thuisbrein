@@ -406,19 +406,20 @@ function editMoveKcal(id,v){
   if(m && k>=0 && k<5000){ m.kcal=k; persist(); } else render();
 }
 function parseQty(name){
-  const m=name.match(/^(\d+)\u00d7 /);
-  return m ? { q:parseInt(m[1],10), base:name.slice(m[0].length) } : { q:1, base:name };
+  const m=name.match(/^(\d+(?:[.,]\d+)?)\u00d7 /);
+  return m ? { q:parseFloat(m[1].replace(",",".")), base:name.slice(m[0].length) } : { q:1, base:name };
 }
 function editFoodQty(id,v){
   const f=state.food.find(x=>x.id===id);
   if(!f) return;
-  const n=parseInt(v,10);
+  const n=Math.round(parseFloat(String(v).replace(",","."))*10)/10;
   if(!(n>0 && n<100)){ render(); return; }
   const pq=parseQty(f.name);
   if(n===pq.q){ return; }
   const unit=f.kcal/pq.q;
   f.kcal=Math.round(unit*n);
-  f.name=n>1?`${n}\u00d7 ${pq.base}`:pq.base;
+  const label=Number.isInteger(n)?String(n):n.toFixed(1).replace(".",",");
+  f.name=n===1?pq.base:`${label}\u00d7 ${pq.base}`;
   persist();
 }
 
@@ -941,7 +942,7 @@ function render(){
       return `
       <div class="log-row">
         <span class="meal-tag">${f.meal}</span>
-        <input class="qty-edit" type="number" min="1" max="99" value="${pq.q}" onchange="editFoodQty('${f.id}',this.value)" aria-label="Aantal aanpassen">
+        <input class="qty-edit" type="number" min="0.1" max="99" step="0.1" value="${pq.q}" onchange="editFoodQty('${f.id}',this.value)" aria-label="Aantal aanpassen">
         <span class="log-topic">${esc(pq.base)}</span>
         <input class="kcal-edit" type="number" step="5" min="0" value="${f.kcal}" onchange="editFoodKcal('${f.id}',this.value)" aria-label="Kcal aanpassen">
         <button class="task-del" style="font-size:13px" onclick="dupFood('${f.id}')" title="Nog een keer loggen" aria-label="Dupliceren">⧉</button>
