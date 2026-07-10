@@ -744,8 +744,8 @@ function kcalBarChart(){
   }).join("");
   return `<svg class="wchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Netto kcal per dag, laatste 14 dagen">
     <line x1="${P}" x2="${W-P}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="#E8B23A" stroke-dasharray="5 5" stroke-width="1.5"/>
-    <text x="${W-P}" y="${(y(t)-6).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="11">doel ${t}</text>
     ${bars}
+    <text x="${W-P}" y="${(y(t)-6).toFixed(1)}" text-anchor="end" fill="#E8B23A" font-size="11" paint-order="stroke" stroke="#0F1E33" stroke-width="4" stroke-linejoin="round">doel ${t}</text>
     <text x="${P}" y="${H-6}" fill="#8FA3BF" font-size="11">${fmtDate(days[0])}</text>
     <text x="${W-P}" y="${H-6}" text-anchor="end" fill="#8FA3BF" font-size="11">vandaag</text>
   </svg>`;
