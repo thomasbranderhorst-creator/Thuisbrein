@@ -362,6 +362,12 @@ function addFood(){
   }
 }
 function delFood(id){ state.food=state.food.filter(f=>f.id!==id); persist(); }
+function dupFood(id){
+  const f=state.food.find(x=>x.id===id);
+  if(!f) return;
+  state.food.push({id:uid(),date:f.date,meal:f.meal,name:parseQty(f.name).base,kcal:Math.round(f.kcal/parseQty(f.name).q)});
+  persist();
+}
 function addFav(){
   const name=document.getElementById("favName").value.trim();
   const kcal=parseInt(document.getElementById("favKcal").value,10);
@@ -938,6 +944,7 @@ function render(){
         <input class="qty-edit" type="number" min="1" max="99" value="${pq.q}" onchange="editFoodQty('${f.id}',this.value)" aria-label="Aantal aanpassen">
         <span class="log-topic">${esc(pq.base)}</span>
         <input class="kcal-edit" type="number" step="5" min="0" value="${f.kcal}" onchange="editFoodKcal('${f.id}',this.value)" aria-label="Kcal aanpassen">
+        <button class="task-del" style="font-size:13px" onclick="dupFood('${f.id}')" title="Nog een keer loggen" aria-label="Dupliceren">⧉</button>
         <button class="task-del" onclick="delFood('${f.id}')" aria-label="Verwijderen">×</button>
       </div>`;}).join("");
     const moveRows=movesSel.map(m=>`
