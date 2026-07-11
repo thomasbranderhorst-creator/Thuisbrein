@@ -88,7 +88,9 @@ button.gold:hover { background: #F0C25C; }
 .qty-edit { width: 46px; padding: 4px 4px; text-align: center; color: #C9D4E3; background: rgba(15,30,51,.5); border: 1px solid rgba(143,163,191,.2); border-radius: 7px; font-size: 13px; flex-shrink: 0; }
 .qty-edit:focus { border-color: #E8B23A; }
 
-.reno-row { display: flex; align-items: center; gap: 12px; padding: 12px 2px; border-bottom: 1px solid rgba(143,163,191,.1); }
+.reno-swipe { position: relative; overflow: hidden; }
+.reno-del-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; background: linear-gradient(90deg, rgba(192,57,43,0) 30%, #C0392B); color: #fff; font: 600 12px 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: .05em; }
+.reno-row { display: flex; align-items: center; gap: 12px; padding: 12px 2px; border-bottom: 1px solid rgba(143,163,191,.1); position: relative; background: #172940; touch-action: pan-y; will-change: transform; }
 .reno-info { flex: 1; display: flex; flex-direction: column; }
 .reno-name { font-weight: 500; }
 .reno-note { color: #8FA3BF; font-size: 12.5px; margin-top: 2px; }
@@ -337,6 +339,41 @@ function addTask(domain,inputId){
 function cycleStatus(id){
   const r=state.reno.find(x=>x.id===id);
   if(r){ r.status=ORDER[(ORDER.indexOf(r.status)+1)%ORDER.length]; persist(); }
+}
+let rSwipe={id:null,x0:0,y0:0,dx:0,active:false,lock:null};
+function rRowEl(id){ const w=document.getElementById("rs-"+id); return w?w.querySelector(".reno-row"):null; }
+function rSwipeStart(e,id){
+  const t=e.touches[0];
+  rSwipe={id,x0:t.clientX,y0:t.clientY,dx:0,active:true,lock:null};
+}
+function rSwipeMove(e,id){
+  if(!rSwipe.active||rSwipe.id!==id) return;
+  const t=e.touches[0];
+  const dx=t.clientX-rSwipe.x0, dy=t.clientY-rSwipe.y0;
+  if(rSwipe.lock===null && (Math.abs(dx)>8||Math.abs(dy)>8)){
+    rSwipe.lock = Math.abs(dx)>Math.abs(dy) ? "h" : "v";
+  }
+  if(rSwipe.lock!=="h") return;
+  rSwipe.dx=Math.min(0,dx);
+  const el=rRowEl(id);
+  if(el) el.style.transform="translateX("+rSwipe.dx+"px)";
+}
+function rSwipeEnd(id){
+  if(!rSwipe.active||rSwipe.id!==id) return;
+  rSwipe.active=false;
+  const el=rRowEl(id);
+  if(!el) return;
+  const w=el.offsetWidth||300;
+  if(rSwipe.lock==="h" && rSwipe.dx < -Math.min(110, w*0.35)){
+    el.style.transition="transform .16s ease, opacity .16s ease";
+    el.style.transform="translateX("+(-w)+"px)";
+    el.style.opacity="0";
+    setTimeout(()=>{ state.reno=state.reno.filter(x=>x.id!==id); persist(); },160);
+  } else {
+    el.style.transition="transform .16s ease";
+    el.style.transform="";
+    setTimeout(()=>{ if(el) el.style.transition=""; },200);
+  }
 }
 function addStudy(){
   const h=parseFloat(document.getElementById("stHours").value);
@@ -921,14 +958,17 @@ function render(){
   }
   if(tab==="reno"){
     const rows=state.reno.map(r=>`
-      <div class="reno-row">
-        <div class="reno-info"><span class="reno-name">${esc(r.name)}</span>
-        ${r.note?`<span class="reno-note">${esc(r.note)}</span>`:""}</div>
-        <button class="status" style="color:${SCOLOR[r.status]};border-color:${SCOLOR[r.status]}" onclick="cycleStatus('${r.id}')">${r.status}</button>
+      <div class="reno-swipe" id="rs-${r.id}">
+        <div class="reno-del-bg">Weg ✕</div>
+        <div class="reno-row" ontouchstart="rSwipeStart(event,'${r.id}')" ontouchmove="rSwipeMove(event,'${r.id}')" ontouchend="rSwipeEnd('${r.id}')" ontouchcancel="rSwipeEnd('${r.id}')">
+          <div class="reno-info"><span class="reno-name">${esc(r.name)}</span>
+          ${r.note?`<span class="reno-note">${esc(r.note)}</span>`:""}</div>
+          <button class="status" style="color:${SCOLOR[r.status]};border-color:${SCOLOR[r.status]}" onclick="cycleStatus('${r.id}')">${r.status}</button>
+        </div>
       </div>`).join("");
     body=`<section class="panel">
       <h2>Renovatie — Oss</h2>
-      <p class="intro">Tik op een status om te wisselen: gepland → bezig → wachten → klaar.</p>
+      <p class="intro">Tik op een status om te wisselen: gepland → bezig → wachten → klaar. Veeg een regel naar links om hem te verwijderen.</p>
       ${rows}
       <h3>Acties deze week</h3>
       ${taskList("reno","rnInput","Nieuwe renovatie-actie…")}
