@@ -200,7 +200,7 @@ const SCOLOR = { gepland:"#8FA3BF", bezig:"#E8B23A", wachten:"#D98E5F", klaar:"#
 const MEALS = ["Ontbijt","Lunch","Diner","Snack"];
 function mealByTime(){
   const d=new Date(), h=d.getHours()+d.getMinutes()/60;
-  if(h<10.5) return "Ontbijt";
+  if(h<12)   return "Ontbijt";
   if(h<14)   return "Lunch";
   if(h>=17 && h<21) return "Diner";
   return "Snack";
