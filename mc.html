@@ -198,6 +198,13 @@ const seed = {
 const ORDER = ["gepland","bezig","wachten","klaar"];
 const SCOLOR = { gepland:"#8FA3BF", bezig:"#E8B23A", wachten:"#D98E5F", klaar:"#7FBF8E" };
 const MEALS = ["Ontbijt","Lunch","Diner","Snack"];
+function mealByTime(){
+  const d=new Date(), h=d.getHours()+d.getMinutes()/60;
+  if(h<10.5) return "Ontbijt";
+  if(h<14)   return "Lunch";
+  if(h>=17 && h<21) return "Diner";
+  return "Snack";
+}
 
 let state = null;
 let tab = "fit";
@@ -1118,7 +1125,7 @@ function render(){
         <button class="gold" onclick="addFav()">Voeg favoriet toe</button>
       </div>
       <div class="form-row">
-        <select id="fMeal">${MEALS.map(m=>`<option>${m}</option>`).join("")}</select>
+        <select id="fMeal">${MEALS.map(m=>`<option${m===mealByTime()?" selected":""}>${m}</option>`).join("")}</select>
         <input id="fQty" class="qty-edit" type="number" min="0.1" max="99" step="0.1" value="1" title="aantal">
         <input id="fName" placeholder="wat heb je gegeten?" style="flex:1;min-width:140px">
         <input id="fKcal" type="number" step="10" min="0" placeholder="kcal" style="width:80px"
@@ -1140,7 +1147,7 @@ function render(){
         ).join("")}
         <div class="est-total">
           <strong>± ${lastEst.total} kcal</strong>
-          <select id="estMeal">${MEALS.map(m=>`<option>${m}</option>`).join("")}</select>
+          <select id="estMeal">${MEALS.map(m=>`<option${m===mealByTime()?" selected":""}>${m}</option>`).join("")}</select>
           <button class="gold" onclick="logEstimate()">Direct loggen</button>
           <button class="task-del" onclick="clearEstimate()" style="font-size:13px" aria-label="Sluiten">wissen</button>
         </div>
