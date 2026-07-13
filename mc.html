@@ -88,11 +88,6 @@ button.gold:hover { background: #F0C25C; }
 .qty-edit { width: 46px; padding: 4px 4px; text-align: center; color: #C9D4E3; background: rgba(15,30,51,.5); border: 1px solid rgba(143,163,191,.2); border-radius: 7px; font-size: 13px; flex-shrink: 0; }
 .qty-edit:focus { border-color: #E8B23A; }
 
-.sw-wrap { position: relative; overflow: hidden; }
-.sw-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 18px; background: linear-gradient(90deg, rgba(192,57,43,0) 30%, #C0392B); color: #fff; font: 600 12px 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: .05em; }
-.sw-row { position: relative; background: #172940; touch-action: pan-y; will-change: transform; }
-.edit-inline { width: 100%; min-width: 60px; padding: 4px 8px; font-size: 13.5px; }
-.reno-note.empty { color: #40536E; font-style: italic; }
 .reno-row { display: flex; align-items: center; gap: 12px; padding: 12px 2px; border-bottom: 1px solid rgba(143,163,191,.1); }
 .reno-info { flex: 1; display: flex; flex-direction: column; }
 .reno-name { font-weight: 500; }
@@ -198,13 +193,6 @@ const seed = {
 const ORDER = ["gepland","bezig","wachten","klaar"];
 const SCOLOR = { gepland:"#8FA3BF", bezig:"#E8B23A", wachten:"#D98E5F", klaar:"#7FBF8E" };
 const MEALS = ["Ontbijt","Lunch","Diner","Snack"];
-function mealByTime(){
-  const d=new Date(), h=d.getHours()+d.getMinutes()/60;
-  if(h<12)   return "Ontbijt";
-  if(h<14)   return "Lunch";
-  if(h>=17 && h<21) return "Diner";
-  return "Snack";
-}
 
 let state = null;
 let tab = "fit";
@@ -349,98 +337,6 @@ function addTask(domain,inputId){
 function cycleStatus(id){
   const r=state.reno.find(x=>x.id===id);
   if(r){ r.status=ORDER[(ORDER.indexOf(r.status)+1)%ORDER.length]; persist(); }
-}
-let SW={el:null,x0:0,y0:0,dx:0,lock:null};
-function swStart(e,el){
-  if(e.target.closest("input,button")){ SW.el=null; return; }
-  const t=e.touches[0];
-  SW={el,x0:t.clientX,y0:t.clientY,dx:0,lock:null};
-}
-function swMove(e,el){
-  if(SW.el!==el) return;
-  const t=e.touches[0];
-  const dx=t.clientX-SW.x0, dy=t.clientY-SW.y0;
-  if(SW.lock===null && (Math.abs(dx)>8||Math.abs(dy)>8)){
-    SW.lock = Math.abs(dx)>Math.abs(dy) ? "h" : "v";
-  }
-  if(SW.lock!=="h") return;
-  SW.dx=Math.min(0,dx);
-  el.style.transform="translateX("+SW.dx+"px)";
-}
-function swEnd(el){
-  if(SW.el!==el) return;
-  const w=el.offsetWidth||300;
-  if(SW.lock==="h" && SW.dx < -Math.min(110, w*0.35)){
-    el.style.transition="transform .16s ease, opacity .16s ease";
-    el.style.transform="translateX("+(-w)+"px)";
-    el.style.opacity="0";
-    const path=el.dataset.del;
-    setTimeout(()=>commitDelete(path),160);
-  } else {
-    el.style.transition="transform .16s ease";
-    el.style.transform="";
-    setTimeout(()=>{ el.style.transition=""; },200);
-  }
-  SW={el:null,x0:0,y0:0,dx:0,lock:null};
-}
-function commitDelete(path){
-  const p=String(path||"").split(":");
-  if(p[0]==="reno") state.reno=state.reno.filter(x=>x.id!==p[1]);
-  else if(p[0]==="task") state.tasks[p[1]]=(state.tasks[p[1]]||[]).filter(x=>x.id!==p[2]);
-  else if(p[0]==="study") state.studyLog=state.studyLog.filter(x=>x.id!==p[1]);
-  else { render(); return; }
-  persist();
-}
-function startEdit(el,path){
-  if(el.dataset.editing) return;
-  el.dataset.editing="1";
-  const cur = el.dataset.raw!==undefined ? el.dataset.raw : el.textContent;
-  const inp=document.createElement("input");
-  inp.type="text"; inp.className="edit-inline"; inp.value=cur;
-  el.textContent=""; el.appendChild(inp);
-  inp.focus();
-  try{ inp.setSelectionRange(cur.length,cur.length); }catch(_){}
-  let done=false;
-  const fin=save=>{
-    if(done) return; done=true;
-    const v=inp.value.trim();
-    if(save && v!==cur) commitEdit(path,v); else render();
-  };
-  inp.addEventListener("blur",()=>fin(true));
-  inp.addEventListener("keydown",e=>{
-    if(e.key==="Enter") inp.blur();
-    else if(e.key==="Escape") fin(false);
-  });
-}
-function commitEdit(path,v){
-  const p=path.split(":");
-  let ok=false;
-  if(p[0]==="reno"){
-    const r=state.reno.find(x=>x.id===p[1]);
-    if(r){
-      if(p[2]==="name" && v){ r.name=v; ok=true; }
-      if(p[2]==="note"){ r.note=v; ok=true; }
-    }
-  } else if(p[0]==="task"){
-    const t=(state.tasks[p[1]]||[]).find(x=>x.id===p[2]);
-    if(t && v){ t.text=v; ok=true; }
-  } else if(p[0]==="food"){
-    const f=state.food.find(x=>x.id===p[1]);
-    if(f && v){ const pq=parseQty(f.name); f.name=qtyName(pq.q,v); ok=true; }
-  } else if(p[0]==="move"){
-    const m=state.moves.find(x=>x.id===p[1]);
-    if(m && v){ m.name=v; ok=true; }
-  } else if(p[0]==="study"){
-    const l=state.studyLog.find(x=>x.id===p[1]);
-    if(l){
-      if(p[2]==="topic"){ l.topic=v; ok=true; }
-      if(p[2]==="hours"){
-        const h=parseFloat(String(v).replace(",",".").replace(/[^0-9.]/g,""));
-        if(h>0 && h<24){ l.hours=Math.round(h*10)/10; ok=true; }
-      }
-    }
-  }
-  if(ok) persist(); else render();
 }
 function addStudy(){
   const h=parseFloat(document.getElementById("stHours").value);
@@ -758,13 +654,10 @@ function chip(label,date){
 }
 function taskList(domain,inputId,placeholder){
   const rows=(state.tasks[domain]||[]).map(t=>`
-    <div class="sw-wrap">
-      <div class="sw-bg">Weg ✕</div>
-      <div class="task sw-row${t.done?" done":""}" data-del="task:${domain}:${t.id}" ontouchstart="swStart(event,this)" ontouchmove="swMove(event,this)" ontouchend="swEnd(this)" ontouchcancel="swEnd(this)">
-        <button class="task-check" onclick="toggleTask('${domain}','${t.id}')" aria-label="Afvinken">${t.done?"✓":""}</button>
-        <span class="task-text" data-raw="${esc(t.text)}" onclick="startEdit(this,'task:${domain}:${t.id}:text')">${esc(t.text)}</span>
-        <button class="task-del" onclick="delTask('${domain}','${t.id}')" aria-label="Verwijderen">×</button>
-      </div>
+    <div class="task${t.done?" done":""}">
+      <button class="task-check" onclick="toggleTask('${domain}','${t.id}')" aria-label="Afvinken">${t.done?"✓":""}</button>
+      <span class="task-text">${esc(t.text)}</span>
+      <button class="task-del" onclick="delTask('${domain}','${t.id}')" aria-label="Verwijderen">×</button>
     </div>`).join("");
   return rows+`
     <div class="task-add">
@@ -874,6 +767,8 @@ function weightForecast(){
   for(const p of pts){ sx+=p.x; sy+=p.y; sxx+=p.x*p.x; sxy+=p.x*p.y; }
   const denom=n*sxx-sx*sx;
   if(!denom) return null;
+  const span=pts[pts.length-1].x-pts[0].x;
+  if(span<7) return { txt:"Prognose wordt betrouwbaar zodra er een week tussen je eerste en laatste weging zit — gewoon doorwegen." };
   const slope=(n*sxy-sx*sy)/denom;
   const perWeek=Math.abs(slope*7).toFixed(1).replace(".",",");
   if(slope>=-0.005) return { txt:"Trend is nog vlak \u2014 de prognose verschijnt zodra de dalende lijn zichtbaar wordt." };
@@ -1001,14 +896,9 @@ function render(){
   }
   if(tab==="studie"){
     const log=[...state.studyLog].reverse().slice(0,8).map(l=>`
-      <div class="sw-wrap">
-        <div class="sw-bg">Weg ✕</div>
-        <div class="log-row sw-row" data-del="study:${l.id}" ontouchstart="swStart(event,this)" ontouchmove="swMove(event,this)" ontouchend="swEnd(this)" ontouchcancel="swEnd(this)">
-          <span class="log-date">${fmtDate(l.date)}</span>
-          <span class="log-topic" data-raw="${esc(l.topic||"")}" onclick="startEdit(this,'study:${l.id}:topic')">${esc(l.topic||"studie")}</span>
-          <span class="log-val" data-raw="${l.hours}" onclick="startEdit(this,'study:${l.id}:hours')">${l.hours} u</span>
-        </div>
-      </div>`).join("");
+      <div class="log-row"><span class="log-date">${fmtDate(l.date)}</span>
+      <span class="log-topic">${esc(l.topic||"studie")}</span>
+      <span class="log-val">${l.hours} u</span></div>`).join("");
     body=`<section class="panel">
       <h2>EP-W1 studie</h2>
       <div class="study-head">
@@ -1033,19 +923,14 @@ function render(){
   }
   if(tab==="reno"){
     const rows=state.reno.map(r=>`
-      <div class="sw-wrap">
-        <div class="sw-bg">Weg ✕</div>
-        <div class="reno-row sw-row" data-del="reno:${r.id}" ontouchstart="swStart(event,this)" ontouchmove="swMove(event,this)" ontouchend="swEnd(this)" ontouchcancel="swEnd(this)">
-          <div class="reno-info">
-            <span class="reno-name" data-raw="${esc(r.name)}" onclick="startEdit(this,'reno:${r.id}:name')">${esc(r.name)}</span>
-            <span class="reno-note${r.note?"":" empty"}" data-raw="${esc(r.note||"")}" onclick="startEdit(this,'reno:${r.id}:note')">${r.note?esc(r.note):"+ notitie"}</span>
-          </div>
-          <button class="status" style="color:${SCOLOR[r.status]};border-color:${SCOLOR[r.status]}" onclick="cycleStatus('${r.id}')">${r.status}</button>
-        </div>
+      <div class="reno-row">
+        <div class="reno-info"><span class="reno-name">${esc(r.name)}</span>
+        ${r.note?`<span class="reno-note">${esc(r.note)}</span>`:""}</div>
+        <button class="status" style="color:${SCOLOR[r.status]};border-color:${SCOLOR[r.status]}" onclick="cycleStatus('${r.id}')">${r.status}</button>
       </div>`).join("");
     body=`<section class="panel">
       <h2>Renovatie — Oss</h2>
-      <p class="intro">Tik op een status om te wisselen. Tik op tekst om aan te passen, veeg naar links om te verwijderen.</p>
+      <p class="intro">Tik op een status om te wisselen: gepland → bezig → wachten → klaar.</p>
       ${rows}
       <h3>Acties deze week</h3>
       ${taskList("reno","rnInput","Nieuwe renovatie-actie…")}
@@ -1066,7 +951,7 @@ function render(){
       <div class="log-row">
         <span class="meal-tag">${f.meal}</span>
         <input class="qty-edit" type="number" min="0.1" max="99" step="0.1" value="${pq.q}" onchange="editFoodQty('${f.id}',this.value)" aria-label="Aantal aanpassen">
-        <span class="log-topic" data-raw="${esc(pq.base)}" onclick="startEdit(this,'food:${f.id}:name')">${esc(pq.base)}</span>
+        <span class="log-topic">${esc(pq.base)}</span>
         <input class="kcal-edit" type="number" step="5" min="0" value="${f.kcal}" onchange="editFoodKcal('${f.id}',this.value)" aria-label="Kcal aanpassen">
         <button class="task-del" style="font-size:13px" onclick="dupFood('${f.id}')" title="Nog een keer loggen" aria-label="Dupliceren">⧉</button>
         <button class="task-del" onclick="delFood('${f.id}')" aria-label="Verwijderen">×</button>
@@ -1074,7 +959,7 @@ function render(){
     const moveRows=movesSel.map(m=>`
       <div class="log-row">
         <span class="meal-tag move-tag">Sport</span>
-        <span class="log-topic" data-raw="${esc(m.name)}" onclick="startEdit(this,'move:${m.id}:name')">${esc(m.name)}</span>
+        <span class="log-topic">${esc(m.name)}</span>
         <span style="color:#7FBF8E;font-size:13px">−</span><input class="kcal-edit" type="number" step="5" min="0" value="${m.kcal}" onchange="editMoveKcal('${m.id}',this.value)" style="color:#7FBF8E" aria-label="Kcal aanpassen">
         <button class="task-del" onclick="delMove('${m.id}')" aria-label="Verwijderen">×</button>
       </div>`).join("");
@@ -1125,7 +1010,7 @@ function render(){
         <button class="gold" onclick="addFav()">Voeg favoriet toe</button>
       </div>
       <div class="form-row">
-        <select id="fMeal">${MEALS.map(m=>`<option${m===mealByTime()?" selected":""}>${m}</option>`).join("")}</select>
+        <select id="fMeal">${MEALS.map(m=>`<option>${m}</option>`).join("")}</select>
         <input id="fQty" class="qty-edit" type="number" min="0.1" max="99" step="0.1" value="1" title="aantal">
         <input id="fName" placeholder="wat heb je gegeten?" style="flex:1;min-width:140px">
         <input id="fKcal" type="number" step="10" min="0" placeholder="kcal" style="width:80px"
@@ -1147,7 +1032,7 @@ function render(){
         ).join("")}
         <div class="est-total">
           <strong>± ${lastEst.total} kcal</strong>
-          <select id="estMeal">${MEALS.map(m=>`<option${m===mealByTime()?" selected":""}>${m}</option>`).join("")}</select>
+          <select id="estMeal">${MEALS.map(m=>`<option>${m}</option>`).join("")}</select>
           <button class="gold" onclick="logEstimate()">Direct loggen</button>
           <button class="task-del" onclick="clearEstimate()" style="font-size:13px" aria-label="Sluiten">wissen</button>
         </div>
@@ -1196,7 +1081,7 @@ function render(){
     <section class="panel">
       <h2>Gewicht</h2>
       <div class="fit-stats">
-        <div><p class="muted">laatste weging</p><p class="big">${lastW?lastW.kg+" kg":"—"}</p></div>
+        <div><p class="muted">laatste weging${lastW?` · ${fmtDate(lastW.date)}`:""}</p><p class="big">${lastW?lastW.kg+" kg":"—"}</p></div>
         <div><p class="muted">sinds start</p>
           <p class="big"${delta!==null&&delta<0?' style="color:#7FBF8E"':""}>${delta!==null?(delta>0?"+":"")+delta.toFixed(1)+" kg":"—"}</p></div>
         <label class="inline-set">Doelgewicht (kg)
