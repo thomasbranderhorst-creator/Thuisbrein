@@ -347,43 +347,6 @@ footer p { font-size: 12px; color: var(--text-muted); }
         </div>
       </div>
 
-      <!-- PAKKET 1 -->
-      <div class="pakket-card">
-        <div class="pakket-header">
-          <div class="pakket-naam">Slimme Thermostaat</div>
-          <div class="pakket-tagline">Jouw CV meteen slimmer. Meer comfort, minder verbruik.</div>
-        </div>
-        <div class="pakket-prijs-blok">
-          <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
-          <div class="pakket-prijs-van">Vanaf</div>
-          <div class="pakket-prijs-bedrag" id="prijs-1"><span>€</span>399</div>
-          <div class="pakket-prijs-note">Plugwise-thermostaat + installatie + instelling</div>
-          <div class="pakket-prijs-note" style="margin-top:.4rem;">📍 Werkgebied: Gemeente Oss t/m 100 km · daarbuiten reistoeslag €0,50/km</div>
-        </div>
-        <div class="thermostaat-keuze">
-          <div class="keuze-label">De thermostaat</div>
-          <div class="thermostaat-opties" id="opties-1">
-            <div class="therm-optie actief" style="cursor:default;" data-pakket="1" data-extra="0" data-merk="Plugwise (Adam HA + Emma)">
-              <div><div class="therm-merk">Plugwise Adam HA + Emma</div><div class="therm-sub">Nederlands merk · Werkt volledig lokaal · Zonemogelijkheden</div></div>
-              <div class="therm-prijs">incl.</div>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;margin-top:0.6rem;font-size:12.5px;color:var(--green);font-weight:500;"><i class="ti ti-rosette-discount-check" style="font-size:16px;"></i>Officieel geregistreerd Plugwise-installateur</div>
-        </div>
-        <div class="pakket-inhoud">
-          <div class="inhoud-divider">Inbegrepen</div>
-          <div class="inhoud-item"><span><strong>Adviesgesprek</strong> — welke thermostaat past bij jouw ketel</span></div>
-          <div class="inhoud-item"><span><strong>Levering &amp; montage</strong> — inclusief bekabeling</span></div>
-          <div class="inhoud-item"><span><strong>App-instelling &amp; uitleg</strong> op locatie</span></div>
-          <div class="inhoud-item"><span>30 dagen <strong>nazorg per WhatsApp</strong></span></div>
-        </div>
-        <div class="pakket-cta">
-          <button class="btn-pakket btn-pakket-outline" onclick="openAanvraag(1)">Dit pakket aanvragen</button>
-          <div class="totaal-tonen" id="totaal-1">Totaalprijs: <strong>€399</strong></div>
-          <button class="btn-klein-advies" onclick="openAdvies()">Toch liever eerst een adviesgesprek?</button>
-        </div>
-      </div>
-
       <!-- PAKKET 2 – FEATURED: THUISBREIN START -->
       <div class="pakket-card featured">
         <div class="featured-badge">Meest gekozen</div>
@@ -440,6 +403,17 @@ footer p { font-size: 12px; color: var(--text-muted); }
 
     </div><!-- /.pakketten-grid -->
 
+    <!-- UITBREIDING: SLIMME THERMOSTAAT -->
+    <div class="staffel-sectie" style="display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:2rem;">
+      <div style="flex:1;min-width:280px;">
+        <div class="staffel-pakket" style="margin-bottom:0.4rem;">Uitbreiding bij elk pakket</div>
+        <div class="staffel-titel" style="margin-bottom:0.5rem;">Slimme thermostaat erbij?</div>
+        <div class="staffel-beschrijving">Nog geen slimme thermostaat? Als uitbreiding op Zelf Starten of Volledig Verzorgd wordt een <strong>Plugwise-thermostaat</strong> (Adam HA + Emma) geleverd, gemonteerd en direct gekoppeld aan je ThuisBrein — vanaf <strong>€399</strong> inclusief montagebezoek. Ook losse Plugwise-uitbreidingen zoals zoneregeling per kamer zijn mogelijk.<br><span style="display:inline-flex;align-items:center;gap:6px;margin-top:0.6rem;font-size:12.5px;color:var(--green);font-weight:500;"><i class="ti ti-rosette-discount-check" style="font-size:16px;"></i>Officieel geregistreerd Plugwise-installateur</span></div>
+      </div>
+      <button class="btn-pakket btn-pakket-outline" style="width:auto;align-self:center;" onclick="openAdvies()">Vraag ernaar in het adviesgesprek</button>
+    </div>
+
+
     <!-- STAFFEL -->
     <div class="staffel-sectie">
       <div style="text-align:center;margin:0 0 2.2rem;"><a href="werkwijze.html" style="font-size:14px;color:var(--green);font-weight:500;text-decoration:none;">Benieuwd hoe de installatie in z'n werk gaat? Bekijk de klantreis stap voor stap <i class="ti ti-arrow-right"></i></a></div>
@@ -450,8 +424,8 @@ footer p { font-size: 12px; color: var(--text-muted); }
           <div class="staffel-beschrijving">De Home Assistant Green (winkelwaarde ± €109) + voorbereiding op de werkbank, verzending, inventarisatie op afstand en een koppelrapport op maat: <strong>€179</strong> alles-in. Wil je daarna laten inrichten? Introductieprijs <strong>€65 per systeem</strong>, of stap binnen 30 dagen over naar Volledig Verzorgd: je betaalt dan <strong>€345 bij</strong> — je Box en voorbereiding (€150) worden volledig verrekend.</div>
         </div>
         <div class="staffel-item">
-          <div class="staffel-pakket">Slimme Thermostaat</div>
-          <div class="staffel-beschrijving">Plugwise-hardware + <strong>€200–250</strong> installatie &amp; instelling. Vanaf <strong>€399</strong>, afhankelijk van jouw situatie (aantal zones, wel of geen bestaande thermostaat).</div>
+          <div class="staffel-pakket">Slimme Thermostaat (uitbreiding)</div>
+          <div class="staffel-beschrijving">Geen los pakket maar een uitbreiding: Plugwise-hardware + <strong>€200–250</strong> installatie &amp; instelling, vanaf <strong>€399</strong> afhankelijk van jouw situatie (aantal zones, wel of geen bestaande thermostaat). Alleen hiervoor is een montagebezoek nodig; werkgebied tot 100 km rond Oss, daarbuiten in overleg.</div>
         </div>
         <div class="staffel-item">
           <div class="staffel-pakket">ThuisBrein Start</div>
