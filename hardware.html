@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aanbevolen smart home hardware — Thuisbrein</title>
+<meta name="description" content="De hardware die ThuisBrein zelf gebruikt en installeert: Plugwise, Shelly, Aqara, Reolink en HomeWizard. Eén merk per functie, alles werkt lokaal met Home Assistant — zonder abonnementen.">
+<meta property="og:title" content="Aanbevolen smart home hardware — Thuisbrein">
+<meta property="og:description" content="Plugwise, Shelly, Aqara, Reolink en HomeWizard: de vaste hardware-stack van ThuisBrein. Door ons gekozen, geïnstalleerd en op afstand ondersteund.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thuisbrein.nl/hardware.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --sand-dark: #E8E0D0;
+  --navy: #1A2B3C;
+  --navy-mid: #2E4459;
+  --green: #3B6D11;
+  --green-light: #EAF3DE;
+  --green-mid: #639922;
+  --gold: #E0A93C;
+  --gold-light: #F7EBD2;
+  --text: #1A2B3C;
+  --text-muted: #5F6E7A;
+  --white: #FFFFFF;
+  --border: rgba(26,43,60,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+
+/* ─── NAV ─── */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+.nav-logo span { color: var(--green-mid); }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-links a.active { color: var(--navy); font-weight: 500; }
+.nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+.nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; position: sticky; top: 69px; z-index: 99; }
+.nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+.nav-mobile.open { display: flex; }
+
+/* ─── HERO ─── */
+.hero { background: var(--sand); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--border); }
+.hero-eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 1.1rem; }
+.hero h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; color: var(--navy); letter-spacing: -0.5px; }
+.hero h1 em { font-style: italic; color: var(--green); }
+.hero-sub { max-width: 640px; margin: 1.3rem auto 0; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
+
+/* ─── PRINCIPES ─── */
+.principes { max-width: 900px; margin: 0 auto; padding: 2.6rem 2rem 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; }
+.principe { display: flex; gap: 0.8rem; align-items: flex-start; background: var(--sand); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1rem; }
+.principe i { color: var(--green); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.principe p { font-size: 13.5px; line-height: 1.55; color: var(--text); }
+.principe p b { font-weight: 500; }
+
+/* ─── CATEGORIEËN ─── */
+.categorieen { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 1rem; display: flex; flex-direction: column; gap: 2.6rem; }
+.categorie { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--white); }
+.cat-kop { padding: 1.8rem 2rem 0.4rem; display: flex; gap: 1rem; align-items: flex-start; }
+.cat-icoon { width: 44px; height: 44px; border-radius: 12px; background: var(--green-light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cat-icoon i { font-size: 22px; color: var(--green); }
+.cat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 0.4rem; }
+.cat-kop h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 25px; color: var(--navy); letter-spacing: -0.3px; line-height: 1.25; }
+.cat-kop .cat-intro { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--text-muted); margin-top: 0.6rem; max-width: 620px; }
+
+.producten { padding: 1.4rem 2rem 0.6rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.product { display: flex; gap: 1rem; align-items: flex-start; border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; }
+.product i { color: var(--green-mid); font-size: 19px; flex-shrink: 0; margin-top: 2px; }
+.product h3 { font-size: 15px; font-weight: 500; color: var(--navy); }
+.product p { font-size: 13.5px; font-weight: 300; line-height: 1.6; color: var(--text-muted); margin-top: 3px; }
+
+.cat-waarom { margin: 0.8rem 2rem 2rem; background: var(--green-light); border: 1px solid rgba(99,153,34,0.3); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.8rem; align-items: flex-start; }
+.cat-waarom i { color: var(--green); font-size: 19px; flex-shrink: 0; }
+.cat-waarom p { font-size: 14px; line-height: 1.6; color: var(--text); }
+.cat-waarom p b { font-weight: 500; }
+
+/* ─── EERLIJK ─── */
+.eerlijk { max-width: 900px; margin: 2.2rem auto 0; padding: 0 2rem; }
+.eerlijk .binnen { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--sand); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; }
+.eerlijk i { color: var(--green-mid); font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.eerlijk p { font-size: 14px; font-weight: 300; line-height: 1.65; color: var(--text); }
+
+/* ─── CTA ─── */
+.cta-sectie { text-align: center; padding: 3.5rem 2rem 4.5rem; }
+.cta-sectie h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 4vw, 36px); color: var(--navy); letter-spacing: -0.4px; }
+.cta-sectie p { font-size: 15px; font-weight: 300; color: var(--text-muted); margin-top: 0.8rem; }
+.cta-knoppen { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 1.8rem; }
+.btn { display: inline-block; text-decoration: none; font-size: 14px; font-weight: 500; padding: 13px 26px; border-radius: 8px; transition: transform .2s ease, box-shadow .2s ease; }
+.btn-vol { background: var(--navy); color: var(--white); }
+.btn-los { border: 1px solid var(--border); color: var(--navy); background: var(--white); }
+@media (hover:hover) { .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,43,60,.12); } }
+
+/* ─── FOOTER ─── */
+footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+.footer-logo span { color: var(--green-mid); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
+footer p { font-size: 12px; color: var(--text-muted); }
+
+@media (max-width: 860px) { .nav-links { display: none; } .nav-hamburger { display: block; } }
+@media (max-width: 640px) {
+  .principes { grid-template-columns: 1fr; }
+  .cat-kop, .producten { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .cat-waarom { margin-left: 1.2rem; margin-right: 1.2rem; }
+  .cat-kop { flex-direction: column; gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+  <div class="nav-links">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="hardware.html" class="active">Hardware</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="check.html">Woningcheck</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
+    <i class="ti ti-menu-2"></i>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="werkwijze.html">Zo werkt het</a>
+  <a href="systemen.html">Systemen</a>
+  <a href="automatiseringen.html">Automatiseringen</a>
+  <a href="hardware.html" class="active">Hardware</a>
+  <a href="pricing.html">Prijzen</a>
+  <a href="besparing.html">Besparing</a>
+  <a href="check.html">Woningcheck</a>
+  <a href="index.html#contact">Plan kennismaking</a>
+</div>
+
+<section class="hero">
+  <div class="hero-eyebrow">Onze vaste hardware-stack</div>
+  <h1>Eén merk per functie, <em>alles</em> werkt samen</h1>
+  <p class="hero-sub">Dit is de hardware die wij zelf gebruiken, installeren en op afstand ondersteunen. Geen webshop met honderd opties — een korte lijst apparaten waarvan we zeker weten dat ze goed samenwerken met Home Assistant. Lokaal, zonder verplichte abonnementen.</p>
+</section>
+
+<section class="principes">
+  <div class="principe"><i class="ti ti-home-link"></i><p><b>Werkt lokaal.</b> Alles blijft functioneren zonder internet en zonder cloud van de fabrikant.</p></div>
+  <div class="principe"><i class="ti ti-currency-euro-off"></i><p><b>Geen abonnementen.</b> Geen enkel apparaat op deze pagina vraagt maandelijkse kosten om te werken.</p></div>
+  <div class="principe"><i class="ti ti-tools"></i><p><b>Door ons getest.</b> Elk apparaat draait in onze eigen woning voordat het bij klanten wordt geplaatst.</p></div>
+</section>
+
+<section class="categorieen">
+
+  <div class="categorie">
+    <div class="cat-kop">
+      <span class="cat-icoon"><i class="ti ti-temperature"></i></span>
+      <div>
+        <div class="cat-label">Klimaat &amp; verwarming</div>
+        <h2>Plugwise</h2>
+        <p class="cat-intro">Het Nederlandse zonesysteem voor je CV-ketel. Werkt volledig standalone — je verwarming blijft altijd draaien, ook als de rest van het slimme huis even niet meedoet.</p>
+      </div>
+    </div>
+    <div class="producten">
+      <div class="product"><i class="ti ti-cpu"></i><div><h3>Plugwise Adam HA</h3><p>De centrale gateway die je ketel modulerend aanstuurt via OpenTherm. Het brein van de verwarming.</p></div></div>
+      <div class="product"><i class="ti ti-adjustments"></i><div><h3>Plugwise Emma of Lisa</h3><p>Thermostaat per zone. Emma als hoofdthermostaat in de woonkamer, Lisa als compacte zonethermostaat voor bijvoorbeeld slaapkamers of kantoor.</p></div></div>
+      <div class="product"><i class="ti ti-recharging"></i><div><h3>Plugwise Tom</h3><p>Slimme radiatorknop die per ruimte de warmte regelt. Zo verwarm je alleen de kamers waar je bent.</p></div></div>
+    </div>
+    <div class="cat-waarom"><i class="ti ti-certificate"></i><p><b>Waarom Plugwise:</b> wij zijn geregistreerd Plugwise-installateur. Nederlands merk, lokale bediening, en naadloze koppeling met Home Assistant — zodat je verwarming kan reageren op zonnepanelen, aanwezigheid en energieprijzen.</p></div>
+  </div>
+
+  <div class="categorie">
+    <div class="cat-kop">
+      <span class="cat-icoon"><i class="ti ti-toggle-right"></i></span>
+      <div>
+        <div class="cat-label">Schakelen, meten &amp; bedienen</div>
+        <h2>Shelly</h2>
+        <p class="cat-intro">Kleine krachtige modules die onzichtbaar achter je schakelaars en stopcontacten verdwijnen — plus een bedieningsscherm aan de muur dat er wél mag zijn.</p>
+      </div>
+    </div>
+    <div class="producten">
+      <div class="product"><i class="ti ti-device-tablet"></i><div><h3>Shelly Wall Display</h3><p>Bedieningsscherm op de plek van een lichtschakelaar, gewoon op 230V — geen tablet met oplaadkabel. Toont je hele huis: verwarming, airco, zonneopbrengst. Meet ook temperatuur, luchtvochtigheid en beweging.</p></div></div>
+      <div class="product"><i class="ti ti-plug"></i><div><h3>Shelly relaismodules (1PM / 2PM)</h3><p>Maken bestaande lampen en apparaten slim, verstopt achter je huidige schakelaar. Je schakelaars blijven gewoon werken zoals je gewend bent.</p></div></div>
+      <div class="product"><i class="ti ti-plug-connected"></i><div><h3>Shelly Plug S</h3><p>Slimme tussenstekker die schakelt én verbruik meet. Ideaal om sluipverbruikers op te sporen of de wasmachine op zonne-uren te laten draaien.</p></div></div>
+    </div>
+    <div class="cat-waarom"><i class="ti ti-certificate"></i><p><b>Waarom Shelly:</b> volledig lokaal aan te sturen, past in Nederlandse inbouwdozen, en het complete assortiment heeft een officiële Home Assistant-integratie. Eén merk voor alles wat schakelt en meet.</p></div>
+  </div>
+
+  <div class="categorie">
+    <div class="cat-kop">
+      <span class="cat-icoon"><i class="ti ti-radar-2"></i></span>
+      <div>
+        <div class="cat-label">Sensoren</div>
+        <h2>Aqara</h2>
+        <p class="cat-intro">De zintuigen van je huis: kleine draadloze sensoren die jarenlang op één knoopcel werken en doorgeven wat er gebeurt.</p>
+      </div>
+    </div>
+    <div class="producten">
+      <div class="product"><i class="ti ti-door"></i><div><h3>Deur- en raamsensoren</h3><p>Weten of ramen en deuren open staan. De verwarming of airco pauzeert automatisch als je een raam openzet.</p></div></div>
+      <div class="product"><i class="ti ti-run"></i><div><h3>Bewegingssensoren</h3><p>Licht dat vanzelf aangaat waar je loopt — en uit waar niemand is. Ook de basis voor aanwezigheidsdetectie per kamer.</p></div></div>
+      <div class="product"><i class="ti ti-droplet"></i><div><h3>Klimaat- en waterleksensoren</h3><p>Temperatuur en luchtvochtigheid per ruimte, en een waarschuwing op je telefoon bij lekkage onder de wasmachine of vaatwasser.</p></div></div>
+    </div>
+    <div class="cat-waarom"><i class="ti ti-certificate"></i><p><b>Waarom Aqara:</b> klein, betrouwbaar en betaalbaar — sensoren plaats je met tientallen, dus de prijs per stuk telt. Werkt via Zigbee rechtstreeks met je Home Assistant, zonder extra hub van de fabrikant.</p></div>
+  </div>
+
+  <div class="categorie">
+    <div class="cat-kop">
+      <span class="cat-icoon"><i class="ti ti-video"></i></span>
+      <div>
+        <div class="cat-label">Camera's &amp; deurbel</div>
+        <h2>Reolink</h2>
+        <p class="cat-intro">Camerabeelden horen van jou te zijn — niet van een Amerikaanse cloud. Reolink slaat lokaal op en werkt zonder abonnement.</p>
+      </div>
+    </div>
+    <div class="producten">
+      <div class="product"><i class="ti ti-camera"></i><div><h3>Buitencamera's</h3><p>Scherp beeld, persoons- en voertuigherkenning op het apparaat zelf, opslag op eigen SD-kaart of recorder. Beelden verlaten je huis niet.</p></div></div>
+      <div class="product"><i class="ti ti-bell"></i><div><h3>Video-deurbel</h3><p>Zien wie er aanbelt, ook als je niet thuis bent — via je eigen beveiligde verbinding, zonder maandelijkse kosten.</p></div></div>
+    </div>
+    <div class="cat-waarom"><i class="ti ti-certificate"></i><p><b>Waarom Reolink:</b> lokale opslag, geen verplichte cloud, geen abonnement — precies onze filosofie. En via Home Assistant doen je camera's mee met de rest: buitenlamp aan bij beweging, melding als er iemand op de oprit staat.</p></div>
+  </div>
+
+  <div class="categorie">
+    <div class="cat-kop">
+      <span class="cat-icoon"><i class="ti ti-bolt"></i></span>
+      <div>
+        <div class="cat-label">Energie-inzicht</div>
+        <h2>HomeWizard</h2>
+        <p class="cat-intro">Besparen begint bij weten. Eén klein kastje op je slimme meter maakt je verbruik en teruglevering live zichtbaar.</p>
+      </div>
+    </div>
+    <div class="producten">
+      <div class="product"><i class="ti ti-gauge"></i><div><h3>HomeWizard P1-meter</h3><p>Klikt op de P1-poort van je slimme meter. Live verbruik, teruglevering en gas, seconde voor seconde — de basis voor elke energie-automatisering.</p></div></div>
+      <div class="product"><i class="ti ti-chart-line"></i><div><h3>Shelly EM (voor groepen)</h3><p>Meet losse groepen in je meterkast, zoals de warmtepomp, laadpaal of airco. Zo zie je precies waar je stroom naartoe gaat.</p></div></div>
+    </div>
+    <div class="cat-waarom"><i class="ti ti-certificate"></i><p><b>Waarom HomeWizard:</b> Nederlands, plug &amp; play, en met de lokale API direct uit te lezen door Home Assistant. Dit kastje is vaak de eerste stap — en meteen de meest verhelderende.</p></div>
+  </div>
+
+</section>
+
+<div class="eerlijk">
+  <div class="binnen">
+    <i class="ti ti-scale"></i>
+    <p>Eerlijk is eerlijk: er bestaan honderden andere merken, en veel daarvan zijn prima. Wij kiezen bewust voor een kort lijstje dat we door en door kennen. Dat betekent snellere installaties, betrouwbare ondersteuning op afstand, en een systeem waarvan elk onderdeel bewezen samenwerkt. Liever heel goed in weinig, dan half in alles.</p>
+  </div>
+</div>
+
+<section class="cta-sectie">
+  <h2>Zelf gekocht of laten adviseren?</h2>
+  <p>Heb je al een van deze apparaten liggen? Wij sluiten hem aan en nemen hem op in je systeem. Nog niets in huis? Dan stellen we samen het juiste pakket samen.</p>
+  <div class="cta-knoppen">
+    <a href="index.html#contact" class="btn btn-vol">Plan een kennismaking</a>
+    <a href="werkwijze.html" class="btn btn-los">Zo werkt een installatie</a>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><b>Th</b>uis<span><b>Br</b>ein</span> — <span style="color:var(--green-mid)"><b>Th</b></span>omas <span style="color:var(--green-mid)"><b>Br</b></span>anderhorst</a>
+  <div class="footer-links">
+    <a href="pricing.html">Prijzen</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:thomasbranderhorst@gmail.com">Contact</a>
+  </div>
+  <p>KVK 88372952</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !navMobile.contains(e.target)) navMobile.classList.remove('open');
+});
+</script>
+
+</body>
+</html>
