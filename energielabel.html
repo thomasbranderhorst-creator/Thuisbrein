@@ -102,29 +102,31 @@
   </style>
 </head>
 <body>
-<div class="site">
   <nav>
     <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
     <div class="nav-links">
-      <a href="werkwijze.html">Zo werkt het</a>
-          <a href="systemen.html">Systemen</a>
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
     <a href="automatiseringen.html">Automatiseringen</a>
-      <a href="pricing.html">Prijzen</a>
-      <a href="besparing.html">Besparing</a>
-      <a href="check.html">Woningcheck</a>
-      <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
-    </div>
+    <a href="hardware.html">Hardware</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="check.html">Woningcheck</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu openen"><i class="ti ti-menu-2"></i></button>
   </nav>
-  <div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile" id="nav-mobile">
     <a href="werkwijze.html">Zo werkt het</a>
-      <a href="systemen.html">Systemen</a>
+    <a href="systemen.html">Systemen</a>
     <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="hardware.html">Hardware</a>
     <a href="pricing.html">Prijzen</a>
     <a href="besparing.html">Besparing</a>
     <a href="check.html">Woningcheck</a>
     <a href="index.html#contact">Plan kennismaking</a>
   </div>
+<div class="site">
 
   <!-- concept-banner: VERWIJDEREN bij livegang -->
   <div class="concept-banner">
@@ -237,7 +239,7 @@
 <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20een%20energielabel." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
 <script>
   const hamburger = document.getElementById('hamburger');
-  const navMobile = document.getElementById('navMobile');
+  const navMobile = document.getElementById('nav-mobile');
   hamburger.addEventListener('click', () => navMobile.classList.toggle('open'));
 </script>
 <script src="motion.js" defer></script>
