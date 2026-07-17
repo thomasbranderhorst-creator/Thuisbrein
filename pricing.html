@@ -89,7 +89,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .section-body { font-size: 15px; color: var(--text-muted); line-height: 1.75; max-width: 560px; margin-bottom: 3rem; font-weight: 300; }
 
 /* ─── PAKKET CARDS ─── */
-.pakketten-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.pakketten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
 .pakket-card { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s; }
 .pakket-card:hover { box-shadow: 0 8px 32px rgba(26,43,60,0.10); }
 .pakket-card.featured { border-color: var(--green-mid); position: relative; }
@@ -320,6 +320,33 @@ footer p { font-size: 12px; color: var(--text-muted); }
 
     <div class="pakketten-grid">
 
+      <!-- PAKKET 0: ZELF STARTEN -->
+      <div class="pakket-card">
+        <div class="pakket-header">
+          <div class="pakket-naam">Zelf Starten</div>
+          <div class="pakket-tagline">De woningcomputer in huis en ontdekken wat er in jouw woning kan — daarna kies jij.</div>
+        </div>
+        <div class="pakket-prijs-blok">
+          <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
+          <div class="pakket-prijs-bedrag"><span>€</span>179</div>
+          <div class="pakket-prijs-note">Home Assistant Green + voorbereiding + inventarisatie op afstand + koppelrapport</div>
+          <div class="pakket-prijs-note" style="margin-top:.4rem;">📍 Heel Nederland · geen reiskosten</div>
+        </div>
+        <div class="pakket-inhoud" style="margin-top:0.5rem;">
+          <div class="inhoud-divider">Inbegrepen</div>
+          <div class="inhoud-item"><span><strong>Home Assistant Green</strong> — door ThuisBrein voorbereid met beveiligde verbinding en basisdashboard</span></div>
+          <div class="inhoud-item"><span><strong>Aansluiten in 5 minuten</strong> — stroom en één kabel in je router</span></div>
+          <div class="inhoud-item"><span><strong>Inventarisatie op afstand</strong> — zodra je Box online is, wordt in kaart gebracht welke systemen koppelbaar zijn</span></div>
+          <div class="inhoud-item"><span><strong>Persoonlijk koppelrapport</strong> — wat er kan, wat het oplevert, en een offerte voor de inrichting</span></div>
+          <div class="inhoud-item"><span><strong>Daarna kies jij</strong> — zelf aan de slag (alles blijft van jou) of laten inrichten: €95 per systeem, of stap over naar Volledig Verzorgd met €50 verrekening</span></div>
+        </div>
+        <div class="pakket-cta">
+          <button class="btn-pakket btn-pakket-outline" onclick="openAanvraag(4)">Dit pakket aanvragen</button>
+          <div class="totaal-tonen">Inrichting later bijboeken: <strong>€95 per systeem</strong></div>
+          <button class="btn-klein-advies" onclick="openAdvies()">Eerst even vragen stellen?</button>
+        </div>
+      </div>
+
       <!-- PAKKET 1 -->
       <div class="pakket-card">
         <div class="pakket-header">
@@ -361,7 +388,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="pakket-card featured">
         <div class="featured-badge">Meest gekozen</div>
         <div class="pakket-header">
-          <div class="pakket-naam">ThuisBrein Start</div>
+          <div class="pakket-naam">ThuisBrein Start — Volledig Verzorgd</div>
           <div class="pakket-tagline">Jouw woningcomputer, kant-en-klaar bezorgd en op afstand geïnstalleerd. Jij pakt uit — de rest is geregeld.</div>
         </div>
         <div class="pakket-prijs-blok">
@@ -418,6 +445,10 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div style="text-align:center;margin:0 0 2.2rem;"><a href="werkwijze.html" style="font-size:14px;color:var(--green);font-weight:500;text-decoration:none;">Benieuwd hoe de installatie in z'n werk gaat? Bekijk de klantreis stap voor stap <i class="ti ti-arrow-right"></i></a></div>
       <div class="staffel-titel">Hoe de prijzen zijn opgebouwd</div>
       <div class="staffel-grid">
+        <div class="staffel-item">
+          <div class="staffel-pakket">Zelf Starten</div>
+          <div class="staffel-beschrijving">De Home Assistant Green (winkelwaarde ± €109) + voorbereiding op de werkbank, verzending, inventarisatie op afstand en een koppelrapport op maat: <strong>€179</strong> alles-in. Wil je daarna laten inrichten? <strong>€95 per systeem</strong>, of stap binnen 30 dagen over naar Volledig Verzorgd met <strong>€50 verrekening</strong>.</div>
+        </div>
         <div class="staffel-item">
           <div class="staffel-pakket">Slimme Thermostaat</div>
           <div class="staffel-beschrijving">Plugwise-hardware + <strong>€200–250</strong> installatie &amp; instelling. Vanaf <strong>€399</strong>, afhankelijk van jouw situatie (aantal zones, wel of geen bestaande thermostaat).</div>
@@ -564,10 +595,11 @@ document.addEventListener('click', e => {
 const basisprijs = { 1: 399 };
 const pakketNamen = {
   1: 'Slimme Thermostaat',
-  2: 'ThuisBrein Start',
-  3: 'ThuisBrein Actief'
+  2: 'ThuisBrein Start — Volledig Verzorgd',
+  3: 'ThuisBrein Actief',
+  4: 'ThuisBrein Zelf Starten'
 };
-const vastePrijs = { 2: '€795', 3: '€12,50/maand' };
+const vastePrijs = { 2: '€795', 3: '€12,50/maand', 4: '€179' };
 let huidigPakket = 1;
 let gekozenMerk = { 1: 'Plugwise (Adam HA + Emma)', 2: null, 3: null };
 let gekozenExtra = { 1: 0, 2: 0, 3: 0 };
