@@ -19,7 +19,7 @@
     :root { --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459; --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922; --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF; --border: rgba(26,43,60,0.12); --whatsapp: #25D366; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
-    .site { max-width: 1100px; margin: 0 auto; }
+    .site { }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
     .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
     .nav-logo span { color: var(--green-mid); }
@@ -33,11 +33,13 @@
     .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
     .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
     .nav-mobile.open { display: flex; }
-    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header { padding: 4.5rem 2rem 3.5rem; background: var(--sand); border-bottom: 1px solid var(--border); text-align: center; }
     .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
-    .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
-    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 580px; font-weight: 300; }
-    .disclaimer-banner { background: var(--sand); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: flex-start; gap: 12px; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(34px, 5.5vw, 54px); font-weight: 300; color: var(--navy); letter-spacing: -0.5px; line-height: 1.12; margin-bottom: 1rem; }
+    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 620px; margin: 0 auto; font-weight: 300; }
+    .disclaimer-banner { background: var(--sand); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: flex-start; justify-content: center; gap: 12px; }
+    .disclaimer-banner p { max-width: 860px; }
+    .inner { max-width: 1080px; margin: 0 auto; }
     .disclaimer-banner i { font-size: 18px; color: var(--text-muted); flex-shrink: 0; margin-top: 1px; }
     .disclaimer-banner p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
     .systemen { padding: 4rem 2rem; }
@@ -157,7 +159,6 @@
     <a href="hardware.html">Hardware</a>
     <a href="pricing.html">Prijzen</a>
     <a href="besparing.html">Besparing</a>
-      <a href="besparing.html">Besparing</a>
     <a href="check.html">Woningcheck</a>
     <a href="index.html#contact">Plan kennismaking</a>
   </div>
@@ -170,7 +171,7 @@
     <i class="ti ti-info-circle" aria-hidden="true"></i>
     <p>Thuisbrein is niet officieel partner of reseller van onderstaande merken. Er wordt onafhankelijk gewerkt: systemen worden gekozen op basis van wat het beste past bij jouw woning en wensen.</p>
   </div>
-  <section class="systemen">
+  <section class="systemen"><div class="inner">
     <div class="voorbeeld-banner">
       <i class="ti ti-bulb" aria-hidden="true"></i>
       <p>Dit is een voorbeeldopzet van hoe een slim woningsysteem eruit kan zien. In de praktijk wordt dit altijd afgestemd op jouw specifieke situatie — het kan eenvoudiger, uitgebreider of heel anders zijn.</p>
@@ -254,14 +255,14 @@
         </div>
       </div>
     </div>
-  </section>
+  </div></section>
   <div class="disclaimer-footer">
     <i class="ti ti-shield" aria-hidden="true"></i>
     <p>Bovenstaande merken en systemen zijn voorbeelden van wat ThuisBrein inzet. De uiteindelijke keuze hangt altijd af van jouw woning, budget en wensen. Tijdens de intake wordt gekeken wat er al aanwezig is en wat het beste aansluit — soms is dat iets heel anders. Thuisbrein heeft geen commerciële relatie met de genoemde merken.</p>
   </div>
 
   <!-- WAT DOET THUISBREIN WEL EN NIET -->
-  <section class="scope-sectie" style="background:#f8f9fa; padding:60px 20px;">
+  <section class="scope-sectie" style="background:var(--sand); border-top:1px solid var(--border); padding:4rem 2rem;">
     <div class="container" style="max-width:800px; margin:0 auto;">
       <div class="tag" style="margin-bottom:16px;">Scope</div>
       <h2 style="font-size:1.8rem; margin-bottom:12px;">Wat doet ThuisBrein wel — en wat niet?</h2>
@@ -270,7 +271,7 @@
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
         <div style="background:#fff; border-radius:12px; padding:28px; border-left:4px solid #22c55e;">
           <h3 style="color:#15803d; margin-bottom:16px;">✓ Wat ThuisBrein doet</h3>
-          <ul style="list-style:none; padding:0; margin:0; color:#374151; line-height:1.9;">
+          <ul style="list-style:none; padding:0; margin:0; color:#5F6E7A; line-height:1.9;">
             <li>De ThuisBrein Box kant-en-klaar inrichten, bezorgen en op afstand installeren</li>
             <li>Al je systemen koppelen in één persoonlijk dashboard</li>
             <li>Plugwise slimme thermostaat leveren en monteren — als officieel geregistreerd installateur</li>
@@ -280,9 +281,9 @@
             <li>ThuisBrein Actief — monitoring op afstand &amp; maandelijks besparingsrapport</li>
           </ul>
         </div>
-        <div style="background:#fff; border-radius:12px; padding:28px; border-left:4px solid #ef4444;">
-          <h3 style="color:#b91c1c; margin-bottom:16px;">✗ Wat ThuisBrein niet doet</h3>
-          <ul style="list-style:none; padding:0; margin:0; color:#374151; line-height:1.9;">
+        <div style="background:#fff; border-radius:12px; padding:28px; border-left:4px solid #C03020;">
+          <h3 style="color:#C03020; margin-bottom:16px;">✗ Wat ThuisBrein niet doet</h3>
+          <ul style="list-style:none; padding:0; margin:0; color:#5F6E7A; line-height:1.9;">
             <li>Zonnepanelen, warmtepompen of laadpalen aanleggen</li>
             <li>Elektra- of loodgieterswerkzaamheden</li>
             <li>Hardware reparaties (omvormer, airco, ketel)</li>
@@ -294,16 +295,16 @@
 
       <div style="margin-top:32px; background:#fff; border-radius:12px; padding:28px; border-left:4px solid #3b82f6;">
         <h3 style="color:#1d4ed8; margin-bottom:12px;">🔁 Wat als Home Assistant niet werkt?</h3>
-        <p style="color:#374151; line-height:1.7; margin:0;">ThuisBrein is een slimme laag <em>bovenop</em> je bestaande systemen — geen vervanging ervan. Als Home Assistant even niet bereikbaar is, werkt alles gewoon door via de eigen apps van de fabrikanten: Mitsubishi-app, Plugwise-app, app van je omvormer. Je mist dan alleen de gecombineerde sturing en het gedeelde dashboard — maar je huis werkt altijd.</p>
-        <p style="color:#6b7280; font-style:italic; margin-top:12px; margin-bottom:0;">ThuisBrein is de dirigent. Als de dirigent even pauze heeft, speelt het orkest gewoon door.</p>
+        <p style="color:#5F6E7A; line-height:1.7; margin:0;">ThuisBrein is een slimme laag <em>bovenop</em> je bestaande systemen — geen vervanging ervan. Als Home Assistant even niet bereikbaar is, werkt alles gewoon door via de eigen apps van de fabrikanten: Mitsubishi-app, Plugwise-app, app van je omvormer. Je mist dan alleen de gecombineerde sturing en het gedeelde dashboard — maar je huis werkt altijd.</p>
+        <p style="color:#5F6E7A; font-style:italic; margin-top:12px; margin-bottom:0;">ThuisBrein is de dirigent. Als de dirigent even pauze heeft, speelt het orkest gewoon door.</p>
       </div>
 
-      <p style="margin-top:32px; color:#6b7280; font-size:0.9rem;">Nog geen installateur voor je hardware? Via een netwerk van regionale partners word je op weg geholpen.</p>
+      <p style="margin-top:32px; color:#5F6E7A; font-size:0.9rem;">Nog geen installateur voor je hardware? Via een netwerk van regionale partners word je op weg geholpen.</p>
     </div>
   </section>
 
     <!-- COMPATIBILITEITSLIJST -->
-  <section class="compat-sectie" id="compat">
+  <section class="compat-sectie" id="compat"><div class="inner">
     <div class="compat-header">
       <div class="tag">Koppelbaarheidscheck</div>
       <h2>Staat jouw systeem hier bij?</h2>
@@ -401,10 +402,10 @@
       </div>
       <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20wil%20weten%20of%20mijn%20systeem%20koppelbaar%20is." target="_blank" class="btn-compat-wa">💬 Vraag het mij</a>
     </div>
-  </section>
+  </div></section>
 
   <!-- UITBREIDINGEN -->
-  <section class="compat-sectie" id="uitbreidingen" style="background:var(--white);">
+  <section class="compat-sectie" id="uitbreidingen" style="background:var(--white);"><div class="inner">
     <div class="compat-header">
       <div class="tag">Uitbreidingen</div>
       <h2>Jouw ThuisBrein groeit met je mee</h2>
@@ -430,7 +431,7 @@
       </div>
       <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20idee%20voor%20een%20uitbreiding%20op%20mijn%20ThuisBrein." target="_blank" class="btn-compat-wa">💬 Vraag het mij</a>
     </div>
-  </section>
+  </div></section>
   <div class="cta-slot">
     <div class="contact-inner">
       <div class="contact-left">
@@ -454,7 +455,7 @@
     </div>
   </div>
   <!-- TECHNISCH SECTIE -->
-  <section class="technisch-sectie">
+  <section class="technisch-sectie"><div class="inner">
     <div class="technisch-uitklap">
       <div class="tag" style="margin-bottom:1.25rem">Onder de motorkap</div>
       <h2>Hoe werkt ThuisBrein technisch?</h2>
@@ -492,15 +493,15 @@
         <p>Jouw data verlaat nooit je woning — tenzij jij daar expliciet toestemming voor geeft via de optionele remote monitoring in het ThuisBrein Actief-abonnement.</p>
       </div>
     </div>
-  </section>
+  </div></section>
 
   <footer>
-    <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span>Thuis<span>brein</span> — ThuisBrein</a>
+    <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><b>Th</b>uis<span><b>Br</b>ein</span> — <b>Th</b>omas <b>Br</b>anderhorst</a>
     <div class="footer-links"><a href="pricing.html">Prijzen</a><a href="systemen.html">Systemen</a>
     <a href="automatiseringen.html">Automatiseringen</a><a href="mailto:info@thuisbrein.nl">Contact</a></div>
     <a href="hardware.html">Hardware</a>
     <p>KVK 88372952</p>
-    <p style="font-size:0.78rem;color:#9aa3ad;max-width:640px;margin:0.75rem auto 0;">Home Assistant is een handelsmerk van de Open Home Foundation. ThuisBrein is een onafhankelijk installatiebedrijf en is niet gelieerd aan, of goedgekeurd door, de Open Home Foundation.</p>
+    <p style="font-size:0.78rem;color:#5F6E7A;max-width:640px;margin:0.75rem auto 0;">Home Assistant is een handelsmerk van de Open Home Foundation. ThuisBrein is een onafhankelijk installatiebedrijf en is niet gelieerd aan, of goedgekeurd door, de Open Home Foundation.</p>
   </footer>
 </div>
 <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" aria-label="Contact via WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
