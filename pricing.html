@@ -338,7 +338,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
           <div class="inhoud-item"><span><strong>Aansluiten in 5 minuten</strong> — stroom en één kabel in je router</span></div>
           <div class="inhoud-item"><span><strong>Inventarisatie op afstand</strong> — zodra je Box online is, wordt in kaart gebracht welke systemen koppelbaar zijn</span></div>
           <div class="inhoud-item"><span><strong>Persoonlijk koppelrapport</strong> — wat er kan, wat het oplevert, en een offerte voor de inrichting</span></div>
-          <div class="inhoud-item"><span><strong>Daarna kies jij</strong> — zelf aan de slag (alles blijft van jou) of laten inrichten: introductieprijs €65 per systeem, of stap over naar Volledig Verzorgd met €50 verrekening</span></div>
+          <div class="inhoud-item"><span><strong>Daarna kies jij</strong> — zelf aan de slag (alles blijft van jou) of laten inrichten: introductieprijs €65 per systeem, of stap over naar Volledig Verzorgd — je Box en voorbereiding worden dan volledig verrekend (€150)</span></div>
         </div>
         <div class="pakket-cta">
           <button class="btn-pakket btn-pakket-outline" onclick="openAanvraag(4)">Dit pakket aanvragen</button>
@@ -393,7 +393,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
         </div>
         <div class="pakket-prijs-blok">
           <div class="pakket-prijs-label">Totaalprijs incl. BTW</div>
-          <div class="pakket-prijs-bedrag" id="prijs-2"><span>€</span>795</div>
+          <div class="pakket-prijs-bedrag" id="prijs-2"><span>€</span>495</div>
           <div class="pakket-prijs-note">ThuisBrein Box, kant-en-klaar geleverd + tot 5 systemen gekoppeld</div>
           <div class="pakket-prijs-note" style="margin-top:.4rem;">📍 Heel Nederland · geen reiskosten · persoonlijk bezoek mogelijk in regio Oss</div>
         </div>
@@ -447,7 +447,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="staffel-grid">
         <div class="staffel-item">
           <div class="staffel-pakket">Zelf Starten</div>
-          <div class="staffel-beschrijving">De Home Assistant Green (winkelwaarde ± €109) + voorbereiding op de werkbank, verzending, inventarisatie op afstand en een koppelrapport op maat: <strong>€179</strong> alles-in. Wil je daarna laten inrichten? Introductieprijs <strong>€65 per systeem</strong>, of stap binnen 30 dagen over naar Volledig Verzorgd met <strong>€50 verrekening</strong>.</div>
+          <div class="staffel-beschrijving">De Home Assistant Green (winkelwaarde ± €109) + voorbereiding op de werkbank, verzending, inventarisatie op afstand en een koppelrapport op maat: <strong>€179</strong> alles-in. Wil je daarna laten inrichten? Introductieprijs <strong>€65 per systeem</strong>, of stap binnen 30 dagen over naar Volledig Verzorgd: je betaalt dan <strong>€345 bij</strong> — je Box en voorbereiding (€150) worden volledig verrekend.</div>
         </div>
         <div class="staffel-item">
           <div class="staffel-pakket">Slimme Thermostaat</div>
@@ -455,7 +455,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
         </div>
         <div class="staffel-item">
           <div class="staffel-pakket">ThuisBrein Start</div>
-          <div class="staffel-beschrijving">De ThuisBrein Box (woningcomputer, vooraf geconfigureerd), kant-en-klaar geleverd en op afstand geïnstalleerd, tot 5 systemen gekoppeld, dashboard op maat &amp; automatiseringen: <strong>€795</strong> alles-in. Meer dan 5 systemen? In overleg. Slim gestuurd verdient het systeem zichzelf doorgaans in het eerste jaar terug.</div>
+          <div class="staffel-beschrijving">De ThuisBrein Box (woningcomputer, vooraf geconfigureerd), kant-en-klaar geleverd en op afstand geïnstalleerd, tot 5 systemen gekoppeld, dashboard op maat &amp; automatiseringen: introductieprijs <strong>€495</strong> alles-in. Meer dan 5 systemen? In overleg. Slim gestuurd verdient het systeem zichzelf doorgaans in het eerste jaar terug.</div>
         </div>
         <div class="staffel-item">
           <div class="staffel-pakket">ThuisBrein Actief</div>
@@ -599,7 +599,7 @@ const pakketNamen = {
   3: 'ThuisBrein Actief',
   4: 'ThuisBrein Zelf Starten'
 };
-const vastePrijs = { 2: '€795', 3: '€12,50/maand', 4: '€179' };
+const vastePrijs = { 2: '€495', 3: '€12,50/maand', 4: '€179' };
 let huidigPakket = 1;
 let gekozenMerk = { 1: 'Plugwise (Adam HA + Emma)', 2: null, 3: null };
 let gekozenExtra = { 1: 0, 2: 0, 3: 0 };
