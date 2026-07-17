@@ -76,6 +76,59 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .vb-resultaat i { color: var(--green); font-size: 19px; flex-shrink: 0; }
 .vb-resultaat p { font-size: 14px; line-height: 1.6; color: var(--text); }
 
+
+/* ── app-mockups ── */
+.app-intro { text-align: center; max-width: 640px; margin: 0 auto; padding: 1.8rem 2rem 0.4rem; }
+.telefoons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; padding: 1.6rem 2rem 0.6rem; justify-items: center; }
+.telefoon-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; max-width: 250px; }
+.telefoon { width: 100%; aspect-ratio: 9 / 18.5; background: #1A2B3C; border-radius: 34px; padding: 9px; box-shadow: 0 22px 44px -20px rgba(26,43,60,0.5); position: relative; }
+.telefoon::after { content: ""; position: absolute; top: 17px; left: 50%; transform: translateX(-50%); width: 64px; height: 7px; border-radius: 4px; background: rgba(255,255,255,0.14); }
+.scherm { width: 100%; height: 100%; background: var(--sand); border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; }
+.app-balk { background: var(--navy); color: #fff; padding: 22px 14px 10px; display: flex; align-items: center; gap: 7px; }
+.app-balk i { color: #97C459; font-size: 15px; }
+.app-balk span { font-family: 'Fraunces', serif; font-size: 13.5px; }
+.app-balk span b { color: #97C459; font-weight: 500; }
+.scherm-body { padding: 10px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.app-kaart { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px 11px; }
+.app-kaart.actief { border-color: rgba(99,153,34,0.55); background: var(--green-light); }
+.ak-kop { display: flex; align-items: center; gap: 7px; }
+.ak-kop i { font-size: 15px; color: var(--green-mid); flex-shrink: 0; }
+.ak-kop.uit i { color: #8FA3BF; }
+.ak-titel { font-size: 11px; font-weight: 500; color: var(--navy); }
+.ak-status { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+.ak-groot { font-family: 'Fraunces', serif; font-size: 26px; color: var(--navy); line-height: 1; margin: 6px 0 2px; }
+.ak-groot span { font-size: 13px; color: var(--text-muted); }
+.ak-pill { display: inline-flex; align-items: center; gap: 4px; font-size: 9.5px; font-weight: 500; border-radius: 20px; padding: 3px 8px; margin-top: 6px; }
+.ak-pill.zon { background: #F7EBD2; color: #8a6413; }
+.ak-pill.groen { background: var(--green-light); color: var(--green); }
+.ak-balk { height: 6px; border-radius: 3px; background: rgba(26,43,60,0.12); margin-top: 7px; overflow: hidden; }
+.ak-balk > div { height: 100%; border-radius: 3px; background: var(--green-mid); }
+.ak-regel { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); margin-top: 5px; }
+.ak-regel b { color: var(--navy); font-weight: 500; }
+.ak-knop { margin-top: 8px; text-align: center; border: 1.5px solid var(--border); border-radius: 8px; padding: 6px; font-size: 10px; font-weight: 500; color: var(--navy); }
+.telefoon-label { font-size: 12.5px; color: var(--text-muted); text-align: center; line-height: 1.5; }
+.telefoon-label b { color: var(--navy); font-weight: 500; }
+
+.wanddisplay-blok { padding: 1.6rem 2rem 0.6rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+.wanddisplay { width: 100%; max-width: 560px; background: #1A2B3C; border-radius: 18px; padding: 10px; box-shadow: 0 26px 50px -24px rgba(26,43,60,0.55); }
+.wd-scherm { background: var(--sand); border-radius: 12px; padding: 12px; }
+.wd-kop { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 9px; }
+.wd-kop .wd-titel { font-family: 'Fraunces', serif; font-size: 15px; color: var(--navy); }
+.wd-kop .wd-titel b { color: var(--green-mid); font-weight: 500; }
+.wd-kop span { font-size: 10.5px; color: var(--text-muted); }
+.wd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.wd-tegel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px 9px; }
+.wd-tegel.actief { background: var(--green-light); border-color: rgba(99,153,34,0.5); }
+.wd-tegel i { font-size: 14px; color: var(--green-mid); }
+.wd-tegel .wd-naam { font-size: 9.5px; font-weight: 500; color: var(--navy); margin-top: 3px; }
+.wd-tegel .wd-waarde { font-family: 'Fraunces', serif; font-size: 15px; color: var(--navy); margin-top: 1px; }
+.wd-tegel .wd-sub { font-size: 8.5px; color: var(--text-muted); margin-top: 1px; }
+
+@media (max-width: 760px) {
+  .telefoons { grid-template-columns: 1fr; }
+  .telefoon-wrap { max-width: 230px; }
+}
+
 /* maatwerk-noot */
 .maatwerk { max-width: 900px; margin: 2.2rem auto 0; padding: 0 2rem; }
 .maatwerk .binnen { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--sand); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; }
@@ -422,6 +475,96 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="regel"><i class="ti ti-shield-lock"></i><p><b>Locatie blijft van jou.</b> De telefoon deelt zijn locatie uitsluitend met jouw eigen systeem in jouw eigen woning — niet met fabrikanten of adverteerders.</p></div>
     </div>
     <div class="vb-resultaat"><i class="ti ti-leaf"></i><p><b>Het resultaat:</b> nooit meer stoken of koelen voor een leeg huis, en nooit meer binnenkomen in een kamer die nog op gang moet komen. De besparing zit in de uren dat er niemand is — het comfort in de minuut dat je binnenstapt.</p></div>
+  </div>
+
+
+  <!-- ═══ APP-MOCKUPS ═══ -->
+  <div class="voorbeeld card">
+    <div class="vb-kop">
+      <div class="vb-label">Zo ziet het eruit</div>
+      <h2>Alles in één app — van broekzak tot wandscherm</h2>
+      <p>Geen tien apps meer voor tien apparaten. De voorbeelden hierboven zien er op jouw telefoon zo uit: één overzicht waarin je huis laat zien wat het aan het doen is — en waarom.</p>
+    </div>
+
+    <div class="telefoons">
+      <div class="telefoon-wrap">
+        <div class="telefoon"><div class="scherm">
+          <div class="app-balk"><i class="ti ti-home"></i><span><b>Th</b>uis<b>Br</b>ein · Klimaat</span></div>
+          <div class="scherm-body">
+            <div class="app-kaart">
+              <div class="ak-kop"><i class="ti ti-temperature"></i><div><div class="ak-titel">Woonkamer</div><div class="ak-status">comfortzone</div></div></div>
+              <div class="ak-groot">19,2<span> °C</span></div>
+              <span class="ak-pill groen"><i class="ti ti-snowflake" style="font-size:10px"></i>airco verwarmt — op zonnestroom</span>
+            </div>
+            <div class="app-kaart">
+              <div class="ak-kop"><i class="ti ti-solar-panel"></i><div><div class="ak-titel">Zonnepanelen</div><div class="ak-status">overschot beschikbaar</div></div></div>
+              <div class="ak-groot">2,1<span> kW</span></div>
+              <span class="ak-pill zon"><i class="ti ti-sun" style="font-size:10px"></i>eigen stroom wordt benut</span>
+            </div>
+            <div class="app-kaart">
+              <div class="ak-kop uit"><i class="ti ti-flame"></i><div><div class="ak-titel">CV-ketel</div><div class="ak-status">achtervang — standby</div></div></div>
+            </div>
+          </div>
+        </div></div>
+        <div class="telefoon-label"><b>Voorbeeld 1</b> — de airco verwarmt op eigen zonnestroom, de CV blijft uit</div>
+      </div>
+
+      <div class="telefoon-wrap">
+        <div class="telefoon"><div class="scherm">
+          <div class="app-balk"><i class="ti ti-home"></i><span><b>Th</b>uis<b>Br</b>ein · Witgoed</span></div>
+          <div class="scherm-body">
+            <div class="app-kaart actief">
+              <div class="ak-kop"><i class="ti ti-wash"></i><div><div class="ak-titel">Vaatwasser</div><div class="ak-status">ingeruimd om 22:04 — wacht op de zon</div></div></div>
+              <div class="ak-groot">12:15<span> start</span></div>
+              <div class="ak-regel"><span>klaar vóór</span><b>17:00</b></div>
+              <div class="ak-knop">Toch nu starten</div>
+            </div>
+            <div class="app-kaart">
+              <div class="ak-kop"><i class="ti ti-solar-panel"></i><div><div class="ak-titel">Zonverwachting</div><div class="ak-status">piek rond 12:00 — 3,4 kW</div></div></div>
+              <div class="ak-balk"><div style="width:62%"></div></div>
+              <div class="ak-regel"><span>stroomprijs</span><b>laag tijdens de run</b></div>
+            </div>
+          </div>
+        </div></div>
+        <div class="telefoon-label"><b>Voorbeeld 2</b> — de vaatwasser plant zichzelf op het zonoverschot</div>
+      </div>
+
+      <div class="telefoon-wrap">
+        <div class="telefoon"><div class="scherm">
+          <div class="app-balk"><i class="ti ti-home"></i><span><b>Th</b>uis<b>Br</b>ein · Laadpaal</span></div>
+          <div class="scherm-body">
+            <div class="app-kaart actief">
+              <div class="ak-kop"><i class="ti ti-car"></i><div><div class="ak-titel">Auto</div><div class="ak-status">laadt op zonoverschot</div></div></div>
+              <div class="ak-groot">4,6<span> kW</span></div>
+              <div class="ak-balk"><div style="width:68%"></div></div>
+              <div class="ak-regel"><span>accu 68%</span><b>vol vóór 17:00</b></div>
+            </div>
+            <div class="app-kaart">
+              <div class="ak-kop"><i class="ti ti-bolt"></i><div><div class="ak-titel">Kosten vandaag</div><div class="ak-status">grotendeels eigen opwek</div></div></div>
+              <div class="ak-groot">€ 0,42</div>
+              <span class="ak-pill zon"><i class="ti ti-sun" style="font-size:10px"></i>91% op eigen stroom</span>
+            </div>
+          </div>
+        </div></div>
+        <div class="telefoon-label"><b>Voorbeeld 3</b> — inpluggen is genoeg; laden gebeurt op jouw stroom</div>
+      </div>
+    </div>
+
+    <div class="wanddisplay-blok">
+      <div class="wanddisplay"><div class="wd-scherm">
+        <div class="wd-kop"><div class="wd-titel"><b>Th</b>uis<b>Br</b>ein</div><span>woensdag · 12:15</span></div>
+        <div class="wd-grid">
+          <div class="wd-tegel"><i class="ti ti-temperature"></i><div class="wd-naam">Woonkamer</div><div class="wd-waarde">19,2°</div><div class="wd-sub">comfortzone</div></div>
+          <div class="wd-tegel actief"><i class="ti ti-solar-panel"></i><div class="wd-naam">Zonnepanelen</div><div class="wd-waarde">3,4 kW</div><div class="wd-sub">overschot</div></div>
+          <div class="wd-tegel"><i class="ti ti-battery-3"></i><div class="wd-naam">Thuisbatterij</div><div class="wd-waarde">84%</div><div class="wd-sub">laadt op zon</div></div>
+          <div class="wd-tegel actief"><i class="ti ti-wash"></i><div class="wd-naam">Vaatwasser</div><div class="wd-waarde">bezig</div><div class="wd-sub">op zonnestroom</div></div>
+          <div class="wd-tegel actief"><i class="ti ti-car"></i><div class="wd-naam">Laadpaal</div><div class="wd-waarde">4,6 kW</div><div class="wd-sub">vol vóór 17:00</div></div>
+          <div class="wd-tegel"><i class="ti ti-flame"></i><div class="wd-naam">CV-ketel</div><div class="wd-waarde">standby</div><div class="wd-sub">achtervang</div></div>
+        </div>
+      </div></div>
+      <div class="telefoon-label" style="max-width:520px"><b>Ook aan de muur:</b> het Shelly Wall Display op de plek van een lichtschakelaar — hetzelfde overzicht, dezelfde bediening, voor het hele gezin. Telefoon, tablet of wandscherm: het is één systeem.</div>
+    </div>
+    <div class="vb-resultaat" style="margin-top:1.4rem"><i class="ti ti-leaf"></i><p><b>Ter illustratie:</b> dit zijn voorbeeldschermen. Jouw dashboard wordt bij de installatie ingericht op jouw systemen, jouw kamers en jouw voorkeuren.</p></div>
   </div>
 
   <!-- ═══ JIJ BLIJFT DE BAAS ═══ -->
