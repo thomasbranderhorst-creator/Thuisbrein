@@ -286,7 +286,6 @@ footer p { font-size: 12px; color: var(--text-muted); }
     <a href="hardware.html">Hardware</a>
     <a href="pricing.html" class="active">Prijzen</a>
     <a href="besparing.html">Besparing</a>
-    <a href="check.html">Woningcheck</a>
     <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu openen">
@@ -300,14 +299,13 @@ footer p { font-size: 12px; color: var(--text-muted); }
     <a href="hardware.html">Hardware</a>
     <a href="pricing.html" class="active">Prijzen</a>
     <a href="besparing.html">Besparing</a>
-    <a href="check.html">Woningcheck</a>
     <a href="index.html#contact">Plan kennismaking</a>
   </div>
 
 <!-- ─── ADVIESBALK ─── -->
 <div class="advies-balk">
-  <div class="advies-balk-tekst">Weet je nog niet precies wat je wilt? <strong>Plan een gratis adviesgesprek online.</strong></div>
-  <button class="btn-advies-balk" onclick="openAdvies()">Plan adviesgesprek →</button>
+  <div class="advies-balk-tekst">Weet je nog niet precies wat je wilt? <strong>Plan een gratis intake online.</strong></div>
+  <button class="btn-advies-balk" onclick="openAdvies()">Plan intake →</button>
 </div>
 
 <!-- ─── PRIJZEN SECTIE ─── -->
@@ -332,7 +330,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
         </div>
         <div class="staffel-item">
           <div class="staffel-pakket">3 · Akkoord? Dan wordt het geregeld</div>
-          <div class="staffel-beschrijving">De ThuisBrein Box wordt kant-en-klaar ingericht bij je bezorgd. Jij sluit stroom en één netwerkkabel aan, de rest gaat op afstand — daardoor werkt ThuisBrein in <strong>heel Nederland zonder reiskosten</strong>. In de regio Oss is een persoonlijk bezoek mogelijk.</div>
+          <div class="staffel-beschrijving">Geef je akkoord, dan ontvang je een betaallink en wordt er aan de slag gegaan met het afgesproken werk. De ThuisBrein Box wordt kant-en-klaar ingericht bij je bezorgd; jij sluit stroom en één netwerkkabel aan, de rest gaat op afstand — daardoor werkt ThuisBrein in <strong>heel Nederland zonder reiskosten</strong>. In de regio Oss is een persoonlijk bezoek mogelijk.</div>
         </div>
       </div>
     </div>
@@ -362,80 +360,13 @@ footer p { font-size: 12px; color: var(--text-muted); }
 
   </div>
 </section>
-<div class="modal-overlay" id="modal-aanvraag">
-  <div class="modal-box">
-    <button class="modal-sluit" onclick="sluitModal('modal-aanvraag')">×</button>
-
-    <div class="modal-header">
-      <div class="modal-stap-label" id="aanvraag-stap-label">Stap 1 van 2</div>
-      <div class="modal-titel" id="aanvraag-titel">Jouw gegevens</div>
-      <div class="modal-samenvatting" id="aanvraag-samenvatting"></div>
-    </div>
-
-    <div class="modal-body">
-
-      <!-- STAP INDICATOR -->
-      <div class="stap-indicator">
-        <div class="stap-dot actief" id="stap-1-dot">1</div>
-        <div class="stap-lijn" id="stap-lijn-1"></div>
-        <div class="stap-dot" id="stap-2-dot">2</div>
-      </div>
-
-      <!-- STAP 1: GEGEVENS -->
-      <div id="stap-1">
-        <div class="form-rij" id="rij-naam">
-          <label class="form-label" for="inp-naam">Jouw naam</label>
-          <input class="form-input" id="inp-naam" type="text" placeholder="Jan de Vries" autocomplete="name">
-          <div class="form-fout-tekst">Vul je naam in.</div>
-        </div>
-        <div class="form-rij" id="rij-email">
-          <label class="form-label" for="inp-email">E-mailadres</label>
-          <input class="form-input" id="inp-email" type="email" placeholder="jan@email.nl" autocomplete="email">
-          <div class="form-fout-tekst">Vul een geldig e-mailadres in.</div>
-        </div>
-        <div class="form-rij" id="rij-tel">
-          <label class="form-label" for="inp-tel">Telefoonnummer</label>
-          <input class="form-input" id="inp-tel" type="tel" placeholder="06 12345678" autocomplete="tel">
-          <div class="form-fout-tekst">Vul je telefoonnummer in.</div>
-        </div>
-        <div class="form-rij" id="rij-postcode">
-          <label class="form-label" for="inp-postcode">Postcode</label>
-          <input class="form-input" id="inp-postcode" type="text" placeholder="5341 AB" maxlength="7">
-          <div class="form-fout-tekst">Vul je postcode in.</div>
-        </div>
-        <p class="form-note">Je betaalt nu niets. Je ontvangt een offerte per e-mail die je digitaal kunt ondertekenen. Daarna plan je zelf een installatiemoment in.</p>
-        <button class="btn-pakket btn-pakket-primary" style="margin-top:1.25rem;" onclick="naarStap2()">Volgende stap →</button>
-      </div>
-
-      <!-- STAP 2: BEVESTIGING -->
-      <div id="stap-2" style="display:none;">
-        <div class="succes-scherm" id="succes-scherm" style="display:block;">
-          <div class="succes-icon">✅</div>
-          <div class="succes-titel">Aanvraag ontvangen!</div>
-          <div class="succes-body">Bedankt, <strong id="succes-naam"></strong>. Je ontvangt binnen 24 uur een offerte op <strong id="succes-email"></strong>.</div>
-          <div class="succes-stappen">
-            <div class="succes-stap"><div class="succes-nr">1</div><span>Je ontvangt een offerte per e-mail — inclusief een duidelijke samenvatting van het pakket en de prijs.</span></div>
-            <div class="succes-stap"><div class="succes-nr">2</div><span>Je ondertekent de offerte digitaal met één klik.</span></div>
-            <div class="succes-stap"><div class="succes-nr">3</div><span>Je plant zelf een installatiemoment in via de link in de bevestigingsmail.</span></div>
-          </div>
-          <button class="btn-secundair" onclick="sluitModal('modal-aanvraag')">Sluiten</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════
-     MODAL: ADVIESGESPREK
-════════════════════════════════════════════ -->
 <div class="modal-overlay" id="modal-advies">
   <div class="modal-box">
     <button class="modal-sluit" onclick="sluitModal('modal-advies')">×</button>
 
     <div class="modal-header">
-      <div class="modal-stap-label">Gratis · Online · 30 minuten</div>
-      <div class="modal-titel">Plan een adviesgesprek</div>
+      <div class="modal-stap-label">Gratis · Online · ± 15 minuten</div>
+      <div class="modal-titel">Plan een gratis intake</div>
     </div>
 
     <div class="modal-body">
@@ -445,13 +376,13 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <div class="advies-inhoud">
         <div class="advies-calendly-placeholder">
           <p>
-            <strong>Hier komt jouw online agenda.</strong><br><br>
-            Koppel hier je Calendly, Cal.com of Google Calendar zodat de klant direct een moment kan kiezen. Geen heen-en-weer mailen.
+            <strong>Stuur een appje — dan plannen we samen een moment.</strong><br><br>
+            Eén berichtje is genoeg. Je krijgt snel antwoord met een paar voorstellen voor een videocall.
           </p>
-          <button class="btn-pakket btn-pakket-featured" style="margin-top:1.25rem; max-width:280px; margin-left:auto; margin-right:auto;" onclick="alert('Hier koppel je straks Calendly of Cal.com in.')">Kies een datum &amp; tijd →</button>
+          <a class="btn-pakket btn-pakket-featured" style="display:block;margin-top:1.25rem; max-width:280px; margin-left:auto; margin-right:auto;text-align:center;text-decoration:none;" href="https://wa.me/31654157920?text=Hallo%2C%20ik%20wil%20graag%20een%20gratis%20intakegesprek%20plannen.">Plan via WhatsApp →</a>
         </div>
         <p style="font-size:12px; color:var(--text-muted); text-align:center; line-height:1.6;">
-          Je ontvangt een bevestiging per e-mail met een videobel-link. Gratis en vrijblijvend.
+          Liever mailen? <a href="mailto:info@thuisbrein.nl" style="color:var(--green);">info@thuisbrein.nl</a> — gratis en vrijblijvend.
         </p>
       </div>
     </div>
@@ -478,62 +409,7 @@ document.addEventListener('click', e => {
   if (!hamburger.contains(e.target) && !navMobile.contains(e.target)) navMobile.classList.remove('open');
 });
 
-// ─── PAKKETTEN LOGICA ───
-const basisprijs = { 1: 399 };
-const pakketNamen = {
-  1: 'Slimme Thermostaat',
-  2: 'ThuisBrein Start — Volledig Verzorgd',
-  3: 'ThuisBrein Actief',
-  4: 'ThuisBrein Zelf Starten'
-};
-const vastePrijs = { 2: '€495', 3: '€12,50/maand', 4: '€179' };
-let huidigPakket = 1;
-let gekozenMerk = { 1: 'Plugwise (Adam HA + Emma)', 2: null, 3: null };
-let gekozenExtra = { 1: 0, 2: 0, 3: 0 };
-
-document.querySelectorAll('.therm-optie').forEach(optie => {
-  optie.addEventListener('click', function() {
-    const p = this.dataset.pakket;
-    const extra = parseInt(this.dataset.extra) || 0;
-    const merk = this.dataset.merk;
-    document.querySelectorAll(`#opties-${p} .therm-optie`).forEach(o => o.classList.remove('actief'));
-    this.classList.add('actief');
-    gekozenMerk[p] = merk;
-    gekozenExtra[p] = extra;
-    if (basisprijs[p] !== undefined) {
-      const nieuw = basisprijs[p] + extra;
-      document.getElementById(`prijs-${p}`).innerHTML = `<span>€</span>${nieuw}`;
-      document.getElementById(`totaal-${p}`).innerHTML = `Totaalprijs met ${merk}: <strong>€${nieuw}</strong>`;
-    }
-  });
-});
-
-function openAanvraag(pakket) {
-  huidigPakket = pakket;
-  const naam = pakketNamen[pakket];
-  const merk = pakket === 1 ? gekozenMerk[1] : null;
-  const prijsTekst = pakket === 1 ? `€${basisprijs[1] + (gekozenExtra[1] || 0)}` : vastePrijs[pakket];
-  const samenvatting = document.getElementById('aanvraag-samenvatting');
-  samenvatting.style.display = 'block';
-  samenvatting.innerHTML = `<strong>${naam}</strong>${merk ? ` · ${merk}` : ''} · <strong>${prijsTekst}</strong>`;
-  document.getElementById('stap-1').style.display = 'block';
-  document.getElementById('stap-2').style.display = 'none';
-  document.getElementById('aanvraag-stap-label').textContent = 'Stap 1 van 2';
-  document.getElementById('aanvraag-titel').textContent = 'Jouw gegevens';
-  document.getElementById('stap-1-dot').className = 'stap-dot actief';
-  document.getElementById('stap-2-dot').className = 'stap-dot';
-  document.getElementById('stap-lijn-1').className = 'stap-lijn';
-  ['inp-naam','inp-email','inp-tel','inp-postcode'].forEach(id => {
-    const el = document.getElementById(id);
-    el.value = '';
-    el.classList.remove('fout');
-  });
-  ['rij-naam','rij-email','rij-tel','rij-postcode'].forEach(id => {
-    document.getElementById(id).classList.remove('heeft-fout');
-  });
-  document.getElementById('modal-aanvraag').classList.add('open');
-}
-
+// ─── INTAKE-MODAL ───
 function openAdvies() {
   document.getElementById('modal-advies').classList.add('open');
 }
@@ -548,36 +424,9 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
   });
 });
 
-function naarStap2() {
-  let ok = true;
-  const naam = document.getElementById('inp-naam').value.trim();
-  const email = document.getElementById('inp-email').value.trim();
-  const tel = document.getElementById('inp-tel').value.trim();
-  const pc = document.getElementById('inp-postcode').value.trim();
-
-  function setFout(rij, inp, heeft) {
-    document.getElementById(rij).classList.toggle('heeft-fout', heeft);
-    document.getElementById(inp).classList.toggle('fout', heeft);
-    if (heeft) ok = false;
-  }
-
-  setFout('rij-naam', 'inp-naam', naam.length < 2);
-  setFout('rij-email', 'inp-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-  setFout('rij-tel', 'inp-tel', tel.length < 8);
-  setFout('rij-postcode', 'inp-postcode', pc.length < 4);
-
-  if (!ok) return;
-
-  document.getElementById('stap-1').style.display = 'none';
-  document.getElementById('stap-2').style.display = 'block';
-  document.getElementById('aanvraag-stap-label').textContent = 'Aanvraag verstuurd';
-  document.getElementById('aanvraag-titel').textContent = 'Wat gebeurt er nu?';
-  document.getElementById('stap-1-dot').className = 'stap-dot klaar';
-  document.getElementById('stap-2-dot').className = 'stap-dot actief';
-  document.getElementById('stap-lijn-1').className = 'stap-lijn klaar';
-  document.getElementById('succes-naam').textContent = naam.split(' ')[0];
-  document.getElementById('succes-email').textContent = email;
-}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+});
 </script>
 
 <script src="/coming-soon.js"></script>
