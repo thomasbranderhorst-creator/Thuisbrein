@@ -22,30 +22,76 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Thuisbrein",
-  "description": "Smart home installateur voor slimme thermostaten, zonwering, verlichting en energiebeheer in .",
+  "@type": "ProfessionalService",
+  "@id": "https://thuisbrein.nl/#organisatie",
+  "name": "ThuisBrein",
+  "description": "Advies, techniekkeuze en installatie voor zonnepanelen, thuisbatterij, airco en verwarming die samen moeten werken. Merkonafhankelijk, met Home Assistant als koppelpunt.",
   "url": "https://thuisbrein.nl/",
+  "image": "https://thuisbrein.nl/og-image.png",
   "telephone": "+31654157920",
   "email": "info@thuisbrein.nl",
-  "founder": "ThuisBrein",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Noord-Brabant",
+    "addressCountry": "NL"
+  },
   "areaServed": [
-    "Oss", "Den Bosch", "'s-Hertogenbosch", "Eindhoven", "Nijmegen", "Arnhem", "Utrecht",
-    "Veghel", "Uden", "Bernheze", "Maasdriel", "Zaltbommel", "Tiel", "Culemborg", "Vianen",
-    "Breda", "Tilburg", "Helmond", "Boxtel", "Sint-Michielsgestel", "Vught", "Rosmalen",
-    "Waalwijk", "Drunen", "Heusden", "Altena", "Gorinchem", "Geldermalsen",
-    "Wageningen", "Ede", "Veenendaal", "Rhenen", "Zeist", "Houten", "Nieuwegein",
-    "Doetinchem", "Zevenaar", "Duiven", "Westervoort", "Bemmel", "Beuningen", "Wijchen",
-    "", "Gelderland", "Utrecht"
+    {
+      "@type": "AdministrativeArea",
+      "name": "Noord-Brabant"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Gelderland"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Utrecht"
+    }
   ],
-  "serviceType": [
-    "Energiebeheer woning",
-    "Zonnepanelen en thuisbatterij koppelen",
-    "Slimme thermostaat installeren",
+  "knowsAbout": [
+    "Zelfconsumptie zonnestroom verhogen",
+    "Einde salderingsregeling 2027",
+    "Terugleverkosten en terugleververgoeding",
+    "Thuisbatterij aansturen",
     "Airco en CV op elkaar afstemmen",
-    "Home Assistant installatie",
-    "Woningautomatisering"
-  ]
+    "Home Assistant installatie"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Diensten",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Gratis intake en energieadvies"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Techniek- en merkkeuze advies"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Energiesystemen koppelen en automatiseren"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Home Assistant installatie en configuratie"
+        }
+      }
+    ]
+  }
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -411,6 +457,9 @@ footer { flex-direction: column; align-items: flex-start; }
   .hv-card { max-width: 300px; }
 }
 </style>
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="ThuisBrein">
+<meta name="robots" content="index, follow, max-image-preview:large">
 </head>
 <body>
 <nav>
@@ -918,7 +967,6 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
 });
 </script>
 
-<script src="/coming-soon.js"></script>
 <script src="motion.js" defer></script>
 <script>
 /* ThuisBrein hero-animatie — levend woningbrein.
@@ -1064,5 +1112,6 @@ document.querySelectorAll('.faq-vraag').forEach(btn => {
   requestAnimationFrame(render);
 })();
 </script>
+<script src="/cookie.js" defer></script>
 </body>
 </html>
