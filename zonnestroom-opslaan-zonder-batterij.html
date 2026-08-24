@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zonnestroom opslaan zonder thuisbatterij — ThuisBrein</title>
+  <meta name="description" content="Een thuisbatterij is niet het enige antwoord op het einde van de saldering. Een warmtepompboiler slaat evenveel energie op, kost een fractie, en vervangt ook nog je gas voor warm water.">
+  <meta property="og:title" content="Zonnestroom opslaan zonder thuisbatterij">
+  <meta property="og:description" content="Een boiler van 200 liter slaat net zoveel energie op als een thuisbatterij van 10 kWh — en kost een fractie. De rekensom, de plaatsingseisen en de eerlijke grenzen.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thuisbrein.nl/zonnestroom-opslaan-zonder-batterij.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459;
+      --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+      --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
+      --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+    .site { max-width: 1100px; margin: 0 auto; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+    .nav-mobile.open { display: flex; }
+
+    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 560px; font-weight: 300; }
+
+    .casussen { padding: 0 2rem 5rem; }
+    .casussen h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--navy); letter-spacing: -0.8px; margin-bottom: 0.5rem; margin-top: 3rem; }
+    .casussen h2:first-of-type { margin-top: 0; }
+    .casus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .casus-kaart { background: var(--sand); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+    .casus-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+    .casus-kaart h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .casus-items { display: flex; flex-direction: column; gap: 6px; }
+    .casus-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-muted); }
+    .casus-item i { color: var(--green-mid); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+    .tekst { font-size: 15px; color: var(--text-muted); max-width: 680px; line-height: 1.8; margin: 0 0 1.2rem; }
+    .tekst:last-child { margin-bottom: 0; }
+    .tekst strong { color: var(--navy); font-weight: 500; }
+    .na { margin-bottom: 2.5rem; }
+
+    table.cijfers { border-collapse: collapse; width: 100%; max-width: 680px; margin: 0.5rem 0 2.5rem; font-size: 14px; }
+    table.cijfers th, table.cijfers td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    table.cijfers th { font-weight: 500; color: var(--navy); font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    table.cijfers td:not(:first-child) { text-align: right; white-space: nowrap; }
+    table.cijfers tr:last-child td { border-bottom: none; }
+    table.cijfers td strong { color: var(--navy); font-weight: 500; }
+    table.cijfers tr.uitgelicht td { background: var(--green-light); }
+
+    .bronnen { padding: 2rem 2rem 4rem; border-top: 1px solid var(--border); }
+    .bronnen p { font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 700px; }
+    .bronnen a { color: var(--green); text-decoration: none; }
+
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    .airco-blok { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem; }
+    .airco-tag { display: inline-block; background: #FFF3CD; color: #9A6200; font-size: 13px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    .airco-blok h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--navy); margin-bottom: 1rem; line-height: 1.25; }
+    .airco-blok > p { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 2.5rem; line-height: 1.7; }
+    .airco-cta { text-align: center; padding: 2rem 0 0; }
+    .btn-groen-link { display: inline-block; background: var(--green); color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .btn-groen-link:hover { background: var(--green-mid); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .page-header h1 { font-size: 36px; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .casussen { padding: 0 1.25rem 4rem; }
+      table.cijfers { font-size: 13px; }
+      table.cijfers th, table.cijfers td { padding: 0.6rem 0.5rem; }
+    }
+  </style>
+<link rel="canonical" href="https://thuisbrein.nl/zonnestroom-opslaan-zonder-batterij.html">
+<meta property="og:image" content="https://thuisbrein.nl/og-image.png">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="ThuisBrein">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Zonnestroom opslaan zonder thuisbatterij",
+  "description": "Een thuisbatterij is niet het enige antwoord op het einde van de saldering. Een warmtepompboiler slaat evenveel energie op, kost een fractie, en vervangt ook nog je gas voor warm water.",
+  "image": "https://thuisbrein.nl/og-image.png",
+  "inLanguage": "nl-NL",
+  "datePublished": "2026-08-24",
+  "dateModified": "2026-08-24",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thuisbrein.nl/zonnestroom-opslaan-zonder-batterij.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ThuisBrein",
+    "url": "https://thuisbrein.nl/"
+  },
+  "publisher": {
+    "@id": "https://thuisbrein.nl/#organisatie"
+  }
+}
+</script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+    <div class="nav-links">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="case-eigen-huis.html">Cases</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen"><i class="ti ti-menu-2"></i></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="case-eigen-huis.html">Cases</a>
+    <a href="index.html#contact">Plan kennismaking</a>
+  </div>
+<div class="site">
+
+  <div class="page-header">
+    <span class="tag">Uitgezocht</span>
+    <h1>Zonnestroom opslaan<br><em style="font-style:italic;color:var(--green-mid)">zonder thuisbatterij</em></h1>
+    <p>Als de saldering stopt, is de standaardreactie: dan maar een batterij. Maar er staat in veel huizen al een opslagvat dat net zoveel energie kan bergen, en dat een fractie kost. Hieronder wat er te halen valt, en wanneer het bij jou juist niks oplevert.</p>
+  </div>
+
+  <section class="casussen">
+
+    <h2>Waarom zelf gebruiken opeens zoveel waard wordt</h2>
+    <p class="tekst">De meeste mensen denken dat teruglevering straks nog ongeveer de helft van hun stroomprijs opbrengt. Dat is een begrijpelijk misverstand, en het scheelt een factor vier.</p>
+    <p class="tekst">De wet legt vanaf 1 januari 2027 een bodem onder de terugleververgoeding: minimaal 50% van het <strong>kale leveringstarief</strong>. Kaal betekent zonder energiebelasting en zonder btw &mdash; en dat is precies waar het misgaat, want die belasting is meer dan de helft van wat je betaalt.</p>
+
+    <table class="cijfers">
+      <tr><th>Bij een tarief van ongeveer 29 cent</th><th>per kWh</th></tr>
+      <tr><td>Wat je betaalt, alles inbegrepen</td><td>&euro; 0,29</td></tr>
+      <tr><td>Daarvan af: btw</td><td>&euro; 0,24</td></tr>
+      <tr><td>Daarvan af: energiebelasting</td><td><strong>&euro; 0,14 kaal</strong></td></tr>
+      <tr class="uitgelicht"><td><strong>Wettelijk minimum voor teruglevering</strong></td><td><strong>&euro; 0,07</strong></td></tr>
+    </table>
+
+    <p class="tekst">En van die zeven cent gaan de terugleverkosten van je leverancier nog af. Wat er netto overblijft, ligt bij de meeste aanbieders ergens tussen de twee en vijf cent.</p>
+    <p class="tekst na">Zelf gebruiken bespaart je ondertussen wél de volle negenentwintig cent. Elke kilowattuur die je binnenshuis houdt in plaats van teruglevert, is dus ruwweg <strong>een kwartje waard</strong>. Dát is de hele reden dat mensen ineens over batterijen nadenken.</p>
+
+    <h2>Een boiler is een batterij die je misschien al hebt</h2>
+    <p class="tekst">Energie opslaan hoeft niet in cellen. Warm water is ook opslag &mdash; alleen dan als warmte in plaats van als stroom. En water kan verrassend veel bergen.</p>
+
+    <table class="cijfers">
+      <tr><th>Vat opwarmen van 15 naar 60 graden</th><th>opgeslagen energie</th></tr>
+      <tr><td>120 liter</td><td>6,3 kWh</td></tr>
+      <tr class="uitgelicht"><td>200 liter</td><td><strong>10,4 kWh</strong></td></tr>
+      <tr><td>300 liter</td><td>15,7 kWh</td></tr>
+    </table>
+
+    <p class="tekst na">Een vat van tweehonderd liter slaat dus net zoveel energie op als een thuisbatterij van 10 kWh. Alleen kun je die energie er niet als stroom weer uithalen &mdash; je kunt er douchen en afwassen. Voor een gemiddeld huishouden is dat precies genoeg, want warm water is na verwarming de grootste energiepost in huis.</p>
+
+    <h2>Wat het kost om warm water te maken</h2>
+    <p class="tekst">Neem een huishouden dat ongeveer 1.400 kWh aan warmte per jaar aan warm water besteedt &mdash; twee tot drie personen die dagelijks douchen. Drie manieren om dat te doen:</p>
+
+    <table class="cijfers">
+      <tr><th></th><th>zonder zon</th><th>half op zon</th><th>volledig op zon</th></tr>
+      <tr><td>CV&#8209;ketel op gas</td><td>&euro; 243</td><td>&euro; 243</td><td>&euro; 243</td></tr>
+      <tr><td>Gewone elektrische boiler</td><td>&euro; 409</td><td>&euro; 206</td><td>&euro; 4</td></tr>
+      <tr class="uitgelicht"><td><strong>Warmtepompboiler</strong></td><td><strong>&euro; 186</strong></td><td><strong>&euro; 94</strong></td><td><strong>&euro; 2</strong></td></tr>
+    </table>
+
+    <p class="tekst">Een gasketel kan niets met je zon &mdash; die kolom blijft vlak. De twee elektrische varianten worden juist bijna gratis naarmate je meer van je eigen opwek gebruikt.</p>
+    <p class="tekst na">Het verschil tussen die twee zit in het rendement. Een gewone boiler zet één kilowattuur stroom om in één kilowattuur warmte. Een warmtepompboiler haalt de rest uit de lucht en komt op ruim het dubbele. In de zomer maakt dat weinig uit, want dan is de stroom er toch. In de winter is het het hele verschil.</p>
+
+    <h2>Waarom dit een serieus alternatief is voor een batterij</h2>
+    <p class="tekst">Een thuisbatterij van 10 kWh kost al gauw zesduizend euro en doet precies één ding: overschot opvangen en later teruggeven.</p>
+    <p class="tekst">Een warmtepompboiler kost een fractie daarvan &mdash; en er is ISDE&#8209;subsidie voor beschikbaar, al verschilt het bedrag per toestel en per jaar. Maar het echte verschil is dat hij twee dingen tegelijk doet: hij vangt je overschot op, én hij haalt je warmwatervoorziening van het gas af. Dat tweede levert bij een gasprijs rond &euro;1,35 per kubieke meter al ongeveer <strong>175 euro per jaar</strong> op, ongeacht of de zon schijnt.</p>
+    <p class="tekst na">Bij elkaar kom je voor een huishouden met een airco en een warmtepompboiler op een orde van grootte van drie- tot vijfhonderd euro per jaar, tegen ongeveer een derde van de investering van een batterij. Wat het bij jóu wordt, hangt af van je tarieven, je verbruik en wie er overdag thuis is.</p>
+
+    <h2>De tegenintuïtieve kant</h2>
+    <p class="tekst">Hier zit een afweging die vrijwel nergens genoemd wordt. Wil je puur zoveel mogelijk teruglevering wegwerken, dan is een dómme elektrische boiler daar beter in: die heeft 1.400 kWh nodig waar de warmtepompvariant met 636 kWh toekomt. Hij slokt dus meer dan het dubbele op.</p>
+    <p class="tekst na">Maar in de winter is er geen overschot, en dan kost diezelfde domme boiler je meer dan het dubbele aan stroom. Over het hele jaar wint de warmtepompboiler ruimschoots. Tenzij je een uitzonderlijk grote installatie hebt en écht alleen naar je terugleverkosten kijkt &mdash; dan is het het rekenen waard.</p>
+
+    <h2>Past het in jouw huis?</h2>
+    <p class="tekst">Dit is de vraag die de meeste mensen te laat stellen. Een warmtepompboiler heeft geen buitenunit &mdash; de warmtepomp zit bovenop het vat en haalt zijn warmte uit de lucht in de ruimte waar hij staat. Handig, want er hoeft niets door de gevel. Maar het stelt wel eisen:</p>
+
+    <div class="casus-grid" style="margin-bottom:2.5rem;">
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#EAF3DE;color:#3B6D11;">Ruimte</span>
+        <h3 style="font-size:17px;">Ongeveer 20 m&sup3;</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0.5rem 0 0;">Een kamer van pakweg drie bij drie. Is het kleiner, dan moet je ventilatieroosters plaatsen &mdash; één laag, één hoog.</p>
+      </div>
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#EAF3DE;color:#3B6D11;">Plek</span>
+        <h3 style="font-size:17px;">Garage, schuur of bijkeuken</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0.5rem 0 0;">Hij koelt de ruimte af en maakt geluid. Niet in de meterkast, niet naast een slaapkamer, en niet in een kamer die je met gas verwarmt.</p>
+      </div>
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#FEF3E2;color:#C07020;">Praktisch</span>
+        <h3 style="font-size:17px;">Condensafvoer en gewicht</h3>
+        <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin:0.5rem 0 0;">Er komt condenswater vrij dat weg moet. En tachtig liter water plus toestel is ruim honderd kilo &mdash; op een zoldervloer wil je daar bij stilstaan.</p>
+      </div>
+    </div>
+
+    <p class="tekst na">Eén ding om de verwachting eerlijk te houden: staat hij in een onverwarmde garage, dan is de lucht daar in januari koud en zakt het rendement. Het elektrische element neemt dan vaker over. Dat is geen ramp, maar het is niet het hele jaar even zuinig.</p>
+
+    <h2>Hoe werkt het samen met je CV?</h2>
+    <p class="tekst">Dat hangt af van wat er nu staat, en dit bepaalt of de klus eenvoudig of ingewikkeld wordt.</p>
+    <p class="tekst"><strong>Heb je een CV met een apart boilervat</strong>, dan is het simpel. Het oude vat eruit, de warmtepompboiler ervoor in de plaats. De CV verwarmt alleen nog je radiatoren.</p>
+    <p class="tekst"><strong>Heb je een combiketel</strong> &mdash; en dat geldt voor de meeste huizen &mdash; dan kan het op twee manieren. Je kunt de boiler het tapwater volledig laten overnemen, waarna de ketel alleen nog verwarmt. Technisch het eenvoudigst, maar is de tachtig liter op, dan duurt het even.</p>
+    <p class="tekst">Eleganter is voorschakelen: de boiler levert voorverwarmd water aan de koudwateringang van de ketel, die alleen nog bijverwarmt als het nodig is. Zo houd je onbeperkt warm water én komt het grootste deel van de warmte uit de warmtepomp.</p>
+    <p class="tekst na">Daar zit wel een addertje. Niet elke combiketel accepteert een warme inlaat. Ketels die "zonneboilergeschikt" zijn wel &mdash; die zijn er precies voor gebouwd. Oudere ketels kunnen slecht moduleren of afslaan. Kijk dat na in de handleiding van je eigen ketel voordat je iets bestelt.</p>
+
+    <h2>Waar je écht op moet letten bij de keuze</h2>
+    <p class="tekst">Niet op de app. Vrijwel elke fabrikant heeft er tegenwoordig een, maar de koppelingen naar huisautomatisering lopen bijna allemaal via de cloud van de fabrikant en zijn door vrijwilligers gebouwd. Werkt prima, tot een fabrikant zijn systeem wijzigt.</p>
+    <p class="tekst">Waar je wél op moet selecteren is een <strong>SG Ready&#8209; of PV&#8209;ingang</strong>: een potentiaalvrij contact op het toestel. Sluit je dat contact, dan gaat de boiler in "er is stroom over"-stand en verwarmt hij door tot een hogere temperatuur. Een relais van vijftien euro is genoeg om dat aan te sturen.</p>
+    <p class="tekst">Dat werkt lokaal, zonder internet, bij elk merk dat het contact heeft, en het gaat niet stuk als iemand een koppeling verandert. Vaillant documenteert het netjes; Daikin en Atlantic leveren ook toestellen met dat contact. Maar het verschilt per uitvoering, dus vertrouw niet op het merk.</p>
+    <p class="tekst na">De vraag die je aan je leverancier stelt is steeds dezelfde: <strong>"heeft dit toestel een SG Ready&#8209; of PV&#8209;contact, en op welke klemmen?"</strong> Is het antwoord ja, dan is het aan te sturen. Is het nee, dan blijft alleen een schakelaar in de voeding over &mdash; grover, en bij een warmtepomp niet ideaal omdat je hem midden in een cyclus afkapt.</p>
+
+    <h2>En let ook nog even op dit</h2>
+    <p class="tekst na">Je boiler draait periodiek een legionellacyclus naar een hogere temperatuur, met het elektrische element. Dat kost stroom, en het gebeurt ongeacht of de zon schijnt. Dat is niet iets om weg te automatiseren &mdash; het staat er om een reden.</p>
+
+    <h2>Wanneer het bij jou niks oplevert</h2>
+    <p class="tekst">Dit hoort erbij, want het gebeurt vaker dan verkopers toegeven.</p>
+    <p class="tekst">Is er overdag niemand thuis, gaat het warme water op gas, en is er geen airco of andere schakelbare belasting &mdash; dan is er zonder batterij weinig te sturen. Dan is het eerlijke antwoord dat je zonneoverschot gewoon het net op gaat en dat je daar een paar cent voor krijgt.</p>
+    <p class="tekst">En soms is er een goedkopere zet: kijk eerst wat je leverancier je aan terugleverkosten rekent. Het verschil tussen de duurste en de goedkoopste aanbieder loopt bij een normale teruglevering op tot tachtig euro per jaar. Overstappen kost je een middag en kan meer schelen dan welke installatie ook.</p>
+    <p class="tekst na">Overweeg je in plaats hiervan je omvormer terug te regelen? Dat is een ander verhaal, met een omslagpunt dat niet ligt waar de meeste mensen denken. Dat heb ik apart uitgezocht in <a href="terugleveren-negatieve-prijzen.html" style="color:var(--green);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(59,109,17,0.3);">moet je je zonnepanelen uitzetten bij negatieve prijzen?</a></p>
+
+    <div class="casus-kaart" style="max-width:680px;background:var(--green-light);border-color:rgba(99,153,34,0.35);margin-top:3rem;">
+      <h3 style="font-size:18px;">Kort samengevat</h3>
+      <div class="casus-items" style="margin-top:0.75rem;">
+        <div class="casus-item"><i class="ti ti-check"></i>Teruglevering brengt straks ongeveer 7 cent op, niet de helft van je tarief. Zelf gebruiken bespaart 29 cent.</div>
+        <div class="casus-item"><i class="ti ti-check"></i>Een vat van 200 liter slaat evenveel energie op als een thuisbatterij van 10 kWh.</div>
+        <div class="casus-item"><i class="ti ti-check"></i>Een warmtepompboiler vangt je overschot op én haalt je warm water van het gas af.</div>
+        <div class="casus-item"><i class="ti ti-check"></i>Controleer vooraf: ruimte, condensafvoer, en of je combiketel een warme inlaat aankan.</div>
+        <div class="casus-item"><i class="ti ti-check"></i>Kies op het SG Ready-contact, niet op de app.</div>
+        <div class="casus-item"><i class="ti ti-check"></i>Is er overdag niemand thuis en gaat warm water op gas? Dan valt er weinig te halen. Kijk dan eerst naar je leverancier.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="bronnen">
+    <p>
+      <strong>Bronnen en aannames:</strong> Wet vaste vergoeding kleinverbruikers, die per 1 januari 2027 een minimum van 50% van het kale leveringstarief vastlegt tot 1 januari 2030 &middot;
+      Vaillant en Zonnefabriek over het aansturen van SG Ready-contacten &middot;
+      handleidingen van fabrikanten over opstellingseisen en condensafvoer &middot;
+      RVO voor actuele ISDE-bedragen.
+      Gerekend is met een stroomtarief van &euro;0,29 per kWh, een gasprijs van &euro;1,35 per m&sup3;, een warmwaterbehoefte van 1.400 kWh per jaar en een rendement van 2,2 voor de warmtepompboiler.
+      Alle bedragen zijn indicatief en bedoeld om de verhoudingen te laten zien &mdash; reken het na met je eigen tarieven en verbruik, want daar zit het verschil.
+      Laatst bijgewerkt: 24 augustus 2026.
+    </p>
+  </div>
+
+  <section class="airco-blok" style="padding-top:2rem;">
+    <div class="airco-tag">Hulp nodig?</div>
+    <h2>Uitzoeken of het bij jou past?</h2>
+    <p>Of dit bij jou iets oplevert, hangt af van vier dingen: wie er overdag thuis is, hoe je nu je warme water maakt, hoeveel ruimte er is, en wat je leverancier rekent. Die vier lopen we in een gesprek langs. Levert het niks op, dan zeg ik dat &mdash; dat kost jou een half uur en scheelt je een miskoop.</p>
+    <div class="airco-cta">
+      <a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20zonnestroom%20opslaan%20zonder%20batterij." class="btn-groen-link" target="_blank" rel="noopener">Stuur een appje &#8594;</a>
+    </div>
+  </section>
+
+</div><!-- /.site -->
+
+<footer>
+    <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><span style="white-space:nowrap"><b>Th</b>uis<span style="color:var(--green-mid)"><b>Br</b>ein</span></span></a>
+    <div class="footer-links">
+      <a href="pricing.html">Prijzen</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:info@thuisbrein.nl">Contact</a>
+    </div>
+    <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
+</footer>
+
+<a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<script>
+(function(){
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('nav-mobile');
+  if (h && m) h.addEventListener('click', function(){ m.classList.toggle('open'); });
+})();
+</script>
+<script src="/cookie.js" defer></script>
+</body>
+</html>
