@@ -87,8 +87,8 @@
   } else {
     balk.innerHTML =
       '<p><strong>Geen tracking op deze site</strong><br>' +
-      'thuisbrein.nl gebruikt geen tracking-, analytics- of advertentiecookies. ' +
-      'Er wordt niets over je bijgehouden en er worden geen gegevens met adverteerders gedeeld. ' +
+      'thuisbrein.nl gebruikt geen tracking- of advertentiecookies. ' +
+      'Bezoekersaantallen worden anoniem geteld, zonder cookies en zonder je te volgen. ' +
       '<a href="' + PRIVACY_URL + '">Lees de privacyverklaring</a>.</p>' +
       '<div class="tb-knoppen">' +
         '<button type="button" class="tb-primair" data-keuze="gezien">Begrepen</button>' +
