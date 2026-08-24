@@ -12,7 +12,8 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root {
@@ -30,7 +31,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); }
+body { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; background: var(--white); color: var(--text); }
 
 /* ─── NAV ─── */
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
@@ -74,7 +75,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   transition: background 0.2s;
   white-space: nowrap;
 }
@@ -125,7 +126,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 /* ─── CTA PAKKET ─── */
 .pakket-cta { padding: 1.25rem 1.75rem 1.75rem; margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem; }
-.btn-pakket { display: block; width: 100%; text-align: center; padding: 13px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+.btn-pakket { display: block; width: 100%; text-align: center; padding: 13px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; transition: background 0.2s; }
 .btn-pakket-primary { background: var(--navy); color: white; }
 .btn-pakket-primary:hover { background: var(--navy-mid); }
 .btn-pakket-featured { background: var(--green-mid); color: white; }
@@ -134,7 +135,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .btn-pakket-outline:hover { border-color: rgba(26,43,60,0.3); }
 .totaal-tonen { font-size: 12px; color: var(--text-muted); text-align: center; min-height: 1.4em; }
 .totaal-tonen strong { color: var(--navy); font-weight: 500; }
-.btn-klein-advies { background: none; border: none; font-size: 12px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: underline; text-underline-offset: 3px; padding: 0; text-align: center; }
+.btn-klein-advies { background: none; border: none; font-size: 12px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; text-decoration: underline; text-underline-offset: 3px; padding: 0; text-align: center; }
 .btn-klein-advies:hover { color: var(--green); }
 
 /* ─── STAFFEL ─── */
@@ -213,7 +214,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .form-label { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; display: block; }
 .form-input {
   width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
-  font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text);
+  font-size: 14px; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; color: var(--text);
   background: var(--white); outline: none; transition: border-color 0.15s;
 }
 .form-input:focus { border-color: var(--green-mid); }
@@ -246,7 +247,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .btn-secundair {
   background: none; border: 1.5px solid var(--border); color: var(--navy);
   padding: 11px 20px; border-radius: 8px; font-size: 14px; font-weight: 500;
-  cursor: pointer; font-family: 'DM Sans', sans-serif; transition: border-color 0.2s;
+  cursor: pointer; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; transition: border-color 0.2s;
   width: 100%; margin-top: 0.5rem;
 }
 .btn-secundair:hover { border-color: rgba(26,43,60,0.3); }

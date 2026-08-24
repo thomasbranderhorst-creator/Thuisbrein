@@ -9,7 +9,8 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root {
@@ -19,7 +20,7 @@
   --white: #FFFFFF; --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); }
+body { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; background: var(--sand); color: var(--text); }
 
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); }
 .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
@@ -38,7 +39,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .veld label span { font-weight: 300; color: var(--text-muted); }
 .veld input[type=text], .veld input[type=email], .veld input[type=tel], .veld textarea, .veld select {
   width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px;
-  font-family: 'DM Sans', sans-serif; font-size: 14.5px; color: var(--text); background: var(--white);
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 14.5px; color: var(--text); background: var(--white);
 }
 .veld input:focus, .veld textarea:focus, .veld select:focus { outline: 2px solid rgba(99,153,34,0.35); border-color: var(--green-mid); }
 .veld textarea { min-height: 74px; resize: vertical; }
@@ -51,8 +52,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .foto-tip { background: var(--green-light); border: 1px solid rgba(99,153,34,0.3); border-radius: 10px; padding: 0.9rem 1.1rem; font-size: 13.5px; line-height: 1.6; margin-top: 0.9rem; }
 
 .verstuur { text-align: center; margin-top: 1.6rem; }
-.btn-wa { display: block; width: 100%; padding: 15px 28px; background: var(--whatsapp); color: white; border: none; border-radius: 10px; font-size: 15.5px; font-weight: 500; text-align: center; text-decoration: none; font-family: 'DM Sans', sans-serif; cursor: pointer; }
-.btn-mail { display: block; width: 100%; padding: 13px 28px; background: var(--white); color: var(--navy); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; text-decoration: none; margin-top: 0.7rem; font-family: 'DM Sans', sans-serif; cursor: pointer; }
+.btn-wa { display: block; width: 100%; padding: 15px 28px; background: var(--whatsapp); color: white; border: none; border-radius: 10px; font-size: 15.5px; font-weight: 500; text-align: center; text-decoration: none; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; cursor: pointer; }
+.btn-mail { display: block; width: 100%; padding: 13px 28px; background: var(--white); color: var(--navy); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-weight: 500; text-align: center; text-decoration: none; margin-top: 0.7rem; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; cursor: pointer; }
 .verstuur .privacy { font-size: 12px; color: var(--text-muted); margin-top: 0.9rem; line-height: 1.6; }
 .verstuur .privacy a { color: var(--green); }
 .fout { display: none; background: #FBEAEA; border: 1px solid rgba(180,40,40,0.25); color: #8C2B2B; border-radius: 9px; padding: 0.8rem 1rem; font-size: 13.5px; margin-bottom: 0.9rem; }
