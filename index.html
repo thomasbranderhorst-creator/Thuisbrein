@@ -401,6 +401,14 @@ footer { flex-direction: column; align-items: flex-start; }
     .prob-card .prob-icon { width: 52px; height: 52px; }
     .prob-card .prob-icon i { font-size: 26px; }
     #diensten { padding-top: 4.5rem; }
+
+    .werkstrook { padding: 4.5rem 2rem; background: var(--white); }
+    .werkstrook .inner { max-width: 1100px; margin: 0 auto; }
+    .werk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.1rem; }
+    .werk-grid figure { margin: 0; }
+    .werk-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); display: block; }
+    .werk-grid figcaption { font-size: 13px; color: var(--text-muted); margin-top: 0.6rem; line-height: 1.5; }
+    @media (max-width: 640px) { .werk-grid img { height: 240px; } .werkstrook { padding: 3rem 1.25rem; } }
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -520,10 +528,10 @@ footer { flex-direction: column; align-items: flex-start; }
 </div>
 <div class="hero-visual">
   <figure class="hero-foto">
-    <img src="case-dashboard.jpg"
-         alt="Dashboard van een woning: CV-thermostaat, drie airco's, camera, verlichting en temperatuur per ruimte in één scherm"
-         width="1500" height="1129" fetchpriority="high" decoding="async">
-    <figcaption>Een woning waarin CV, drie airco's, zonnepanelen, batterij, verlichting en camera samenkomen in één scherm.</figcaption>
+    <img src="hero-dak.jpg"
+         alt="Plat dak vol zonnepanelen met daartussen de buitenunit van een airco"
+         width="1500" height="900" fetchpriority="high" decoding="async">
+    <figcaption>Zonnepanelen en een airco op hetzelfde dak. Of ze samenwerken of langs elkaar heen draaien, is een kwestie van instellen.</figcaption>
   </figure>
 </div>
 </div>
@@ -553,6 +561,19 @@ footer { flex-direction: column; align-items: flex-start; }
 <p>Ik regel het van begin tot eind. Wil je het liever zelf doen, dan help ik je op weg met een plan — dat mag ook.</p>
 </div>
 </div>
+</div></section>
+
+<section class="werkstrook"><div class="inner">
+<div class="section-label">In het echt</div>
+<div class="section-title">Dit is het werk.</div>
+<p style="font-size:16px;line-height:1.75;color:#5F6E7A;max-width:640px;margin:-0.5rem 0 2.2rem;">Geen voorraadfoto's van een hand met een tablet. Dit staat er echt, en het is aangesloten.</p>
+<div class="werk-grid">
+  <figure><img src="werk-meterkast.jpg" alt="Meterkast met groepenkast, slimme meter en aangesloten P1-uitlezing" width="1000" height="1334" loading="lazy"><figcaption>Meterkast met slimme meter en P1-uitlezing</figcaption></figure>
+  <figure><img src="werk-batterij.jpg" alt="Thuisbatterij gemonteerd tegen een buitenmuur" width="1100" height="1467" loading="lazy"><figcaption>Thuisbatterij aan de gevel</figcaption></figure>
+  <figure><img src="werk-p1meter.jpg" alt="P1-meter aangesloten op de slimme meter" width="1000" height="1334" loading="lazy"><figcaption>De P1-meter die het verbruik uitleest</figcaption></figure>
+  <figure><img src="werk-cv.jpg" alt="CV-ketel met bediening" width="1100" height="1467" loading="lazy"><figcaption>De cv-ketel die met de airco moet samenwerken</figcaption></figure>
+</div>
+<p style="font-size:14px;color:#5F6E7A;margin-top:1.6rem;">En zo ziet het er daarna uit in één scherm: <a href="case-eigen-huis.html" style="color:var(--green);font-weight:500;text-decoration:none;">bekijk de case <i class="ti ti-arrow-right" aria-hidden="true"></i></a></p>
 </div></section>
 
 <section class="problemen positie-sectie" style="background:var(--sand);"><div class="inner">
