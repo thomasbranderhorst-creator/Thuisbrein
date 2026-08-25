@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Systemen &amp; merken — ThuisBrein</title>
-<meta name="description" content="Met welke systemen en merken kan ik werken? Mijn voorkeursmerken, plus hoe het zit met alles wat daarbuiten valt — want merkonafhankelijk betekent ook: jouw spullen.">
+<title>HEMS, systemen &amp; merken — ThuisBrein</title>
+<meta name="description" content="Wat is een HEMS, en waarom zit die van de fabrikant vaak vast aan één merk? Uitleg over energiemanagement, plus de systemen en merken waar ik mee werk.">
 <meta property="og:title" content="Systemen &amp; merken — ThuisBrein">
 <meta property="og:description" content="Home Assistant, Plugwise, Shelly, Aqara en HomeWizard: de merken waar ik het liefst mee werk. Een voorkeur, geen voorwaarde.">
 <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=optional" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 :root {
@@ -53,7 +53,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 /* ─── HERO ─── */
 .hero { background: var(--sand); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--border); }
 .hero-eyebrow { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 1.1rem; }
-.hero h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; color: var(--navy); letter-spacing: -0.5px; }
+.hero h1 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; color: var(--navy); letter-spacing: -0.28px; }
 .hero h1 em { font-style: italic; color: var(--green); }
 .hero-sub { max-width: 640px; margin: 1.3rem auto 0; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--text-muted); }
 
@@ -71,7 +71,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .cat-icoon { width: 44px; height: 44px; border-radius: 12px; background: var(--green-light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .cat-icoon i { font-size: 22px; color: var(--green); }
 .cat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); font-weight: 500; margin-bottom: 0.4rem; }
-.cat-kop h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 25px; color: var(--navy); letter-spacing: -0.3px; line-height: 1.25; }
+.cat-kop h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 25px; color: var(--navy); letter-spacing: -0.17px; line-height: 1.25; }
 .cat-kop .cat-intro { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--text-muted); margin-top: 0.6rem; max-width: 620px; }
 
 .producten { padding: 1.4rem 2rem 0.6rem; display: flex; flex-direction: column; gap: 0.8rem; }
@@ -93,7 +93,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 /* ─── CTA ─── */
 .cta-sectie { text-align: center; padding: 3.5rem 2rem 4.5rem; }
-.cta-sectie h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 4vw, 36px); color: var(--navy); letter-spacing: -0.4px; }
+.cta-sectie h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: clamp(26px, 4vw, 36px); color: var(--navy); letter-spacing: -0.22px; }
 .cta-sectie p { font-size: 15px; font-weight: 300; color: var(--text-muted); margin-top: 0.8rem; }
 .cta-knoppen { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 1.8rem; }
 .btn { display: inline-block; text-decoration: none; font-size: 14px; font-weight: 500; padding: 13px 26px; border-radius: 8px; transition: transform .2s ease, box-shadow .2s ease; }
@@ -157,6 +157,47 @@ footer p { font-size: 12px; color: var(--text-muted); }
   <div class="hero-eyebrow">Systemen &amp; merken</div>
   <h1>Waar ik mee werk &mdash;<br><em>en wat daarbuiten kan</em></h1>
   <p class="hero-sub">ThuisBrein werkt het liefst met de merken op deze pagina: ze zijn zelf getest, ze werken lokaal en de installatie verloopt er soepel mee. Maar ThuisBrein is merkonafhankelijk — heb je al iets anders in huis, of wil je liever een ander merk, dan is dat prima. Bij de intake wordt gekeken wat er met jouw apparatuur mogelijk is.</p>
+</section>
+
+
+<section class="categorieen" style="padding-bottom:0;">
+  <div class="categorie">
+    <div class="cat-kop">
+      <div class="cat-icoon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+      <div>
+        <div class="cat-label">Het begrip</div>
+        <h2>HEMS &mdash; waar dat woord voor staat</h2>
+        <p class="cat-intro">HEMS staat voor Home Energy Management System: het systeem dat de energiestromen in je huis meet, er keuzes over maakt en apparaten aanstuurt. Zon, batterij, laadpaal, warmtepomp. Het is een <b>functie</b>, geen merk &mdash; net zoals "cv-installatie" geen merk is.</p>
+      </div>
+    </div>
+    <div class="producten">
+      <div class="product">
+        <i class="ti ti-lock" aria-hidden="true"></i>
+        <div>
+          <h3>Elke fabrikant heeft er een</h3>
+          <p>Omvormer- en batterijmerken leveren allemaal hun eigen HEMS mee. Die werken vaak uitstekend &mdash; zolang alles van datzelfde merk is. Wordt het een mix, dan houdt het meestal op.</p>
+        </div>
+      </div>
+      <div class="product">
+        <i class="ti ti-affiliate" aria-hidden="true"></i>
+        <div>
+          <h3>Wat ik bouw</h3>
+          <p>Een HEMS die niet aan één merk vastzit. Meestal op Home Assistant, soms op iets anders. Zon, batterij, airco en verwarming van verschillende fabrikanten, aangestuurd vanaf één plek.</p>
+        </div>
+      </div>
+      <div class="product">
+        <i class="ti ti-plus" aria-hidden="true"></i>
+        <div>
+          <h3>En wat een gewone HEMS laat liggen</h3>
+          <p>Een energie-HEMS stopt bij energie. Je verlichting, je camera, je airco als airco &mdash; dat valt erbuiten. Bij ons zit het in hetzelfde scherm, want het draait toch al.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cat-waarom">
+      <i class="ti ti-info-circle" aria-hidden="true"></i>
+      <p><b>Home Assistant is uit zichzelf geen HEMS.</b> Het is een platform dat laat zien wat er gebeurt; het optimaliseert pas iets als iemand het inricht. Dat inrichten is precies het werk.</p>
+    </div>
+  </div>
 </section>
 
 <section class="principes">

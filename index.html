@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ThuisBrein — advies en installatie voor je energiesystemen</title>
-<meta name="description" content="Zonnepanelen, batterij, verwarming en airco die niets van elkaar weten? Ik help je uitzoeken wat er in jouw huis slim is om te doen — en regel het daarna ook. Gratis intake.">
+<meta name="description" content="Zonnepanelen, batterij, verwarming en airco die niets van elkaar weten? Ik bouw een HEMS die niet aan één merk vastzit — advies, techniekkeuze en installatie. Gratis intake.">
 <meta property="og:title" content="ThuisBrein — haal je eruit wat erin zit?">
 <meta property="og:description" content="Advies over wat er in jouw woning slim is, de juiste techniek kiezen, en installeren. Van iemand die niet aan één merk vastzit.">
 <meta property="og:type" content="website">
@@ -57,7 +57,9 @@
     "Terugleverkosten en terugleververgoeding",
     "Thuisbatterij aansturen",
     "Airco en CV op elkaar afstemmen",
-    "Home Assistant installatie"
+    "Home Assistant installatie",
+    "HEMS: Home Energy Management System",
+    "Merkonafhankelijk energiemanagement"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -98,7 +100,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=optional" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -127,7 +129,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .nav-mobile.open { display: flex; }
 .hero { padding: 5rem 2rem 4rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 60px; align-items: center; }
 .hero-tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.5rem; }
-.hero h1 { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 300; line-height: 1.1; color: var(--navy); letter-spacing: -2px; max-width: 680px; margin-bottom: 1.25rem; }
+.hero h1 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 56px; font-weight: 700; line-height: 1.1; color: var(--navy); letter-spacing: -1.10px; max-width: 680px; margin-bottom: 1.25rem; }
 .hero h1 em { font-style: italic; color: var(--green-mid); }
 .hero-sub { font-size: 17px; color: var(--text-muted); line-height: 1.75; max-width: 520px; margin-bottom: 2.25rem; font-weight: 300; }
 .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -141,13 +143,13 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .stamp span { font-size: 13px; color: var(--text-muted); }
 section { padding: 5rem 2rem; }
 .section-label { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
-.section-title { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 300; color: var(--navy); letter-spacing: -1px; line-height: 1.2; margin-bottom: 1rem; }
+.section-title { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 36px; font-weight: 700; color: var(--navy); letter-spacing: -0.55px; line-height: 1.2; margin-bottom: 1rem; }
 .section-body { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 520px; }
 .saldering-sectie { background: #1A2B3C; border-top: 3px solid #E0A93C; }
 .saldering-sectie .inner { padding: 3rem 2rem; }
 .saldering-tag { display: inline-block; background: #E0A93C; color: #1A2B3C; font-size: 11px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
 .saldering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-.saldering-grid h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: white; letter-spacing: -0.8px; line-height: 1.2; margin-bottom: 1rem; }
+.saldering-grid h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 32px; font-weight: 700; color: white; letter-spacing: -0.44px; line-height: 1.2; margin-bottom: 1rem; }
 .saldering-grid h2 em { color: #E0A93C; font-style: italic; }
 .saldering-grid p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 300; }
 .saldering-cta { display: inline-flex; align-items: center; gap: 8px; background: #E0A93C; color: #1A2B3C; padding: 12px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
@@ -252,7 +254,7 @@ section { padding: 5rem 2rem; }
 .filosofie { background: var(--navy); }
 .filosofie .inner { padding: 5rem 2rem; }
 .filosofie-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-.filosofie-intro { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 300; color: white; letter-spacing: -1px; line-height: 1.2; margin-bottom: 1.5rem; }
+.filosofie-intro { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 36px; font-weight: 700; color: white; letter-spacing: -0.55px; line-height: 1.2; margin-bottom: 1.5rem; }
 .filosofie-intro em { color: #97C459; font-style: italic; }
 .filosofie-sub { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; }
 .filosofie-items { display: flex; flex-direction: column; gap: 0; }
@@ -275,7 +277,7 @@ section { padding: 5rem 2rem; }
 .over-tag { font-size: 12px; color: var(--green); background: var(--green-light); padding: 4px 12px; border-radius: 20px; font-weight: 500; }
 .contact-slot { background: var(--navy); padding: 5rem 2rem; }
 .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 900px; }
-.contact-left h2 { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 300; color: white; letter-spacing: -1px; margin-bottom: 1rem; line-height: 1.2; }
+.contact-left h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 38px; font-weight: 700; color: white; letter-spacing: -0.55px; margin-bottom: 1rem; line-height: 1.2; }
 .contact-left p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 2rem; }
 .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: var(--whatsapp); color: white; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
 .btn-whatsapp:hover { opacity: 0.9; }
@@ -374,7 +376,7 @@ footer { flex-direction: column; align-items: flex-start; }
 .wizard-cta-inner span span { font-size: 13px; color: var(--text-muted); }
 .wizard-cta-arrow { font-size: 24px; color: var(--green-mid); flex-shrink: 0; }
 .netwerk-banner { margin-top: 2rem; background: var(--navy); border-radius: 14px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.netwerk-banner-left h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: white; letter-spacing: -0.5px; margin: 0.5rem 0 0.75rem; }
+.netwerk-banner-left h3 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: 700; color: white; letter-spacing: -0.28px; margin: 0.5rem 0 0.75rem; }
 .netwerk-banner-left p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 480px; }
 .netwerk-banner-tag { display: inline-block; background: var(--green-mid); color: white; font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; }
 .netwerk-banner-cta { background: white; color: var(--navy); padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; white-space: nowrap; transition: opacity 0.2s; flex-shrink: 0; }
@@ -387,6 +389,18 @@ footer { flex-direction: column; align-items: flex-start; }
 .regio-services { font-size: 11px; color: var(--text-muted); opacity: 0.7; line-height: 1.8; }
     /* Ruimte voor icoontjes vooraf reserveren (voorkomt verspringen bij laden) */
     .ti { display: inline-block; width: 1em; height: 1em; line-height: 1; text-align: center; font-style: normal; }
+
+    .hero-foto { margin: 0; }
+    .hero-foto img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 18px 44px rgba(26,43,60,0.13); }
+    .hero-foto figcaption { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-top: 0.9rem; max-width: 460px; }
+    .uitleg-sectie { padding: 4.5rem 2rem; background: var(--sand); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .uitleg-sectie .inner { max-width: 1100px; margin: 0 auto; }
+    .uitleg-visual { display: flex; justify-content: center; }
+    .uitleg-visual .hv-card { max-width: 420px; width: 100%; }
+
+    .prob-card .prob-icon { width: 52px; height: 52px; }
+    .prob-card .prob-icon i { font-size: 26px; }
+    #diensten { padding-top: 4.5rem; }
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -493,7 +507,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <div class="hero-content">
 <div class="hero-tag">Je hebt zonnepanelen, een airco, misschien een batterij.</div>
 <h1>Haal je eruit<br><em>wat erin zit?</em></h1>
-<p class="hero-sub">Ik help je uitzoeken wat er in jouw huis slim is om te doen — en regel het daarna ook. Advies, de juiste techniek kiezen, en installeren. Van iemand die niet aan één merk vastzit.</p>
+<p class="hero-sub">Ik help je uitzoeken wat er in jouw huis slim is om te doen — en regel het daarna ook. Advies, de juiste techniek kiezen, en installeren. Een energiemanagementsysteem dat niet aan één merk vastzit.</p>
 <div class="hero-btns">
 <a href="#contact" class="btn-primary">Plan een gratis intake</a>
 <a href="#diensten" class="btn-secondary">Wat ik voor je kan doen</a>
@@ -505,6 +519,73 @@ footer { flex-direction: column; align-items: flex-start; }
 </div>
 </div>
 <div class="hero-visual">
+  <figure class="hero-foto">
+    <img src="case-dashboard.jpg"
+         alt="Dashboard van een woning: CV-thermostaat, drie airco's, camera, verlichting en temperatuur per ruimte in één scherm"
+         width="1500" height="1129" fetchpriority="high" decoding="async">
+    <figcaption>Een woning waarin CV, drie airco's, zonnepanelen, batterij, verlichting en camera samenkomen in één scherm.</figcaption>
+  </figure>
+</div>
+</div>
+<section class="problemen" id="diensten" style="background:#FFFFFF;"><div class="inner">
+<div class="section-label">Wat ik voor je kan doen</div>
+<div class="section-title">Losse systemen<br>bij elkaar brengen.</div>
+<p style="font-size:16px;line-height:1.75;color:#5F6E7A;max-width:640px;margin:-0.5rem 0 2.5rem;">Dat is waar het bij mij om draait: zorgen dat de techniek in je huis samenwerkt in plaats van naast elkaar bestaat. Waar dat begint verschilt per woning — soms bij advies, soms bij een installatie, soms bij het opruimen van wat er al ligt.</p>
+<div class="prob-grid">
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-message-circle-search" aria-hidden="true"></i></div>
+<h3>Advies</h3>
+<p>Wat is er in jouw huis slim om te doen, en in welke volgorde? Ook als het antwoord "voorlopig nog even niets" is — dan heb je dat ook helder.</p>
+</div>
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-list-check" aria-hidden="true"></i></div>
+<h3>De juiste techniek kiezen</h3>
+<p>Welke apparatuur past bij wat je al hebt, en werkt straks nog met de rest? Minstens zo belangrijk: wat je níét hoeft te kopen.</p>
+</div>
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-affiliate" aria-hidden="true"></i></div>
+<h3>Samenbrengen</h3>
+<p>Systemen van verschillende merken laten samenwerken en bedienbaar maken vanaf één plek. Dit is waar ik het meeste plezier in heb, en waar de meeste winst zit.</p>
+</div>
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+<h3>Installeren</h3>
+<p>Ik regel het van begin tot eind. Wil je het liever zelf doen, dan help ik je op weg met een plan — dat mag ook.</p>
+</div>
+</div>
+</div></section>
+
+<section class="problemen positie-sectie" style="background:var(--sand);"><div class="inner">
+<div class="section-label">Waar ik anders in zit</div>
+<div class="section-title">Iedereen zegt batterij.<br>Vaak is dat niet het antwoord.</div>
+<p style="font-size:16px;line-height:1.75;color:#5F6E7A;max-width:660px;margin:-0.5rem 0 2.5rem;">Nu de saldering stopt, wijst bijna iedereen dezelfde kant op: een thuisbatterij. Soms klopt dat. Maar voor veel woningen zijn er manieren om je eigen stroom te gebruiken die een fractie kosten &mdash; en die vrijwel nergens genoemd worden, omdat er weinig aan te verdienen valt.</p>
+<div class="prob-grid">
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-battery-3" aria-hidden="true"></i></div>
+<h3>Wat een batterij kost</h3>
+<p>Een thuisbatterij van 10 kWh ligt al gauw rond de zesduizend euro, en doet één ding: overschot opvangen en later teruggeven.</p>
+</div>
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+<h3>Wat het alternatief doet</h3>
+<p>Een watervat van 200 liter slaat evenveel energie op als die batterij &mdash; als warmte. En een airco die op het juiste moment aanslaat, gebruikt je zon zonder dat je iets opslaat.</p>
+</div>
+<div class="prob-card">
+<div class="prob-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+<h3>Wanneer een batterij wél klopt</h3>
+<p>Bij een groot dak, een dynamisch contract of een laadpaal kan het wel degelijk uitkomen. Dan zeg ik dat gewoon &mdash; ik verkoop ze niet, dus ik hoef je nergens heen te praten.</p>
+</div>
+</div>
+<div style="margin-top:1.8rem;">
+<a href="zonnestroom-opslaan-zonder-batterij.html" style="font-size:15px;color:var(--green);font-weight:500;text-decoration:none;">Lees hoe je zonnestroom opslaat zonder batterij <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+</div>
+</div></section>
+
+<section class="uitleg-sectie"><div class="inner">
+<p class="section-label">Hoe het werkt</p>
+<div class="section-title">Een dag in huis,<br>van zon tot avond.</div>
+<p class="section-body" style="margin-bottom:2rem;">Zon, batterij en verbruikers wisselen elkaar de hele dag af. Een energiemanagementsysteem &mdash; ook wel HEMS &mdash; zorgt dat ze op elkaar reageren in plaats van langs elkaar heen te werken.</p>
+<div class="uitleg-visual">
 <div class="hv-card">
 <div class="hv-phase-row">
 <span class="hv-phase-dot" id="tb-phase-dot"></span>
@@ -591,7 +672,7 @@ footer { flex-direction: column; align-items: flex-start; }
 <p class="hv-caption">Zon, batterij en verbruikers wisselen de hele dag af. De kunst is ze op elkaar te laten reageren.</p>
 </div>
 </div>
-</div>
+</div></section>
 <section class="saldering-sectie">
 <div class="inner">
   <div class="saldering-grid">
@@ -649,33 +730,7 @@ footer { flex-direction: column; align-items: flex-start; }
 </div>
 </div></section>
 
-<section class="problemen" id="diensten" style="background:#FFFFFF;"><div class="inner">
-<div class="section-label">Wat ik voor je kan doen</div>
-<div class="section-title">Losse systemen<br>bij elkaar brengen.</div>
-<p style="font-size:16px;line-height:1.75;color:#5F6E7A;max-width:640px;margin:-0.5rem 0 2.5rem;">Dat is waar het bij mij om draait: zorgen dat de techniek in je huis samenwerkt in plaats van naast elkaar bestaat. Waar dat begint verschilt per woning — soms bij advies, soms bij een installatie, soms bij het opruimen van wat er al ligt.</p>
-<div class="prob-grid">
-<div class="prob-card">
-<div class="prob-icon"><i class="ti ti-message-circle-search" aria-hidden="true"></i></div>
-<h3>Advies</h3>
-<p>Wat is er in jouw huis slim om te doen, en in welke volgorde? Ook als het antwoord "voorlopig nog even niets" is — dan heb je dat ook helder.</p>
-</div>
-<div class="prob-card">
-<div class="prob-icon"><i class="ti ti-list-check" aria-hidden="true"></i></div>
-<h3>De juiste techniek kiezen</h3>
-<p>Welke apparatuur past bij wat je al hebt, en werkt straks nog met de rest? Minstens zo belangrijk: wat je níét hoeft te kopen.</p>
-</div>
-<div class="prob-card">
-<div class="prob-icon"><i class="ti ti-affiliate" aria-hidden="true"></i></div>
-<h3>Samenbrengen</h3>
-<p>Systemen van verschillende merken laten samenwerken en bedienbaar maken vanaf één plek. Dit is waar ik het meeste plezier in heb, en waar de meeste winst zit.</p>
-</div>
-<div class="prob-card">
-<div class="prob-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
-<h3>Installeren</h3>
-<p>Ik regel het van begin tot eind. Wil je het liever zelf doen, dan help ik je op weg met een plan — dat mag ook.</p>
-</div>
-</div>
-</div></section>
+
 
 
 <section class="problemen" style="background:#F5F0E8;"><div class="inner">
