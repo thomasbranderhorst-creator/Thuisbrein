@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zo werkt het: doorlichting of uitvoering — ThuisBrein</title>
-<meta name="description" content="Twee routes: een energiedoorlichting van 195 euro als je eerst wilt weten wat zin heeft, of een gratis intake en offerte als je het wilt laten uitvoeren.">
+<meta name="description" content="Het begint met een gratis kennismaking. Daarna volgt een offerte als je weet wat je wilt, of een energiedoorlichting van 195 euro als dat juist de vraag is.">
 <meta property="og:title" content="Zo werkt het — Thuisbrein">
 <meta property="og:description" content="Van eerste vraag tot werkend geheel. Zo gaat het in z'n werk bij ThuisBrein — in vier stappen.">
 <meta property="og:type" content="website">
@@ -153,6 +153,17 @@ footer p { font-size: 12px; color: var(--text-muted); }
     .route-lijst i { color: var(--green-mid); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
     .route-knop { margin-top: auto; font-size: 14px; font-weight: 500; color: var(--green); text-decoration: none; }
     .reis-kop { font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 1.6rem; }
+
+    .routes-inner-1 { display: flex; flex-direction: column; gap: 1.2rem; }
+    .instap { background: var(--navy); border-radius: 16px; padding: 1.9rem; color: #fff; }
+    .instap .route-label { color: #E0A93C; }
+    .instap h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 24px; color: #fff; letter-spacing: -0.4px; margin-bottom: 0.6rem; }
+    .instap p { font-size: 14.5px; line-height: 1.7; color: rgba(255,255,255,0.78); max-width: 640px; margin-bottom: 1.1rem; }
+    .instap .route-knop { color: #E0A93C; }
+    .uitkomst-pijl { text-align: center; font-size: 13px; color: var(--text-muted); letter-spacing: 0.3px; }
+    .uitkomst-pijl i { color: var(--green-mid); margin-right: 4px; }
+    .routes-noot { font-size: 14px; line-height: 1.7; color: var(--text-muted); background: var(--sand); border-left: 3px solid var(--green-mid); padding: 0.9rem 1.2rem; border-radius: 0 8px 8px 0; }
+    .routes-noot strong { color: var(--navy); font-weight: 500; }
 </style>
 <link rel="canonical" href="https://thuisbrein.nl/werkwijze.html">
 <meta property="og:image" content="https://thuisbrein.nl/og-image.png">
@@ -191,7 +202,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
 <section class="hero">
   <div class="hero-eyebrow">Zo gaat het in z'n werk</div>
   <h1>Van eerste vraag<br><em>tot werkend geheel.</em></h1>
-  <p class="hero-sub">Er zijn twee manieren om te beginnen. Weet je nog niet wát er in jouw huis zin heeft, dan start je met een doorlichting. Weet je dat al en wil je het laten uitvoeren, dan begint het met een gratis intake. Hieronder allebei de routes.</p>
+  <p class="hero-sub">Het begint altijd hetzelfde: een gratis kennismaking van een kwartier. Wat daarna komt hangt af van wat je nodig hebt — een offerte als je al weet wat je wilt, of een doorlichting als dat juist de vraag is.</p>
   <div class="hero-feiten">
     <div class="feit"><div class="feit-getal"><b>Gratis</b></div><div class="feit-label">de intake, en je zit nergens aan vast</div></div>
     <div class="feit"><div class="feit-getal"><b>1 prijs</b></div><div class="feit-label">vooraf afgesproken, geen uurtjes achteraf</div></div>
@@ -199,37 +210,48 @@ footer p { font-size: 12px; color: var(--text-muted); }
   </div>
 </section>
 
-<section class="routes"><div class="routes-inner">
-  <div class="route-kaart">
-    <div class="route-label">Route A &middot; eerst weten</div>
-    <h2>De Energiedoorlichting</h2>
-    <p>Je weet dat er iets moet, maar niet wat. Je krijgt een doorrekening op je eigen tarieven, met drie tot vijf maatregelen op volgorde &mdash; en het eerlijke antwoord als er weinig te halen valt.</p>
-    <div class="route-prijs">&euro;195 <span>eenmalig &middot; op afstand</span></div>
-    <ul class="route-lijst">
-      <li><i class="ti ti-check"></i>Formulier invullen, inclusief je tarievenblad</li>
-      <li><i class="ti ti-check"></i>Videocall van een half uur</li>
-      <li><i class="ti ti-check"></i>Schriftelijk rapport binnen een week</li>
-      <li><i class="ti ti-check"></i>Laat je het daarna uitvoeren? Dan gaat de helft eraf</li>
-    </ul>
-    <a class="route-knop" href="pricing.html">Wat er precies in zit <i class="ti ti-arrow-right"></i></a>
+<section class="routes"><div class="routes-inner-1">
+  <div class="instap">
+    <div class="route-label">Stap 1 &middot; voor iedereen</div>
+    <h2>Een gratis kennismaking van een kwartier</h2>
+    <p>Je vertelt wat er in je huis staat en waar je tegenaan loopt. Ik zeg of ik je kan helpen, en zo ja: hoe. Geen verkooppraatje, geen verplichting. Blijkt dat er bij jou weinig te halen valt, dan hoor je dat hier &mdash; dat scheelt ons allebei tijd.</p>
+    <a class="route-knop" href="intake.html">Vul het formulier in <i class="ti ti-arrow-right"></i></a>
   </div>
-  <div class="route-kaart route-kaart-alt">
-    <div class="route-label">Route B &middot; laten uitvoeren</div>
-    <h2>Intake en offerte</h2>
-    <p>Je weet al wat je wilt, of je hebt de doorlichting al gehad. Dan gaat het over uitvoering: wat er gekoppeld wordt, wat het kost, en wanneer het klaar is.</p>
-    <div class="route-prijs">Gratis <span>de intake, en je zit nergens aan vast</span></div>
-    <ul class="route-lijst">
-      <li><i class="ti ti-check"></i>Formulier en een videocall van een kwartier</li>
-      <li><i class="ti ti-check"></i>Offerte met &eacute;&eacute;n vaste prijs</li>
-      <li><i class="ti ti-check"></i>Pas na jouw akkoord gebeurt er iets</li>
-      <li><i class="ti ti-check"></i>De vier stappen hieronder</li>
-    </ul>
-    <a class="route-knop" href="intake.html">Naar het formulier <i class="ti ti-arrow-right"></i></a>
+
+  <div class="uitkomst-pijl"><i class="ti ti-arrow-down"></i> Daarna is er een van twee dingen aan de hand</div>
+
+  <div class="routes-inner">
+    <div class="route-kaart route-kaart-alt">
+      <div class="route-label">Je weet al wat je wilt</div>
+      <h2>Dan krijg je een offerte</h2>
+      <p>Je hebt een concrete wens &mdash; die airco koppelen aan de thermostaat, alles in &eacute;&eacute;n app. Dan hoeft er niets uitgezocht te worden over of het zin heeft; dan gaat het over uitvoering.</p>
+      <div class="route-prijs">&Eacute;&eacute;n vaste prijs <span>vooraf afgesproken, geen uurtjes achteraf</span></div>
+      <ul class="route-lijst">
+        <li><i class="ti ti-check"></i>Wat er gekoppeld wordt en wat het kost</li>
+        <li><i class="ti ti-check"></i>Pas na jouw akkoord gebeurt er iets</li>
+        <li><i class="ti ti-check"></i>De vier stappen hieronder</li>
+      </ul>
+    </div>
+    <div class="route-kaart">
+      <div class="route-label">Je weet nog niet wat verstandig is</div>
+      <h2>Dan is de doorlichting de stap</h2>
+      <p>Je weet dat er iets moet, maar niet wat. Batterij of niet, airco of cv, overstappen of blijven. Dat is uitzoekwerk &mdash; en dat is waar je voor betaalt, niet de uitvoering.</p>
+      <div class="route-prijs">&euro;195 <span>eenmalig &middot; op afstand &middot; &euro;95 erbij op locatie</span></div>
+      <ul class="route-lijst">
+        <li><i class="ti ti-check"></i>Doorgerekend op jouw eigen tarieven</li>
+        <li><i class="ti ti-check"></i>Drie tot vijf maatregelen, op volgorde</li>
+        <li><i class="ti ti-check"></i>Schriftelijk rapport binnen een week</li>
+        <li><i class="ti ti-check"></i>Laat je het daarna uitvoeren? Dan gaat de helft eraf</li>
+      </ul>
+      <a class="route-knop" href="pricing.html">Wat er precies in zit <i class="ti ti-arrow-right"></i></a>
+    </div>
   </div>
+
+  <p class="routes-noot"><strong>Het verschil in &eacute;&eacute;n zin:</strong> in de kennismaking hoor je wat iets kost, in de doorlichting hoor je of het de moeite waard is.</p>
 </div></section>
 
 <section class="reis">
-  <div class="reis-kop">De vier stappen van route B, van intake tot opgeleverd</div>
+  <div class="reis-kop">Laat je het uitvoeren? Dan gaat het zo</div>
 
   <div class="fase card">
     <div class="fase-nummer">1</div>
