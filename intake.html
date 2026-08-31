@@ -132,6 +132,60 @@ footer p { font-size: 12px; color: var(--text-muted); }
   </div>
 
   <div class="blok">
+    <h2>Je contract en verbruik</h2>
+    <div class="blok-sub">Zonder deze gegevens kan er niet gerekend worden. Ze staan allemaal op twee documenten die je al hebt: je tarievenblad en je jaarafrekening.</div>
+    <div class="twee">
+      <div class="veld"><label for="leverancier">Energieleverancier</label>
+        <input id="leverancier" placeholder="bijv. Essent, Vandebron, Tibber">
+      </div>
+      <div class="veld"><label for="contractsoort">Soort contract</label>
+        <select id="contractsoort"><option value="">Weet ik niet</option><option>Vast</option><option>Variabel</option><option>Dynamisch</option></select>
+      </div>
+    </div>
+    <div class="twee">
+      <div class="veld"><label for="stroomprijs">Stroomprijs per kWh <span>(all-in, incl. btw)</span></label>
+        <input id="stroomprijs" placeholder="bijv. 0,29">
+      </div>
+      <div class="veld"><label for="gasprijs">Gasprijs per m&sup3; <span>(all-in, incl. btw)</span></label>
+        <input id="gasprijs" placeholder="bijv. 1,36">
+      </div>
+    </div>
+    <div class="twee">
+      <div class="veld"><label for="verbruik">Stroomverbruik per jaar <span>(kWh)</span></label>
+        <input id="verbruik" placeholder="staat op je jaarafrekening">
+      </div>
+      <div class="veld"><label for="teruglevering">Teruglevering per jaar <span>(kWh)</span></label>
+        <input id="teruglevering" placeholder="staat op je jaarafrekening">
+      </div>
+    </div>
+    <div class="twee">
+      <div class="veld"><label for="gasverbruik">Gasverbruik per jaar <span>(m&sup3;)</span></label>
+        <input id="gasverbruik" placeholder="bijv. 1100">
+      </div>
+      <div class="veld"><label for="terugleverkosten">Terugleverkosten <span>(als je ze weet)</span></label>
+        <input id="terugleverkosten" placeholder="bijv. 120 per jaar, of 4,8 cent per kWh">
+      </div>
+    </div>
+    <div class="foto-tip"><strong>Weet je het niet uit je hoofd?</strong> Stuur gewoon een foto of pdf van je tarievenblad en je laatste jaarafrekening mee. Dan haal ik het er zelf uit &mdash; dat is vaak sneller en het voorkomt overtypfouten.</div>
+  </div>
+
+  <div class="blok">
+    <h2>Wie is er overdag thuis?</h2>
+    <div class="blok-sub">Dit bepaalt meer dan welk apparaat je hebt. Zonnestroom die niemand gebruikt, gaat het net op.</div>
+    <div class="twee">
+      <div class="veld"><label for="thuis">Doordeweeks overdag</label>
+        <select id="thuis"><option value="">Kies&hellip;</option><option>Meestal iemand thuis</option><option>Wisselend</option><option>Meestal niemand thuis</option></select>
+      </div>
+      <div class="veld"><label for="warmwater">Warm water komt van</label>
+        <select id="warmwater"><option value="">Weet ik niet</option><option>De cv-ketel (gas)</option><option>Elektrische boiler</option><option>Warmtepompboiler</option><option>Anders</option></select>
+      </div>
+    </div>
+    <div class="veld"><label for="wens">Waar loop je tegenaan, of wat zou je willen? <span>(in je eigen woorden)</span></label>
+      <textarea id="wens" placeholder="bijv. ik lever veel terug en vraag me af of een batterij loont, en ik wil de airco slimmer laten stoken"></textarea>
+    </div>
+  </div>
+
+  <div class="blok">
     <h2>De foto's</h2>
     <div class="blok-sub">Dit is het belangrijkste onderdeel — hiermee wordt alles vooraf voor je uitgezocht. Maak deze foto's alvast met je telefoon:</div>
     <ul class="foto-lijst">
@@ -139,7 +193,13 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <li><i class="ti ti-camera"></i><strong>Omvormer</strong>&nbsp;— het typeplaatje/sticker met de productcode</li>
       <li><i class="ti ti-camera"></i><strong>Thermostaat</strong>&nbsp;— gewoon aan de muur</li>
       <li><i class="ti ti-camera"></i><strong>Router</strong>&nbsp;— achterkant, zodat de aansluitingen zichtbaar zijn</li>
+      <li><i class="ti ti-camera"></i><strong>Tarievenblad</strong>&nbsp;— de pagina met je prijs per kWh en per m&sup3;</li>
+      <li><i class="ti ti-camera"></i><strong>Jaarafrekening</strong>&nbsp;— de pagina met verbruik en teruglevering in kWh</li>
+      <li><i class="ti ti-camera"></i><strong>Binnenunit airco</strong>&nbsp;— als je er een hebt, met het merk in beeld</li>
     </ul>
+    <div class="foto-tip" style="background:var(--sand);">
+      <strong>Wat een bruikbare foto is:</strong> recht van voren, bij daglicht of met de lamp aan, en van dichtbij genoeg om kleine letters te kunnen lezen. Twijfel je? Stuur er twee. Een onscherpe foto van een typeplaatje kost meer tijd dan er een extra maken.
+    </div>
     <div class="foto-tip"><strong>Zo werkt het:</strong> klik hieronder op de groene knop. Je antwoorden staan dan al klaar in WhatsApp — druk op verzenden en stuur de foto's direct daarachteraan in hetzelfde gesprek. Klaar!</div>
   </div>
 
@@ -176,6 +236,21 @@ function verstuur(kanaal) {
     'Slimme thermostaat: ' + (veld('slimthermo') ? (veld('slimthermo') === 'Ja' ? 'Ja — ' + (veld('thermomerk') || 'merk onbekend') : veld('slimthermo')) : 'weet ik niet'),
     'Airco: ' + (veld('airco') || '-'),
     'Laadpaal: ' + (veld('laadpaal') || '-'),
+    '',
+    'CONTRACT EN VERBRUIK',
+    'Leverancier: ' + (veld('leverancier') || '-'),
+    'Soort contract: ' + (veld('contractsoort') || '-'),
+    'Stroomprijs per kWh: ' + (veld('stroomprijs') || '-'),
+    'Gasprijs per m3: ' + (veld('gasprijs') || '-'),
+    'Stroomverbruik per jaar: ' + (veld('verbruik') || '-'),
+    'Teruglevering per jaar: ' + (veld('teruglevering') || '-'),
+    'Gasverbruik per jaar: ' + (veld('gasverbruik') || '-'),
+    'Terugleverkosten: ' + (veld('terugleverkosten') || '-'),
+    '',
+    'SITUATIE',
+    'Overdag thuis: ' + (veld('thuis') || '-'),
+    'Warm water via: ' + (veld('warmwater') || '-'),
+    veld('wens') ? 'Wens/vraag: ' + veld('wens') : '',
     'Slimme meter: ' + (veld('meter') || 'weet ik niet'),
     'Vrije LAN-poort: ' + (veld('router') || 'weet ik niet'),
     veld('anders') ? '\nBIJZONDERHEDEN\n' + veld('anders') : '',
