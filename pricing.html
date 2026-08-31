@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prijzen — Thuisbrein</title>
-<meta name="description" content="Wat kost het koppelen van je energiesystemen? Meestal tussen de 200 en 800 euro voor het werk. Eerst een gratis intake, daarna een offerte met één vaste prijs.">
+<title>Prijzen &amp; energiedoorlichting — ThuisBrein</title>
+<meta name="description" content="Een energiedoorlichting voor 195 euro: doorgerekend op jouw eigen tarieven, met wat er wel en niet zin heeft. Uitvoeren kan daarna — meestal 200 tot 800 euro voor het werk.">
 <meta property="og:title" content="Prijzen — Thuisbrein">
-<meta property="og:description" content="Eén gratis online intake, daarna een offerte met één vaste prijs voor jouw woning. Geen pakketten, geen uurtarieven, geen verrassingen.">
+<meta property="og:description" content="Energiedoorlichting voor 195 euro, of direct een gratis intake als je het wilt laten uitvoeren. Geen pakketten, geen uurtarieven, geen verrassingen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thuisbrein.nl/pricing.html">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
@@ -276,6 +276,12 @@ footer p { font-size: 12px; color: var(--text-muted); }
 }
     /* Ruimte voor icoontjes vooraf reserveren (voorkomt verspringen bij laden) */
     .ti { display: inline-block; width: 1em; height: 1em; line-height: 1; text-align: center; font-style: normal; }
+
+.doorlichting-kop { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+.doorlichting-prijs { text-align: right; flex-shrink: 0; }
+.dl-bedrag { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 42px; font-weight: 700; color: var(--navy); letter-spacing: -1.2px; line-height: 1; }
+.dl-note { font-size: 12px; color: var(--text-muted); margin-top: 0.3rem; }
+@media (max-width: 640px) { .doorlichting-prijs { text-align: left; } }
 </style>
 <link rel="canonical" href="https://thuisbrein.nl/pricing.html">
 <meta property="og:image" content="https://thuisbrein.nl/og-image.png">
@@ -323,7 +329,42 @@ footer p { font-size: 12px; color: var(--text-muted); }
 
     <p class="section-label">Prijzen</p>
     <h1 class="section-title">Eén gesprek. Dan een prijs.<br><em>Zo simpel is het.</em></h1>
-    <p class="section-body">Geen pakketten, geen prijslijst. Elke woning heeft andere systemen en andere mogelijkheden — dus begint het bij jou met een gratis online intake. Daarna ontvang je een offerte met één vaste prijs: precies wat er bij jou gekoppeld wordt en wat het kost. Geen uurtarieven, geen verrassingen achteraf. En pas als jij akkoord geeft, gebeurt er iets.</p>
+    <p class="section-body">Twee manieren om te beginnen. Wil je eerst weten wát er in jouw huis zin heeft, dan is de doorlichting je startpunt. Weet je dat al en wil je het laten uitvoeren, dan begint het met een gratis intake. Daarna ontvang je een offerte met één vaste prijs: precies wat er bij jou gekoppeld wordt en wat het kost. Geen uurtarieven, geen verrassingen achteraf. En pas als jij akkoord geeft, gebeurt er iets.</p>
+
+    <!-- DOORLICHTING -->
+    <div class="staffel-sectie" style="background:var(--green-light);border:1px solid rgba(99,153,34,0.3);">
+      <div class="doorlichting-kop">
+        <div>
+          <div class="staffel-titel" style="margin-bottom:0.5rem;">De Energiedoorlichting</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;max-width:560px;margin:0;">Een onafhankelijke doorrekening van jouw energiesituatie. Wat er in jouw huis te halen valt, wat het oplevert, en in welke volgorde &mdash; inclusief het eerlijke antwoord als er weinig te halen is.</p>
+        </div>
+        <div class="doorlichting-prijs">
+          <div class="dl-bedrag">&euro;195</div>
+          <div class="dl-note">eenmalig, op afstand</div>
+        </div>
+      </div>
+
+      <div class="staffel-grid" style="margin-top:1.6rem;">
+        <div class="staffel-item">
+          <div class="staffel-pakket">Wat je krijgt</div>
+          <div class="staffel-beschrijving">Een <strong>schriftelijk rapport</strong> met je eigen tarieven doorgerekend, welke systemen koppelbaar zijn, en drie tot vijf maatregelen op volgorde van opbrengst gedeeld door moeite.</div>
+        </div>
+        <div class="staffel-item">
+          <div class="staffel-pakket">Hoe het gaat</div>
+          <div class="staffel-beschrijving">Je vult een formulier in met je systemen en je tarievenblad, we bellen een half uur, en binnen een week heb je het rapport. <strong>Op locatie kan ook</strong>, voor &euro;95 extra.</div>
+        </div>
+        <div class="staffel-item">
+          <div class="staffel-pakket">Laat je het uitvoeren?</div>
+          <div class="staffel-beschrijving">Besluit je binnen drie maanden werk door mij te laten doen, dan gaat <strong>de helft van het bedrag</strong> van de opdracht af.</div>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin:1.4rem 0 0;max-width:640px;">Wat je niet krijgt: beloftes. Je krijgt berekeningen met de aannames erbij, zodat je alles zelf kunt natrekken &mdash; en een kopje &ldquo;wat ik niet zou doen&rdquo;, want dat is meestal net zo veel waard.</p>
+
+      <div style="margin-top:1.6rem;">
+        <button class="btn-pakket btn-pakket-featured" style="width:auto;padding-left:1.8rem;padding-right:1.8rem;" onclick="openAdvies()">Vraag een doorlichting aan</button>
+      </div>
+    </div>
 
     <!-- PRIJSINDICATIE -->
     <div class="staffel-sectie" style="background:var(--navy);">
