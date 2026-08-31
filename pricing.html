@@ -90,53 +90,17 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .section-body { font-size: 15px; color: var(--text-muted); line-height: 1.75; max-width: 560px; margin-bottom: 3rem; font-weight: 300; }
 
 /* ─── PAKKET CARDS ─── */
-.pakketten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
-.pakket-card { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.2s; }
-.pakket-card:hover { box-shadow: 0 8px 32px rgba(26,43,60,0.10); }
 .pakket-card.featured { border-color: var(--green-mid); position: relative; }
-.featured-badge { position: absolute; top: -1px; right: 24px; background: var(--green-mid); color: white; font-size: 10px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 12px; border-radius: 0 0 8px 8px; }
-.pakket-header { padding: 1.75rem 1.75rem 1.25rem; border-bottom: 1px solid var(--border); background: var(--sand); }
 .pakket-card.featured .pakket-header { background: var(--green-light); }
-.pakket-naam { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: -0.22px; margin-bottom: 0.4rem; }
-.pakket-tagline { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
-.pakket-prijs-blok { padding: 1.5rem 1.75rem 1rem; }
-.pakket-prijs-label { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
-.pakket-prijs-van { font-size: 13px; color: var(--text-muted); margin-bottom: 0.15rem; }
-.pakket-prijs-bedrag { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 300; color: var(--navy); letter-spacing: -1.5px; line-height: 1; margin-bottom: 0.25rem; }
-.pakket-prijs-bedrag span { font-size: 18px; font-weight: 400; letter-spacing: 0; vertical-align: super; margin-right: 2px; }
-.pakket-prijs-note { font-size: 12px; color: var(--text-muted); margin-bottom: 0.5rem; }
 
 /* ─── THERMOSTAAT KEUZE ─── */
-.thermostaat-keuze { padding: 0 1.75rem 1rem; }
-.keuze-label { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
-.thermostaat-opties { display: flex; flex-direction: column; gap: 0.5rem; }
-.therm-optie { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; border-radius: 7px; border: 1.5px solid var(--border); cursor: pointer; transition: border-color 0.15s, background 0.15s; font-size: 13px; }
-.therm-optie:hover { border-color: var(--green-mid); background: var(--green-light); }
-.therm-optie.actief { border-color: var(--green-mid); background: var(--green-light); }
-.therm-merk { font-weight: 500; color: var(--navy); }
-.therm-sub { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-.therm-prijs { font-size: 13px; color: var(--text-muted); white-space: nowrap; margin-left: 0.5rem; }
 
 /* ─── INHOUD ─── */
-.pakket-inhoud { padding: 0 1.75rem 1rem; flex: 1; display: flex; flex-direction: column; gap: 0.45rem; }
-.inhoud-divider { font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; margin-top: 0.25rem; }
-.inhoud-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 13px; color: var(--text-muted); line-height: 1.45; }
-.inhoud-item::before { content: ''; width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: var(--green-mid); margin-top: 5px; }
-.inhoud-item strong { color: var(--text); font-weight: 500; }
 
 /* ─── CTA PAKKET ─── */
-.pakket-cta { padding: 1.25rem 1.75rem 1.75rem; margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem; }
 .btn-pakket { display: block; width: 100%; text-align: center; padding: 13px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; transition: background 0.2s; }
-.btn-pakket-primary { background: var(--navy); color: white; }
-.btn-pakket-primary:hover { background: var(--navy-mid); }
 .btn-pakket-featured { background: var(--green-mid); color: white; }
 .btn-pakket-featured:hover { background: var(--green); }
-.btn-pakket-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--border); }
-.btn-pakket-outline:hover { border-color: rgba(26,43,60,0.3); }
-.totaal-tonen { font-size: 12px; color: var(--text-muted); text-align: center; min-height: 1.4em; }
-.totaal-tonen strong { color: var(--navy); font-weight: 500; }
-.btn-klein-advies { background: none; border: none; font-size: 12px; color: var(--text-muted); cursor: pointer; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; text-decoration: underline; text-underline-offset: 3px; padding: 0; text-align: center; }
-.btn-klein-advies:hover { color: var(--green); }
 
 /* ─── STAFFEL ─── */
 .staffel-sectie { background: var(--sand); border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 3rem; }
@@ -181,11 +145,6 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: 700;
   color: var(--navy); letter-spacing: -0.28px; line-height: 1.25;
 }
-.modal-samenvatting {
-  margin-top: 0.5rem; font-size: 13px; color: var(--text-muted);
-  background: var(--green-light); border-radius: 6px; padding: 0.6rem 0.9rem;
-  display: none;
-}
 .modal-body { padding: 1.5rem 2rem 2rem; }
 .modal-sluit {
   position: absolute; top: 1rem; right: 1rem;
@@ -195,44 +154,10 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .modal-sluit:hover { background: var(--sand); }
 
 /* ─── STAP INDICATOR ─── */
-.stap-indicator {
-  display: flex; align-items: center; gap: 0; margin-bottom: 1.5rem;
-}
-.stap-dot {
-  width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; font-weight: 500; color: var(--text-muted); background: var(--white);
-  flex-shrink: 0; transition: all 0.2s;
-}
-.stap-dot.actief { background: var(--navy); border-color: var(--navy); color: white; }
-.stap-dot.klaar { background: var(--green-mid); border-color: var(--green-mid); color: white; }
-.stap-lijn { flex: 1; height: 1.5px; background: var(--border); }
-.stap-lijn.klaar { background: var(--green-mid); }
 
 /* ─── FORM ─── */
-.form-rij { margin-bottom: 1.1rem; }
-.form-label { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; display: block; }
-.form-input {
-  width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
-  font-size: 14px; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; color: var(--text);
-  background: var(--white); outline: none; transition: border-color 0.15s;
-}
-.form-input:focus { border-color: var(--green-mid); }
-.form-input.fout { border-color: #e05c3a; }
-.form-fout-tekst { font-size: 12px; color: #e05c3a; margin-top: 0.3rem; display: none; }
-.form-rij.heeft-fout .form-fout-tekst { display: block; }
-.form-note { font-size: 12px; color: var(--text-muted); margin-top: 1rem; line-height: 1.5; }
-.form-note a { color: var(--green); }
 
 /* ─── SUCCESS SCHERM ─── */
-.succes-scherm { text-align: center; padding: 1rem 0; display: none; }
-.succes-icon { font-size: 48px; margin-bottom: 1rem; }
-.succes-titel { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 300; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 0.75rem; }
-.succes-body { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 320px; margin: 0 auto 1.5rem; }
-.succes-stappen { text-align: left; background: var(--sand); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
-.succes-stap { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.75rem; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
-.succes-stap:last-child { margin-bottom: 0; }
-.succes-nr { background: var(--navy); color: white; border-radius: 50%; width: 20px; height: 20px; min-width: 20px; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
 
 /* ─── ADVIES MODAL ─── */
 .advies-inhoud { display: flex; flex-direction: column; gap: 0.9rem; }
@@ -244,13 +169,6 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .advies-calendly-placeholder strong { color: var(--navy); }
 
 /* ─── KNOP SECUNDAIR ─── */
-.btn-secundair {
-  background: none; border: 1.5px solid var(--border); color: var(--navy);
-  padding: 11px 20px; border-radius: 8px; font-size: 14px; font-weight: 500;
-  cursor: pointer; font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; transition: border-color 0.2s;
-  width: 100%; margin-top: 0.5rem;
-}
-.btn-secundair:hover { border-color: rgba(26,43,60,0.3); }
 
 /* ─── FOOTER ─── */
 footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
