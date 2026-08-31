@@ -126,10 +126,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
         <select id="meter"><option value="">Weet ik niet</option><option>Ja</option><option>Nee</option></select>
       </div>
     </div>
-    <div class="veld"><label for="router">Vrije netwerkpoort (LAN) op je router?</label>
-      <select id="router"><option value="">Weet ik niet — stuur ik een foto van</option><option>Ja</option><option>Nee</option></select>
-    </div>
-    <div class="veld"><label for="anders">Nog iets dat van belang is? <span>(dynamisch contract, wensen, bijzonderheden)</span></label><textarea id="anders" placeholder="bijv. per 1 augustus dynamisch contract bij Tibber, en de router hangt op zolder"></textarea></div>
+        <div class="veld"><label for="anders">Nog iets dat van belang is? <span>(dynamisch contract, wensen, bijzonderheden)</span></label><textarea id="anders" placeholder="bijv. per 1 augustus dynamisch contract bij Tibber, en de router hangt op zolder"></textarea></div>
   </div>
 
   <div class="blok">
@@ -193,7 +190,6 @@ footer p { font-size: 12px; color: var(--text-muted); }
       <li><i class="ti ti-camera"></i><strong>Meterkast</strong>&nbsp;— open deur, met de slimme meter in beeld</li>
       <li><i class="ti ti-camera"></i><strong>Omvormer</strong>&nbsp;— het typeplaatje/sticker met de productcode</li>
       <li><i class="ti ti-camera"></i><strong>Thermostaat</strong>&nbsp;— gewoon aan de muur</li>
-      <li><i class="ti ti-camera"></i><strong>Router</strong>&nbsp;— achterkant, zodat de aansluitingen zichtbaar zijn</li>
       <li><i class="ti ti-camera"></i><strong>Tarievenblad</strong>&nbsp;— de pagina met je prijs per kWh en per m&sup3;</li>
       <li><i class="ti ti-camera"></i><strong>Jaarafrekening</strong>&nbsp;— de pagina met verbruik en teruglevering in kWh</li>
       <li><i class="ti ti-camera"></i><strong>Binnenunit airco</strong>&nbsp;— als je er een hebt, met het merk in beeld</li>
@@ -253,7 +249,6 @@ function verstuur(kanaal) {
     'Warm water via: ' + (veld('warmwater') || '-'),
     veld('wens') ? 'Wens/vraag: ' + veld('wens') : '',
     'Slimme meter: ' + (veld('meter') || 'weet ik niet'),
-    'Vrije LAN-poort: ' + (veld('router') || 'weet ik niet'),
     veld('anders') ? '\nBIJZONDERHEDEN\n' + veld('anders') : '',
     '',
     '(Foto\u2019s van meterkast, omvormer, thermostaat en router stuur ik hierachteraan)'
