@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zo werkt het — Thuisbrein</title>
-<meta name="description" content="Zo gaat het in z'n werk bij ThuisBrein: een gratis online intake, een offerte met één vaste prijs, en daarna de uitvoering. Wat ertussen zit verschilt per woning.">
+<title>Zo werkt het: doorlichting of uitvoering — ThuisBrein</title>
+<meta name="description" content="Twee routes: een energiedoorlichting van 195 euro als je eerst wilt weten wat zin heeft, of een gratis intake en offerte als je het wilt laten uitvoeren.">
 <meta property="og:title" content="Zo werkt het — Thuisbrein">
 <meta property="og:description" content="Van eerste vraag tot werkend geheel. Zo gaat het in z'n werk bij ThuisBrein — in vier stappen.">
 <meta property="og:type" content="website">
@@ -137,6 +137,22 @@ footer p { font-size: 12px; color: var(--text-muted); }
 }
     /* Ruimte voor icoontjes vooraf reserveren (voorkomt verspringen bij laden) */
     .ti { display: inline-block; width: 1em; height: 1em; line-height: 1; text-align: center; font-style: normal; }
+
+    .routes { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 1rem; }
+    .routes-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    @media (max-width: 760px) { .routes-inner { grid-template-columns: 1fr; } }
+    .route-kaart { background: var(--green-light); border: 1px solid rgba(99,153,34,0.35); border-radius: 16px; padding: 1.8rem; display: flex; flex-direction: column; }
+    .route-kaart-alt { background: var(--sand); border-color: var(--border); }
+    .route-label { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 0.7rem; }
+    .route-kaart h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 22px; color: var(--navy); letter-spacing: -0.3px; margin-bottom: 0.6rem; }
+    .route-kaart > p { font-size: 14px; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.1rem; }
+    .route-prijs { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 26px; font-weight: 700; color: var(--navy); letter-spacing: -0.6px; margin-bottom: 1.1rem; }
+    .route-prijs span { display: block; font-size: 12px; font-weight: 400; color: var(--text-muted); letter-spacing: 0; margin-top: 0.2rem; }
+    .route-lijst { list-style: none; padding: 0; margin: 0 0 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .route-lijst li { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; line-height: 1.55; color: var(--text); }
+    .route-lijst i { color: var(--green-mid); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+    .route-knop { margin-top: auto; font-size: 14px; font-weight: 500; color: var(--green); text-decoration: none; }
+    .reis-kop { font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 1.6rem; }
 </style>
 <link rel="canonical" href="https://thuisbrein.nl/werkwijze.html">
 <meta property="og:image" content="https://thuisbrein.nl/og-image.png">
@@ -175,7 +191,7 @@ footer p { font-size: 12px; color: var(--text-muted); }
 <section class="hero">
   <div class="hero-eyebrow">Zo gaat het in z'n werk</div>
   <h1>Van eerste vraag<br><em>tot werkend geheel.</em></h1>
-  <p class="hero-sub">Het begint altijd met een gesprek, en eindigt pas als het werkt. Wat ertussen zit verschilt per woning — soms is het alleen advies, soms een flinke koppelklus. Hieronder de route zoals die meestal loopt.</p>
+  <p class="hero-sub">Er zijn twee manieren om te beginnen. Weet je nog niet wát er in jouw huis zin heeft, dan start je met een doorlichting. Weet je dat al en wil je het laten uitvoeren, dan begint het met een gratis intake. Hieronder allebei de routes.</p>
   <div class="hero-feiten">
     <div class="feit"><div class="feit-getal"><b>Gratis</b></div><div class="feit-label">de intake, en je zit nergens aan vast</div></div>
     <div class="feit"><div class="feit-getal"><b>1 prijs</b></div><div class="feit-label">vooraf afgesproken, geen uurtjes achteraf</div></div>
@@ -183,7 +199,37 @@ footer p { font-size: 12px; color: var(--text-muted); }
   </div>
 </section>
 
+<section class="routes"><div class="routes-inner">
+  <div class="route-kaart">
+    <div class="route-label">Route A &middot; eerst weten</div>
+    <h2>De Energiedoorlichting</h2>
+    <p>Je weet dat er iets moet, maar niet wat. Je krijgt een doorrekening op je eigen tarieven, met drie tot vijf maatregelen op volgorde &mdash; en het eerlijke antwoord als er weinig te halen valt.</p>
+    <div class="route-prijs">&euro;195 <span>eenmalig &middot; op afstand</span></div>
+    <ul class="route-lijst">
+      <li><i class="ti ti-check"></i>Formulier invullen, inclusief je tarievenblad</li>
+      <li><i class="ti ti-check"></i>Videocall van een half uur</li>
+      <li><i class="ti ti-check"></i>Schriftelijk rapport binnen een week</li>
+      <li><i class="ti ti-check"></i>Laat je het daarna uitvoeren? Dan gaat de helft eraf</li>
+    </ul>
+    <a class="route-knop" href="pricing.html">Wat er precies in zit <i class="ti ti-arrow-right"></i></a>
+  </div>
+  <div class="route-kaart route-kaart-alt">
+    <div class="route-label">Route B &middot; laten uitvoeren</div>
+    <h2>Intake en offerte</h2>
+    <p>Je weet al wat je wilt, of je hebt de doorlichting al gehad. Dan gaat het over uitvoering: wat er gekoppeld wordt, wat het kost, en wanneer het klaar is.</p>
+    <div class="route-prijs">Gratis <span>de intake, en je zit nergens aan vast</span></div>
+    <ul class="route-lijst">
+      <li><i class="ti ti-check"></i>Formulier en een videocall van een kwartier</li>
+      <li><i class="ti ti-check"></i>Offerte met &eacute;&eacute;n vaste prijs</li>
+      <li><i class="ti ti-check"></i>Pas na jouw akkoord gebeurt er iets</li>
+      <li><i class="ti ti-check"></i>De vier stappen hieronder</li>
+    </ul>
+    <a class="route-knop" href="intake.html">Naar het formulier <i class="ti ti-arrow-right"></i></a>
+  </div>
+</div></section>
+
 <section class="reis">
+  <div class="reis-kop">De vier stappen van route B, van intake tot opgeleverd</div>
 
   <div class="fase card">
     <div class="fase-nummer">1</div>
