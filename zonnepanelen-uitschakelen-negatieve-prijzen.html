@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zonnepanelen uitschakelen bij negatieve prijzen: zo regel je het — ThuisBrein</title>
+  <meta name="description" content="Uitschakelen is meestal niet wat je wilt — nul terugleveren wel. De vier manieren, waar de knop per merk zit, en waarom de drempel bij bijna iedereen verkeerd staat.">
+  <meta property="og:title" content="Zonnepanelen uitschakelen bij negatieve prijzen: zo regel je het">
+  <meta property="og:description" content="Zero-export in plaats van uitzetten, per merk waar je het instelt, en het omslagpunt dat niet bij nul ligt.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thuisbrein.nl/zonnepanelen-uitschakelen-negatieve-prijzen.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=optional" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459;
+      --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+      --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
+      --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; background: var(--white); color: var(--text); }
+    .site { max-width: 1100px; margin: 0 auto; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+    .nav-mobile.open { display: flex; }
+
+    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 48px; font-weight: 700; color: var(--navy); letter-spacing: -0.83px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 560px; font-weight: 300; }
+
+    .casussen { padding: 0 2rem 5rem; }
+    .casussen h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 32px; font-weight: 700; color: var(--navy); letter-spacing: -0.44px; margin-bottom: 0.5rem; margin-top: 3rem; }
+    .casussen h2:first-of-type { margin-top: 0; }
+    .casus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .casus-kaart { background: var(--sand); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+    .casus-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+    .casus-kaart h3 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: -0.17px; margin-bottom: 0.5rem; }
+    .casus-items { display: flex; flex-direction: column; gap: 6px; }
+    .casus-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-muted); }
+    .casus-item i { color: var(--green-mid); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+    .tekst { font-size: 15px; color: var(--text-muted); max-width: 680px; line-height: 1.8; margin: 0 0 1.2rem; }
+    .tekst strong { color: var(--navy); font-weight: 500; }
+    .tekst a { color: var(--green); font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(59,109,17,0.3); }
+    .na { margin-bottom: 2.5rem; }
+
+    table.cijfers { border-collapse: collapse; width: 100%; max-width: 680px; margin: 0.5rem 0 2.5rem; font-size: 14px; }
+    table.cijfers th, table.cijfers td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    table.cijfers th { font-weight: 500; color: var(--navy); font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase; }
+    table.cijfers td:not(:first-child) { text-align: right; white-space: nowrap; }
+    table.cijfers tr:last-child td { border-bottom: none; }
+    table.cijfers td strong { color: var(--navy); font-weight: 500; }
+    table.cijfers tr.uitgelicht td { background: var(--green-light); }
+
+    .bronnen { padding: 2rem 2rem 4rem; border-top: 1px solid var(--border); }
+    .bronnen p { font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 700px; }
+
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    .airco-blok { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem; }
+    .airco-tag { display: inline-block; background: #FFF3CD; color: #9A6200; font-size: 13px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+    .airco-blok h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--navy); margin-bottom: 1rem; line-height: 1.25; }
+    .airco-blok > p { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 2.5rem; line-height: 1.7; }
+    .airco-cta { text-align: center; padding: 2rem 0 0; }
+    .btn-groen-link { display: inline-block; background: var(--green); color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .btn-groen-link:hover { background: var(--green-mid); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .page-header h1 { font-size: 36px; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .casussen { padding: 0 1.25rem 4rem; }
+      table.cijfers { font-size: 13px; }
+      table.cijfers th, table.cijfers td { padding: 0.6rem 0.5rem; }
+    }
+    /* Ruimte voor icoontjes vooraf reserveren (voorkomt verspringen bij laden) */
+    .ti { display: inline-block; width: 1em; height: 1em; line-height: 1; text-align: center; font-style: normal; }
+  </style>
+<link rel="canonical" href="https://thuisbrein.nl/zonnepanelen-uitschakelen-negatieve-prijzen.html">
+<meta property="og:image" content="https://thuisbrein.nl/og-image.png">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="ThuisBrein">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Zonnepanelen uitschakelen bij negatieve prijzen: zo regel je het",
+  "description": "Uitschakelen is meestal niet wat je wilt — nul terugleveren wel. De vier manieren, per merk, en de drempel die bijna iedereen fout zet.",
+  "image": "https://thuisbrein.nl/og-image.png",
+  "inLanguage": "nl-NL",
+  "datePublished": "2026-09-04",
+  "dateModified": "2026-09-04",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thuisbrein.nl/zonnepanelen-uitschakelen-negatieve-prijzen.html"
+  },
+  "author": { "@type": "Organization", "name": "ThuisBrein", "url": "https://thuisbrein.nl/" },
+  "publisher": { "@id": "https://thuisbrein.nl/#organisatie" }
+}
+</script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+    <div class="nav-links">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="case-eigen-huis.html">Cases</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen"><i class="ti ti-menu-2"></i></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="pricing.html">Prijzen</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="case-eigen-huis.html">Cases</a>
+    <a href="index.html#contact">Plan kennismaking</a>
+  </div>
+<div class="site">
+
+  <div class="page-header">
+    <span class="tag">Uitgezocht</span>
+    <h1>Zonnepanelen uitschakelen<br><em style="font-style:italic;color:var(--green-mid)">bij negatieve prijzen</em></h1>
+    <p>Het kan, bij de meeste systemen. Maar &ldquo;uitschakelen&rdquo; is zelden wat je wilt, en de drempel waarop je schakelt staat bij bijna iedereen verkeerd. Hieronder de vier manieren, waar de knop per merk zit, en wat je nakijkt als je installatie wat ouder is.</p>
+  </div>
+
+  <section class="casussen">
+
+    <h2>Uitzetten en niet terugleveren zijn twee verschillende dingen</h2>
+    <p class="tekst">Dit is de belangrijkste zin van de pagina, dus hij staat vooraan. Wie zoekt op &ldquo;zonnepanelen uitzetten&rdquo; bedoelt bijna altijd: <em>ik wil niets meer het net op sturen</em>. Dat is iets anders dan je omvormer afschakelen, en het scheelt geld.</p>
+    <p class="tekst na">Bij <strong>zero-export</strong> blijft je omvormer gewoon draaien, maar knijpt hij zichzelf terug tot precies wat je huis op dat moment verbruikt. Je koelkast, je router, je vaatwasser: die draaien door op je eigen zon. Er gaat alleen niets meer naar buiten. Zet je de omvormer <em>uit</em>, dan koop je diezelfde stroom in bij het net &mdash; met energiebelasting en btw erbovenop.</p>
+
+    <table class="cijfers">
+      <tr><th>Je huis verbruikt 600 W, je panelen kunnen 4.000 W</th><th>naar het net</th><th>zelf verbruikt</th></tr>
+      <tr><td>Niets doen</td><td>3.400 W</td><td>600 W</td></tr>
+      <tr class="uitgelicht"><td><strong>Zero-export</strong></td><td>0 W</td><td><strong>600 W</strong></td></tr>
+      <tr><td>Omvormer uit</td><td>0 W</td><td>0 W &mdash; je koopt 600 W in</td></tr>
+    </table>
+
+    <h2>Hoe knijpt een omvormer zichzelf eigenlijk terug?</h2>
+    <p class="tekst">Niet door panelen af te schakelen. Een omvormer zoekt normaal het punt waarop je panelen het meeste vermogen leveren, het <em>maximum power point</em>. Door de spanning op de strings iets op te voeren, duwt hij zichzelf bewust weg van dat punt en haalt hij minder uit dezelfde panelen. Dat kan hij traploos en binnen een seconde.</p>
+    <p class="tekst na">Je panelen gaan daar niet van kapot, en er &ldquo;stroomt&rdquo; nergens iets op. De energie wordt simpelweg niet geoogst; de zon schijnt op een paneel dat een beetje luier staat.</p>
+
+    <h2>De verborgen kostenpost: er moet meestal een meter bij</h2>
+    <p class="tekst">Om terug te knijpen tot je eigen verbruik moet de omvormer weten wat er op dat moment door je hoofdaansluiting gaat. Dat is een terugkoppeling die tientallen keren per minuut moet werken, want je verbruik springt heen en weer zodra er een waterkoker aan gaat.</p>
+    <p class="tekst">Je zou denken dat de P1-poort van je slimme meter dat kan. In de praktijk is die voor veel systemen <strong>te traag</strong> om de omvormer op tijd bij te sturen. Daarom komt er vrijwel altijd een aparte kWh-meter of stroomtang vlak achter de hoofdschakelaar in de meterkast.</p>
+    <p class="tekst na">Bij SMA is dat meestal de Sunny Home Manager of een SMA Energy Meter, bij SolarEdge een RS485-meter of de inline meter. Reken op een paar honderd euro plus montage als die er nog niet zit. Uitlezen kan wél gewoon via P1 &mdash; <em>meten</em> is het probleem niet, <em>sturen</em> wel.</p>
+
+    <h2>Vier manieren, van makkelijk naar goed</h2>
+
+    <div class="casus-grid">
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#EAF3DE;color:#3B6D11">1 &middot; gratis</span>
+        <h3>De knop die er misschien al in zit</h3>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Steeds meer omvormers, batterijen en leveranciersapps hebben dit ingebouwd.</div>
+          <div class="casus-item"><i class="ti ti-check"></i>MySolarEdge kan automatisch afschakelen bij negatieve prijzen.</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Kost niets en is in vijf minuten aan. Kijk hier altijd eerst.</div>
+        </div>
+      </div>
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#FFF3CD;color:#9A6200">2 &middot; statisch</span>
+        <h3>Zero-export vast instellen</h3>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Je zet de terugleverbegrenzing op 0 kW in het portaal van je omvormer.</div>
+          <div class="casus-item"><i class="ti ti-alert-triangle" style="color:#9A6200"></i>Maar dan lever je <em>altijd</em> niets terug &mdash; ook op zonnige dagen met een prima prijs.</div>
+          <div class="casus-item"><i class="ti ti-alert-triangle" style="color:#9A6200"></i>Voor deze vraag dus het verkeerde gereedschap, tenzij je hem elke keer handmatig omzet.</div>
+        </div>
+      </div>
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#EAF3DE;color:#3B6D11">3 &middot; dynamisch</span>
+        <h3>Sturen op de prijs</h3>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Een sturingssysteem leest de uurprijzen en zet de begrenzing zelf om.</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Via Modbus werkt dit op de meeste merken, ook als de app het niet biedt.</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Alleen zinvol bij een dynamisch contract &mdash; en de drempel moet kloppen.</div>
+        </div>
+      </div>
+      <div class="casus-kaart">
+        <span class="casus-tag" style="background:#F5F0E8;color:#5F6E7A">4 &middot; bot</span>
+        <h3>De stroom eraf</h3>
+        <div class="casus-items">
+          <div class="casus-item"><i class="ti ti-check"></i>Werkschakelaar om, of de groep zonnestroom in de meterkast omlaag.</div>
+          <div class="casus-item"><i class="ti ti-check"></i>Werkt bij elk merk, ook bij systemen die verder niets kunnen.</div>
+          <div class="casus-item"><i class="ti ti-alert-triangle" style="color:#9A6200"></i>Je verliest ook je eigen verbruik, en het is als een apparaat uitzetten door de stekker eruit te trekken.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Waar de knop zit</h2>
+    <p class="tekst">Menu&rsquo;s veranderen met elke firmware-update, dus zie dit als richting en niet als handleiding. De term om op te zoeken is <strong>terugleverbegrenzing</strong>, <strong>export limit</strong> of <strong>feed-in limitation</strong>.</p>
+
+    <table class="cijfers">
+      <tr><th>Merk</th><th>Waar</th><th>Nodig</th></tr>
+      <tr><td><strong>SMA</strong></td><td>ennexOS &rarr; Configuratie &rarr; Netbeheer. Of Sunny Portal &rarr; Installatie&shy;eigenschappen &rarr; parameters. Niet in de Energy App.</td><td>Sunny Home Manager of Energy Meter</td></tr>
+      <tr><td><strong>SolarEdge</strong></td><td>SetApp &rarr; Power Control &rarr; Energy Manager &rarr; Limit Control. Afschakelen bij negatieve prijzen zit in MySolarEdge.</td><td>RS485-meter of inline meter</td></tr>
+      <tr><td><strong>Growatt</strong></td><td>In de app zelf, als percentage van het maximale vermogen. 0% is niets terugleveren.</td><td>Growatt smart meter</td></tr>
+      <tr><td><strong>Huawei</strong></td><td>FusionSolar, via de Smart Dongle.</td><td>SmartMeter, meestal al aanwezig</td></tr>
+      <tr><td><strong>Enphase</strong></td><td>Alleen echte zero-export met een Envoy <em>metered</em>. Met een standaard Envoy kun je uitsluitend alle productie aan of uit.</td><td>Envoy metered</td></tr>
+      <tr><td><strong>Fronius, Solis, Hoymiles</strong></td><td>Instelbaar, per model verschillend; via Modbus vrijwel altijd aan te sturen.</td><td>meter aan het aansluitpunt</td></tr>
+    </table>
+
+    <h2>De drempel die bijna iedereen fout zet</h2>
+    <p class="tekst">Bijna elke handleiding zegt: schakel af zodra de prijs onder nul zakt. Dat is te vroeg, en het kost je geld.</p>
+    <p class="tekst">Want de prijs die je op je app ziet is de <strong>kale marktprijs</strong>. Wat jij betaalt is die prijs plus inkoopvergoeding, plus energiebelasting, plus btw over het geheel. Zolang saldering bestaat wordt elke teruggeleverde kilowattuur weggestreept tegen een kilowattuur die je anders <em>inclusief</em> die opslagen had moeten kopen. Teruglevering is dus pas verliesgevend als de kale prijs onder de opslag zakt.</p>
+
+    <table class="cijfers">
+      <tr><th>Waarom nul niet het omslagpunt is</th><th>per kWh</th></tr>
+      <tr><td>Kale marktprijs</td><td>P</td></tr>
+      <tr><td>Inkoopvergoeding van je leverancier</td><td>+ &euro; 0,02</td></tr>
+      <tr><td>Energiebelasting</td><td>+ &euro; 0,1016</td></tr>
+      <tr><td>Btw over het geheel</td><td>&times; 1,21</td></tr>
+      <tr class="uitgelicht"><td><strong>All-in nul bij een kale prijs van</strong></td><td><strong>&asymp; &minus; &euro; 0,12</strong></td></tr>
+    </table>
+
+    <p class="tekst">Afhankelijk van je leverancier ligt dat punt ergens tussen de <strong>12 en 18 cent onder nul</strong>. Reken het na met je eigen tarievenblad, want dat is het enige getal dat voor jou telt. Waar het om gaat: het ligt niet bij nul, en dat scheelt in de praktijk het verschil tussen een handvol uren per jaar afschakelen en een paar honderd uren waarop je jezelf voor niets afknijpt.</p>
+    <p class="tekst na">De MySolarEdge-app vraagt je daarom expliciet naar die opslag. Vul je daar niets in, dan schakelt hij op het verkeerde moment. Meer over de rekensom en wat er op 1 januari 2027 verandert staat in <a href="terugleveren-negatieve-prijzen.html">moet je je zonnepanelen uitzetten bij negatieve prijzen?</a></p>
+
+    <h2>Ik heb een oude omvormer &mdash; ben ik de klos?</h2>
+    <p class="tekst">Waarschijnlijk niet, maar je maakt je misschien wel zorgen om het verkeerde. Er moeten drie dingen kloppen, en bij oudere systemen ontbreekt er meestal één:</p>
+
+    <div class="casus-items" style="margin-bottom:2.5rem;">
+      <div class="casus-item"><i class="ti ti-check"></i><strong>Een poort waar je naartoe kunt schrijven.</strong> Veel oudere omvormers laten zich wel uitlezen maar niet aansturen. Je ziet je opbrengst, je verandert er niets aan.</div>
+      <div class="casus-item"><i class="ti ti-check"></i><strong>Een meting op je aansluitpunt.</strong> Bij oude installaties zit die er vrijwel nooit, en niet elk merk laat zich achteraf bijprikken.</div>
+      <div class="casus-item"><i class="ti ti-check"></i><strong>De functie in de firmware.</strong> Terugleverbegrenzing werd pas gemeengoed toen netbeheerders erom gingen vragen. Systemen van de laatste jaren kunnen het bijna allemaal, systemen van ruim daarvoor vaak niet.</div>
+    </div>
+
+    <p class="tekst">Echte doodlopende wegen bestaan ook: merken die failliet zijn gegaan en waarvan de servers uit staan, of fabrikanten die hun protocol nooit hebben vrijgegeven. Dan blijft alleen de botte route over.</p>
+    <p class="tekst na">Maar hier is het geruststellende deel. <strong>Je hoeft je opwek niet te knijpen om je zon te verzilveren &mdash; je kunt hem ook opmaken.</strong> Wie niet kan afschakelen mist een paar cent op een handvol uren per jaar. Wie zijn verbruik niet verschuift, mist het hele jaar door het verschil tussen zelf gebruiken en terugleveren. Dat tweede is vele malen groter. En een omvormer uit 2012 loopt sowieso tegen zijn levenseinde; dan lost het zichzelf op.</p>
+
+    <h2>En dan de eerlijke rekensom over &ldquo;verschuif je verbruik&rdquo;</h2>
+    <p class="tekst">Overal lees je: gebruik je zon gewoon zelf, zet de was aan als de zon schijnt. Dat klopt qua richting, maar de schaal wordt zelden eerlijk verteld. Neem dertig panelen &mdash; ongeveer 7 kWp, zo&rsquo;n 6.000 kWh per jaar. Op een heldere junidag maak je rond de 40 kWh.</p>
+
+    <table class="cijfers">
+      <tr><th>Wat je op zo&rsquo;n dag kwijt kunt</th><th>per keer</th></tr>
+      <tr><td>Wasmachine</td><td>&asymp; 1 kWh</td></tr>
+      <tr><td>Vaatwasser</td><td>&asymp; 1 kWh</td></tr>
+      <tr><td>Warmtepompdroger</td><td>&asymp; 2 kWh</td></tr>
+      <tr><td>Warmtepompboiler, vat extra warm zetten</td><td>&asymp; 4 kWh</td></tr>
+      <tr><td>Airco die een dag doordraait</td><td>8 &ndash; 16 kWh</td></tr>
+      <tr><td>Thuisbatterij van 10 kWh, tot hij vol is</td><td>10 kWh</td></tr>
+      <tr class="uitgelicht"><td><strong>Elektrische auto, 7 kW gedurende vier uur</strong></td><td><strong>28 kWh</strong></td></tr>
+    </table>
+
+    <p class="tekst">Was, vaat en droger samen op één dag: 4 van de 40 kWh. Tien procent, en dan heb je je hele huishouden om je zonnepanelen heen georganiseerd. <strong>Natte apparaten zijn een rondingsfout.</strong> Wie ze verkoopt als het antwoord op een groot PV-systeem, verkoopt een fabeltje &mdash; en een uitstelknop op de machine zelf doet hetzelfde voor nul euro.</p>
+    <p class="tekst">Wat wél gewicht heeft, staat onderin die tabel. Een elektrische auto is de enige belasting in een gewoon huis die een zonnedag echt kan opeten. Daarna een airco of warmtepomp, en op afstand een boiler of batterij.</p>
+    <p class="tekst na">Zonder auto kom je met alles op alles van ruwweg 25 tot 30 procent eigenverbruik naar 35 tot 45 procent. De rest gaat het net op. Dat is geen falen, dat is de rekensom bij 7 kWp.</p>
+
+    <h2>Wat ik zou doen</h2>
+    <div class="casus-items" style="margin-bottom:1rem;">
+      <div class="casus-item"><i class="ti ti-check"></i>Kijk eerst of je omvormer of leverancier de knop al heeft. Vaak wel, en dan ben je klaar.</div>
+      <div class="casus-item"><i class="ti ti-check"></i>Reken je eigen omslagpunt uit met je tarievenblad. Zet hem niet op nul.</div>
+      <div class="casus-item"><i class="ti ti-check"></i>Heb je een vast contract? Dan raken negatieve prijzen je niet. Kijk dan naar je terugleverkosten, want die worden over je bruto teruglevering gerekend.</div>
+      <div class="casus-item"><i class="ti ti-check"></i>Steek je energie liever in verschuiven dan in afknijpen. Auto, airco en warm water eerst.</div>
+    </div>
+
+  </section>
+
+  <div class="bronnen">
+    <p>
+      <strong>Bronnen en aannames:</strong> Zonnefabriek over de zero-export functie, de benodigde meting aan het netaansluitpunt en het tijdelijk uitzetten bij negatieve prijzen &middot;
+      De Groene Nerds en Doe Duurzaam over het limiteren van omvormers via Modbus &middot;
+      Twoenter en IOTDomotica over het automatisch afschakelen bij negatieve prijzen met Home Assistant &middot;
+      Energievergelijk over niet terugleveren en toch je eigen zonnestroom gebruiken.
+      Gerekend is met een energiebelasting van &euro;0,1016 per kWh, een inkoopvergoeding van &euro;0,02 per kWh, 21% btw, een opbrengst van ongeveer 850 kWh per kWp per jaar en een rendement van 2,2 voor de warmtepompboiler.
+      Alle bedragen zijn indicatief en bedoeld om de verhoudingen te laten zien &mdash; jouw eigen tarievenblad is het getal dat telt.
+      Menu-aanduidingen per merk zijn van september 2026 en kunnen met een firmware-update veranderen.
+      Laatst bijgewerkt: 4 september 2026.
+    </p>
+  </div>
+
+  <section class="airco-blok" style="padding-top:2rem;">
+    <div class="airco-tag">Hulp nodig?</div>
+    <h2>Uitzoeken wat er bij jou te halen valt?</h2>
+    <p>Of afschakelen bij jou zin heeft, hangt af van je contract, je omvormer en wat je overdag kunt verschuiven. Die drie lopen we langs in de <a href="pricing.html">energiedoorlichting</a> &mdash; &euro;195, doorgerekend op jouw eigen tarieven en verbruik. Blijkt er weinig te halen, dan staat dat er gewoon in.</p>
+    <div class="airco-cta">
+      <a href="pricing.html" class="btn-groen-link">Wat een doorlichting inhoudt &#8594;</a>
+    </div>
+  </section>
+
+</div><!-- /.site -->
+
+<footer>
+    <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><span style="white-space:nowrap"><b>Th</b>uis<span style="color:var(--green-mid)"><b>Br</b>ein</span></span></a>
+    <div class="footer-links">
+      <a href="pricing.html">Prijzen</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="voorwaarden.html">Voorwaarden</a>
+      <a href="mailto:info@thuisbrein.nl">Contact</a>
+    </div>
+    <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
+</footer>
+
+<a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<script>
+(function(){
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('nav-mobile');
+  if (h && m) h.addEventListener('click', function(){ m.classList.toggle('open'); });
+})();
+</script>
+<script src="/cookie.js" defer></script>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "63571ffd33114968a92125c9e5b50ad0"}'></script>
+</body>
+</html>
