@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welke omvormers kun je begrenzen? Overzicht per merk — ThuisBrein</title>
+  <meta name="description" content="Per merk: kun je de teruglevering begrenzen, kun je afschakelen bij lage prijzen, en wat heb je daarvoor nodig. SolarEdge, Enphase, Growatt, SMA, Huawei en meer.">
+  <meta property="og:title" content="Welke omvormers kun je begrenzen? Overzicht per merk">
+  <meta property="og:description" content="Kan jouw omvormer stoppen met terugleveren? Per merk uitgezocht, met wat je ervoor nodig hebt.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thuisbrein.nl/omvormers-per-merk.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23EAF3DE'/><path d='M9,31 L32,11 L55,31' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M15,29 V54 H49 V29' fill='none' stroke='%231A2B3C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='32' cy='20' r='3' fill='%233B6D11'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=optional" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=optional" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand: #F5F0E8; --sand-dark: #E8E0D0; --navy: #1A2B3C; --navy-mid: #2E4459;
+      --green: #3B6D11; --green-light: #EAF3DE; --green-mid: #639922;
+      --text: #1A2B3C; --text-muted: #5F6E7A; --white: #FFFFFF;
+      --border: rgba(26,43,60,0.12); --whatsapp: #25D366;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; background: var(--white); color: var(--text); }
+    .site { max-width: 1100px; margin: 0 auto; }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--navy); letter-spacing: -0.3px; text-decoration: none; }
+    .nav-logo span { color: var(--green-mid); }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: white !important; padding: 8px 16px; border-radius: 6px; font-size: 13px !important; font-weight: 500 !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--navy); font-size: 24px; }
+    .nav-mobile { display: none; flex-direction: column; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+    .nav-mobile a { font-size: 15px; color: var(--text-muted); text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border-bottom: none; color: var(--navy); font-weight: 500; }
+    .nav-mobile.open { display: flex; }
+
+    .page-header { padding: 4rem 2rem 3rem; background: linear-gradient(160deg, var(--sand) 0%, var(--white) 60%); border-bottom: 1px solid var(--border); }
+    .page-header .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 48px; font-weight: 700; color: var(--navy); letter-spacing: -0.83px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header p { font-size: 16px; color: var(--text-muted); line-height: 1.75; max-width: 560px; font-weight: 300; }
+
+    .casussen { padding: 0 2rem 5rem; }
+    .casussen h2 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 32px; font-weight: 700; color: var(--navy); letter-spacing: -0.44px; margin-bottom: 0.5rem; margin-top: 3rem; }
+    .casussen h2:first-of-type { margin-top: 0; }
+    .casus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .casus-kaart { background: var(--sand); border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+    .casus-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+    .casus-kaart h3 { font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: -0.17px; margin-bottom: 0.5rem; }
+    .casus-items { display: flex; flex-direction: column; gap: 6px; }
+    .casus-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-muted); }
+    .casus-item i { color: var(--green-mid); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+    .tekst { font-size: 15px; color: var(--text-muted); max-width: 680px; line-height: 1.8; margin: 0 0 1.2rem; }
+    .tekst strong { color: var(--navy); font-weight: 500; }
+    .tekst a { color: var(--green); font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(59,109,17,0.3); }
+    .na { margin-bottom: 2.5rem; }
+
+    table.cijfers { border-collapse: collapse; width: 100%; max-width: 680px; margin: 0.5rem 0 2.5rem; font-size: 14px; }
+    table.cijfers th, table.cijfers td { text-align: left; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--text-muted); }
+    table.cijfers th { font-weight: 500; color: var(--navy); font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase; }
+    table.cijfers td:not(:first-child) { text-align: right; white-space: nowrap; }
+    table.cijfers tr:last-child td { border-bottom: none; }
+    table.cijfers td strong { color: var(--navy); font-weight: 500; }
+    table.cijfers tr.uitgelicht td { background: var(--green-light); }
+
+    .bronnen { padding: 2rem 2rem 4rem; border-top: 1px solid var(--border); }
+    .bronnen p { font-size: 12px; color: var(--text-muted); line-height: 1.8; max-width: 700px; }
+
+    footer { padding: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 16px; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; background: var(--whatsapp); color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.4); transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    .airco-blok { max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem; }
+    .airco-tag { display: inline-block; background: #FFF3CD; color: #9A6200; font-size: 13px; font-weight: 600; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+    .airco-blok h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); color: var(--navy); margin-bottom: 1rem; line-height: 1.25; }
+    .airco-blok > p { color: var(--text-muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 2.5rem; line-height: 1.7; }
+    .airco-cta { text-align: center; padding: 2rem 0 0; }
+    .btn-groen-link { display: inline-block; background: var(--green); color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .btn-groen-link:hover { background: var(--green-mid); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .page-header h1 { font-size: 36px; }
+      .page-header { padding: 3rem 1.25rem 2.5rem; }
+      .casussen { padding: 0 1.25rem 4rem; }
+      table.cijfers { font-size: 13px; }
+      table.cijfers th, table.cijfers td { padding: 0.6rem 0.5rem; }
+    }
+    /* Ruimte voor icoontjes vooraf reserveren (voorkomt verspringen bij laden) */
+    .ti { display: inline-block; width: 1em; height: 1em; line-height: 1; text-align: center; font-style: normal; }
+  </style>
+<link rel="canonical" href="https://thuisbrein.nl/omvormers-per-merk.html">
+<meta property="og:image" content="https://thuisbrein.nl/og-image.png">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="ThuisBrein">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Welke omvormers kun je begrenzen? Overzicht per merk",
+  "description": "Per merk: kun je de teruglevering begrenzen, kun je afschakelen bij lage prijzen, en wat heb je daarvoor nodig. SolarEdge, Enphase, Growatt, SMA, Huawei en meer.",
+  "image": "https://thuisbrein.nl/og-image.png",
+  "inLanguage": "nl-NL",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thuisbrein.nl/omvormers-per-merk.html"
+  },
+  "author": { "@type": "Organization", "name": "ThuisBrein", "url": "https://thuisbrein.nl/" },
+  "publisher": { "@id": "https://thuisbrein.nl/#organisatie" }
+}
+</script>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none"><span style="width:36px;height:36px;border-radius:12px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="27" height="27" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="4.4"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="4.4"/><path d="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42" stroke="#E0A93C" stroke-width="3.6"/><circle r="3" fill="#3B6D11"><animateMotion dur="2.6s" repeatCount="indefinite" path="M20,42 L26,42 L29,35 L34,48 L37,42 L44,42"/></circle></svg></span><span style="font-family:'Fraunces',serif;font-weight:400;font-size:19px;letter-spacing:-0.3px;color:var(--navy)">Thuis<span style="color:var(--green-mid)">Brein</span></span></a>
+    <div class="nav-links">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="pricing.html">Diensten</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="case-eigen-huis.html">Cases</a>
+    <a href="index.html#contact" class="nav-cta">Plan kennismaking</a>
+  </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu openen"><i class="ti ti-menu-2"></i></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="werkwijze.html">Zo werkt het</a>
+    <a href="systemen.html">Systemen</a>
+    <a href="automatiseringen.html">Automatiseringen</a>
+    <a href="pricing.html">Diensten</a>
+    <a href="besparing.html">Besparing</a>
+    <a href="case-eigen-huis.html">Cases</a>
+    <a href="index.html#contact">Plan kennismaking</a>
+  </div>
+<div class="site">
+
+  <div class="page-header">
+    <span class="tag">Naslag</span>
+    <h1>Kan jouw omvormer<br><em style="font-style:italic;color:var(--green-mid)">stoppen met terugleveren?</em></h1>
+    <p>Per merk: kun je de teruglevering begrenzen, kun je afschakelen als de prijs laag staat, en wat heb je daarvoor nodig. Zoek je merk op en je weet waar je aan toe bent. Staat het er niet bij, dan zoek ik het voor je uit.</p>
+  </div>
+
+  <section class="casussen">
+
+    <h2>Lees dit eerst, dan snap je de tabellen</h2>
+    <p class="tekst">Er staan drie verschillende dingen in elke tabel en ze worden vaak door elkaar gehaald.</p>
+    <p class="tekst"><strong>Niet terugleveren</strong> (zero-export) betekent dat je omvormer zichzelf terugknijpt tot precies wat je huis verbruikt. Je houdt je eigen stroom, er gaat alleen niets naar buiten. Dit vraagt bijna altijd een aparte meter bij je hoofdaansluiting, want de P1-poort van je slimme meter is daar voor veel systemen te traag voor.</p>
+    <p class="tekst"><strong>Afschakelen bij lage prijzen</strong> is iets heel anders: dan gaat de productie naar nul en koop je je eigen verbruik weer in. Grover, maar soms het enige dat kan.</p>
+    <p class="tekst na"><strong>Aansturen via Home Assistant</strong> zegt of je er zelf iets omheen kunt bouwen &mdash; bijvoorbeeld afschakelen op jouw eigen omslagpunt in plaats van op nul. Dat omslagpunt ligt namelijk niet bij nul cent; <a href="zonnepanelen-uitschakelen-negatieve-prijzen.html">hier staat waarom</a>.</p>
+
+        <h2 id="solaredge">SolarEdge: teruglevering begrenzen of afschakelen</h2>
+    <p class="tekst">Veruit een van de meest voorkomende merken op Nederlandse daken, en meteen de lastigste voor een particulier &mdash; de begrenzing zit in een app die voor installateurs bedoeld is.</p>
+    <table class="cijfers">
+      <tr><th>SolarEdge</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, via SetApp &rarr; Power Control &rarr; Energy Manager &rarr; Limit Control. <strong>SetApp is een installateursapp</strong>, dus hier kom je zelf niet bij.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Ja, dat zit in de MySolarEdge-app. Let op: die vraagt je zelf om de opslag boven op de kale prijs in te vullen. Laat je dat leeg, dan schakelt hij op het verkeerde moment.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, Modbus TCP over het netwerk.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een RS485-meter bij het aansluitpunt, of de SolarEdge inline meter.</td></tr>
+    </table>
+    <h2 id="enphase">Enphase: kan ik stoppen met terugleveren?</h2>
+    <p class="tekst">Micro-omvormers, per paneel. Alles loopt via de Envoy, en welke Envoy je hebt bepaalt volledig wat er kan.</p>
+    <table class="cijfers">
+      <tr><th>Enphase</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Alleen met een <strong>Envoy metered</strong>. Heb je een standaard Envoy, dan kun je uitsluitend álle productie aan of uit zetten &mdash; niets ertussenin.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Niet ingebouwd. Wel te automatiseren als je de Envoy kunt aansturen.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">De Envoy-integratie leest goed uit. Sturen is beperkt en hangt af van model en firmware.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Envoy metered voor echte begrenzing.</td></tr>
+    </table>
+    <h2 id="growatt">Growatt: exportlimiet instellen</h2>
+    <p class="tekst">Veel verkocht in het budgetsegment, en een van de weinige merken waar je het zelf in de app kunt zetten.</p>
+    <table class="cijfers">
+      <tr><th>Growatt</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, in de app zelf. Je stelt de exportlimiet in als percentage van het maximale vermogen; 0% is niets terugleveren.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Niet als kant-en-klare functie. Wel te automatiseren.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, via Modbus. Veel modellen hebben ook een DRM-poort voor aan/uit.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een Growatt smart meter bij het aansluitpunt.</td></tr>
+    </table>
+    <h2 id="sma">SMA: terugleverbegrenzing instellen</h2>
+    <p class="tekst">Duits, goed gedocumenteerd, en al sinds het begin op Nederlandse daken. Oud én nieuw komt voor.</p>
+    <table class="cijfers">
+      <tr><th>SMA</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, via ennexOS onder Configuratie &rarr; Netbeheer, of in de klassieke Sunny Portal onder Installatie-eigenschappen &rarr; parameters. <strong>Niet in de SMA Energy App.</strong></td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie. Je kunt de begrenzing wel handmatig of automatisch omzetten.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, Modbus TCP. Goed ondersteund.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een Sunny Home Manager of SMA Energy Meter.</td></tr>
+    </table>
+    <p class="tekst na">Veelgemaakte fout: de begrenzing staat goed maar er wordt toch teruggeleverd. Controleer dan in de omvormerparameters of <em>Bedr.mod. voorinstel. act. vermogen</em> op externe instelling staat en niet op uit &mdash; anders laat de omvormer zich niet aansturen.</p>
+    <h2 id="huawei">Huawei SUN2000: exportbegrenzing</h2>
+    <p class="tekst">Wereldwijd de grootste, en in Nederland vooral bij recentere installaties.</p>
+    <table class="cijfers">
+      <tr><th>Huawei</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, via FusionSolar.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, Modbus TCP via de Smart Dongle. Goed ondersteund.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">De Smart Dongle en een Smart Power Sensor. Vaak zit dat er al bij.</td></tr>
+    </table>
+    <h2 id="solis">Solis: DRM-poort en exportbegrenzing</h2>
+    <p class="tekst">Hier zitten twee verschillende dingen in die vaak door elkaar worden gehaald.</p>
+    <table class="cijfers">
+      <tr><th>Solis</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Niet in de omvormer zelf. Daarvoor heb je hun <strong>EPM</strong> nodig, een apart apparaat met een meting aan het aansluitpunt.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie. Wel een <strong>DRM-poort</strong>: pin 5 en 6 van een RJ45. Contact open betekent vermogen nul, en op het display verschijnt &ldquo;Limit by DRM&rdquo;.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, Modbus via de datalogger. Of een relais op de DRM-poort.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Voor DRM een relais. <strong>DRM staat standaard uit</strong> en moet eerst aan via display, Bluetooth of SolisCloud.</td></tr>
+    </table>
+    <p class="tekst na">Let op de omgekeerde logica: het contact <em>open</em> zet de productie op nul. Valt je relais of voeding uit, dan stoppen je panelen &mdash; stil, en je merkt het pas op je jaarafrekening. Bouw er een controle op.</p>
+    <h2 id="fronius">Fronius: dynamische vermogensbeperking</h2>
+    <p class="tekst">Oostenrijks, minder verkocht in Nederland dan SMA maar met een prettige open webinterface.</p>
+    <table class="cijfers">
+      <tr><th>Fronius</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, als dynamische vermogensbeperking in de webinterface.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, via de lokale API of Modbus.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een Fronius Smart Meter bij het aansluitpunt.</td></tr>
+    </table>
+    <h2 id="goodwe">GoodWe: exportlimiet</h2>
+    <p class="tekst">Veel gebruikt bij hybride systemen met batterij.</p>
+    <table class="cijfers">
+      <tr><th>GoodWe</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, als exportlimiet in de app, met een meter.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, via Modbus. Sommige modellen hebben ook een DRM-poort.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een GoodWe smart meter. <em>Per serie verschillend &mdash; nog niet per model nagelopen.</em></td></tr>
+    </table>
+    <h2 id="solax">SolaX: teruglevering begrenzen</h2>
+    <p class="tekst">Vooral bij hybride omvormers met thuisbatterij.</p>
+    <table class="cijfers">
+      <tr><th>SolaX</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Ja, met een meter of stroomtang.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, via Modbus. De handleidingen noemen ook DRM-standen.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een SolaX-meter of CT. <em>Per serie verschillend &mdash; nog niet per model nagelopen.</em></td></tr>
+    </table>
+    <h2 id="hoymiles">Hoymiles micro-omvormers begrenzen</h2>
+    <p class="tekst">Micro-omvormers, sterk in opkomst bij kleinere systemen en balkonpanelen.</p>
+    <table class="cijfers">
+      <tr><th>Hoymiles</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Beperkt. Je kunt wel een vermogenslimiet zetten via de DTU.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Ja, en goed &mdash; met OpenDTU of AhoyDTU heb je volledige lokale controle, inclusief vermogenslimiet.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een DTU, of zelfbouw met OpenDTU of AhoyDTU.</td></tr>
+    </table>
+    <h2 id="apsystems">APsystems micro-omvormers</h2>
+    <p class="tekst">De andere veelgebruikte micro-omvormer in Nederland.</p>
+    <table class="cijfers">
+      <tr><th>APsystems</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Beperkt. Loopt via de ECU.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Geen kant-en-klare functie.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Uitlezen gaat via de ECU. <em>Sturen: nog niet per model nagelopen.</em></td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Een ECU.</td></tr>
+    </table>
+    <h2 id="omnik">Omnik en Zeversolar: wat kan er nog?</h2>
+    <p class="tekst">Allebei van de markt verdwenen &mdash; Omnik ging in 2019 failliet. Er liggen nog duizenden Nederlandse daken vol mee.</p>
+    <table class="cijfers">
+      <tr><th>Omnik en Zeversolar</th><th>Stand van zaken</th></tr>
+      <tr><td>Niet terugleveren (zero-export)</td><td style="text-align:left;white-space:normal;">Nee.</td></tr>
+      <tr><td>Afschakelen bij negatieve prijzen</td><td style="text-align:left;white-space:normal;">Alleen met een contactor in de zonnegroep: helemaal aan of helemaal uit.</td></tr>
+      <tr><td>Aansturen via Home Assistant</td><td style="text-align:left;white-space:normal;">Uitlezen lukt soms nog lokaal. Sturen niet.</td></tr>
+      <tr><td>Wat je nodig hebt</td><td style="text-align:left;white-space:normal;">Voor aan/uit een contactor. Voor de rest: kijk naar je verbruikskant.</td></tr>
+    </table>
+    <p class="tekst na">Voor deze groep is afknijpen zelden het goede antwoord. Je zon opmáken levert veel meer op dan je zon wegknijpen &mdash; en daarvoor hoeft je omvormer niets te kunnen.</p>
+
+    <h2>Staat jouw omvormer er niet bij?</h2>
+    <p class="tekst">Er zijn honderden merken en modellen, en dit overzicht is nooit af. Stuur me merk en type &mdash; dan zoek ik uit wat er bij jou kan en zet ik het antwoord hier erbij, zodat de volgende er ook iets aan heeft.</p>
+    <p class="tekst na">Dat kost je niets. Een foto van het typeplaatje is genoeg.</p>
+
+    <div class="airco-cta" style="text-align:left;padding-top:0;">
+      <a href="https://wa.me/31654157920?text=Hallo%2C%20mijn%20omvormer%20staat%20niet%20in%20het%20overzicht%3A%20" class="btn-groen-link" target="_blank" rel="noopener">Stuur je merk en type door &#8594;</a>
+    </div>
+
+  </section>
+
+  <div class="bronnen">
+    <p>
+      <strong>Bronnen en voorbehoud:</strong> Zonnefabriek over zero-export bij SMA en SolarEdge en over de benodigde meting aan het netaansluitpunt &middot;
+      de eigen kennisbank van Solis over de DRM-poort &middot;
+      De Groene Nerds en Doe Duurzaam over het limiteren van omvormers via Modbus, en over micro-omvormers van Enphase, APsystems en Hoymiles &middot;
+      handleidingen van de fabrikanten zelf.
+      <strong>Dit overzicht is een richting, geen handleiding.</strong> Menu-aanduidingen veranderen met firmware-updates, en binnen een merk verschillen series onderling. Waar we het niet zeker weten staat dat er cursief bij, in plaats van een gok.
+      Laatst gecontroleerd: 14 september 2026.
+    </p>
+  </div>
+
+  <section class="airco-blok" style="padding-top:1rem;">
+    <div class="airco-tag">Liever laten doen?</div>
+    <h2>Ik zoek het voor je uit en zet het goed</h2>
+    <p>Weet je na dit overzicht nog niet waar je aan toe bent, of wil je het gewoon geregeld hebben? Dat is de <a href="terugleverdrempel.html">teruglever-stop</a>: ik reken jouw omslagpunt uit met je eigen tarievenblad en zorg dat je systeem ernaar handelt. Wat daarvoor nodig is verschilt per woning, en dat kijk ik kosteloos na.</p>
+    <div class="airco-cta">
+      <a href="terugleverdrempel.html" class="btn-groen-link">Wat de teruglever-stop inhoudt &#8594;</a>
+    </div>
+  </section>
+
+</div><!-- /.site -->
+
+<footer>
+    <a href="index.html" class="footer-logo" style="display:inline-flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:8px;background:var(--green-light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="17" height="17" viewBox="7 9 50 47" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9,31 L32,11 L55,31" stroke="#1A2B3C" stroke-width="6"/><path d="M15,29 V54 H49 V29" stroke="#1A2B3C" stroke-width="6"/><circle cx="32" cy="20" r="3.2" fill="#3B6D11"/></svg></span><span style="white-space:nowrap"><b>Th</b>uis<span style="color:var(--green-mid)"><b>Br</b>ein</span></span></a>
+    <div class="footer-links">
+      <a href="pricing.html">Diensten</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="voorwaarden.html">Voorwaarden</a>
+      <a href="mailto:info@thuisbrein.nl">Contact</a>
+    </div>
+    <p>KVK 88372952 &middot; Midden &amp; zuidoost Nederland</p>
+</footer>
+
+<a href="https://wa.me/31654157920?text=Hallo%2C%20ik%20ben%20benieuwd%20wat%20Thuisbrein%20voor%20mijn%20woning%20kan%20doen." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+
+<script>
+(function(){
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('nav-mobile');
+  if (h && m) h.addEventListener('click', function(){ m.classList.toggle('open'); });
+})();
+</script>
+<script src="/cookie.js" defer></script>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "63571ffd33114968a92125c9e5b50ad0"}'></script>
+</body>
+</html>
